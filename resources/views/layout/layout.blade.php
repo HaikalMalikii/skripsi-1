@@ -1,33 +1,58 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
-    <title>HomePage</title>
+     <!-- CSRF Token -->
+     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+     <title>LAPOR</title>
+
+     <!-- Fonts -->
+     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+     <!-- Fonts Awesome 4-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <!-- Styles -->
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-1">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content">
-          <a class="navbar-brand" href="#">
-              <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-          </a>
-      <a class="navbar-brand" href="#">Home</a>
-      <a class="navbar-brand" href="#">About</a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <form class="form-inline ">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-
+            <div class="navbar-collapse" id="navbarSupportedContent">
+                <a class="navbar-brand" href="#">
+                    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+                    LAPOR BEB
+                </a>
+                <ul class="navbar-nav-mr-auto">
+                    <a class="navbar-brand" href="#">Home</a>
+                </ul>
+                <ul class="navbar-nav-mr-auto">
+                    <a class="navbar-brand" href="#">About</a>
+                </ul>
+                <div class="container-fluid">
+                    <form class="d-flex">
+                      <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <form class="container-fluid justify-content-end">
+                    <button class="btn btn-outline-success mr-2" type="button">Register</button>
+                    <button class="btn btn-outline-success me-2" type="button">Login</button>
+                  </form>
+            </div>
   </nav>
 
 
