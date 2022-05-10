@@ -26,24 +26,18 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
-        if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
-        }
-        $guard = Arr::get($exception->guards(), 0);
-        $route = 'login';
-        if ($guard == 'user') {
-            $route = 'user.login';
-        }
-        return redirect()->route($route);
-    }
-
+    /**
+     * Report or log an exception.
+     *
+     * @param  \Throwable  $exception
+     * @return void
+     *
+     * @throws \Throwable
+     */
     public function report(Throwable $exception)
     {
         parent::report($exception);
     }
-
 
     /**
      * Render an exception into an HTTP response.
@@ -59,3 +53,4 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 }
+
