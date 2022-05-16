@@ -21,6 +21,8 @@ Route::get('/Show', function () {
     return view('page.homepage');
 });
 
+
+
 Auth::routes();
 
 Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
@@ -28,3 +30,7 @@ Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/forum','ForumController@index');
+Route::get('/posts.add','ForumController@index');
+Route::get('/addforum','ForumController@AddForum');

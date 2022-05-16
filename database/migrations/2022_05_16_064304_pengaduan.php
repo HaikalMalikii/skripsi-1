@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailforumTable extends Migration
+class Pengaduan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateDetailforumTable extends Migration
      */
     public function up()
     {
-        Schema::create('detailforum', function (Blueprint $table) {
+        //
+        Schema::create('pengaduan', function (Blueprint $table) {
             $table->id();
-            $table->integer("Forum_Id");
+            $table->string("Kategori");
             $table->integer("User_Id");
-            $table->text("Aspirasi_Komen");
+            $table->text("Detail");
+            $table->string("Foto_Pengaduan");
+            $table->integer('Like');
+            $table->integer('Dislike');
 
-            $table->dateTime('Tanggal');
-            $table->string('Photo_Forum');
-            
-            $table->integer('total');
+
+            $table->integer('Total');
 
             $table->timestamps();
         });
@@ -35,6 +37,6 @@ class CreateDetailforumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detailforum');
+        //
     }
 }
