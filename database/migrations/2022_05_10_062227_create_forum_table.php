@@ -20,7 +20,8 @@ class CreateForumTable extends Migration
             $table->text("Aspirasi");
             $table->dateTime('Tanggal');
             $table->string('Photo_Forum');
-
+            $table->timestamps('created_at')->useCurrent();
+            $table->timestamps('updated_at')->useCurrent();
 
             $table->integer('total');
 

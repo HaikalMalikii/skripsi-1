@@ -33,4 +33,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/forum','ForumController@index');
 Route::get('/posts.add','ForumController@index');
-Route::get('/addforum','ForumController@AddForum');
+Route::get('/addforum', function () {
+    return view('Forum.addforum');
+});
+
+
+Route::post('/AddnewForum','ForumController@AddForum');
+
+// Route::get('/addforum','ForumController@GetUserID');
