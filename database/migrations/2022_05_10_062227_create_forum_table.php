@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateForumTable extends Migration
 {
@@ -20,12 +21,10 @@ class CreateForumTable extends Migration
             $table->text("Aspirasi");
             $table->dateTime('Tanggal');
             $table->string('Photo_Forum');
-            $table->timestamps('created_at')->useCurrent();
-            $table->timestamps('updated_at')->useCurrent();
+            $table->timestamp('created_at')->Nullable()->useCurrent();
+            $table->timestamp('updated_at')->Nullable()->useCurrent();
 
-            $table->integer('total');
-
-            $table->timestamps();
+            //$table->integer('total');
         });
     }
 
