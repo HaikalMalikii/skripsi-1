@@ -43,7 +43,7 @@ class ForumController extends Controller
             'imageforumadd'=>'required|image'
         ]);
         if ($validasi->fails()) {
-            return redirect('/addpizza')
+            return redirect('/addforum')
                 ->withErrors($validasi)
                 ->withInput();
         }
@@ -54,10 +54,8 @@ class ForumController extends Controller
             [   'Title'=>$request->forumjuduladd,
                 'Aspirasi'=>$request->aspirasi,
                 'Photo_Forum'=>$photo->getClientOriginalName(),
-                'User_Id' => $users -> id,
+                'User_Id' => $request->user()-> id,
                 'Tanggal' => $Tanggal_now
-
-
             ]);
         return redirect('/home');
 
