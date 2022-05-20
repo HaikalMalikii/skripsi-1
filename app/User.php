@@ -43,8 +43,5 @@ class User extends Authenticatable
 
     }
 
-    public function JoinDetailForumUser ()
-    {
-        return $this->hasMany(DetailForum::class);
-    }
+
 }

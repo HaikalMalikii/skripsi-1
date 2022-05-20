@@ -15,8 +15,4 @@ class DetailForum extends Model
         return $this->belongsTo(Forum::class);
     }
 
-    public function User()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
