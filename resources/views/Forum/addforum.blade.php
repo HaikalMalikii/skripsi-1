@@ -38,7 +38,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-4">
-                        <label for="formGroupExampleInput">Judul</label>
+                        <label for="formGroupExampleInput">Ganteng</label>
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="forumjuduladdid" name="forumjuduladd">
