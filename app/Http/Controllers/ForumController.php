@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Forum;
 use App\User;
+use App\DetailForum;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class ForumController extends Controller
 {
@@ -24,7 +26,14 @@ class ForumController extends Controller
     public function index()
     {
         $forum = Forum::paginate(10);
-        return view('forum.index',compact((['forum'])));
+        return view('Forum.index',compact((['forum'])));
+    }
+    public function IndexComments()
+    {
+        $ForumDetailComment = DetailForum::paginate(5);
+
+        return view('Forum.ForumDetail', compact((['ForumDetailComment'])));
+        
     }
 
 //    public function AddForum()
@@ -59,6 +68,27 @@ class ForumController extends Controller
             ]);
         return redirect('/home');
 
+
+    }
+
+    public function ForumDetail(Request $request,$ForumID)
+    {   
+        $ForumDetail =  Forum::find($ForumID);
+
+        return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
+    }
+
+    public function ForumDetailComment(Request $request,$slug,$id)
+    {
+        $request->validate([
+        'comment'=>'required'
+        ]);
+        $data = new DetailForum;
+        $data->Forum_Id = $id;
+        $data->User_Id=$request->user()->id;
+        $data->Aspirasi_Komen = $request->comment;
+        $data->save();
+        return redirect ('ForumDetail/'.$slug.'/'.$id)->with('sukes','Data Telah Masuk');
 
     }
 }

@@ -27,19 +27,26 @@
                             </thead>
                             <tbody>
                                 @foreach ($forum as $frm )
-                                <tr>
+                                
                                     <td>{{ $frm->id }}</td>
-                                    <td>{{ $frm->Title }}</td>
+                                    
+    
+                                    <td>
+                                        <a href="/ForumDetail/{{$frm->id}}">
+                                            {{ $frm->Title }}
+                                        </a>
+                                    </td>
                                     <td>{{ $frm->Aspirasi }}</td>
                                     <td>{{ $frm->total }}</td>
                                     {{-- <td>{{ $frm->use }}</td> --}}
-                                    <td> 
+                                    <td>                                  
                                         <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
-                                        <a href="#" class="btn btn-warning btn-sm">Like </a>                            
+                                        <a href="#" class="btn btn-warning btn-sm">View </a>                            
                                         <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>                        
                                     </td>
                                 
-                                </tr>
+
+
                                 
 
                                     

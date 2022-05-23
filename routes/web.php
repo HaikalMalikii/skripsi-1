@@ -32,11 +32,14 @@ Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/forum','ForumController@index');
+
+Route::get('/ForumDetail/{id}','ForumController@ForumDetail');
 Route::get('/posts.add','ForumController@index');
 Route::get('/addforum', function () {
     return view('Forum.addforum');
 });
-
+Route::post('/save-comment/{slug}/{id}','ForumController@ForumDetailComment');
+Route::get('/ForumDetailComment','ForumController@IndexComments');
 
 Route::post('/AddnewForum','ForumController@AddForum');
 

@@ -18,11 +18,7 @@ class CreateDetailforumTable extends Migration
             $table->integer("Forum_Id");
             $table->integer("User_Id");
             $table->text("Aspirasi_Komen");
-
-            $table->dateTime('Tanggal');
-            $table->string('Photo_Forum');
             
-            $table->integer('total');
 
             $table->timestamps();
         });
