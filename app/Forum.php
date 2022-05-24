@@ -15,7 +15,7 @@ class Forum extends Model
     }
     public function JoinDetailForum ()
     {
-        return $this->hasMany(DetailForum::class);
+        return $this->hasOne(DetailForum::class);
     }
     
 }

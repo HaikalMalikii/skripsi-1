@@ -15,14 +15,9 @@ class CreateForumTable extends Migration
     public function up()
     {
         Schema::create('forum', function (Blueprint $table) {
-            $table->id();
-            $table->string("Title");
-            $table->integer("User_Id");
-            $table->text("Aspirasi");
-            $table->dateTime('Tanggal');
-            $table->string('Photo_Forum');
-            $table->timestamp('created_at')->Nullable()->useCurrent();
-            $table->timestamp('updated_at')->Nullable()->useCurrent();
+            $table->id();      
+            $table->integer("IDUser");
+
 
             //$table->integer('total');
         });

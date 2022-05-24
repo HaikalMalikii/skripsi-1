@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailforumTable extends Migration
+class CreateKomentarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateDetailforumTable extends Migration
      */
     public function up()
     {
-        Schema::create('detailforum', function (Blueprint $table) {
+        Schema::create('komentar', function (Blueprint $table) {
             $table->id();
-            $table->integer("IDForum");
-            $table->integer("IDKomentar");
-            $table->text("Deskripsi");
-            $table->string("Judul");
-            
-
+            $table->integer("IDUser");
+            $table->integer("IDDetForum");
+            $table->text("Komentar");
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateDetailforumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detailforum');
+        Schema::dropIfExists('komentar');
     }
 }

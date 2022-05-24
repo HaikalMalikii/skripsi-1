@@ -17,15 +17,11 @@ class Pengaduan extends Migration
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->id();
             $table->string("Kategori");
-            $table->integer("User_Id");
-            $table->text("Detail");
-            $table->string("Foto_Pengaduan");
-            $table->integer('Like');
-            $table->integer('Dislike');
-
-
-            $table->integer('Total');
-
+            $table->integer("IDUser");
+            $table->string("Bagian");
+            $table->string("Judul");
+            $table->string("Gambar");
+            $table->string("Deskripsi");
             $table->timestamps();
         });
     }

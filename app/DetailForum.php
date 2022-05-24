@@ -14,5 +14,9 @@ class DetailForum extends Model
     {
         return $this->belongsTo(Forum::class);
     }
+    public function Komentar ()
+    {
+        return $this->hasMany(Komentar::class);
+    }
 
 }
