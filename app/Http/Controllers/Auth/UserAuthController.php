@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use AuthenticatesUsers;
 class UserAuthController extends Controller
 {
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
     protected $maxAttempts = 3;
     protected $decayMinutes = 2;
     public function __construct()

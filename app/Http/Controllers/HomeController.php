@@ -42,7 +42,7 @@ class HomeController extends Controller
         if ($request->user()->hasRole('punya_gue')){
             return redirect('punya_gue');
         }
-        return view('home');
+        
     }
 
 }

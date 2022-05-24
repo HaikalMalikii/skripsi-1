@@ -16,9 +16,9 @@ class AdminKelurahanController extends Controller
     public function index()
     {
         if (request()->user()->hasRole('admin_kelurahan')) {
-            return view('/');
+            return view('/home');
         } else {
-            return redirect('/');
+            return redirect('/home');
         } 
     }
 

@@ -42,9 +42,9 @@ Route::post('/AddAduan','AduanController@AddAduan');
 
 ///Route Role
 Route::get('/users', 'UsersController@index');
-Route::get('/PunyaGue', 'PunyaGueController@index');
-Route::get('/AdminKelurahan', 'AdminKelurahanController@index');
-Route::get('/AdminInstansiUmum', 'AdminInstansiUmumController@index');
+Route::get('/punya_gue', 'PunyaGueController@index');
+Route::get('/admin_kelurahan', 'AdminKelurahanController@index');
+Route::get('/admin_instansi_umum', 'AdminInstansiUmumController@index');
 ///
 Route::get('/forum','ForumController@index');
 

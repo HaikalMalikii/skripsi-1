@@ -16,9 +16,9 @@ class PunyaGueController extends Controller
     public function index()
     {
         if (request()->user()->hasRole('punya_gue')) {
-            return view('/');
+            return view('/home');
         } else {
-            return redirect('/');
+            return redirect('/home');
         } 
     }
 

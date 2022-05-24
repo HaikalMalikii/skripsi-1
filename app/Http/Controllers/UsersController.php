@@ -14,9 +14,9 @@ class UsersController extends Controller
     public function index()
     {
         if (request()->user()->hasRole('users')) {
-            return view('/AddAduan');
+            return view('/home');
         } else {
-            return redirect('/');
+            return redirect('/home');
         } 
     }
 }

@@ -16,9 +16,9 @@ class AdminInstansiUmumController extends Controller
     public function index()
     {
         if (request()->user()->hasRole('admin_instansi_umum')) {
-            return view('/');
+            return view('/home');
         } else {
-            return redirect('/');
+            return redirect('/home');
         } 
     }
 
