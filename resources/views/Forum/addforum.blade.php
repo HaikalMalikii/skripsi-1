@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
 
-    <title>Add Pizza</title>
+    <title>Add Forum</title>
 </head>
 
 
