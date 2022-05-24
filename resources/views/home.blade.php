@@ -15,7 +15,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Aspirasi Rakyat</h5>
                     <p class="card-text">Mayarakat dapat menuliskan keluhan nya di sini.</p>
-                    <a href="#" class="btn btn-primary">click here</a>
+                    <a href="{{ url('AddAduan') }}" class="btn btn-primary">click here</a>
                     </div>
                 </div>
                 </div>

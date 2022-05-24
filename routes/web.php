@@ -31,6 +31,14 @@ Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+///Route Aduan
+Route::get('/AddAduan', function () {
+    return view('Aduan.AddAduan');
+});
+Route::post('/AddAduan','AduanController@AddAduan');
+
+
+////
 Route::get('/forum','ForumController@index');
 
 Route::get('/ForumDetail/{id}','ForumController@ForumDetail');

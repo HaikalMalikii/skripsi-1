@@ -16,7 +16,6 @@ class Pengaduan extends Migration
         //
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->id();
-            $table->string("Kategori");
             $table->integer("IDUser");
             $table->string("Bagian");
             $table->string("Judul");
