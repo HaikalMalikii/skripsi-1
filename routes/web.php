@@ -39,6 +39,13 @@ Route::post('/AddAduan','AduanController@AddAduan');
 
 
 ////
+
+///Route Role
+Route::get('/users', 'UsersController@index');
+Route::get('/PunyaGue', 'PunyaGueController@index');
+Route::get('/AdminKelurahan', 'AdminKelurahanController@index');
+Route::get('/AdminInstansiUmum', 'AdminInstansiUmumController@index');
+///
 Route::get('/forum','ForumController@index');
 
 Route::get('/ForumDetail/{id}','ForumController@ForumDetail');

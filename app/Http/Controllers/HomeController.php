@@ -21,8 +21,28 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    // public function index()
+    // {
+    //     return view('home');
+    // }
+     
+    public function index(Request $request)
     {
+  
+        if ($request->user()->hasRole('users')) {
+            return redirect('users');
+        }
+
+        if ($request->user()->hasRole('admin_kelurahan')){
+            return redirect('admin_kelurahan');
+        }
+        if ($request->user()->hasRole('admin_instansi_umum')){
+            return redirect('admin_instansi_umum');
+        }
+        if ($request->user()->hasRole('punya_gue')){
+            return redirect('punya_gue');
+        }
         return view('home');
     }
+
 }
