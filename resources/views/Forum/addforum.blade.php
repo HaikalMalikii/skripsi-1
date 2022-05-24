@@ -18,7 +18,7 @@
 
 <div class="form-row align-text-left">
     <strong>
-        <p class="addpizzaname">Add Forum</p>
+        <p class="addforum">Add Forum</p>
     </strong>
 
 </div>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-4">
-                        <label for="formGroupExampleInput">Ganteng</label>
+                        <label for="formGroupExampleInput">Judul</label>
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="forumjuduladdid" name="forumjuduladd">
