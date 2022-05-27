@@ -15,12 +15,10 @@
         color: black;
         border-color: blue;
         border-width: 2px;
+        font-family: 'Roboto Mono', monospace;
     }
     h5, p{
         font-family: 'Roboto Condensed', sans-serif;
-    }
-    .btn{
-        font-family: 'Roboto Mono', monospace;
     }
     h4 {
         font-family: 'Bebas Neue', cursive;
