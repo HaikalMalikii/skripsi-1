@@ -21,12 +21,19 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                Rempoas
+                <div class = "collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active ">
+                        <a class="navbar-brand" href="{{ url('/') }}">Rempoas</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <a class="navbar-brand " href="{{ url('/') }}">
+                Home
                 </a>
-                
                 <a class="navbar-brand" href="{{ url('/forum') }}">
                     Forum
                 </a>

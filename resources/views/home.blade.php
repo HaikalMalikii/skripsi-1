@@ -2,14 +2,21 @@
 
 @section('content')
 <style>
-
+    .card{
+        background-color: cyan;
+        margin: 5px;
+    }
+    .btn{
+        background-color: tomato;
+        color: black;
+        border-color: blue;
+        border-width: 2px;
+    }
 </style>
-<div class="d-flex flex-column">
+<div class=" body d-flex flex-column">
     <div class="d-flex justify-content-md-between">
         <div class="col-sm-6">
             <div class="row">
-                
-
                 <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
