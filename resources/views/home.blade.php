@@ -2,15 +2,28 @@
 
 @section('content')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');    
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
     .card{
-        background-color: cyan;
+        background-color: #9BA3EB;
         margin: 5px;
+        color: white;
     }
     .btn{
-        background-color: tomato;
+        background-color: #FFE3A9;
         color: black;
         border-color: blue;
         border-width: 2px;
+    }
+    h5, p{
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    .btn{
+        font-family: 'Roboto Mono', monospace;
+    }
+    h4 {
+        font-family: 'Bebas Neue', cursive;
     }
 </style>
 <div class=" body d-flex flex-column">
@@ -38,7 +51,7 @@
             </div>
         </div>
         <div class="mr-3">
-            <h5 class="text-center">FORUM MASYARAKAT</h5>
+            <h4 class="text-center">FORUM MASYARAKAT</h4>
             <div class="card text-center" style="width: 18rem;">
                 <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
@@ -77,7 +90,7 @@
         </div>
     </div>
 
-    <h5 class="text-center mt-3">BERITA TERKINI</h5>
+    <h4 class="text-center mt-3">BERITA TERKINI</h4>
     <div class="d-flex justify-content-center">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
