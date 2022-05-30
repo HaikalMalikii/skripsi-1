@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Forum extends Model
 {
-    //
+
     protected $table = 'forum';
 
     public function JoinUserForum ()
@@ -17,6 +17,5 @@ class Forum extends Model
     {
         return $this->hasOne(DetailForum::class);
     }
-    
 }
 

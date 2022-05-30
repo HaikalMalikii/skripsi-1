@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailForum extends Model
 {
-    
-    //
+
+
     protected $table = 'detailforum';
 
     public function Forum ()
@@ -18,5 +18,4 @@ class DetailForum extends Model
     {
         return $this->hasMany(Komentar::class);
     }
-
 }

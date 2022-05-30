@@ -13,13 +13,14 @@ class PunyaGueController extends Controller
       $this->middleware('auth');
     }
 
-    public function index()
+    public function dashboard()
     {
-        if (request()->user()->hasRole('punya_gue')) {
-            return view('/home');
-        } else {
-            return redirect('/home');
-        } 
+        // if (request()->user()->hasRole('punya_gue')) {
+        //     return view('Admin.dashboard');
+        // } else {
+        //     return redirect('/home');
+        // }
+        return view("Admin.dashboard");
     }
 
 }
