@@ -3,7 +3,7 @@
 @section('content')
 <!doctype html>
 <html lang="en">
-    
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <title>Add Forum</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');    
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
         h3{
             font-family: 'Bebas Neue', cursive;
@@ -40,9 +40,9 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Posts</h3>
+                        <h3 class="panel-title">Forum Masyarkat</h3>
                         <div class="right">
-                            <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">Add new Posts </a>
+                            <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
                         </div>
                     </div>
 
@@ -59,10 +59,10 @@
                             </thead>
                             <tbody>
                                 @foreach ($forum as $frm )
-                                
+
                                     <td>{{ $frm->id }}</td>
-                                    
-    
+
+
                                     <td>
                                         <a href="/ForumDetail/{{$frm->id}}">
                                             {{ $frm->Title }}
@@ -71,11 +71,11 @@
                                     <td>{{ $frm->Aspirasi }}</td>
                                     <td>{{ $frm->total }}</td>
                                     {{-- <td>{{ $frm->use }}</td> --}}
-                                    <td>                                  
+                                    <td>
                                         <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
-                                        <a href="#" class="btn btn-warning btn-sm">View </a>                            
-                                        <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>                        
-                                    </td>  
+                                        <a href="#" class="btn btn-warning btn-sm">View </a>
+                                        <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>
+                                    </td>
                                 @endforeach
                     </div>
                 </div>
