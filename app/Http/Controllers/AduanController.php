@@ -23,7 +23,11 @@ class AduanController extends Controller
             'AddAduanGambar'=>'required|image'
         ]);
         if ($validasi->fails()) {
+<<<<<<< HEAD
             return redirect('/  AddAduan')
+=======
+            return redirect('/AddAduan')
+>>>>>>> a833bf5f02290c36a4112937bf4d056d6ca00ac3
                 ->withErrors($validasi)
                 ->withInput();
         }
