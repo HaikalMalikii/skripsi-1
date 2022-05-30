@@ -7,6 +7,7 @@ use App\User;
 use App\DetailForum;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,8 @@ class ForumController extends Controller
 
     public function AddForum(Request $request)
     {
-
+        
+        
         $users = Auth::id();
         $validasi = Validator::make($request->all(),[
             'forumjuduladd'=>'required|string|max:20',
@@ -58,14 +60,24 @@ class ForumController extends Controller
         }
         $photo = $request->file('imageforumadd');
         $photo->move(public_path('/css/foto'),$photo->getClientOriginalName());
-        $Tanggal_now =  Carbon::now();
+        $Tanggal_now =  Carbon::now(); 
+        
+       
+
         DB::table('forum')->insert(
-            [   'Title'=>$request->forumjuduladd,
-                'Aspirasi'=>$request->aspirasi,
-                'Photo_Forum'=>$photo->getClientOriginalName(),
-                'User_Id' => $request->user()-> id,
-                'Tanggal' => $Tanggal_now
+            [   
+                'IDUser' => $request->user() -> id
             ]);
+        
+        DB::table('detailforum')->insert(
+            [   
+                
+                'IDForum' => $request-> Forum() -> id,
+                'Deskripsi' => $request -> aspirasi,
+                'Judul' => $request -> forumjuduladd
+
+            ]);
+        
         return redirect('/home');
 
 
