@@ -11,17 +11,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
 
-    <title>Add Aduan</title>
+    <title>Pengaduan Masyarakat</title>
 </head>
 
 
 
-<div class="form-row align-text-left">
+<div class="text-xl-center">
     <strong>
-        <p class="AddAduan">Add Forum</p>
+        <p class="AddAduan">Form Pengaduan Masyarakat</p>
     </strong>
-
 </div>
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -57,13 +57,13 @@
                             <option value ="Kebersihan"> Kebersihan</option>
                             <option value ="Kesehatan"> Kesehatan</option>
                         </select>
-                    </div>     
+                    </div>
                 </div>
 
             </div>
 
-     
-        
+
+
             <div class="form-group">
                 <div class="row">
                     <div class="col-4">
@@ -73,8 +73,6 @@
                         <textarea id="AddAduanDeskripsiID" name="AddAduanDeskripsi"rows="4" cols="50" ></textarea>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="form-group">
@@ -82,14 +80,14 @@
                     <div class="col">
                         <label for="exampleGroupExampleInput">Gambar</label>
                     </div>
-                    <div class="col">
+                    <div>
                         <input type="file" class="form-control-file" id="AddAduanGambarID" name="AddAduanGambar">
                     </div>
                 </div>
-
             </div>
+
             <div class="form-group form-row justify-content-center">
-                <button type="submit" name="buttonadd" class="btn btn-primary">Add Forum</button>
+                <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
             </div>
         </div>
     </div>
