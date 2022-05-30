@@ -23,7 +23,7 @@ class AduanController extends Controller
             'AddAduanGambar'=>'required|image'
         ]);
         if ($validasi->fails()) {
-            return redirect('/Aduan.AddAduan')
+            return redirect('/  AddAduan')
                 ->withErrors($validasi)
                 ->withInput();
         }
@@ -36,7 +36,7 @@ class AduanController extends Controller
                 'Judul'=>$request->AddAduanJudul,
                 'Gambar'=>$photo->getClientOriginalName(),
                 'IDUser' => $request->user()-> id,
-                
+
             ]);
         return redirect('/home');
 
