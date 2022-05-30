@@ -43,7 +43,7 @@ Route::post('/AddAduan','AduanController@AddAduan');
 ///Route Role
 Route::get('/users', 'UsersController@index');
 Route::get('/punya_gue', 'PunyaGueController@dashboard');
-Route::get('/admin_kelurahan', 'AdminKelurahanController@dashboard');
+Route::get('/Admin.dashboard', 'AdminKelurahanController@dashboard');
 Route::get('/admin_instansi_umum', 'AdminInstansiUmumController@dashboard');
 ///
 Route::get('/forum','ForumController@index');
