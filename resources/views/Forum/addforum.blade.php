@@ -3,7 +3,7 @@
 @section('content')
 <!doctype html>
 <html lang="en">
-    
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,15 +14,15 @@
 
     <title>Add Forum</title>
     <style>
-        
+
     </style>
 </head>
 
 
 <body>
-    <div class="form-row align-text-left">
+    <div class="text-xl-center">
         <strong>
-            <p class="addforum">Add Forum</p>
+            <p class="addforum">Form Forum Masyarakat</p>
         </strong>
 
     </div>
@@ -77,14 +77,14 @@
                         <div class="col">
                             <label for="exampleGroupExampleInput">File Tambahan</label>
                         </div>
-                        <div class="col">
+                        <div>
                             <input type="file" class="form-control-file" id="imageforumaddid" name="imageforumadd">
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group form-row justify-content-center">
-                    <button type="submit" name="buttonadd" class="btn btn-primary">Add Forum</button>
+                    <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
                 </div>
 
             </div>
