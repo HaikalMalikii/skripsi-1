@@ -13,8 +13,9 @@
     .btn{
         background-color: #FFE3A9;
         color: black;
-        border-color: blue;
+        border-color: grey;
         border-width: 2px;
+        border-radius: 10px;
         font-family: 'Roboto Mono', monospace;
     }
     h5, p{

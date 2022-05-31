@@ -15,23 +15,32 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .navbar {
+            background-color: lightblue;
+        }
+        .rempoa{
+            font-family: 'Alfa Slab One', cursive;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-costum">
             <div class="container">
                 <div class = "collapse navbar-collapse">
                     <ul class="navbar-nav">
-                        <li class="nav-item active ">
-                        <a class="navbar-brand" href="{{ url('/') }}">Rempoas</a>
+                        <li class="nav-item ">
+                        <a class="navbar-brand rempoa" href="{{ url('/') }}">Rempoas</a>
                         </li>
                     </ul>
 
                 </div>
-                <a class="navbar-brand " href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                 Home
                 </a>
                 <a class="navbar-brand" href="{{ url('/forum') }}">
