@@ -43,7 +43,7 @@ class ForumController extends Controller
 //        return view('forum.addforum',compact((['forum'])));
 //    }
 
-    public function AddForum(Request $request)
+    public function AddForum(Request $request, Forum $forum)
     {
         
         
@@ -61,20 +61,25 @@ class ForumController extends Controller
         $photo = $request->file('imageforumadd');
         $photo->move(public_path('/css/foto'),$photo->getClientOriginalName());
         $Tanggal_now =  Carbon::now(); 
+        $user = Auth::user();
         
        
 
         DB::table('forum')->insert(
             [   
-                'IDUser' => $request->user() -> id
+                'IDUser' => $user->id,
+                'created_at' => $Tanggal_now,
+                'updated_at' => $Tanggal_now
             ]);
-        
+        $forum = Forum::latest()->first();
         DB::table('detailforum')->insert(
             [   
                 
-                'IDForum' => $request-> Forum() -> id,
+                'IDForum' => $forum->id,
                 'Deskripsi' => $request -> aspirasi,
-                'Judul' => $request -> forumjuduladd
+                'Judul' => $request -> forumjuduladd,
+                'created_at' => $Tanggal_now,
+                'updated_at' => $Tanggal_now
 
             ]);
         
@@ -86,7 +91,7 @@ class ForumController extends Controller
     public function ForumDetail(Request $request,$ForumID)
     {   
         $ForumDetail =  Forum::find($ForumID);
-
+        dd($ForumDetail);
         return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
     }
 

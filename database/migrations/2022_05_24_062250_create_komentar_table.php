@@ -15,8 +15,10 @@ class CreateKomentarTable extends Migration
     {
         Schema::create('komentar', function (Blueprint $table) {
             $table->id();
-            $table->integer("IDUser");
-            $table->integer("IDDetForum");
+            $table->unsignedBigInteger('IDUser');
+            $table->foreign('IDUser')->references('id')->on('users');
+            $table->unsignedBigInteger('IDDetForum');
+            $table->foreign('IDDetForum')->references('id')->on('detailforum');
             $table->text("Komentar");
             $table->timestamps();
         });

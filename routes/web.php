@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,9 +43,13 @@ Route::post('/AddAduan','AduanController@AddAduan');
 
 ///Route Role
 Route::get('/users', 'UsersController@index');
-Route::get('/punya_gue', 'PunyaGueController@dashboard');
-Route::get('/Admin.dashboard', 'AdminKelurahanController@dashboard');
-Route::get('/admin_instansi_umum', 'AdminInstansiUmumController@dashboard');
+Route::get('/punya_gue', 'HomeController@index');
+Route::get('/AdminInstasi', 'HomeController@AdminInstasi');
+// Route::get('/Admin.dashboard', 'HomeController@index');
+
+Route::get('/Admin.dashboard', function () {
+    return view('Admin.dashboard');
+});
 ///
 Route::get('/forum','ForumController@index');
 
