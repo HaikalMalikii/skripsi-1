@@ -34,13 +34,14 @@ class HomeController extends Controller
         }
 
         if ($request->user()->hasRole('admin_kelurahan')){
-            return redirect('admin_kelurahan');
+            return redirect('/Admin.dashboard');
+
         }
         if ($request->user()->hasRole('admin_instansi_umum')){
-            return redirect('admin_instansi_umum');
+            return redirect('/Admin.dashboard');
         }
         if ($request->user()->hasRole('punya_gue')){
-            return redirect('punya_gue');
+            return redirect('/Admin.dashboard');
         }
         
     }
