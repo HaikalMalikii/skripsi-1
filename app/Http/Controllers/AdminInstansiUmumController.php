@@ -15,7 +15,6 @@ class AdminInstansiUmumController extends Controller
 
     public function dashboard()
     {
-        return view('Admin.dashboard');
+        return view('/Admin.dashboard');
     }
-
 }

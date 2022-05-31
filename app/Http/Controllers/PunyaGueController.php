@@ -15,12 +15,7 @@ class PunyaGueController extends Controller
 
     public function dashboard()
     {
-        // if (request()->user()->hasRole('punya_gue')) {
-        //     return view('Admin.dashboard');
-        // } else {
-        //     return redirect('/home');
-        // }
-        return view("Admin.dashboard");
+        return view('/Admin.dashboard');
     }
 
 }
