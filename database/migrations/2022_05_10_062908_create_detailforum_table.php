@@ -16,7 +16,7 @@ class CreateDetailforumTable extends Migration
         Schema::create('detailforum', function (Blueprint $table) {
             $table->id();
             $table->integer("IDForum");
-            $table->integer("IDKomentar");
+            // $table->integer("IDKomentar");
             $table->text("Deskripsi");
             $table->string("Judul");
             
