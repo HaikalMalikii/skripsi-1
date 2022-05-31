@@ -16,9 +16,10 @@ class CreateForumTable extends Migration
     {
         Schema::create('forum', function (Blueprint $table) {
             $table->id();      
-            $table->integer("IDUser");
+            $table->unsignedBigInteger('IDUser');
+            $table->foreign('IDUser')->references('id')->on('users');
 
-
+            $table->timestamps();
             //$table->integer('total');
         });
     }

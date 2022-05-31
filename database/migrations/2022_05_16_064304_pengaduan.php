@@ -16,7 +16,8 @@ class Pengaduan extends Migration
         //
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->id();
-            $table->integer("IDUser");
+            $table->unsignedBigInteger('IDUser');
+            $table->foreign('IDUser')->references('id')->on('users');
             $table->string("Bagian");
             $table->string("Judul");
             $table->string("Gambar");

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Komentar extends Model
 {
     //
+    protected $table = 'detailforum';
     public function User ()
     {
         return $this->belongsTo(User::class);

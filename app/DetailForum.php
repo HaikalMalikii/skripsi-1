@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailForum extends Model
 {
-
-
     protected $table = 'detailforum';
 
     public function Forum ()

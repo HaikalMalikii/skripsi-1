@@ -22,14 +22,14 @@
         </div>
         <div class="card">
             
-            <h4 class="card-reader"> {{ $ForumDetail->Title }}    </h4>
-            <h4 class="card-reader"> {{ $ForumDetail->Aspirasi }}    </h4>
+            <h4 class="card-reader"> {{ $ForumDetail->Judul }}    </h4>
+            <h4 class="card-reader"> {{ $ForumDetail->Deskripsi }}    </h4>
             <h4 class="card-reader"> {{ $ForumDetail->User_Id }}    </h4>
 
             <div class="card my-5">
                 <h5 class="card-header">Add Comment</h5>
                 <div class="card-body">
-                    <form method="post" action="{{url('save-comment/'.Str::slug($ForumDetail->Title).'/'.$ForumDetail->id)}}">
+                    <form method="post" action="{{url('save-comment/'.Str::slug($ForumDetail->Judul).'/'.$ForumDetail->id)}}">
                     @csrf
                     <textarea name="comment" class="form-control"></textarea>
                     <input type="submit" class="btn btn-dark mt-2" />
