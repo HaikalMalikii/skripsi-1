@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @section('content')
 
     <div class="container" style="min-height: 100vh; padding-top: 7rem;">
