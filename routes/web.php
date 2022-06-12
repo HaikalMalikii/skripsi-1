@@ -39,10 +39,16 @@ Route::get('/AddAduan', function () {
 Route::post('/AddAduan','AduanController@AddAduan');
 
 
-////
+////cek
 
 ///Route Role
 Route::get('/users', 'UsersController@index');
+<<<<<<< HEAD
+=======
+Route::get('/punya_gue', 'PunyaGueController@dashboard');
+Route::get('/admin_instansi_umum', 'AdminInstansiUmum@dashboard');
+Route::get('/admin_kelurahan', 'AdminKelurahanController@dashboard');
+>>>>>>> 2d39407301c5bd611498b03662f075ffca799506
 
 Route::get('/Admin.dashboard', function () {
     return view('Admin.dashboard');
