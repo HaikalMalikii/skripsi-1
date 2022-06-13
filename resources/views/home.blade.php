@@ -1,31 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');    
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
-    .card{
-        background-color: #9BA3EB;
-        margin: 5px;
-        color: white;
-    }
-    .btn{
-        background-color: #FFE3A9;
-        color: black;
-        border-color: grey;
-        border-width: 2px;
-        border-radius: 10px;
-        font-family: 'Roboto Mono', monospace;
-    }
-    h5, p{
-        font-family: 'Roboto Condensed', sans-serif;
-    }
-    h4 {
-        font-family: 'Bebas Neue', cursive;
-    }
-</style>
-<div class=" body d-flex flex-column">
+
+<head>
+    
+</head>
+<body>
+    <div class=" body d-flex flex-column">
     <div class="d-flex justify-content-md-between">
         <div class="col-sm-6">
             <div class="row">
@@ -114,4 +95,6 @@
           </div>
     </div>
 </div>
+</body>
 @endsection
+

@@ -18,15 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <style>
-        .navbar {
-            background-color: lightblue;
-        }
-        .rempoa{
-            font-family: 'Alfa Slab One', cursive;
-        }
-    </style>
 </head>
 <body>
     <div id="app">
@@ -35,7 +28,8 @@
                 <div class = "collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item ">
-                        <a class="navbar-brand rempoa" href="{{ url('/') }}">Rempoas</a>
+                        <a class="navbar-brand rempoa" href="{{ url('/') }}">
+                            <img src="{{ asset('css/foto/2.png') }}"></a>
                         </li>
                     </ul>
 
