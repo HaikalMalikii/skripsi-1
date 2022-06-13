@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-costum">
             <div class="container">
-                <div class = "collapse navbar-collapse">
+                {{-- <div class = "collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item ">
                         <a class="navbar-brand rempoa" href="{{ url('/') }}">
@@ -33,20 +33,32 @@
                         </li>
                     </ul>
 
-                </div>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                Home
+                </div> --}}
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                    Home
                 </a>
                 <a class="navbar-brand" href="{{ url('/forum') }}">
                     Forum
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                </a> --}}
+                {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                        <a class="navbar-brand rempoa" href="{{ url('/') }}">
+                            <img src="{{ asset('css/foto/2.png') }}"></a>
+                        </li>
+                    </ul>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Home
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/forum') }}">
+                        Forum
+                    </a>
                     <ul class="navbar-nav mr-auto">
                     <a class="navbar-brand" href="#">About</a>
                     <div class="container-fluid">

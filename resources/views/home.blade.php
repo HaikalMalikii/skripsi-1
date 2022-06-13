@@ -3,7 +3,7 @@
 @section('content')
 
 <head>
-    
+
 </head>
 <body>
     <div class=" body d-flex flex-column">
