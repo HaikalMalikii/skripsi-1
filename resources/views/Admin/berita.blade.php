@@ -9,8 +9,8 @@
         Tulis Berita
     </button>
 
-    <div class="modal fade" id="addBerita" tabindex="-1" aria-labelledby="addBeritaLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade bd-example-modal-xl" id="addBerita" tabindex="-1" aria-labelledby="addBeritaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addBeritaLabel">Tulis Berita</h5>
@@ -37,9 +37,9 @@
 
                         <div class="form-group">
                             <label for="description">Deskripsi Berita</label>
-                            <input placeholder="Desccription" id="description" type="text"
-                                class="form-control @error('desc') is-invalid @enderror" desc="desc" required
-                                autocomplete="desc" autofocus>
+                            <textarea placeholder="Description"
+                                class="form-control @error('description') is-invalid @enderror" name="description" id=""
+                                cols="30" rows="5" required autocomplete="description" autofocus></textarea>
 
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
