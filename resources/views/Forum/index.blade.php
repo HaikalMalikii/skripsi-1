@@ -60,23 +60,22 @@
                             </thead>
                             <tbody>
                                 @foreach ($forum as $frm )
-
+                                <tr>
                                     <td>{{ $frm->id }}</td>
-
-
                                     <td>
                                         <a href="/ForumDetail/{{$frm->id}}">
-                                            {{ $frm->Title }}
+                                            {{ $frm->Judul }}
                                         </a>
                                     </td>
-                                    <td>{{ $frm->Aspirasi }}</td>
-                                    <td>{{ $frm->total }}</td>
+                                    <td>{{ $frm->Deskripsi }}</td>
+                                    <td><img src="{{asset("css/foto/$frm->Gambar")}}" alt="" srcset=""></td>
                                     {{-- <td>{{ $frm->use }}</td> --}}
                                     <td>
                                         <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
                                         <a href="#" class="btn btn-warning btn-sm">View </a>
                                         <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>
                                     </td>
+                                </tr>
                                 @endforeach
                     </div>
                 </div>

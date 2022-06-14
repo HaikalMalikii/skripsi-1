@@ -26,7 +26,8 @@ class ForumController extends Controller
     }
     public function index()
     {
-        $forum = Forum::paginate(10);
+        $forum = DetailForum::paginate(10);
+        //dd($forum);
         return view('Forum.index',compact((['forum'])));
     }
     public function IndexComments()
@@ -34,7 +35,7 @@ class ForumController extends Controller
         $ForumDetailComment = DetailForum::paginate(5);
 
         return view('Forum.ForumDetail', compact((['ForumDetailComment'])));
-        
+
     }
 
 //    public function AddForum()
@@ -45,8 +46,8 @@ class ForumController extends Controller
 
     public function AddForum(Request $request, Forum $forum)
     {
-        
-        
+
+
         $users = Auth::id();
         $validasi = Validator::make($request->all(),[
             'forumjuduladd'=>'required|string|max:20',
@@ -60,36 +61,37 @@ class ForumController extends Controller
         }
         $photo = $request->file('imageforumadd');
         $photo->move(public_path('/css/foto'),$photo->getClientOriginalName());
-        $Tanggal_now =  Carbon::now(); 
+        $Tanggal_now =  Carbon::now();
         $user = Auth::user();
-        
-       
+
+
 
         DB::table('forum')->insert(
-            [   
+            [
                 'IDUser' => $user->id,
                 'created_at' => $Tanggal_now,
                 'updated_at' => $Tanggal_now
             ]);
         $forum = Forum::latest()->first();
         DB::table('detailforum')->insert(
-            [   
-                
+            [
+
                 'IDForum' => $forum->id,
                 'Deskripsi' => $request -> aspirasi,
                 'Judul' => $request -> forumjuduladd,
+                'Gambar' =>$request -> imageforumadd -> getClientOriginalName(),
                 'created_at' => $Tanggal_now,
                 'updated_at' => $Tanggal_now
 
             ]);
-        
+
         return redirect('/home');
 
 
     }
 
     public function ForumDetail(Request $request,$ForumID)
-    {   
+    {
         $ForumDetail =  Forum::find($ForumID);
         dd($ForumDetail);
         return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);

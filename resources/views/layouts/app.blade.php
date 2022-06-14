@@ -23,40 +23,32 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-costum">
-                    {{-- <div class = "collapse navbar-collapse">
-                        <ul class="navbar-nav">
-                            <li class="nav-item ">
-                            <a class="navbar-brand rempoa" href="{{ url('/') }}">
-                                <img src="{{ asset('css/foto/2.png') }}"></a>
-                            </li>
-                        </ul>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand rempoa" href="{{ url('/') }}">
+                <img src="{{ asset('css/foto/2.png') }}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    </div> --}}
-                    {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                        Home
-                    </a>
-                    <a class="navbar-brand" href="{{ url('/forum') }}">
-                        Forum
-                    </a> --}}
-                    {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> --}}
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
                         <!-- Left Side Of Navbar -->
-                            <li class="nav-item ">
-                            <a class="navbar-brand rempoa" href="{{ url('/') }}">
-                                <img src="{{ asset('css/foto/2.png') }}"></a>
-                            </li>
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            Home
-                        </a>
-                        <a class="navbar-brand" href="{{ url('/forum') }}">
-                            Forum
-                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/forum') }}">
+                                Forum
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                About
+                            </a>
+                        </li>
                         <ul class="navbar-nav mr-auto">
-                            <a class="navbar-brand" href="#">About</a>
                             <div class="container-fluid">
                             <form class="d-flex">
                                 <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
@@ -100,7 +92,6 @@
                         </ul>
                     </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

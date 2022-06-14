@@ -67,6 +67,7 @@ Route::get('/admin-berita', 'AdminKelurahanController@berita');
 
 
 
+
 ///
 Route::get('/forum','ForumController@index');
 

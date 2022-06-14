@@ -20,7 +20,8 @@ class CreateDetailforumTable extends Migration
             // $table->integer("IDKomentar");
             $table->text("Deskripsi");
             $table->string("Judul");
-            
+            $table->string('Gambar');
+
 
             $table->timestamps();
         });
