@@ -47,7 +47,7 @@ Route::get('/users', 'UsersController@index');
 
 Route::get('/punya_gue', 'PunyaGueController@dashboard');
 Route::get('/admin_instansi_umum', 'AdminInstansiUmum@dashboardAdminInstansi');
-Route::get('/admin_kelurahan', 'AdminKelurahanController@dashboardAdminKelurahan');
+
 
 Route::get('/Admin.dashboard', function () {
     return view('Admin.dashboard');
@@ -57,9 +57,15 @@ Route::get('/Admin.dashboardAdminInstansi', function () {
     return view('Admin.dashboardAdminInstansi');
 });
 
+// Admin Kelurahan
+Route::get('/admin_kelurahan', 'AdminKelurahanController@dashboardAdminKelurahan');
 Route::get('/Admin.dashboardAdminKelurahan', function () {
     return view('Admin.dashboardAdminKelurahan');
 });
+
+Route::get('/admin-berita', 'AdminKelurahanController@berita');
+
+
 
 ///
 Route::get('/forum','ForumController@index');
