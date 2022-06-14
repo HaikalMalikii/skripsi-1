@@ -29,12 +29,12 @@ class AdminKelurahanController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|min:5',
-            'desc' => 'required|string|min:10'
+            'description' => 'required|string|min:10'
         ]);
 
         Berita::create([
             'judul' => $request->judul,
-            'desc' => $request->desc
+            'description' => $request->description
         ]);
 
         return redirect('/admin-berita');
