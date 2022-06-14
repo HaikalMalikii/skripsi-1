@@ -13,9 +13,9 @@ class AdminKelurahanController extends Controller
       $this->middleware('auth');
     }
 
-    public function dashboard()
+    public function dashboardAdminKelurahan()
     {
-        return view('/Admin.dashboard');
+        return view('/Admin.dashboardAdminKelurahan');
     }
 
 }

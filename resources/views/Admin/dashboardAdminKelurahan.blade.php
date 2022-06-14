@@ -4,7 +4,7 @@
 
     <div class="container" style="min-height: 100vh; padding-top: 7rem;">
 
-        <h1 class="text-center">Welcome Admin Punya Gue</h1>
+        <h1 class="text-center">Welcome Admin Kelurahan</h1>
 
         <div class="form-row">
             <div class="my-3 col-12">

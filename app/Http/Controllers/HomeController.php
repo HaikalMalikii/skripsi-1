@@ -25,25 +25,25 @@ class HomeController extends Controller
     // {
     //     return view('home');
     // }
-     
+
     public function index(Request $request)
     {
-  
+
         if ($request->user()->hasRole('users')) {
             return redirect('users');
         }
 
         if ($request->user()->hasRole('admin_kelurahan')){
-            return redirect('/Admin.dashboard');
+            return redirect('/Admin.dashboardAdminKelurahan');
 
         }
         if ($request->user()->hasRole('admin_instansi_umum')){
-            return redirect('/Admin.dashboard');
+            return redirect('/Admin.dashboardAdminInstansi');
         }
         if ($request->user()->hasRole('punya_gue')){
             return redirect('/Admin.dashboard');
         }
-        
+
     }
 
 }

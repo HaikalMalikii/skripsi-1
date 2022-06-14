@@ -13,8 +13,8 @@ class AdminInstansiUmumController extends Controller
       $this->middleware('auth');
     }
 
-    public function dashboard()
+    public function dashboardAdminInstansi()
     {
-        return view('/Admin.dashboard');
+        return view('/Admin.dashboardAdminInstansi');
     }
 }
