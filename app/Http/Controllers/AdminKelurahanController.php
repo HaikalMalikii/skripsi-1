@@ -25,9 +25,19 @@ class AdminKelurahanController extends Controller
         return view('Admin.berita')->with('berita', $berita);
     }
 
-    public function create()
+    public function addBerita(Request $request)
     {
+        $request->validate([
+            'judul' => 'required|string|min:5',
+            'desc' => 'required|string|min:10'
+        ]);
 
+        Berita::create([
+            'judul' => $request->judul,
+            'desc' => $request->desc
+        ]);
+
+        return redirect('/admin-berita');
     }
 
     public function store(Request $request)
