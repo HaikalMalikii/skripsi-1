@@ -3,9 +3,20 @@
 @section('content')
 
 <head>
-
 </head>
 <body>
+    <div class="jumbotron ">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4">WELCOME TO LAPORIN</h1>
+          <p class="lead my-3">menyediakan berbagai kemudahan bagi anda untuk berinetraksi dan menyampaikan keluhan</p>
+          <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/lapor.png" alt="lapor">Lapor</button>
+          <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/forum.png" alt="lapor">Forum</button>
+          <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/news.png" alt="lapor">Berita</button>
+        </div>
+      </div>
+
+
+
     <div class=" body d-flex flex-column">
     <div class="d-flex justify-content-md-between">
         <div class="col-sm-6">
@@ -15,7 +26,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Aspirasi Rakyat</h5>
                     <p class="card-text">Mayarakat dapat menuliskan keluhan nya di sini.</p>
-                    <a href="{{ url('AddAduan') }}" class="btn btn-primary">click here</a>
+                   
                     </div>
                 </div>
                 </div>
@@ -24,7 +35,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Forum Rakyat</h5>
                     <p class="card-text">Masyarakat dapat melihat forum keluhan nya disini.</p>
-                    <a href="#" class="btn btn-primary">click here</a>
+                   
                     </div>
                 </div>
                 </div>
