@@ -49,12 +49,6 @@
                             <textarea placeholder="Description"
                                 class="form-control @error('description') is-invalid @enderror" name="description" id=""
                                 cols="30" rows="5" required autocomplete="description" autofocus></textarea>
-
-                            <!-- @error('description')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror -->
                         </div>
                     </div>
 
