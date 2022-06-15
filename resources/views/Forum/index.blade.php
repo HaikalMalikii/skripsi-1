@@ -52,12 +52,16 @@
                             <a href="/ForumDetail/{{$f->id}}">{{ $f->Judul }}</a>
                             <p class="card-text">{{ $f->Deskripsi }}</p>
                             <img src="{{asset("css/foto/$f->Gambar")}}" alt="" srcset="">
+
                             <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
                             <a href="#" class="btn btn-warning btn-sm">View </a>
                             <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>
                         </div>
                     </div>
                     @endforeach
+                    {{-- @foreach ($komentar as $k)
+                    <p class="card-text">{{ $k->Komentar }}</p>
+                    @endforeach --}}
                 </div>
             </div>
         </div>

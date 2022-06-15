@@ -23,8 +23,8 @@
         <div class="card">
             
             <h4 class="card-reader"> {{ $ForumDetail->Judul }}    </h4>
-            <h4 class="card-reader"> {{ $ForumDetail->Deskripsi }}    </h4>
-            <h4 class="card-reader"> {{ $ForumDetail->User_Id }}    </h4>
+            {{-- <h4 class="card-reader"> {{ $ForumDetail->Deskripsi }}    </h4>
+            <h4 class="card-reader"> {{ $ForumDetail->User_Id }}    </h4> --}}
 
             <div class="card my-5">
                 <h5 class="card-header">Add Comment</h5>

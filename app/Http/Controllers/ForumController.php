@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Forum;
 use App\User;
 use App\DetailForum;
+use App\Komentar;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -28,7 +29,9 @@ class ForumController extends Controller
     {
         $forum = DetailForum::paginate(10);
         //dd($forum);
-        return view('Forum.index',compact((['forum'])));
+        // $x = new DetailForum();
+        // $komentar = Komentar::where('IDDetForum','=', $x->id)->first();
+        return view('Forum.index',compact((['forum','komentar'])));
     }
     public function IndexComments()
     {
@@ -92,8 +95,8 @@ class ForumController extends Controller
 
     public function ForumDetail(Request $request,$ForumID)
     {
-        $ForumDetail =  Forum::find($ForumID);
-        dd($ForumDetail);
+        $ForumDetail =  DetailForum::find($ForumID);
+        // dd($ForumDetail);
         return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
     }
 
@@ -102,12 +105,23 @@ class ForumController extends Controller
         $request->validate([
         'comment'=>'required'
         ]);
-        $data = new DetailForum;
-        $data->Forum_Id = $id;
-        $data->User_Id=$request->user()->id;
-        $data->Aspirasi_Komen = $request->comment;
-        $data->save();
-        return redirect ('ForumDetail/'.$slug.'/'.$id)->with('sukes','Data Telah Masuk');
+        // $data = new Komentar;
+        // $data->IDDetForum = $id;
+        // $data->IDUser=$request->user()->id;
+        // $data->Aspirasi_Komen = $request->comment;
+        // $data->save();
+        DB::table('komentar')->insert(
+            [
+
+                'IDDetForum' => $id,
+                
+                'IDUser' => $request->user()->id,
+                'Komentar' =>$request -> comment
+            ]);
+        $forum = DetailForum::all();
+        // $komentar = Komentar::where('IDDetForum','=',$id)->first();
+        return view('Forum.index',compact((['forum'])));
+        // return redirect('/forum');
 
     }
 }
