@@ -65,6 +65,7 @@ Route::get('/Admin.dashboardAdminKelurahan', function () {
 
 Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
+Route::get('/admin-forum', 'ForumController@index');
 
 
 
