@@ -27,11 +27,6 @@ class AdminKelurahanController extends Controller
 
     public function addBerita(Request $request)
     {
-        $request->validate([
-            'judul' => 'required|string|min:5',
-            'description' => 'required|string|min:10'
-        ]);
-
         Berita::create([
             'judul' => $request->judul,
             'description' => $request->description

@@ -10,4 +10,7 @@ class Berita extends Model
     protected $fillable = [
         'judul', 'description'
     ];
+
+    protected $guarded = [];
+
 }

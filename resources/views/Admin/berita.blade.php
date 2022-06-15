@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label for="judul">Judul Berita</label>
                             <input placeholder="Judul" id="judul" type="text"
-                                class="form-control @error('judul') is-invalid @enderror" judul="judul" required
+                                class="form-control @error('judul') is-invalid @enderror" name="judul" required
                                 autocomplete="judul" autofocus>
 
                             @error('judul')
