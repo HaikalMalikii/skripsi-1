@@ -55,9 +55,7 @@
                         <div class="col-4">
                             <label for="formGroupExampleInput">Forum</label>
                         </div>
-                        <div class="col">
-                            <input type="number" class="form-control" id="pizzapricenew" name="pizzapriceadd">
-                        </div>
+
                     </div>
 
                 </div> --}}

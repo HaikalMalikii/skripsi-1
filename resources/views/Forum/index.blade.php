@@ -36,7 +36,7 @@
 
 <body>
 <div class="main">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel">
@@ -46,43 +46,25 @@
                             <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
                         </div>
                     </div>
-
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Tanggal</th>
-                                    <th>Title</th>
-                                    <th>Aspirasi</th>
-                                    <th>Photo</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($forum as $frm )
-                                <tr>
-                                    <td>{{ $frm->id }}</td>
-                                    <td>
-                                        <a href="/ForumDetail/{{$frm->id}}">
-                                            {{ $frm->Judul }}
-                                        </a>
-                                    </td>
-                                    <td>{{ $frm->Deskripsi }}</td>
-                                    <td><img src="{{asset("css/foto/$frm->Gambar")}}" alt="" srcset=""></td>
-                                    {{-- <td>{{ $frm->use }}</td> --}}
-                                    <td>
-                                        <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
-                                        <a href="#" class="btn btn-warning btn-sm">View </a>
-                                        <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                    @foreach ($forum as $f )
+                    <div class="card w-90">
+                        <div class="card-body">
+                            <a href="/ForumDetail/{{$f->id}}">{{ $f->Judul }}</a>
+                            <p class="card-text">{{ $f->Deskripsi }}</p>
+                            <img src="{{asset("css/foto/$f->Gambar")}}" alt="" srcset="">
+                            <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
+                            <a href="#" class="btn btn-warning btn-sm">View </a>
+                            <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 </body>
 
 </html>

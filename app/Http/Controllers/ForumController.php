@@ -85,7 +85,7 @@ class ForumController extends Controller
 
             ]);
 
-        return redirect('/home');
+        return redirect('/forum');
 
 
     }

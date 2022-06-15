@@ -16,7 +16,7 @@ class UsersController extends Controller
         if (request()->user()->hasRole('users')) {
             return view('/home');
         } else {
-            return redirect('/home');
+            return view('/home');
         } 
     }
 }
