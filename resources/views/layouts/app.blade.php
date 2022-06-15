@@ -44,8 +44,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/about">
                                 About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/berita') }}">
+                                Berita
                             </a>
                         </li>
                         <ul class="navbar-nav mr-auto">

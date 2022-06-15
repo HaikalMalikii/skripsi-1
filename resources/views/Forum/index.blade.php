@@ -35,7 +35,30 @@
 </head>
 
 <body>
+
 <div class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Forum Masyarkat</h3>
+                        <div class="right">
+                            <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
+                        </div>
+                    </div>
+    @foreach ($forum as $frm )
+    <div class="card w-90">
+    <div class="card-body">
+  <img src="{{asset("$frm->Gambar")}}" alt="" >
+   <a class="card-title" href="/Berita/{{$b->id}}">{{ $b->judul }}</a>
+    <p class="card-text">{{ $frm->Deskripsi }}</p>
+    <a target="_blank" class="btn btn-warning btn-sm">Comment</a>
+    <a href="#" class="btn btn-warning btn-sm">View </a>
+    <a href="#" class="btn btn-danger btn-sm delete">Dislike </a>
+  </div>
+  @endforeach
+<!-- <div class="main">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -48,16 +71,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Tanggal</th>
-                                    <th>Title</th>
-                                    <th>Aspirasi</th>
-                                    <th>Photo</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
+                       
                             <tbody>
                                 @foreach ($forum as $frm )
                                 <tr>
@@ -78,6 +92,11 @@
                                 </tr>
                                 @endforeach
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
                 </div>
             </div>
         </div>
