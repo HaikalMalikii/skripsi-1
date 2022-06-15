@@ -4,7 +4,15 @@
 
 <div class="container" style="padding-top: 7rem; min-height: 100vh">
     <h1>Berita</h1>
-
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBerita">
         Tulis Berita
     </button>
@@ -28,11 +36,11 @@
                                 class="form-control @error('judul') is-invalid @enderror" name="judul" required
                                 autocomplete="judul" autofocus>
 
-                            @error('judul')
+                            <!-- @error('judul')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                            @enderror -->
                         </div>
 
 
@@ -42,11 +50,11 @@
                                 class="form-control @error('description') is-invalid @enderror" name="description" id=""
                                 cols="30" rows="5" required autocomplete="description" autofocus></textarea>
 
-                            @error('description')
+                            <!-- @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                            @enderror -->
                         </div>
                     </div>
 
