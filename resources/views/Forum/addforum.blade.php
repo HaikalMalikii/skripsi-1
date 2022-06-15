@@ -53,7 +53,7 @@
                 {{-- <div class="form-group">
                     <div class="row">
                         <div class="col-4">
-                            <label for="formGroupExampleInput">Pizza Price</label>
+                            <label for="formGroupExampleInput">Forum</label>
                         </div>
                         <div class="col">
                             <input type="number" class="form-control" id="pizzapricenew" name="pizzapriceadd">
