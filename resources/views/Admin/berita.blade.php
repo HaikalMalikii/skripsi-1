@@ -35,6 +35,7 @@
                             @enderror
                         </div>
 
+
                         <div class="form-group">
                             <label for="description">Deskripsi Berita</label>
                             <textarea placeholder="Description"
@@ -57,18 +58,16 @@
             </div>
         </div>
     </div>
-    <table class="table table-striped my-3">
-        <thead class="thead-dark">
-            <tr>
-                <th style="width: 10%" scope="col">No</th>
-                <th style="width: 30%" scope="col">Judul</th>
-                <th style="width: 60%" scope="col">Description</th>
-            </tr>
-        </thead>
-
-
-    </table>
-
+    @foreach ($berita as $b )
+    <div class="card w-90">
+  <div class="card-body">
+   <a class="card-title" href="/Berita/{{$b->id}}">{{ $b->judul }}</a>
+    <p class="card-text">{{ $b->description}}</p>
+    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBerita-{{ $b->id }}">Edit</button>
+    <button href="#" class="btn btn-warning btn-sm">Delete </button>
+  </div>
+</div>
+@endforeach
 </div>
 
 @endsection

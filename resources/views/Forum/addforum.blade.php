@@ -75,10 +75,11 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="exampleGroupExampleInput">File Tambahan</label>
+                            <label for="exampleGroupExampleInput">Gambar</label>
                         </div>
                         <div>
                             <input type="file" class="form-control-file" id="imageforumaddid" name="imageforumadd">
+                            
                         </div>
                     </div>
                 </div>
