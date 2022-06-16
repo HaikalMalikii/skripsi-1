@@ -96,7 +96,8 @@ class ForumController extends Controller
     public function ForumDetail(Request $request,$ForumID)
     {
         $ForumDetail =  DetailForum::find($ForumID);
-        // dd($ForumDetail);
+        //$ForumDetail = DetailForum::all();
+        //dd($ForumDetail);
         return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
     }
 
@@ -114,7 +115,7 @@ class ForumController extends Controller
             [
 
                 'IDDetForum' => $id,
-                
+
                 'IDUser' => $request->user()->id,
                 'Komentar' =>$request -> comment
             ]);

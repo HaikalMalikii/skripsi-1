@@ -53,13 +53,13 @@
                                 Berita
                             </a>
                         </li>
-                        <ul class="navbar-nav mr-auto">
+                        {{-- <ul class="navbar-nav mr-auto">
                             <div class="container-fluid">
                             <form class="d-flex">
                                 <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
-                        </ul>
+                        </ul> --}}
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
