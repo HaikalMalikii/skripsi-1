@@ -15,14 +15,32 @@
 </head>
 
 <body>
-    <div class="row">
+    <div class="container">
         <div class="col-md-1">
             @if(Session::has('sukes'))
                 <p class="text-success">{{session('sukes')}}</p>
             @endif
         </div>
+        <div class="card w-90">
+            <div class="card-body">
+                <img src="{{asset("css/foto/$ForumDetail->Gambar")}}" alt="" srcset="">
+                <h4 class="card-reader"> {{ $ForumDetail->Judul }}    </h4>
+                <h3 class="card-reader"> {{ $ForumDetail->Deskripsi }}    </h3>
+                <h4 class="card-reader"> {{ $ForumDetail->User_Id }}    </h4>
+            </div>
+            <div class="card my-5">
+                <h5 class="card-header">Add Comment</h5>
+                <div class="card-body">
+                    <form method="post" action="{{url('save-comment/'.Str::slug($ForumDetail->Judul).'/'.$ForumDetail->id)}}">
+                    @csrf
+                    <textarea name="comment" class="form-control"></textarea>
+                    <input type="submit" class="btn btn-dark mt-2" />
+                </div>
+            </div>
+            
+        </div>
 
-        <div class="card">
+        <!-- <div class="card">
 
             <h4 class="card-reader"> {{ $ForumDetail->Judul }}    </h4>
             <h4 class="card-reader"> {{ $ForumDetail->Deskripsi }}    </h4>
@@ -56,7 +74,7 @@
                     @endforeach
                 </div>
             </div> --}}
-        </div>
+        </div> -->
 
     </div>
 </body>
