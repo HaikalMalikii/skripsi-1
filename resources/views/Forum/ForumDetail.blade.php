@@ -36,49 +36,15 @@
                     <textarea name="comment" class="form-control"></textarea>
                     <input type="submit" class="btn btn-dark mt-2" />
                 </div>
-                @foreach ($data as $k)
-                <p class="card-text">{{ $k->Komentar }}</p>
-                @endforeach
+
             </div>
-            
+            @foreach ($data as $k)
+                <p class="card-text">{{ $k->IDUser }}</p>
+                <p class="card-text">{{ $k->Komentar }}</p>
+            @endforeach
         </div>
 
-        <!-- <div class="card">
-
-            <h4 class="card-reader"> {{ $ForumDetail->Judul }}    </h4>
-            <h4 class="card-reader"> {{ $ForumDetail->Deskripsi }}    </h4>
-            <h4 class="card-reader"> {{ $ForumDetail->User_Id }}    </h4>
-
-            <div class="card my-5">
-                <h5 class="card-header">Add Comment</h5>
-                <div class="card-body">
-                    <form method="post" action="{{url('save-comment/'.Str::slug($ForumDetail->Judul).'/'.$ForumDetail->id)}}">
-                    @csrf
-                    <textarea name="comment" class="form-control"></textarea>
-                    <input type="submit" class="btn btn-dark mt-2" />
-                </div>
-            </div>
-
-
-            {{-- <div class="card my-4">
-                <h5 class="card-header">Comments <span class="badge badge-dark"></span></h5>
-                <div class="card-body">
-                    @foreach($ForumDetailComment as $comment)
-                    @if($comment->Aspirasi_Komen)
-
-                        <blockquote class="blockquote">
-                            <p class="mb-0">{{$comment->comment}}</p>
-                            <footer class="blockquote-footer">{{$comment->user->name}}</footer>
-                        </blockquote>
-                        <hr/>
-                            <hr/>
-
-                    @endif
-                    @endforeach
-                </div>
-            </div> --}}
-        </div> -->
-
+     
     </div>
 </body>
 </html>
