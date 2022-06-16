@@ -31,7 +31,7 @@ class ForumController extends Controller
         //dd($forum);
         // $x = new DetailForum();
         // $komentar = Komentar::where('IDDetForum','=', $x->id)->first();
-        return view('Forum.index',compact((['forum','komentar'])));
+        return view('Forum.index',compact((['forum'])));
     }
     public function IndexComments()
     {
