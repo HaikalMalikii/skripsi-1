@@ -17,6 +17,7 @@ class CreateBeritaTable extends Migration
             $table->id();
             $table->string('judul');
             $table->text('description');
+            $table->string('image');
             $table->timestamps();
         });
     }
