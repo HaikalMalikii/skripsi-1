@@ -59,9 +59,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{-- @foreach ($komentar as $k)
-                    <p class="card-text">{{ $k->Komentar }}</p>
-                    @endforeach --}}
+
                 </div>
             </div>
         </div>

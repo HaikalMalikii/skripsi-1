@@ -67,9 +67,8 @@ Route::get('/admin-forum', 'ForumController@index');
 
 
 
-///
+/// Forum
 Route::get('/forum','ForumController@index');
-
 Route::get('/ForumDetail/{id}','ForumController@ForumDetail');
 Route::get('/posts.add','ForumController@index');
 Route::get('/addforum', function () {

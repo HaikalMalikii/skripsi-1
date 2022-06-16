@@ -98,8 +98,13 @@ class ForumController extends Controller
         $ForumDetail =  DetailForum::find($ForumID);
         //$ForumDetail = DetailForum::all();
         //dd($ForumDetail);
-        return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
+        $data = DB::table('detailforum')
+        ->join('komentar', 'komentar.IDDetForum', '=', 'detailforum.id')
+        ->get();
+        // return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
+        return view('Forum.ForumDetail', compact('ForumDetail', 'data'));
     }
+
 
     public function ForumDetailComment(Request $request,$slug,$id)
     {
@@ -113,16 +118,14 @@ class ForumController extends Controller
         // $data->save();
         DB::table('komentar')->insert(
             [
-
                 'IDDetForum' => $id,
-
                 'IDUser' => $request->user()->id,
                 'Komentar' =>$request -> comment
             ]);
-        $forum = DetailForum::all();
+        // $forum = DetailForum::all();
         // $komentar = Komentar::where('IDDetForum','=',$id)->first();
-        return view('Forum.index',compact((['forum'])));
-        // return redirect('/forum');
+        // return view('ForumDetail', compact(['test']));
+        return redirect('/forum');
 
     }
 }

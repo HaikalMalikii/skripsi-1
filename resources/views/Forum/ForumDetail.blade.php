@@ -36,6 +36,9 @@
                     <textarea name="comment" class="form-control"></textarea>
                     <input type="submit" class="btn btn-dark mt-2" />
                 </div>
+                @foreach ($data as $k)
+                <p class="card-text">{{ $k->Komentar }}</p>
+                @endforeach
             </div>
             
         </div>
