@@ -96,11 +96,15 @@ class ForumController extends Controller
     public function ForumDetail(Request $request,$ForumID)
     {
         $ForumDetail =  DetailForum::find($ForumID);
-        //$ForumDetail = DetailForum::all();
+        // $ForumDetail = DetailForum::all();
         //dd($ForumDetail);
-        $data = DB::table('detailforum')
-        ->join('komentar', 'komentar.IDDetForum', '=', 'detailforum.id')
-        ->get();
+        // $data = DB::table('detailforum')
+        // ->join('komentar', 'komentar.IDDetForum', '=', 'detailforum.id')
+        // ->get();
+        // $komentar = DetailForum::where('id',$ForumID)->first()->Komentar()->all();
+        $data = Komentar::where('IDDetForum', $ForumID)->get();
+        // $data = Komentar::where('');
+        // dd($komentar);
         // return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
         return view('Forum.ForumDetail', compact('ForumDetail', 'data'));
     }
