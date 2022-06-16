@@ -70,11 +70,18 @@ Route::get('/admin-forum', 'ForumController@index');
 
 
 
+<<<<<<< HEAD
 ///
 Route::get('/forum', 'ForumController@index');
 
 Route::get('/ForumDetail/{id}', 'ForumController@ForumDetail');
 Route::get('/posts.add', 'ForumController@index');
+=======
+/// Forum
+Route::get('/forum','ForumController@index');
+Route::get('/ForumDetail/{id}','ForumController@ForumDetail');
+Route::get('/posts.add','ForumController@index');
+>>>>>>> 91290dd41866815e93e71efbce6ba35d1dc967f2
 Route::get('/addforum', function () {
     return view('Forum.addforum');
 });
