@@ -8,7 +8,7 @@ class Berita extends Model
 {
     protected $table = 'berita';
     protected $fillable = [
-        'judul', 'description'
+        'judul', 'description','image'
     ];
 
     protected $guarded = [];

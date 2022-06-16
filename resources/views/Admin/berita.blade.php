@@ -50,6 +50,19 @@
                                 class="form-control @error('description') is-invalid @enderror" name="description" id=""
                                 cols="30" rows="5" required autocomplete="description" autofocus></textarea>
                         </div>
+
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input placeholder="Image" id="image" type="file"
+                                class="form-control-file @error('image') is-invalid @enderror" name="image" required
+                                autocomplete="image" autofocus>
+
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
 
                         <div class="modal-footer">
@@ -63,6 +76,9 @@
     @foreach ($berita as $b )
     <div class="card w-90">
   <div class="card-body">
+    <td>
+        <img class="img-fluid" src="{{ asset("css/foto/$berita->image") }}" alt="">
+    </td>
    <a class="card-title" href="/Berita/{{$b->id}}">{{ $b->judul }}</a>
     <p class="card-text">{{ $b->description}}</p>
     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBerita-{{ $b->id }}">Edit</button>
