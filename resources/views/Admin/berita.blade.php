@@ -27,7 +27,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin-add-berita" method="POST">
+                    <form action="/admin-add-berita" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
@@ -51,19 +51,20 @@
                                 cols="30" rows="5" required autocomplete="description" autofocus></textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label for="image">Image</label>
-                            <input placeholder="Image" id="image" type="file"
+                            <div class="form-group">
+                              <label for="image">Image</label>
+                            {{-- <input placeholder="Image" id="image" type="file"
                                 class="form-control-file @error('image') is-invalid @enderror" name="image" required
-                                autocomplete="image" autofocus>
+                                autocomplete="image" autofocus> --}}
+                                <input type="file" class="form-control-file" id="AddAduanGambarID" name="image">
 
-                            @error('image')
+                              @error('image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            </div>
                         </div>
-                    </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -77,7 +78,7 @@
     <div class="card w-90">
   <div class="card-body">
     <td>
-        <img class="img-fluid" src="{{ asset("css/foto/$berita->image") }}" alt="">
+        <img class="img-fluid" src="{{ asset("css/foto/$b->image") }}" alt="">
     </td>
    <a class="card-title" href="/Berita/{{$b->id}}">{{ $b->judul }}</a>
     <p class="card-text">{{ $b->description}}</p>
