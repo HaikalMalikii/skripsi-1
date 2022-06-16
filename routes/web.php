@@ -33,7 +33,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/AddAduan', function () {
     return view('Aduan.AddAduan');
 });
-Route::post('/AddAduan','AduanController@AddAduan');
+Route::post('/AddAduan', 'AduanController@AddAduan');
 
 
 ////cek
@@ -62,22 +62,25 @@ Route::get('/Admin.dashboardAdminKelurahan', function () {
 
 Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
+Route::post('/admin-edit-berita/{berita_id}', 'AdminKelurahanController@editBerita');
+Route::get('/admin-delete-berita/{berita_id}', 'AdminKelurahanController@deleteBerita');
+
 Route::get('/admin-forum', 'ForumController@index');
 
 
 
 
 ///
-Route::get('/forum','ForumController@index');
+Route::get('/forum', 'ForumController@index');
 
-Route::get('/ForumDetail/{id}','ForumController@ForumDetail');
-Route::get('/posts.add','ForumController@index');
+Route::get('/ForumDetail/{id}', 'ForumController@ForumDetail');
+Route::get('/posts.add', 'ForumController@index');
 Route::get('/addforum', function () {
     return view('Forum.addforum');
 });
-Route::post('/save-comment/{slug}/{id}','ForumController@ForumDetailComment');
-Route::get('/ForumDetailComment','ForumController@IndexComments');
+Route::post('/save-comment/{slug}/{id}', 'ForumController@ForumDetailComment');
+Route::get('/ForumDetailComment', 'ForumController@IndexComments');
 
-Route::post('/AddnewForum','ForumController@AddForum');
+Route::post('/AddnewForum', 'ForumController@AddForum');
 
 // Route::get('/addforum','ForumController@GetUserID');
