@@ -83,18 +83,73 @@
   </div>
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h4 class="text-center mt-3">BERITA TERKINI</h4>
-      <div class="d-flex justify-content-center">
-          <div class="card" style="width: 20rem;">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-      </div>
-</div>
-</body>
-@endsection
+    <body>
 
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-9">
+                    <h1 class="display-4">WELCOME TO LAPORIN</h1>
+                    <p class="lead my-3">menyediakan berbagai kemudahan bagi anda untuk berinetraksi dan menyampaikan keluhan
+                    </p>
+                    <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/lapor.png"
+                            alt="lapor">Lapor</button>
+                    <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/forum.png"
+                            alt="lapor">Forum</button>
+                    <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/news.png"
+                            alt="lapor">Berita</button>
+                </div>
+                @foreach ($detailforum as $df)
+                    <div class="col-sm-3 sidenav">
+                        <div class="well">
+                            <h4 class="text-center">FORUM MASYARAKAT</h4>
+                        </div>
+                        <div class="card text-center" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $df->Judul }}</h5>
+                                <img style="" class="img img-fluid p-2 rounded-lg"
+                                    src="{{ asset("css/foto/$df->Gambar") }}" alt="">
+                                <p class="card-text">{{ $df->Deskripsi }}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                        {{-- <div class="card text-center" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="card text-center" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div> --}}
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+        @foreach ($berita as $b)
+            <div class="jumbotron text-center" style="margin-bottom:0">
+                <h4 class="text-center mt-3">BERITA TERKINI</h4>
+                <div class="d-flex justify-content-center">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $b->judul }}</h5>
+                            <img style="" class="img img-fluid p-2 rounded-lg"
+                                src="{{ asset("css/foto/$b->image") }}" alt="">
+                            <p class="card-text">{{ $b->description }}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+    </body>
+@endsection

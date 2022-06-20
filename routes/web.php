@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@view')->name('home');
+// Route::get('/',[HomeController::class,'view']);
+
 
 
 
@@ -67,7 +68,9 @@ Route::get('/admin-delete-berita/{berita_id}', 'AdminKelurahanController@deleteB
 
 Route::get('/admin-forum', 'ForumController@index');
 
-
+///Login Google
+Route::get('/auth/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');
 
 
 /// Forum
