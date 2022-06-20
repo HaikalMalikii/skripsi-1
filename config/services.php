@@ -23,6 +23,11 @@ return [
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_APP_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT'),
+    ],
 
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),

@@ -43,7 +43,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
+                                    <a class="btn btn-danger" href="{{ '/auth/redirect'}}">google</a>
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
