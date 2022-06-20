@@ -58,10 +58,10 @@
                         </div>
                         <div class="card text-center" style="width: 100%;">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $df->judul }}</h5>
+                                <h5 class="card-title">{{ $df->Judul }}</h5>
                                 <img style="" class="img img-fluid p-2 rounded-lg"
-                                    src="{{ asset("css/foto/$df->gambar") }}" alt="">
-                                <p class="card-text">{{ $df->deskripsi }}</p>
+                                    src="{{ asset("css/foto/$df->Gambar") }}" alt="">
+                                <p class="card-text">{{ $df->Deskripsi }}</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
