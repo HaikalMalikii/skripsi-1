@@ -61,10 +61,13 @@ Route::get('/Admin.dashboardAdminKelurahan', function () {
     return view('Admin.dashboardAdminKelurahan');
 });
 
+Route::get('/detail-berita', 'BeritaController@detailBerita');
+
 Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
 Route::post('/admin-edit-berita/{berita_id}', 'AdminKelurahanController@editBerita');
 Route::get('/admin-delete-berita/{berita_id}', 'AdminKelurahanController@deleteBerita');
+
 
 Route::get('/admin-forum', 'ForumController@index');
 
