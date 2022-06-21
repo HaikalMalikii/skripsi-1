@@ -15,20 +15,17 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', 'HomeController@view')->name('home');
+
 // Route::get('/',[HomeController::class,'view']);
-
-
-
-
 
 Auth::routes();
 
-Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
-Route::post('user/login', 'Auth\AdminAuthController@postLogin');
+// Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
+// Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@view')->name('home');
 
 ///Route Aduan
 Route::get('/AddAduan', function () {

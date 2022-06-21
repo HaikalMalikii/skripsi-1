@@ -62,6 +62,11 @@
                                 <textarea name="comment" class="form-control"></textarea>
                                 <input type="submit" class="btn btn-dark mt-2" />
                             @endguest
+                            {{-- <form method="post"
+                            action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
+                            @csrf
+                            <textarea name="comment" class="form-control"></textarea>
+                            <input type="submit" class="btn btn-dark mt-2" /> --}}
 
                     </div>
 

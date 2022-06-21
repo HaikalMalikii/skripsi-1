@@ -24,32 +24,35 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function view()
+    // public function view()
+    // {
+    //     $berita = Berita::all();
+    //     $Forum = Forum::all();
+    //     $detailforum = DetailForum::all();
+    //     return view('home')
+    //         ->with('berita', $berita)
+    //         ->with('forum', $Forum)
+    //         ->with('detailforum', $detailforum);
+    // }
+
+    public function index(Request $request)
     {
         $berita = Berita::all();
         $Forum = Forum::all();
         $detailforum = DetailForum::all();
-        return view('home')
-            ->with('berita', $berita)
-            ->with('forum', $Forum)
-            ->with('detailforum', $detailforum);
-    }
-
-    public function index(Request $request)
-    {
 
 
         if ($request->user()->hasRole('users')) {
-            return redirect('users');
-        }
-
-        if ($request->user()->hasRole('admin_kelurahan')) {
+            //return redirect('users');
+            return view('home')
+                ->with('berita', $berita)
+                ->with('forum', $Forum)
+                ->with('detailforum', $detailforum);
+        } else if ($request->user()->hasRole('admin_kelurahan')) {
             return redirect('/Admin.dashboardAdminKelurahan');
-        }
-        if ($request->user()->hasRole('admin_instansi_umum')) {
+        } else if ($request->user()->hasRole('admin_instansi_umum')) {
             return redirect('/Admin.dashboardAdminInstansi');
-        }
-        if ($request->user()->hasRole('punya_gue')) {
+        } else if ($request->user()->hasRole('punya_gue')) {
             return redirect('/Admin.dashboard');
         }
     }
