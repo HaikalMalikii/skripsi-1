@@ -34,6 +34,9 @@
             th {
                 font-family: 'Roboto Condensed', sans-serif;
             }
+            p{
+                color: black;
+            }
         </style>
     </head>
 

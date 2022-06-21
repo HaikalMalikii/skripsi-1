@@ -51,11 +51,9 @@ class HomeController extends Controller
 
         if ($request->user()->hasRole('admin_kelurahan')) {
             return redirect('/Admin.dashboardAdminKelurahan');
-        }
-        if ($request->user()->hasRole('admin_instansi_umum')) {
+        } else if ($request->user()->hasRole('admin_instansi_umum')) {
             return redirect('/Admin.dashboardAdminInstansi');
-        }
-        if ($request->user()->hasRole('punya_gue')) {
+        } else if ($request->user()->hasRole('punya_gue')) {
             return redirect('/Admin.dashboard');
         }
         else{

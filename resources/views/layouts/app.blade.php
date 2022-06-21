@@ -19,6 +19,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+        .nav-link{
+            font-size: 20px;
+            margin-right: 20x;
+            margin-left: 20px;
+        }
+    </style>
 
 </head>
 <body>

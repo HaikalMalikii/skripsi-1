@@ -14,7 +14,11 @@
 
     <title>Add Forum</title>
     <style>
+        .container{
+            background-color: lightblue;
+            padding-top: 20px;
 
+        }
     </style>
 </head>
 
@@ -37,35 +41,22 @@
     @endif
     <form action="/AddnewForum" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="d-flex justify-content-center backgroundorder">
-            <div class="mt-5 col-4">
+        <div class="container ">
+        <div class="form-row">
+            <div class="col-4">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-4">
-                            <label for="formGroupExampleInput">Judul</label>
-                        </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="forumjuduladdid" name="forumjuduladd">
+                            <input type="text" class="form-control" id="AddAduanJudulID" name="AddAduanJudul" placeholder="Judul">
                         </div>
                     </div>
-
                 </div>
-                {{-- <div class="form-group">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="formGroupExampleInput">Forum</label>
-                        </div>
+            </div>
 
-                    </div>
-
-                </div> --}}
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-4">
-                            <label for="formGroupExampleInput">Aspirasi</label>
-                        </div>
                         <div class="col-1">
-                            <textarea id="forumaspirasi" name="aspirasi"rows="4" cols="50" ></textarea>
+                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="aspirasi"rows="4" cols="50" ></textarea>
                         </div>
                     </div>
                 </div>
