@@ -44,7 +44,7 @@ class HomeController extends Controller
 
         if ($request->user()->hasRole('users')) {
             //return redirect('users');
-            return view('home')
+            return view('/home')
                 ->with('berita', $berita)
                 ->with('forum', $Forum)
                 ->with('detailforum', $detailforum);
