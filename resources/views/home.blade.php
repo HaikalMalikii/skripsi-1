@@ -45,7 +45,7 @@
                     <p class="lead my-3">menyediakan berbagai kemudahan bagi anda untuk berinetraksi dan menyampaikan keluhan
                     </p>
                     <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/lapor.png"
-                            alt="lapor">Lapor</button>
+                            alt="lapor" >Lapor</button>
                     <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/forum.png"
                             alt="lapor">Forum</button>
                     <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/news.png"

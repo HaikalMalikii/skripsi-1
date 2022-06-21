@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aduan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -41,5 +42,14 @@ class AduanController extends Controller
         return redirect('/home');
 
 
+    }
+
+    public function view()
+    {
+        $Aduan = Aduan::all();
+        //dd($forum);
+        // $x = new DetailForum();
+        // $komentar = Komentar::where('IDDetForum','=', $x->id)->first();
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
     }
 }

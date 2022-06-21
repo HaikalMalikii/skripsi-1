@@ -24,23 +24,29 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function view()
+    // public function view()
+    // {
+    //     $berita = Berita::all();
+    //     $Forum = Forum::all();
+    //     $detailforum = DetailForum::all();
+    //     return view('home')
+    //         ->with('berita', $berita)
+    //         ->with('forum', $Forum)
+    //         ->with('detailforum', $detailforum);
+    // }
+
+    public function index(Request $request)
     {
         $berita = Berita::all();
         $Forum = Forum::all();
         $detailforum = DetailForum::all();
-        return view('home')
-            ->with('berita', $berita)
-            ->with('forum', $Forum)
-            ->with('detailforum', $detailforum);
-    }
-
-    public function index(Request $request)
-    {
-
-
         if ($request->user()->hasRole('users')) {
-            return redirect('users');
+
+            return view('home')
+                ->with('berita', $berita)
+                ->with('forum', $Forum)
+                ->with('detailforum', $detailforum);
+            // return redirect('users'); 
         }
 
         if ($request->user()->hasRole('admin_kelurahan')) {
@@ -52,5 +58,12 @@ class HomeController extends Controller
         if ($request->user()->hasRole('punya_gue')) {
             return redirect('/Admin.dashboard');
         }
+        else{
+            return view('home')
+            ->with('berita', $berita)
+            ->with('forum', $Forum)
+            ->with('detailforum', $detailforum);
+        }
+
     }
 }

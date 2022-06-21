@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Role;
+use App\RoleUser;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +66,7 @@ class LoginController extends Controller
                     'password'          => 0,
                     'email_verified_at' => now()
                 ]);
-        
+                $create->roles()->attach(Role::where('name', 'users')->first());
                 
                 \auth()->login($create, true);
                 return redirect()->route('/');
