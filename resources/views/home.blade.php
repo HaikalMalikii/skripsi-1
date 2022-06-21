@@ -57,10 +57,10 @@
                             keluhan
                         </p>
                         <a class="btn btn-primary btn-lg" type="button"  href="/AddAduan"><img src="css/foto/lapor.png" alt="lapor">Lapor</a>
-                        <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/forum.png"
-                                alt="lapor">Forum</button>
-                        <button class="btn btn-primary btn-lg" type="button"><img src="css/foto/news.png"
-                                alt="lapor">Berita</button>
+                        <a class="btn btn-primary btn-lg" type="button"  href="/addforum"><img src="css/foto/forum.png"
+                                alt="lapor">Forum</a>
+                        <a class="btn btn-primary btn-lg" type="button"  href="/berita"><img src="css/foto/news.png"
+                                alt="lapor">Berita</a>
                     </div>
                     @foreach ($detailforum as $df)
                         <div class="col-sm-3 sidenav">
