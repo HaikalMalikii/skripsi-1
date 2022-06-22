@@ -34,6 +34,10 @@
             th {
                 font-family: 'Roboto Condensed', sans-serif;
             }
+
+            .colour-text{
+                color: black;
+            }
         </style>
     </head>
 
@@ -56,15 +60,15 @@
                             @foreach ($Aduan as $f)
                                 <div class="card w-90">
                                     <div class="card-body">
-                                        {{-- <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                        
-                                        <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                        <p class="card-text">{{ $f->Deskripsi }}</p>
-                                        <p class="card-text">{{ Auth::user()->name }}</p>
+                                        {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
+                                        <a>
+                                        <p class="colour-text card-text"> {{ $f -> created_at ->format('d/m/Y') }}</p>
+                                        {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
+                                        <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                        <p class="colour-text card-text">{{ Auth::user()->name }}</p>
                                         <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-{{-- 
-                                        <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Comment</a> --}}
+                                        </a>
+                                            
                                         
                                     </div>
                                 </div>

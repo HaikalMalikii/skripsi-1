@@ -59,6 +59,7 @@
                             @foreach ($forum as $f)
                                 <div class="card w-90">
                                     <div class="card-body">
+                                        <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</p>
                                         <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                         <p class="card-text">{{ $f->Deskripsi }}</p>
                                         <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
