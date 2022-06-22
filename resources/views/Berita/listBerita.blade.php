@@ -1,4 +1,4 @@
-@extends('layouts.layoutsInstansi')
+@extends('layouts.app')
 
 @section('content')
     <!doctype html>
@@ -35,7 +35,7 @@
                 font-family: 'Roboto Condensed', sans-serif;
             }
 
-            .colour-text{
+            p {
                 color: black;
             }
         </style>
@@ -48,28 +48,24 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Aduan Masyarkat</h3>
+                                <h3 class="panel-title">Berita Masyarkat</h3>
                                 <div class="right">
-                                    @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @else
-                                        <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @endguest
                                 </div>
                             </div>
-                            @foreach ($Aduan as $f)
+                            @foreach ($berita as $b)
                                 <div class="card w-90">
                                     <div class="card-body">
-                                        {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                        <a>
-                                        <p class="colour-text card-text"> {{ $f -> created_at ->format('d/m/Y') }}</p>
-                                        {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                        <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                        <p class="colour-text card-text">{{ Auth::user()->name }}</p>
-                                        <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                        </a>
-                                            
-                                        
+                                        <img class="img-fluid" src="{{ asset("css/foto/$b->image") }} width="300px"
+                                            alt="..." style="float:left;padding:5px 10px 5px 10px;">
+                                        <strong>
+                                            <p class="card-text">{{ $b->judul }}</p>
+                                        </strong>
+
+                                        <p class="card-text">
+                                            {{ Illuminate\Support\Str::limit($b->description, 1000) }}</p>
+
+
+
                                     </div>
                                 </div>
                             @endforeach
