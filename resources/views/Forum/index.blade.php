@@ -37,40 +37,91 @@
             p{
                 color: black;
             }
+            .addforum{
+            background-color: lightblue;
+            padding-top: 20px;
+        }
+        .card{
+            background-color: lightblue;
+        }
+        .image{
+            width: 100%;
+            height: 100%;
+        }
         </style>
     </head>
 
     <body>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="/AddnewForum" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="container addforum">
+        <div class="form-row">
+            <div class="col-4">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-1">
+                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi"rows="4" cols="50" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group form-row justify-content-left">
+                    @guest
+                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
+                     @else
+                     <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
+                    @endguest
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+<br>
         <div class="main">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Forum Masyarkat</h3>
                                 <div class="right">
-                                    @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @else
-                                        <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @endguest
                                 </div>
                             </div>
                             @foreach ($forum as $f)
-                                <div class="card w-90">
-                                    <div class="card-body">
-                                        <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</p>
-                                        <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                        <p class="card-text">{{ $f->Deskripsi }}</p>
-                                        <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-
-                                        <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Comment</a>
-                                        <a href="/ForumDetail/{{ $f->id }}" class="btn btn-warning btn-sm">View </a>
+                            <div class="card w-90">
+                                <div class="row no-gutters">
+                                    <div class="col-md-2">
+                                    <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                            <p class="card-text">{{ $f->Deskripsi }}</p>
+                                            <p class="card-text"><small class="text-muted"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</small></p>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="card-footer">
+                                <a href="/ForumDetail/{{ $f->id }}"
+                                            class="btn btn-warning btn-sm">Comment</a>
+                                </div>
+                            </div>
                             @endforeach
-
                         </div>
                     </div>
                 </div>

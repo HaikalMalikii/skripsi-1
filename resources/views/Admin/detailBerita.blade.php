@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detail Berita</title>
+    <style>
+        .image{
+            width: 50%;
+            height: 50%;
+        }
+        .container{
+            text-align: center;
+        }
+        p{
+            text-align: justify;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,9 +35,10 @@
                                     {{-- @php
                                         dd('$b');
                                     @endphp --}}
-                                        <h3>{{ $berita->judul }}</h3>
+                                        <h1>{{ $berita->judul }}</h1>
 
                                         <div class="info-meta">
+                                        <small class="text-muted"> 
                                             <ul class="list-inline">
                                                 <li><i class="fa fa-clock-o"></i> {{ $berita->created_at }}</li>
                                                 {{-- <li><i class="fa fa-eye"></i>21k</li>
@@ -33,7 +46,11 @@
                                                 <li><i class="fa fa-user"></i> Diposting oleh Kelurahan Rempoa</li>
                                                 {{-- <li class="pull-right">Category : Education</li> --}}
                                             </ul>
+                                        </small>
                                             <hr>
+                                            <img class="image" src="{{ asset("css/foto/$berita->image") }}">
+                                            <br>
+                                            <br>
                                             <p>
                                                 {{ $berita->description }}
                                             </p>

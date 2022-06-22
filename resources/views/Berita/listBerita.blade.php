@@ -38,6 +38,13 @@
             p {
                 color: black;
             }
+            .image{
+            width: 100%;
+            height:100%;
+        }
+        .card{
+            background-color: lightblue;
+        }
         </style>
     </head>
 
@@ -53,21 +60,22 @@
                                 </div>
                             </div>
                             @foreach ($berita as $b)
-                                <div class="card w-90">
-                                    <div class="card-body">
-                                        <img class="img-fluid" src="{{ asset("css/foto/$b->image") }} width="300px"
-                                            alt="..." style="float:left;padding:5px 10px 5px 10px;">
-                                        <strong>
-                                            <p class="card-text">{{ $b->judul }}</p>
-                                        </strong>
-
-                                        <p class="card-text">
-                                            {{ Illuminate\Support\Str::limit($b->description, 1000) }}</p>
-
-
-
+                            <div class="card w-90">
+                                <div class="row no-gutters">
+                                    <div class="col-md-2">
+                                    <img class="image" src="{{ asset("css/foto/$b->image") }}" alt="" srcset="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <strong>
+                                                <a class="card-text" href="/detail-berita/{{ $b->id }}">{{ $b->judul }}</a>
+                                            </strong>
+                                            <p class="card-text"> {{ Illuminate\Support\Str::limit($b->description, 1000) }}</p>
+                                            <p class="card-text"><small class="text-muted"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</small></p>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
 
                         </div>
