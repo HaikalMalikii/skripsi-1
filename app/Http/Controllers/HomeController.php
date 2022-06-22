@@ -40,20 +40,28 @@ class HomeController extends Controller
         $berita = Berita::all();
         $Forum = Forum::all();
         $detailforum = DetailForum::all();
-
-
         if ($request->user()->hasRole('users')) {
-            //return redirect('users');
-            return view('/home')
+
+            return view('home')
                 ->with('berita', $berita)
                 ->with('forum', $Forum)
                 ->with('detailforum', $detailforum);
-        } else if ($request->user()->hasRole('admin_kelurahan')) {
+            // return redirect('users'); 
+        }
+
+        if ($request->user()->hasRole('admin_kelurahan')) {
             return redirect('/Admin.dashboardAdminKelurahan');
         } else if ($request->user()->hasRole('admin_instansi_umum')) {
             return redirect('/Admin.dashboardAdminInstansi');
         } else if ($request->user()->hasRole('punya_gue')) {
             return redirect('/Admin.dashboard');
         }
+        else{
+            return view('home')
+            ->with('berita', $berita)
+            ->with('forum', $Forum)
+            ->with('detailforum', $detailforum);
+        }
+
     }
 }

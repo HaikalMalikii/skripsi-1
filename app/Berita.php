@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     protected $table = 'berita';
-    protected $fillable = [
-        'judul', 'description','image'
-    ];
+    // protected $fillable = [
+    //     'judul', 'description','image'
+    // ];
 
-    protected $guarded = [];
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // protected $guarded = [];
 
 }

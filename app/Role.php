@@ -6,8 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+  protected $table = 'roles';
     public function users()
-  {
-      return $this->belongsToMany(User::class, 'role_users');
-  }
+    {
+       return $this->belongsToMany(User::class, 'role_users');
+    }
+
+    public function roleusers()
+    {
+      return $this->hasOne(RoleUser::class, 'role_users');
+    }
 }

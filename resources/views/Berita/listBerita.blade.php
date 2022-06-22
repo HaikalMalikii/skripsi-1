@@ -34,7 +34,8 @@
             th {
                 font-family: 'Roboto Condensed', sans-serif;
             }
-            p{
+
+            p {
                 color: black;
             }
         </style>
@@ -47,26 +48,24 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Forum Masyarkat</h3>
+                                <h3 class="panel-title">Berita Masyarkat</h3>
                                 <div class="right">
-                                    @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @else
-                                        <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @endguest
                                 </div>
                             </div>
-                            @foreach ($forum as $f)
+                            @foreach ($berita as $b)
                                 <div class="card w-90">
                                     <div class="card-body">
-                                        <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</p>
-                                        <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                        <p class="card-text">{{ $f->Deskripsi }}</p>
-                                        <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
+                                        <img class="img-fluid" src="{{ asset("css/foto/$b->image") }} width="300px"
+                                            alt="..." style="float:left;padding:5px 10px 5px 10px;">
+                                        <strong>
+                                            <p class="card-text">{{ $b->judul }}</p>
+                                        </strong>
 
-                                        <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Comment</a>
-                                        <a href="/ForumDetail/{{ $f->id }}" class="btn btn-warning btn-sm">View </a>
+                                        <p class="card-text">
+                                            {{ Illuminate\Support\Str::limit($b->description, 1000) }}</p>
+
+
+
                                     </div>
                                 </div>
                             @endforeach

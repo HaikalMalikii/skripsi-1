@@ -15,17 +15,26 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-
+// Route::get('/', 'HomeController@view')->name('home');
 // Route::get('/',[HomeController::class,'view']);
+
+
+
+
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-// Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
-// Route::post('user/login', 'Auth\AdminAuthController@postLogin');
+Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
+Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 
 
+
+
+//NAVBAR
+Route::get('/forum', 'ForumController@index');
 Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/', 'HomeController@view')->name('home');
+Route::get('/berita', 'BeritaController@listBerita');
 
 ///Route Aduan
 Route::get('/AddAduan', function () {
@@ -58,7 +67,7 @@ Route::get('/Admin.dashboardAdminKelurahan', function () {
     return view('Admin.dashboardAdminKelurahan');
 });
 
-Route::get('/detail-berita', 'BeritaController@detailBerita');
+Route::get('/detail-berita/{id}', 'BeritaController@detailBerita');
 
 Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
@@ -71,10 +80,12 @@ Route::get('/admin-forum', 'ForumController@index');
 ///Login Google
 Route::get('/auth/redirect', 'Auth\LoginController@redirectToProvider');
 Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');
-
+/// Aduan
+Route::get('/Aduan', 'AduanController@view');
+Route::get('/AduanDetail/{id}', 'AduanController@AduanDetail');
 
 /// Forum
-Route::get('/forum', 'ForumController@index');
+
 Route::get('/ForumDetail/{id}', 'ForumController@ForumDetail');
 Route::get('/posts.add', 'ForumController@index');
 Route::get('/addforum', function () {

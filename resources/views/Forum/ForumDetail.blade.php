@@ -45,7 +45,9 @@
 
                 </div> --}}
                 @foreach ($data as $k)
-                    <p class="card-text">{{ $k->IDUser }}</p>
+                    <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('D/M/Y') : Auth::user()->email }}
+                    </p>
+                    <p class="card-text">{{ Auth::user()->name }}</p>
                     <p class="card-text">{{ $k->Komentar }}</p>
                 @endforeach
 

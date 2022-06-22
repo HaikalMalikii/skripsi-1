@@ -83,9 +83,11 @@
         @foreach ($berita as $b)
             <div class="card w-90">
                 <div class="card-body">
+                    <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</p>
                     <td>
                         <img class="img-fluid" src="{{ asset("css/foto/$b->image") }}" alt="">
                     </td>
+                    
                     <a class="card-title" href="/Berita/{{ $b->id }}">{{ $b->judul }}</a>
                     <p class="card-text">{{ $b->description }}</p>
                     <td>

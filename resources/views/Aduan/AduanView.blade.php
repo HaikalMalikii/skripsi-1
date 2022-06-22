@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layoutsInstansi')
 
 @section('content')
     <!doctype html>
@@ -34,7 +34,8 @@
             th {
                 font-family: 'Roboto Condensed', sans-serif;
             }
-            p{
+
+            .colour-text{
                 color: black;
             }
         </style>
@@ -47,7 +48,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Forum Masyarkat</h3>
+                                <h3 class="panel-title">Aduan Masyarkat</h3>
                                 <div class="right">
                                     @guest
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
@@ -56,17 +57,19 @@
                                     @endguest
                                 </div>
                             </div>
-                            @foreach ($forum as $f)
+                            @foreach ($Aduan as $f)
                                 <div class="card w-90">
                                     <div class="card-body">
-                                        <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</p>
-                                        <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                        <p class="card-text">{{ $f->Deskripsi }}</p>
+                                        {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
+                                        <a>
+                                        <p class="colour-text card-text"> {{ $f -> created_at ->format('d/m/Y') }}</p>
+                                        {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
+                                        <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                        <p class="colour-text card-text">{{ Auth::user()->name }}</p>
                                         <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-
-                                        <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Comment</a>
-                                        <a href="/ForumDetail/{{ $f->id }}" class="btn btn-warning btn-sm">View </a>
+                                        </a>
+                                            
+                                        
                                     </div>
                                 </div>
                             @endforeach

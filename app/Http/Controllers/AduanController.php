@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aduan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -17,29 +18,54 @@ class AduanController extends Controller
 
         $users = Auth::id();
         $validasi = Validator::make($request->all(),[
-            'AddAduanJudul'=>'required|string|max:20',
-            'AddAduanBagian'=>'required|string',
-            'AddAduanDeskripsi'=>'required|string',
-            'AddAduanGambar'=>'required|image'
+            'Judul'=>'string|max:20',
+            'Bagian'=>'required|string',
+            'Deskripsi'=>'required|string',
+            'Gambar'=>'required|image'
         ]);
         if ($validasi->fails()) {
             return redirect('/AddAduan')
                 ->withErrors($validasi)
                 ->withInput();
         }
-        $photo = $request->file('AddAduanGambar');
+        $photo = $request->file('Gambar');
         $photo->move(public_path('/css/foto'),$photo->getClientOriginalName());
         $Tanggal_now =  Carbon::now();
-        DB::table('pengaduan')->insert(
-            [   'Bagian'=>$request->AddAduanBagian,
-                'Deskripsi'=>$request->AddAduanDeskripsi,
-                'Judul'=>$request->AddAduanJudul,
-                'Gambar'=>$photo->getClientOriginalName(),
-                'IDUser' => $request->user()-> id,
+        // DB::table('pengaduan')->insert(
+        //     [   'Bagian'=>$request->AddAduanBagian,
+        //         'Deskripsi'=>$request->AddAduanDeskripsi,
+        //         'Judul'=>$request->AddAduanJudul,
+        //         'Gambar'=>$photo->getClientOriginalName(),
+        //         'IDUser' => $request->user()-> id,
 
-            ]);
-        return redirect('/home');
+        //     ]);
+
+        $Aduan = new Aduan;
+        $Aduan -> Bagian = $request->Bagian;
+        $Aduan -> Judul = $request->Judul;
+        $Aduan -> Deskripsi = $request->Deskripsi;
+        $Aduan -> Gambar = $request->Gambar;
+        $Aduan -> IDUser = $request->user()->id;
+        $Aduan -> save();
+        return redirect('/');
 
 
+    }
+
+    public function view()
+    {
+        $Aduan = Aduan::paginate(10);
+        //dd($forum);
+        // $x = new DetailForum();
+        // $komentar = Komentar::where('IDDetForum','=', $x->id)->first();
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+    }
+
+    public function AduanDetail(Request $request,$id)
+    {
+
+            $AduanDetail =  Aduan::find($id);
+            return view('Aduan.AduanDetail',compact('AduanDetail'));
+        
     }
 }
