@@ -110,7 +110,7 @@
                             <img style="" class="img img-fluid p-2 rounded-lg"
                                 src="{{ asset("css/foto/$b->image") }}" alt="">
                             <p class="card-text">{{ Illuminate\Support\Str::limit($b->description, 100) }}</p>
-                            <a href="/detail-berita" class="btn btn-primary">Lihat Detail Berita</a>
+                            <a href="/detail-berita/{{ $b->slug }}" class="btn btn-primary">Lihat Detail Berita</a>
                         </div>
                     </div>
                 </div>

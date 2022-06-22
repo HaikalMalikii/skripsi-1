@@ -67,7 +67,7 @@ Route::get('/Admin.dashboardAdminKelurahan', function () {
     return view('Admin.dashboardAdminKelurahan');
 });
 
-Route::get('/detail-berita', 'BeritaController@detailBerita');
+Route::get('/detail-berita/{slug}', 'BeritaController@detailBerita');
 
 Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');

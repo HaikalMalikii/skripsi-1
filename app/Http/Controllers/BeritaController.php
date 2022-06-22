@@ -14,9 +14,9 @@ class BeritaController extends Controller
         return view('Berita.listBerita')->with('berita', $berita);
     }
 
-    public function detailBerita()
+    public function detailBerita($slug)
     {
-        $berita = Berita::all();
+        $berita = Berita::where('slug', $slug)->first();
 
         return view('Admin.detailBerita')->with('berita', $berita);
     }
