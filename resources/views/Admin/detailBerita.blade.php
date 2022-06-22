@@ -19,12 +19,15 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="post-detail">
-                                    @foreach ($berita as $b)
-                                        <h3>{{ $b->judul }}</h3>
+                                    
+                                    {{-- @php
+                                        dd('$b');
+                                    @endphp --}}
+                                        <h3>{{ $berita->judul }}</h3>
 
                                         <div class="info-meta">
                                             <ul class="list-inline">
-                                                <li><i class="fa fa-clock-o"></i> {{ $b->created_at }}</li>
+                                                <li><i class="fa fa-clock-o"></i> {{ $berita->created_at }}</li>
                                                 {{-- <li><i class="fa fa-eye"></i>21k</li>
                                                 <li><i class="fa fa-heart-o"></i>372</li> --}}
                                                 <li><i class="fa fa-user"></i> Diposting oleh Kelurahan Rempoa</li>
@@ -32,10 +35,10 @@
                                             </ul>
                                             <hr>
                                             <p>
-                                                {{ $b->description }}
+                                                {{ $berita->description }}
                                             </p>
                                         </div>
-                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>

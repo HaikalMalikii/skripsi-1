@@ -75,7 +75,7 @@
                                 <img style="" class="img img-fluid p-2 rounded-lg"
                                     src="{{ asset("css/foto/$df->Gambar") }}" alt="">
                                 <p class="card-text">{{ $df->Deskripsi }}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Go somewhere</a>
                             </div>
                         </div>
 
@@ -107,10 +107,12 @@
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ $b->judul }}</h5>
+                            <h5 class="card-title">{{ $b->id }}</h5>
+                            
                             <img style="" class="img img-fluid p-2 rounded-lg"
                                 src="{{ asset("css/foto/$b->image") }}" alt="">
                             <p class="card-text">{{ Illuminate\Support\Str::limit($b->description, 100) }}</p>
-                            <a href="/detail-berita/{{ $b->slug }}" class="btn btn-primary">Lihat Detail Berita</a>
+                            <a href="/detail-berita/{{ $b->id }}" class="btn btn-warning btn-sm">Lihat Detail Berita</a>
                         </div>
                     </div>
                 </div>

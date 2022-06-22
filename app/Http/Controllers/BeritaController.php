@@ -14,10 +14,10 @@ class BeritaController extends Controller
         return view('Berita.listBerita')->with('berita', $berita);
     }
 
-    public function detailBerita($slug)
+    public function detailBerita($id)
     {
-        $berita = Berita::where('slug', $slug)->first();
+        $berita =  Berita::findOrFail($id);
 
-        return view('Admin.detailBerita')->with('berita', $berita);
+        return view('Admin.detailBerita',compact('berita'));
     }
 }
