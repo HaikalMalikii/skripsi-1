@@ -21,12 +21,12 @@ use App\Http\Controllers\HomeController;
 
 
 
-// Route::get('/',[HomeController::class,'view']);
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-// Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
-// Route::post('user/login', 'Auth\AdminAuthController@postLogin');
+Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
+Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 
 
 Route::get('/', 'HomeController@index')->name('home');
