@@ -53,40 +53,50 @@ class ForumController extends Controller
 
         $users = Auth::id();
         $validasi = Validator::make($request->all(),[
-            'forumjuduladd'=>'required|string|max:20',
-            'aspirasi'=>'required|string|max:200',
-            'imageforumadd'=>'required|image'
+            'Judul'=>'required|string|max:20',
+            'Deskripsi'=>'required|string|max:200',
+            'Gambar'=>'required|image'
         ]);
         if ($validasi->fails()) {
             return redirect('/addforum')
                 ->withErrors($validasi)
                 ->withInput();
         }
-        $photo = $request->file('imageforumadd');
+        $photo = $request->file('Gambar');
         $photo->move(public_path('/css/foto'),$photo->getClientOriginalName());
         $Tanggal_now =  Carbon::now();
         $user = Auth::user();
 
 
 
-        DB::table('forum')->insert(
-            [
-                'IDUser' => $user->id,
-                'created_at' => $Tanggal_now,
-                'updated_at' => $Tanggal_now
-            ]);
+        // DB::table('forum')->insert(
+        //     [
+        //         'IDUser' => $user->id,
+        //         'created_at' => $Tanggal_now,
+        //         'updated_at' => $Tanggal_now
+        //     ]);
+        $ForumInsert = new Forum;
+        $ForumInsert -> IDUser = $request->user()->id;
+        $ForumInsert -> save();
+        
+        // DB::table('detailforum')->insert(
+        //     [
+
+        //         'IDForum' => $forum->id,
+        //         'Deskripsi' => $request -> aspirasi,
+        //         'Judul' => $request -> forumjuduladd,
+        //         'Gambar' =>$request -> imageforumadd -> getClientOriginalName(),
+        //         'created_at' => $Tanggal_now,
+        //         'updated_at' => $Tanggal_now
+
+        //     ]);
         $forum = Forum::latest()->first();
-        DB::table('detailforum')->insert(
-            [
-
-                'IDForum' => $forum->id,
-                'Deskripsi' => $request -> aspirasi,
-                'Judul' => $request -> forumjuduladd,
-                'Gambar' =>$request -> imageforumadd -> getClientOriginalName(),
-                'created_at' => $Tanggal_now,
-                'updated_at' => $Tanggal_now
-
-            ]);
+        $DetailForum = new DetailForum;
+        $DetailForum -> IDForum = $forum->id;
+        $DetailForum -> Deskripsi = $request -> Deskripsi;
+        $DetailForum -> Gambar = $request -> Gambar -> getClientOriginalName();
+        $DetailForum -> Judul = $request -> Judul;
+        $DetailForum -> save();
 
         return redirect('/forum');
 
@@ -115,20 +125,14 @@ class ForumController extends Controller
         $request->validate([
         'comment'=>'required'
         ]);
-        // $data = new Komentar;
-        // $data->IDDetForum = $id;
-        // $data->IDUser=$request->user()->id;
-        // $data->Aspirasi_Komen = $request->comment;
-        // $data->save();
-        DB::table('komentar')->insert(
-            [
-                'IDDetForum' => $id,
-                'IDUser' => $request->user()->id,
-                'Komentar' =>$request -> comment
-            ]);
-        // $forum = DetailForum::all();
-        // $komentar = Komentar::where('IDDetForum','=',$id)->first();
-        // return view('ForumDetail', compact(['test']));
+
+
+        $Komentar = new Komentar;
+        $Komentar -> IDDetForum = $id;
+        $Komentar -> IDUser = $request->user()->id;
+        $Komentar -> Komentar =  $request -> comment;
+        $Komentar -> save();
+
         return redirect('/forum');
 
     }

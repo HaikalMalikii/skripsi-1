@@ -45,7 +45,7 @@
 
                 </div> --}}
                 @foreach ($data as $k)
-                    <p class="card-text">{{ $k->IDUser }}</p>
+                    <p class="card-text">{{ Auth::user()->name }}</p>
                     <p class="card-text">{{ $k->Komentar }}</p>
                 @endforeach
 

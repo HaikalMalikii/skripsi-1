@@ -59,16 +59,26 @@ class AdminKelurahanController extends Controller
             $destinationPath = 'css/foto/';
             $file->move($destinationPath, $request->image->getClientOriginalName());
 
-            Berita::where('id', $berita_id)->update([
-                'judul' => $request->judul,
-                'description' => $request->description,
-                'image' => $request->image->getClientOriginalName()
-            ]);
+            // Berita::where('id', $berita_id)->update([
+            //     'judul' => $request->judul,
+            //     'description' => $request->description,
+            //     'image' => $request->image->getClientOriginalName()
+            // ]);
+
+            $Berita = new Berita;
+            $Berita -> judul = $request->judul;
+            $Berita -> description = $request->description;
+            $Berita -> image = $request->image;
+
+            $Berita -> save();
+
         } else {
-            Berita::where('id', $berita_id)->update([
-                'judul' => $request->judul,
-                'description' => $request->description
-            ]);
+            $Berita = new Berita;
+            $Berita -> judul = $request->judul;
+            $Berita -> description = $request->description;
+            
+
+            $Berita -> save();
         }
 
         return redirect('/admin-berita');

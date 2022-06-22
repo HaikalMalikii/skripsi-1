@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="AddAduanJudulID" name="AddAduanJudul" placeholder="Judul">
+                            <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-8">
-                            <select name="AddAduanBagian" id="AddAduanBagianID" class="form-control select2" >
+                            <select name="Bagian" id="AddAduanBagianID" class="form-control select2" >
                             <option selected>Bagian...</option>
                                 <option value ="Kebersihan"> Kebersihan</option>
                                 <option value ="Kesehatan"> Kesehatan</option>
@@ -70,7 +70,7 @@
                             <label for="exampleGroupExampleInput">Gambar</label>
                         </div>
                         <div>
-                            <input type="file" class="form-control-file" id="AddAduanGambarID" name="AddAduanGambar" >
+                            <input type="file" class="form-control-file" id="AddAduanGambarID" name="Gambar" >
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
 
             <div class="col-4">
             <!-- <input type="text" class="form-control" placeholder="Deskripsi" rows="5"> -->
-            <textarea type="text" class="form-control" placeholder="Deskripsi" rows="5" id="comment"></textarea>
+            <textarea type="text" class="form-control" placeholder="Deskripsi" rows="5" name="Deskripsi" id="comment"></textarea>
             </div>
         </div>
     </div>

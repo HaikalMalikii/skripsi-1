@@ -57,8 +57,10 @@
                                 <div class="card w-90">
                                     <div class="card-body">
                                         {{-- <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                        <a href=#>{{ $f->Judul }}</a>
+                                        
+                                        <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                         <p class="card-text">{{ $f->Deskripsi }}</p>
+                                        <p class="card-text">{{ Auth::user()->name }}</p>
                                         <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
 {{-- 
                                         <a href="/ForumDetail/{{ $f->id }}"

@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="AddAduanJudulID" name="AddAduanJudul" placeholder="Judul">
+                            <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-1">
-                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="aspirasi"rows="4" cols="50" ></textarea>
+                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi"rows="4" cols="50" ></textarea>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                             <label for="exampleGroupExampleInput">Gambar</label>
                         </div>
                         <div>
-                            <input type="file" class="form-control-file" id="imageforumaddid" name="imageforumadd">
+                            <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
                             
                         </div>
                     </div>
