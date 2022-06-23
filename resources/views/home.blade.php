@@ -74,10 +74,40 @@
                     </p>
                     <a class="btn btn-primary btn-lg" type="button" href="/AddAduan"><img src="css/foto/lapor.png"
                             alt="lapor">Lapor</a>
+                    <a class="btn btn-primary btn-lg" type="button" href="/AduanViewUser/{{ Auth::user()->id }} "><img src="css/foto/lapor.png"
+                            alt="lapor">List Aduan</a>
                     <a class="btn btn-primary btn-lg" type="button" href="/addforum"><img src="css/foto/forum.png"
                             alt="lapor">Forum</a>
                     <a class="btn btn-primary btn-lg" type="button" href="/berita"><img src="css/foto/news.png"
                             alt="lapor">Berita</a>
+                            <p class="lead my-3">Aduan Terakhir Anda
+                        @foreach ($data as $f)
+                        
+                            <div class="card w-90">
+                                <a href="/AduanDetail/{{ $f->id }}"  class=" text-decoration-none">
+                                
+                                
+                                <div class="card-body">
+                                    
+                                    </p>
+                                    
+                                        
+                                    
+                                    {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
+                                    <p>Oleh :{{ $f->name }}</p>
+                                    <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($f->created_at)) }}</p>
+                                    
+                                    
+                                    <p class="colour-text card-text">{{ $f->Judul }}</p>
+                                    
+                                    {{-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> --}}
+                                    
+                                    @endforeach
+                                        
+                                    
+                                </div>
+                            </div>
+                        </a>
                 </div>
 
                     <div class="col-sm-3 sidenav">

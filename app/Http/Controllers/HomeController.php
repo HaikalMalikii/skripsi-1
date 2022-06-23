@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Aduan;
 use Illuminate\Http\Request;
 use App\Berita;
 use App\Forum;
 use App\DetailForum;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -40,12 +43,20 @@ class HomeController extends Controller
         $berita = Berita::all();
         $Forum = Forum::all();
         $detailforum = DetailForum::all();
+        $id = Auth::id();
+        // $AduanList = Aduan::where('IDUser', $id)->get();
+        $Aduan = DB::table('pengaduan')
+        ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+        ->where('pengaduan.IDUser','users.id')
+        ->select('users.*', 'users.name','pengaduan.id', 'pengaduan.bagian','pengaduan.Judul','pengaduan.Gambar','pengaduan.Deskripsi','pengaduan.created_at')
+        ->get();
         if ($request->user()->hasRole('users')) {
 
             return view('home')
                 ->with('berita', $berita)
                 ->with('forum', $Forum)
-                ->with('detailforum', $detailforum);
+                ->with('detailforum', $detailforum)
+                ->with('data',$Aduan);
             // return redirect('users'); 
         }
 

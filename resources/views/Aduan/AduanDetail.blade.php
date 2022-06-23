@@ -23,11 +23,22 @@
             </div>
             <div class="card w-90">
                 <div class="card-body">
+                    @foreach ($AduanDetail as $AduanDetail)
+                        
+                    <h4 class="card-reader">Oleh : {{ $AduanDetail->name }} </h4>
                     <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="" srcset="">
                     <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
                     <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
-                    <h4 class="card-reader"> {{ $AduanDetail->User_Id }} </h4>
+                    
+                    <form action="/Status/{{ $AduanDetail -> id }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject </button>
+                        <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve </button>
+                        <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button>
+                    </form>
                 </div>
+                @endforeach
 
                 {{-- <div class="card my-5">
                     <h5 class="card-header">Add Comment</h5>

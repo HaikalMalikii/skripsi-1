@@ -53,6 +53,7 @@ class User extends Authenticatable
     public function aduan()
     {
         return $this->hasMany(Aduan::class);
+        
     }
     public function berita()
     {

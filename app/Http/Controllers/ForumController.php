@@ -27,10 +27,12 @@ class ForumController extends Controller
     }
     public function index()
     {
-        $forum = DetailForum::paginate(10);
-        //dd($forum);
-        // $x = new DetailForum();
-        // $komentar = Komentar::where('IDDetForum','=', $x->id)->first();
+        // $forum = DetailForum::all();
+        $forum = DB::table('forum')
+        ->join('users', 'users.id', '=', 'forum.IDUser')
+        ->join('detailforum','detailforum.IDForum', '=' ,'forum.id')
+        ->select('users.*', 'users.name','detailforum.id','detailforum.Judul','detailforum.Gambar','detailforum.Deskripsi','detailforum.created_at')
+        ->get();
         return view('Forum.index',compact((['forum'])));
     }
     public function IndexComments()
@@ -49,13 +51,11 @@ class ForumController extends Controller
 
     public function AddForum(Request $request, Forum $forum)
     {
-
-
         $users = Auth::id();
         $validasi = Validator::make($request->all(),[
             'Judul'=>'required|string|max:20',
             'Deskripsi'=>'required|string|max:200',
-            'Gambar'=>'required|image'
+            'Gambar'=>'image'
         ]);
         if ($validasi->fails()) {
             return redirect('/forum')
@@ -105,18 +105,21 @@ class ForumController extends Controller
 
     public function ForumDetail(Request $request,$ForumID)
     {
-        $ForumDetail =  DetailForum::find($ForumID);
-        // $ForumDetail = DetailForum::all();
-        //dd($ForumDetail);
-        // $data = DB::table('detailforum')
-        // ->join('komentar', 'komentar.IDDetForum', '=', 'detailforum.id')
-        // ->get();
-        // $komentar = DetailForum::where('id',$ForumID)->first()->Komentar()->all();
-        $data = Komentar::where('IDDetForum', $ForumID)->get();
-        // $data = Komentar::where('');
-        // dd($komentar);
-        // return view ('Forum.ForumDetail', ['ForumDetail'=>$ForumDetail]);
-        return view('Forum.ForumDetail', compact('ForumDetail', 'data'));
+        // $ForumDetail =  DetailForum::find($ForumID);
+        // $data = Komentar::where('IDDetForum', $ForumID)->get();
+        $ForumDetail = DB::table('detailforum')
+        ->join('forum', 'forum.id', '=', 'detailforum.IDForum')
+        ->join('users','users.id', '=' ,'forum.IDUser')
+        ->where('detailforum.id',$ForumID)
+        ->select('users.*', 'users.name','detailforum.Judul','detailforum.Deskripsi','detailforum.Gambar as gambar','detailforum.created_at','detailforum.id' )
+        ->first();
+        $data = DB::table('komentar')
+        ->join('users', 'users.id', '=', 'komentar.IDUser')
+        ->where('komentar.IDDetForum',$ForumID)
+        ->select('users.*', 'users.name','komentar.id','komentar.Komentar','komentar.created_at')
+        ->get();
+        // dd($ForumDetail->gambar);
+        return view('Forum.ForumDetail', compact('ForumDetail','data'));
     }
 
 
@@ -126,7 +129,7 @@ class ForumController extends Controller
         'comment'=>'required'
         ]);
 
-
+        // dd($id);
         $Komentar = new Komentar;
         $Komentar -> IDDetForum = $id;
         $Komentar -> IDUser = $request->user()->id;

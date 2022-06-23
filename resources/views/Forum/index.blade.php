@@ -80,6 +80,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleGroupExampleInput">Gambar</label>
+                        </div>
+                        <div>
+                            <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
+                            
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="form-group form-row justify-content-left">
                     @guest
@@ -110,9 +121,12 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <a href="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                            <p class="card-text">{{ $f->Deskripsi }}</p>
-                                            <p class="card-text"><small class="text-muted"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</small></p>
+                                            <p class="colour-text card-text">Dibuat  : {{ date("Y-m-d H:i:s", strtotime($f->created_at)) }}</p>
+                                            {{-- <a href="/ForumDetail/{{ $f->id }}">Judul : {{ $f->Judul }}</a> --}}
+                                            <p>Judul : {{ $f->Judul }}</p>
+                                            <p class="card-text">Deskripsi :{{ $f->Deskripsi }}</p>
+                                            <p class="card-text">Forum Oleh :{{ $f->name }}</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
