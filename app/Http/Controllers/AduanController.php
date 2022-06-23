@@ -66,8 +66,16 @@ class AduanController extends Controller
     public function AduanDetail(Request $request,$id)
     {
         
-            $AduanDetail =  Aduan::find($id);
+            // $AduanDetail =  Aduan::find($id);
             // dd($AduanDetail);
+            $AduanDetail = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->where('pengaduan.id', $id)
+            ->select('users.*', 'users.name','pengaduan.id', 'pengaduan.bagian','pengaduan.Judul','pengaduan.Gambar','pengaduan.Deskripsi','pengaduan.created_at')
+            ->get();
+            
+            
+            //  dd($AduanDetail);
             return view('Aduan.AduanDetail',compact('AduanDetail'));
         
     }

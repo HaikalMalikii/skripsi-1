@@ -23,10 +23,11 @@
             </div>
             <div class="card w-90">
                 <div class="card-body">
-                    <img src="{{ asset("css/foto/$ForumDetail->Gambar") }}" alt="" srcset="">
+                    <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
                     <h4 class="card-reader"> {{ $ForumDetail->Judul }} </h4>
                     <h3 class="card-reader"> {{ $ForumDetail->Deskripsi }} </h3>
-                    <h4 class="card-reader"> {{ $ForumDetail->User_Id }} </h4>
+                    <h4 class="card-reader"> Forum Oleh :{{ $ForumDetail->name }} </h4>
+                    
                 </div>
                 <div class="text-xl-center">
                     <strong>
@@ -45,10 +46,11 @@
 
                 </div> --}}
                 @foreach ($data as $k)
-                    <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('D/M/Y') : Auth::user()->email }}
+                <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($k->created_at)) }}</p>
                     </p>
-                    <p class="card-text">{{ Auth::user()->name }}</p>
+                    <p class="card-text">Komentar Oleh :{{ $k->name }}</p>
                     <p class="card-text">{{ $k->Komentar }}</p>
+                    
                 @endforeach
 
                 <div class="card my-5">

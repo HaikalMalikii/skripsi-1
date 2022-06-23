@@ -81,10 +81,12 @@
                     <a class="btn btn-primary btn-lg" type="button" href="/berita"><img src="css/foto/news.png"
                             alt="lapor">Berita</a>
                             <p class="lead my-3">Aduan Terakhir Anda
+                        @foreach ($data as $f)
+                        
                             <div class="card w-90">
+                                <a href="/AduanDetail/{{ $f->id }}"  class=" text-decoration-none">
                                 
-                                    @foreach ($data as $f)
-                                    <a href="/AduanDetail/{{ $f->id }}"  class="stretched-link text-decoration-none">
+                                
                                 <div class="card-body">
                                     
                                     </p>
@@ -92,8 +94,8 @@
                                         
                                     
                                     {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                    
-                                    <p class="colour-text card-text"> {{ $f -> created_at ->format('d/m/Y') }}</p>
+                                    <p>Oleh :{{ $f->name }}</p>
+                                    <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($f->created_at)) }}</p>
                                     
                                     
                                     <p class="colour-text card-text">{{ $f->Judul }}</p>
@@ -105,7 +107,7 @@
                                     
                                 </div>
                             </div>
-                            </a>
+                        </a>
                 </div>
 
                     <div class="col-sm-3 sidenav">
