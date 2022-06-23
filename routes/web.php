@@ -41,7 +41,8 @@ Route::get('/AddAduan', function () {
     return view('Aduan.AddAduan');
 });
 Route::post('/AddAduan', 'AduanController@AddAduan');
-
+Route::get('/AduanViewUser/{id}','AduanController@viewUser');
+Route::post('/Status/{id}','AduanController@Status');
 
 ////cek
 

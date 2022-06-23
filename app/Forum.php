@@ -11,7 +11,7 @@ class Forum extends Model
 
     public function JoinUserForum ()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
     public function JoinDetailForum ()
     {

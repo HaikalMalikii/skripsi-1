@@ -1,4 +1,4 @@
-@extends('layouts.layoutsInstansi')
+@extends('layouts.app')
 
 @section('content')
     <!doctype html>
@@ -49,30 +49,32 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Aduan Masyarkat</h3>
-                                {{-- <div class="right">
+                                <div class="right">
                                     @guest
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
                                     @else
                                         <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
                                     @endguest
-                                </div> --}}
+                                </div>
                             </div>
-                            @foreach ($Aduan as $f)
+                            @foreach ($data as $f)
                                 <div class="card w-90">
-                                    <a href="/AduanDetail/{{ $f->id }}"  class="stretched-link text-decoration-none">
                                     <div class="card-body">
-                                        
+                                        {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
                                         <a>
-                                        <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($f->created_at)) }}</p>
-                                        <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                        <p class="colour-text card-text"> {{ $f -> created_at ->format('d/m/Y') }}</p>
+                                        {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
+                                        <p class="colour-text card-text">{{ Auth::user()->name }}</p>
+                                        <p class="colour-text card-text">{{ $f->Judul }}</p>
+                                        <p class="colour-text card-text">{{ $f->Bagian }}</p>
+                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
                                         <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                        <p class="colour-text card-text">{{ $f->name }}</p>
+                                        <p class="colour-text card-text">{{ $f->Persetujuan }}</p>
                                         <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
                                         </a>
                                             
                                         
                                     </div>
-                                    </a>
                                 </div>
                             @endforeach
 

@@ -54,18 +54,61 @@ class AduanController extends Controller
 
     public function view()
     {
-        $Aduan = Aduan::paginate(10);
-        //dd($forum);
-        // $x = new DetailForum();
-        // $komentar = Komentar::where('IDDetForum','=', $x->id)->first();
+        $Aduan = DB::table('pengaduan')
+        ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+        ->select('users.*', 'users.name','pengaduan.id', 'pengaduan.bagian','pengaduan.Judul','pengaduan.Gambar','pengaduan.Deskripsi','pengaduan.created_at')
+        ->get();
+        // dd($Aduan->first());
+        
         return view('Aduan.AduanView')->with('Aduan', $Aduan);
     }
 
     public function AduanDetail(Request $request,$id)
     {
-
+        
             $AduanDetail =  Aduan::find($id);
+            // dd($AduanDetail);
             return view('Aduan.AduanDetail',compact('AduanDetail'));
         
+    }
+
+    public function viewUser(Request $request,$id)
+    {
+        
+        $data = Aduan::where('IDUser', $id)->get();
+        return view('Aduan.AduanViewUser', compact('data'));
+    }
+
+    public function Status(Request $request,$id)
+    {
+        $request->input('status');
+
+        if($request->status==("Approve"))
+        {
+            
+            $Aduan = Aduan::find($id);
+            $Aduan -> Persetujuan = 1;
+            $Aduan -> save();
+        }
+
+        if($request->status==("Reject"))
+        {
+            
+            $Aduan = Aduan::find($id);
+            $Aduan -> Persetujuan = 2;
+            $Aduan -> save();
+        }
+
+        if($request->status==("Pending"))
+        {
+            
+            $Aduan = Aduan::find($id);
+            $Aduan -> Persetujuan = 3;
+            $Aduan -> save();
+        }
+        // dd($request->input('status'));
+        return redirect('/');
+
+
     }
 }

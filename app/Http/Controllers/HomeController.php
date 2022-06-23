@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Aduan;
 use Illuminate\Http\Request;
 use App\Berita;
 use App\Forum;
 use App\DetailForum;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -40,12 +42,15 @@ class HomeController extends Controller
         $berita = Berita::all();
         $Forum = Forum::all();
         $detailforum = DetailForum::all();
+        $id = Auth::id();
+        $AduanList = Aduan::where('IDUser', $id)->get();
         if ($request->user()->hasRole('users')) {
 
             return view('home')
                 ->with('berita', $berita)
                 ->with('forum', $Forum)
-                ->with('detailforum', $detailforum);
+                ->with('detailforum', $detailforum)
+                ->with('data',$AduanList);
             // return redirect('users'); 
         }
 

@@ -49,8 +49,6 @@ class ForumController extends Controller
 
     public function AddForum(Request $request, Forum $forum)
     {
-
-
         $users = Auth::id();
         $validasi = Validator::make($request->all(),[
             'Judul'=>'required|string|max:20',
