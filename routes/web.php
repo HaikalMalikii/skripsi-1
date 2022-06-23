@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +30,7 @@ Auth::routes();
 Route::get('user/login', 'Auth\AdminAuthController@getLogin')->name('user.login');
 Route::post('user/login', 'Auth\AdminAuthController@postLogin');
 
-
+Route::get('about', 'UsersController@about');
 
 
 //NAVBAR

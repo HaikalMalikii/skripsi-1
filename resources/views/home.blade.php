@@ -35,8 +35,8 @@
             }
 
             .container {
-                margin-top: 50px;
-                margin-left: 20px;
+                margin-top: 30px;
+                margin-left: 30px;
             }
 
             h1 {
@@ -46,13 +46,28 @@
             h2 {
                 margin: 20px;
             }
+            .col-sm-3{
+                background-color: white;
+            }
+            .col-sm-8{
+                margin-top: 50px;
+                margin-left: 50px;
+                margin-right: 80px;
+            }
+            .image{
+            width: 100%;
+            height:100%;
+        }
+        .jumbotron{
+            background-color: white;
+        }
         </style>
     </head>
 
     <body>
         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                     <h1 class="display-4">WELCOME TO LAPORIN</h1>
                     <p class="lead my-3">menyediakan berbagai kemudahan bagi anda untuk berinetraksi dan menyampaikan
                         keluhan
@@ -92,47 +107,49 @@
                             </div>
                             </a>
                 </div>
-                @foreach ($detailforum as $df)
+
                     <div class="col-sm-3 sidenav">
                         <div class="well">
                             <h4 class="text-center">FORUM MASYARAKAT</h4>
                         </div>
+                        @foreach ($detailforum as $df)
                         <div class="card text-center" style="width: 100%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $df->Judul }}</h5>
-                                <img style="" class="img img-fluid p-2 rounded-lg"
-                                    src="{{ asset("css/foto/$df->Gambar") }}" alt="">
+                                <!-- <img style="" class="img img-fluid p-2 rounded-lg"
+                                    src="{{ asset("css/foto/$df->Gambar") }}" alt=""> -->
                                 <p class="card-text">{{ $df->Deskripsi }}</p>
-                                <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Go somewhere</a>
+                                <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Check it out</a>
                             </div>
                         </div>
-
-                        {{-- <div class="card text-center" style="width: 100%;">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="card text-center" style="width: 100%;">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div> --}}
+                        @endforeach
                     </div>
-                @endforeach
-
             </div>
         </div>
-        @foreach ($berita as $b)
+<br>
             <div class="jumbotron text-center" style="margin-bottom:0">
                 <h4 class="text-center mt-3">BERITA TERKINI</h4>
                 <div class="d-flex justify-content-center">
-                    <div class="card" style="width: 20rem;">
+                    <div class="card-group">
+                    @foreach ($berita as $b)
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                            <img class="image"
+                                src="{{ asset("css/foto/$b->image") }}" alt="">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $b->judul }}</h5>
+                                <p class="card-text">{{ Illuminate\Support\Str::limit($b->description, 100) }}</p>
+                                <p class="card-text"><small class="text-muted"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</small></p>
+                                <a href="/detail-berita/{{ $b->id }}" class="btn btn-warning btn-sm">Lihat Detail Berita</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+<br>
+                    <!-- <div class="card" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ $b->judul }}</h5>
                             <h5 class="card-title">{{ $b->id }}</h5>
@@ -142,10 +159,13 @@
                             <p class="card-text">{{ Illuminate\Support\Str::limit($b->description, 100) }}</p>
                             <a href="/detail-berita/{{ $b->id }}" class="btn btn-warning btn-sm">Lihat Detail Berita</a>
                         </div>
+                    </div> -->
+                    @endforeach
                     </div>
+                    
                 </div>
             </div>
-        @endforeach
+
 
     </body>
 @endsection

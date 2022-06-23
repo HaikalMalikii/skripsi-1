@@ -56,7 +56,7 @@ class ForumController extends Controller
             'Gambar'=>'required|image'
         ]);
         if ($validasi->fails()) {
-            return redirect('/addforum')
+            return redirect('/forum')
                 ->withErrors($validasi)
                 ->withInput();
         }

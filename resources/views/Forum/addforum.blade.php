@@ -28,8 +28,8 @@
         <strong>
             <p class="addforum">Form Forum Masyarakat</p>
         </strong>
-
     </div>
+    
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
