@@ -51,6 +51,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/AduanViewUser/{{ Auth::user()->id }} ">
+                            Aduan
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('/forum') }}">
                             Forum
                         </a>

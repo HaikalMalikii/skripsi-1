@@ -38,6 +38,9 @@
             .colour-text{
                 color: black;
             }
+            .setuju{
+                background-color: red;
+            }
         </style>
     </head>
 
@@ -58,24 +61,26 @@
                                 </div>
                             </div>
                             @foreach ($data as $f)
-                                <div class="card w-90">
+                            @if ($f->Persetujuan == 1)
+                                <div class="setuju card w-90">
                                     <div class="card-body">
                                         {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
                                         <a>
                                         <p class="colour-text card-text"> {{ $f -> created_at ->format('d/m/Y') }}</p>
                                         {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                        <p class="colour-text card-text">{{ Auth::user()->name }}</p>
+                                        <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <p class="colour-text card-text">{{ $f->Judul }}</p>
                                         <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
-                                        <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
                                         <p class="colour-text card-text">{{ $f->Persetujuan }}</p>
+                                        <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
+                                        <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
                                         <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                        </a>
+                                        </a> -->
                                             
                                         
                                     </div>
                                 </div>
+                            @endif
                             @endforeach
 
                         </div>

@@ -38,16 +38,16 @@
                 color: black;
             }
             .addforum{
-            background-color: lightblue;
-            padding-top: 20px;
-        }
-        .card{
-            background-color: lightblue;
-        }
-        .image{
-            width: 100%;
-            height: 100%;
-        }
+                background-color: lightblue;
+                padding-top: 20px;
+            }
+            .card{
+                background-color: lightblue;
+            }
+            .image{
+                width: 100%;
+                height: 100%;
+            }
         </style>
     </head>
 
@@ -61,6 +61,7 @@
             </ul>
         </div>
     @endif
+    
     <form action="/AddnewForum" method="post" enctype="multipart/form-data">
         @csrf
         <div class="container addforum">
@@ -75,8 +76,8 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-1">
-                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi"rows="4" cols="50" ></textarea>
+                        <div class="col-lg-6">
+                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi"rows="3" ></textarea>
                         </div>
                     </div>
                 </div>
