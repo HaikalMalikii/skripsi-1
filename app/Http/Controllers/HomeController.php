@@ -40,24 +40,24 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $berita = Berita::all();
+        $berita = Berita::paginate(3);
         $Forum = Forum::all();
-        $detailforum = DetailForum::all();
+        $detailforum = DetailForum::paginate(5);
         $id = Auth::id();
         // $AduanList = Aduan::where('IDUser', $id)->get();
         $Aduan = DB::table('pengaduan')
-        ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-        ->where('pengaduan.IDUser','users.id')
-        ->select('users.*', 'users.name','pengaduan.id', 'pengaduan.bagian','pengaduan.Judul','pengaduan.Gambar','pengaduan.Deskripsi','pengaduan.created_at')
-        ->get();
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->where('pengaduan.IDUser', 'users.id')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->get();
         if ($request->user()->hasRole('users')) {
 
             return view('home')
                 ->with('berita', $berita)
                 ->with('forum', $Forum)
                 ->with('detailforum', $detailforum)
-                ->with('data',$Aduan);
-            // return redirect('users'); 
+                ->with('data', $Aduan);
+            // return redirect('users');
         }
 
         if ($request->user()->hasRole('admin_kelurahan')) {
@@ -66,13 +66,11 @@ class HomeController extends Controller
             return redirect('/Admin.dashboardAdminInstansi');
         } else if ($request->user()->hasRole('punya_gue')) {
             return redirect('/Admin.dashboard');
-        }
-        else{
+        } else {
             return view('home')
-            ->with('berita', $berita)
-            ->with('forum', $Forum)
-            ->with('detailforum', $detailforum);
+                ->with('berita', $berita)
+                ->with('forum', $Forum)
+                ->with('detailforum', $detailforum);
         }
-
     }
 }
