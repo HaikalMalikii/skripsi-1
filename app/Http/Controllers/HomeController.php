@@ -40,7 +40,7 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $berita = Berita::paginate(3);
+        $berita = Berita::paginate(1);
         $Forum = Forum::all();
         $detailforum = DetailForum::paginate(5);
         $id = Auth::id();
