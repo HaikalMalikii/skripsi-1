@@ -40,9 +40,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $berita = Berita::paginate(1);
+        $berita = Berita::paginate(1, ['*'], 'berita');
         $Forum = Forum::all();
-        $detailforum = DetailForum::paginate(5);
+        $detailforum = DetailForum::paginate(5, ['*'], 'detailforum');
         $id = Auth::id();
         // $AduanList = Aduan::where('IDUser', $id)->get();
         $Aduan = DB::table('pengaduan')
