@@ -35,9 +35,9 @@
             }
 
             /*
-                                                                                                        .container-fluid {
-                                                                                                            background-color: lightcoral;
-                                                                                                        } */
+                                                                                                                                                                    .container-fluid {
+                                                                                                                                                                        background-color: lightcoral;
+                                                                                                                                                                    } */
 
             h1 {
                 font-size: 4vw;
@@ -47,20 +47,20 @@
                 margin: 20px;
             }
 
-            .col-sm-3 {
-                float: right;
-                background-color: white;
-                margin-top: 50px;
-                /* margin-left: 50px; */
-                /* margin-right: 50px; */
-            }
+            /* .col-sm-3 {
+                    float: right;
+                    background-color: white;
+                    margin-top: 50px;
+                    margin-left: 20px;
+                    margin-right: 50px;
+                }
 
-            .col-sm-7 {
-                float: left;
-                margin-top: 50px;
-                margin-left: 50px;
-                margin-right: 80px;
-            }
+                .col-sm-7 {
+                    float: left;
+                    margin-top: 50px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                } */
 
             .image {
                 width: 100%;
@@ -74,9 +74,12 @@
     </head>
 
     <body class="home">
-        <div class="container-fluid">
-            <div class="row content">
-                <div class="col-sm-7">
+        <div class="container">
+            <div class="">
+
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
                     <h1 class="display-4">WELCOME TO LAPORIN</h1>
                     <p class="lead my-3">menyediakan berbagai kemudahan bagi anda untuk berinetraksi dan menyampaikan
                         keluhan
@@ -91,7 +94,7 @@
 
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="well">
                         <h4 class="text-center">FORUM MASYARAKAT</h4>
                     </div>
