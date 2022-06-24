@@ -22,7 +22,7 @@ class Pengaduan extends Migration
             $table->string("Judul");
             $table->string("Gambar");
             $table->string("Deskripsi");
-            $table->integer("Persetujuan")->nullable();
+            $table->integer("Persetujuan")->default(0);
             $table->timestamps();
         });
     }
