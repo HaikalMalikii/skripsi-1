@@ -35,9 +35,9 @@
             }
 
             /*
-                                                                                        .container-fluid {
-                                                                                            background-color: lightcoral;
-                                                                                        } */
+                                                                                                        .container-fluid {
+                                                                                                            background-color: lightcoral;
+                                                                                                        } */
 
             h1 {
                 font-size: 4vw;
@@ -83,8 +83,7 @@
                     </p>
                     <a class="btn btn-primary btn-lg" type="button" href="/AddAduan"><img src="css/foto/lapor.png"
                             alt="lapor">Lapor</a>
-                    <!-- <a class="btn btn-primary btn-lg" type="button" href="/AduanViewUser/{{ Auth::user()->id }} "><img src="css/foto/lapor.png"
-                                                                                                        alt="lapor">List Aduan</a> -->
+                    <!-- <a class="btn btn-primary btn-lg" type="button" href="/AduanViewUser/{{ Auth::user()->id }} "><img src="css/foto/lapor.png"alt="lapor">List Aduan</a> -->
                     <a class="btn btn-primary btn-lg" type="button" href="/addforum"><img src="css/foto/forum.png"
                             alt="lapor">Forum</a>
                     <a class="btn btn-primary btn-lg" type="button" href="/berita"><img src="css/foto/news.png"
@@ -100,8 +99,7 @@
                         <div class="card text-center" style="width: 100%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $df->Judul }}</h5>
-                                <!-- <img style="" class="img img-fluid p-2 rounded-lg"
-                                                                                                                src="{{ asset("css/foto/$df->Gambar") }}" alt=""> -->
+                                <!-- <img style="" class="img img-fluid p-2 rounded-lg"src="{{ asset("css/foto/$df->Gambar") }}" alt=""> -->
                                 <p class="card-text">{{ $df->Deskripsi }}</p>
                                 <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Check it out</a>
                             </div>
@@ -136,21 +134,8 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <!-- <div class="card" style="width: 20rem;">
-                                                                                                    <div class="card-body">
-                                                                                                        <h5 class="card-title">{{ $b->judul }}</h5>
-                                                                                                        <h5 class="card-title">{{ $b->id }}</h5>
-
-                                                                                                        <img style="" class="img img-fluid p-2 rounded-lg"
-                                                                                                            src="{{ asset("css/foto/$b->image") }}" alt="">
-                                                                                                        <p class="card-text">{{ Illuminate\Support\Str::limit($b->description, 100) }}</p>
-                                                                                                        <a href="/detail-berita/{{ $b->id }}" class="btn btn-warning btn-sm">Lihat Detail Berita</a>
-                                                                                                    </div>
-                                                                                                </div> -->
                     @endforeach
                 </div>
-
             </div>
             {{ $berita->links() }}
         </div>
