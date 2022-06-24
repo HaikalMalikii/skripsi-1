@@ -38,7 +38,6 @@
             .colour-text {
                 color: black;
             }
-<<<<<<< HEAD
             .setuju{
                 background-color: #F24C4C;
             }
@@ -51,11 +50,6 @@
             }
             .proses{
 
-=======
-
-            .setuju {
-                background-color: red;
->>>>>>> 1f935ba0b43691566cdf747f7fc6644a5de140a8
             }
         </style>
     </head>
@@ -84,15 +78,11 @@
                                     @else
                                         <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
                                     @endguest
-<<<<<<< HEAD
                                 </div>   
-=======
                                 </div> --}}
->>>>>>> 1f935ba0b43691566cdf747f7fc6644a5de140a8
                             </div>
                             
                             @foreach ($data as $f)
-<<<<<<< HEAD
                             @if ($f->Persetujuan == 1)
                                 <div class="setuju card w-90">
                                     <div class="card-header"><a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a></div>
@@ -142,7 +132,6 @@
                                         </div>
                                 </div>   
                             @endif
-=======
                                 @if ($f->Persetujuan == '1')
                                     <div class="setuju card w-90">
                                         <div class="card-body">
@@ -204,7 +193,6 @@
                                         </div>
                                     </div>
                                 @endif
->>>>>>> 1f935ba0b43691566cdf747f7fc6644a5de140a8
                             @endforeach
 
                         </div>
