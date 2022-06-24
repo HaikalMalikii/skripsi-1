@@ -17,11 +17,11 @@ class AduanController extends Controller
     {
 
         $users = Auth::id();
-        $validasi = Validator::make($request->all(),[
-            'Judul'=>'string|max:20',
-            'Bagian'=>'required|string',
-            'Deskripsi'=>'required|string',
-            'Gambar'=>'required|image'
+        $validasi = Validator::make($request->all(), [
+            'Judul' => 'string|max:20',
+            'Bagian' => 'required|string',
+            'Deskripsi' => 'required|string',
+            'Gambar' => 'required|image'
         ]);
         if ($validasi->fails()) {
             return redirect('/AddAduan')
@@ -29,7 +29,7 @@ class AduanController extends Controller
                 ->withInput();
         }
         $photo = $request->file('Gambar');
-        $photo->move(public_path('/css/foto'),$photo->getClientOriginalName());
+        $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
         $Tanggal_now =  Carbon::now();
         // DB::table('pengaduan')->insert(
         //     [   'Bagian'=>$request->AddAduanBagian,
@@ -41,82 +41,74 @@ class AduanController extends Controller
         //     ]);
 
         $Aduan = new Aduan;
-        $Aduan -> Bagian = $request->Bagian;
-        $Aduan -> Judul = $request->Judul;
-        $Aduan -> Deskripsi = $request->Deskripsi;
-        $Aduan -> Gambar = $request->Gambar;
-        $Aduan -> IDUser = $request->user()->id;
-        $Aduan -> save();
+        $Aduan->Bagian = $request->Bagian;
+        $Aduan->Judul = $request->Judul;
+        $Aduan->Deskripsi = $request->Deskripsi;
+        $Aduan->Gambar = $request->Gambar;
+        $Aduan->IDUser = $request->user()->id;
+        $Aduan->save();
         return redirect('/');
-
-
     }
 
     public function view()
     {
         $Aduan = DB::table('pengaduan')
-        ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-        ->select('users.*', 'users.name','pengaduan.id', 'pengaduan.bagian','pengaduan.Judul','pengaduan.Gambar','pengaduan.Deskripsi','pengaduan.created_at')
-        ->get();
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->get();
         // dd($Aduan->first());
-        
+
         return view('Aduan.AduanView')->with('Aduan', $Aduan);
     }
 
-    public function AduanDetail(Request $request,$id)
+    public function AduanDetail(Request $request, $id)
     {
-        
-            // $AduanDetail =  Aduan::find($id);
-            // dd($AduanDetail);
-            $AduanDetail = DB::table('pengaduan')
+
+        // $AduanDetail =  Aduan::find($id);
+        // dd($AduanDetail);
+        $AduanDetail = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.id', $id)
-            ->select('users.*', 'users.name','pengaduan.id', 'pengaduan.bagian','pengaduan.Judul','pengaduan.Gambar','pengaduan.Deskripsi','pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
-            
-            
-            //  dd($AduanDetail);
-            return view('Aduan.AduanDetail',compact('AduanDetail'));
-        
+
+
+        //  dd($AduanDetail);
+        return view('Aduan.AduanDetail', compact('AduanDetail'));
     }
 
-    public function viewUser(Request $request,$id)
+    public function viewUser(Request $request, $id)
     {
-        
+
         $data = Aduan::where('IDUser', $id)->get();
         return view('Aduan.AduanViewUser', compact('data'));
     }
 
-    public function Status(Request $request,$id)
+    public function Status(Request $request, $id)
     {
         $request->input('status');
 
-        if($request->status==("Approve"))
-        {
-            
+        if ($request->status == ("Approve")) {
+
             $Aduan = Aduan::find($id);
-            $Aduan -> Persetujuan = 1;
-            $Aduan -> save();
+            $Aduan->Persetujuan = 1;
+            $Aduan->save();
         }
 
-        if($request->status==("Reject"))
-        {
-            
+        if ($request->status == ("Reject")) {
+
             $Aduan = Aduan::find($id);
-            $Aduan -> Persetujuan = 2;
-            $Aduan -> save();
+            $Aduan->Persetujuan = 2;
+            $Aduan->save();
         }
 
-        if($request->status==("Pending"))
-        {
-            
-            $Aduan = Aduan::find($id);
-            $Aduan -> Persetujuan = 3;
-            $Aduan -> save();
-        }
+        // if ($request->status == ("Pending")) {
+
+        //     $Aduan = Aduan::find($id);
+        //     $Aduan->Persetujuan = 3;
+        //     $Aduan->save();
+        // }
         // dd($request->input('status'));
         return redirect('/');
-
-
     }
 }
