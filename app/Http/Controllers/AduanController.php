@@ -74,7 +74,7 @@ class AduanController extends Controller
 
 
         //  dd($AduanDetail);
-        return view('Aduan.AduanDetail', compact('   '));
+        return view('Aduan.AduanDetail', compact('AduanDetail'));
     }
 
     public function viewUser(Request $request, $id)
