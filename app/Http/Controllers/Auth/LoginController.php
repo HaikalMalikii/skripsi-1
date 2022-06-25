@@ -63,7 +63,8 @@ class LoginController extends Controller
                 $create = User::Create([
                     'email'             => $user_google->getEmail(),
                     'name'              => $user_google->getName(),
-                    'password'          => 0,
+                    'password'          => bcrypt("12345678"),
+                    'nohp' => "123",
                     'email_verified_at' => now()
                 ]);
                 $create->roles()->attach(Role::where('name', 'users')->first());

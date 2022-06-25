@@ -16,16 +16,19 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'AdminKelurahan', 
             'email' => 'AdminKelurahan@Admin.com', 
+            'nohp'=>'123',
             'password' => bcrypt("12345678"),
         ]);
         DB::table('users')->insert([
             'name' => 'AdminInstansi', 
             'email' => 'AdminInstansi@Admin.com', 
+            'nohp'=>'123',
             'password' => bcrypt("12345678"),
         ]);
         DB::table('users')->insert([
             'name' => 'PunyaGue', 
             'email' => 'PunyaGue@Admin.com', 
+            'nohp'=>'123',
             'password' => bcrypt("12345678"),
         ]);
     }
