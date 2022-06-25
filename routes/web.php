@@ -86,7 +86,7 @@ Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');
 /// Aduan
 Route::get('/Aduan', 'AduanController@view');
 Route::get('/AduanDetail/{id}', 'AduanController@AduanDetail');
-
+Route::get('/AduanDetailUser/{id}', 'AduanController@AduanDetailUser');
 
 /// Forum
 

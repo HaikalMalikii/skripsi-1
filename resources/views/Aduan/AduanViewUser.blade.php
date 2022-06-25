@@ -88,7 +88,7 @@
                             @foreach ($data as $f)
                             @if ($f->Persetujuan == 1)
                                 <div class="setuju card w-90">
-                                    <div class="card-header"><a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                    <div class="card-header"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                     <div class="card-body"> 
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Judul }}</p> -->
@@ -104,7 +104,7 @@
                                 </div>   
                             @elseif ($f->Persetujuan == 2)
                                 <div class="tolak card w-90">
-                                    <div class="card-header"><a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                    <div class="card-header"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                     <div class="card-body"> 
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Judul }}</p> -->
@@ -120,7 +120,7 @@
                                 </div>   
                             @elseif ($f->Persetujuan == 3)
                                 <div class="proses card w-90">
-                                    <div class="card-header"><a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                    <div class="card-header"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                     <div class="card-body"> 
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Judul }}</p> -->
@@ -136,7 +136,7 @@
                                 </div> 
                             @else  
                             <div class="waiting card w-90">
-                                    <div class="card-header"><a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                    <div class="card-header"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                     <div class="card-body"> 
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Judul }}</p> -->
