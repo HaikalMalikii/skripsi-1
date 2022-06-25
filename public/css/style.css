@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');    
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bree+Serif&family=Patua+One&family=Signika:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bree+Serif&family=Kanit&family=Patua+One&family=Signika:wght@300&display=swap');
+
 
 
 
@@ -16,17 +20,29 @@
     border-color: grey;
     border-width: 2px;
     border-radius: 10px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Signika', sans-serif;
     margin: 10px;
+    font-weight: bold;
 }
-h5, p{
-    font-family: 'Roboto Condensed', sans-serif;
+ p, .form-control{
+    font-family: 'Kanit', sans-serif;
+    color: black;
 }
 h4 {
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Bree Serif', serif;
+
+}
+h5, .card-title, label{
+    font-family: 'Patua One', cursive;
+    color: black;
+
 }
 .navbar {
     background-color: #9BA3EB;
+    font-family: 'Signika', sans-serif;
+}
+.dropdown-item {
+    font-family: 'Signika', sans-serif;
 }
 .rempoa{
     font-family: 'Alfa Slab One', cursive;

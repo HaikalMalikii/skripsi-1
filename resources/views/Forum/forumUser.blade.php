@@ -12,14 +12,25 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
         <title>Add Forum</title>
         <style>
-
             .card-title:hover{
                 text-decoration: none;
                 color: #242F9B;
             }
+            .btn {
+                background-color: #FFE3A9;
+                color: black;
+                border-color: grey;
+                border-width: 2px;
+                border-radius: 10px;
+                font-family: 'Roboto Mono', monospace;
+            }
 
+            th {
+                font-family: 'Roboto Condensed', sans-serif;
+            }
             p{
                 color: black;
             }
@@ -49,40 +60,6 @@
             </ul>
         </div>
     @endif
-    
-    <form action="/AddnewForum" method="post" enctype="multipart/form-data">
-        @csrf
-        <div class="container">
-            <div class="form card w-90">
-                <div class="form-row">
-                    <div class="col-10">
-                            <div class="form-group">
-                                <label for="judul">Judul: </label>
-                                <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
-                            </div>
-                            <div class="form-group">
-                                <label for="deskripsi">Deskripsi:</label>
-                                    <textarea class="form-control" id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi" ></textarea>
-                            </div>
-
-                        <div class="form-group">
-                            <label for="gambar">Gambar:</label>
-                            <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
-                        </div>
-                        
-                        <div class="form-group form-row justify-content-left">
-                            @guest
-                                <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
-                            @else
-                            <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
-                            @endguest
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-<br>
         <div class="main">
             <div class="container">
                 <div class="row">
@@ -111,8 +88,8 @@
                                         </div>
                                 </div>
                                 <div class="card-footer">
-                                <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Comment</a>
+                                <a href="/ForumDetail/{{ $f->id }}" class="btn btn-warning btn-sm">Comment</a>
+                                <a href="" class="btn btn-warning btn-sm">Delete</a>
                                 </div>
                             </div>
                             @endforeach

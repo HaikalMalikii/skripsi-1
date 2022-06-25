@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Ui\Presets\React;
+use PhpParser\Comment;
 
 class ForumController extends Controller
 {
@@ -34,7 +35,7 @@ class ForumController extends Controller
         ->join('detailforum','detailforum.IDForum', '=' ,'forum.id')
         ->select('users.*', 'users.name','detailforum.id','detailforum.Judul','detailforum.Gambar','detailforum.Deskripsi','detailforum.created_at')
         ->get();
-        $forum = DetailForum::paginate(3);
+        $forum = DetailForum::paginate(5);
         return view('Forum.index',compact((['forum'])));
     }
     public function IndexComments()
@@ -140,5 +141,19 @@ class ForumController extends Controller
 
         return redirect('/forum');
 
+    }
+
+    public function forumUser(Request $request, $id) {
+
+        $forum = Forum::where('IDUser', $id)->get();
+
+        $forum = DB::table('forum')
+        ->join('users', 'users.id', '=', 'forum.IDUser')
+        ->join('detailforum','detailforum.IDForum', '=' ,'forum.id')
+        ->select('users.*', 'users.name','detailforum.id','detailforum.Judul','detailforum.Gambar','detailforum.Deskripsi','detailforum.created_at')
+        ->get();
+        $forum = DetailForum::paginate(3);
+        return view('Forum.forumUser',compact((['forum'])));
+        
     }
 }

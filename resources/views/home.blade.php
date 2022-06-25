@@ -35,17 +35,17 @@
             }
 
             /*
-                                                                                                                                                                            .container-fluid {
-                                                                                                                                                                                background-color: lightcoral;
-                                                                                                                                                                            } */
+            .container-fluid {
+                background-color: lightcoral;
+            } */
 
             h1 {
                 font-size: 4vw;
             }
-
-            h2 {
-                margin: 20px;
+            .lead{
+                font-size: 2vw;
             }
+
 
             /* .col-sm-3 {
                             float: right;
@@ -81,8 +81,8 @@
             <div class="row">
                 <div class="col-sm-8">
                     <h1 class="display-4">WELCOME TO LAPORIN</h1>
-                    <p class="lead my-3">menyediakan berbagai kemudahan bagi anda untuk berinetraksi dan menyampaikan
-                        keluhan
+                    <p class="lead my-5">menyediakan berbagai kemudahan bagi anda untuk berinteraksi dan menyampaikan
+                        keluhan anda
                     </p>
                     <a class="btn btn-primary btn-lg" type="button" href="/AddAduan"><img src="css/foto/lapor.png"
                             alt="lapor">Lapor</a>

@@ -102,3 +102,4 @@ Route::get('/ForumDetailComment', 'ForumController@IndexComments');
 Route::post('/AddnewForum', 'ForumController@AddForum');
 
 // Route::get('/addforum','ForumController@GetUserID');
+Route::get('/forumUser/{id}', 'ForumController@forumUser');
