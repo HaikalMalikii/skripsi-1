@@ -98,6 +98,8 @@ class AduanController extends Controller
     {
 
         $data = Aduan::where('IDUser', $id)->get();
+        $data = Aduan::paginate(5);
+
         return view('Aduan.AduanViewUser', compact('data'));
     }
 

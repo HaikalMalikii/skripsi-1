@@ -70,14 +70,14 @@
                                             <strong>
                                                 <a class="card-text" href="/detail-berita/{{ $b->id }}">{{ $b->judul }}</a>
                                             </strong>
-                                            <p class="card-text"> {{ Illuminate\Support\Str::limit($b->description, 1000) }}</p>
+                                            <p class="card-text"> {{ Illuminate\Support\Str::limit($b->description, 200) }}</p>
                                             <p class="card-text"><small class="text-muted"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</small></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-
+                            {{ $berita->links() }}
                         </div>
                     </div>
                 </div>

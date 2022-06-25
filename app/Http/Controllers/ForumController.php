@@ -18,7 +18,6 @@ class ForumController extends Controller
 {
     //
     protected $table = 'forum';
-
     public function GetUserID($users)
     {
         $users = User::where('id', $users )->first();
@@ -27,12 +26,15 @@ class ForumController extends Controller
     }
     public function index()
     {
+       
         // $forum = DetailForum::all();
+        
         $forum = DB::table('forum')
         ->join('users', 'users.id', '=', 'forum.IDUser')
         ->join('detailforum','detailforum.IDForum', '=' ,'forum.id')
         ->select('users.*', 'users.name','detailforum.id','detailforum.Judul','detailforum.Gambar','detailforum.Deskripsi','detailforum.created_at')
         ->get();
+        $forum = DetailForum::paginate(3);
         return view('Forum.index',compact((['forum'])));
     }
     public function IndexComments()

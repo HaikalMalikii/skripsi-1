@@ -136,6 +136,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            {{ $forum->links() }}
                         </div>
                     </div>
                 </div>

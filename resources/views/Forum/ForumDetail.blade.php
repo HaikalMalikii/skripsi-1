@@ -56,7 +56,7 @@
                                 action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
                                 @csrf
                                 <textarea name="comment" class="form-control"></textarea>
-                                <input type="submit" class="btn btn-dark mt-2" />
+                                <a type="submit" class="btn btn-dark mt-2" href= "{{ $ForumDetail->id}}">Submit</a>
                             @endguest
                             <!-- {{-- <form method="post"
                             action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
@@ -71,7 +71,7 @@
                     </p>
                     <p class="card-title"><strong>{{ $k->name }}</strong></p>
                     <p class="card-text">{{ $k->Komentar }}</p>
-                    
+                    <hr>
                 @endforeach
             
 

@@ -152,7 +152,7 @@
                                 </div> 
                             @endif
                             @endforeach
-
+                            {{ $data->links() }}
                         </div>
                     </div>
                 </div>

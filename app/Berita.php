@@ -10,7 +10,7 @@ class Berita extends Model
     protected $fillable = [
         'judul', 'description','image'
     ];
-
+    
     public function User()
     {
         return $this->belongsTo(User::class);
