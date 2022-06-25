@@ -21,6 +21,7 @@ class Pengaduan extends Migration
             $table->string("Bagian");
             $table->string("Judul");
             $table->string("Gambar");
+            $table->string("Location");
             $table->string("Deskripsi");
             $table->integer("Persetujuan")->default(0);
             $table->timestamps();
