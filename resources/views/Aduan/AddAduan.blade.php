@@ -1,4 +1,4 @@
-@extends('layouts.layoutsInstansi')
+@extends('layouts.app')
 
 @section('content')
     <!doctype html>

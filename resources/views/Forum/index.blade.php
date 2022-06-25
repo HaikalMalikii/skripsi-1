@@ -18,8 +18,14 @@
             @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
 
-            h3 {
+            h3, .card-title {
                 font-family: 'Bebas Neue', cursive;
+                text-decoration: none;
+                color: black;
+            }
+            .card-title:hover{
+                text-decoration: none;
+                color: #242F9B;
             }
 
             .btn {
@@ -37,17 +43,19 @@
             p{
                 color: black;
             }
-            .addforum{
-                background-color: lightblue;
-                padding-top: 20px;
-            }
             .card{
                 background-color: lightblue;
+                padding-top: 20px;
             }
             .image{
                 width: 100%;
                 height: 100%;
             }
+            .form{
+                padding-left: 20px;
+                color: black;
+            }
+            
         </style>
     </head>
 
@@ -64,43 +72,33 @@
     
     <form action="/AddnewForum" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="container addforum">
-        <div class="form-row">
-            <div class="col-4">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <textarea id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi"rows="3" ></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col">
-                            <label for="exampleGroupExampleInput">Gambar</label>
-                        </div>
-                        <div>
+        <div class="container">
+            <div class="form card w-90">
+                <div class="form-row">
+                    <div class="col-10">
+                            <div class="form-group">
+                                <label for="judul">Judul: </label>
+                                <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
+                            </div>
+                            <div class="form-group">
+                                <label for="deskripsi">Deskripsi:</label>
+                                    <textarea class="form-control" id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi" ></textarea>
+                            </div>
+
+                        <div class="form-group">
+                            <label for="gambar">Gambar:</label>
                             <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
-                            
+                        </div>
+                        
+                        <div class="form-group form-row justify-content-left">
+                            @guest
+                                <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
+                            @else
+                            <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
+                            @endguest
                         </div>
                     </div>
                 </div>
-                
-                <div class="form-group form-row justify-content-left">
-                    @guest
-                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
-                     @else
-                     <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
-                    @endguest
-                </div>
-            </div>
             </div>
         </div>
     </form>
@@ -120,16 +118,17 @@
                                     <div class="col-md-2">
                                     <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <p class="colour-text card-text">Dibuat  : {{ date("Y-m-d H:i:s", strtotime($f->created_at)) }}</p>
-                                            {{-- <a href="/ForumDetail/{{ $f->id }}">Judul : {{ $f->Judul }}</a> --}}
-                                            <p>Judul : {{ $f->Judul }}</p>
-                                            <p class="card-text">Deskripsi :{{ $f->Deskripsi }}</p>
-                                            <p class="card-text">Forum Oleh :{{ $f->name }}</p>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <a class="card-title" href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
+                                                <p class="card-text">{{ $f->Deskripsi }}</p>
                                             
+                                            </div>
+                                            <div class="card-body"> 
+                                                <p class="card-text"></p>
+                                                <p class="card-text">{{ $f->name }} <small class="text-muted">{{ date("Y-m-d", strtotime($f->created_at)) }}</small></p>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                                 <div class="card-footer">
                                 <a href="/ForumDetail/{{ $f->id }}"

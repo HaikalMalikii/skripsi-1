@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{ $detailforum->appends(['berita' => $berita->currentPage()])->links() }}
+                    <!-- {{ $detailforum->appends(['berita' => $berita->currentPage()])->links() }} -->
                 </div>
             </div>
         </div>
@@ -140,7 +140,7 @@
                     @endforeach
                 </div>
             </div>
-            {{ $berita->appends(['detailforum' => $detailforum->currentPage()])->links() }}
+            <!-- {{ $berita->appends(['detailforum' => $detailforum->currentPage()])->links() }} -->
         </div>
 
 

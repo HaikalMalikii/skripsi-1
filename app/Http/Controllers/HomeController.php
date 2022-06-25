@@ -41,9 +41,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         // $berita = Berita::paginate(1, ['*'], 'berita');
-        $berita = DB::table('berita')->orderBy('created_at', 'desc')->paginate(1, ['*'], 'berita');
+        $berita = DB::table('berita')->orderBy('created_at', 'desc')->paginate(3, ['*'], 'berita');
         $Forum = Forum::all();
-        $detailforum = DetailForum::paginate(5, ['*'], 'detailforum');
+        $detailforum = DB::table('DetailForum')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'detailforum');
         $id = Auth::id();
         // $AduanList = Aduan::where('IDUser', $id)->get();
         $Aduan = DB::table('pengaduan')
