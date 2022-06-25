@@ -51,6 +51,9 @@
             .proses{
 
             }
+            .waiting{
+                background-color: lightyellow;
+            }
         </style>
     </head>
 
@@ -130,69 +133,24 @@
                                     <div class="card-footer">
                                         <p class="colour-text card-text"><small class="text-muted"> {{ $f -> created_at ->format('d/m/Y') }}</small></p>
                                         </div>
-                                </div>   
+                                </div> 
+                            @else  
+                            <div class="waiting card w-90">
+                                    <div class="card-header"><a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                    <div class="card-body"> 
+                                        <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
+                                        <!-- <p class="colour-text card-text">{{ $f->Judul }}</p> -->
+                                        <p class="colour-text card-text">{{ $f->Bagian }}</p>
+                                        <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
+                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                       <p class="colour-text card-text">Status : Waiting</p>
+                                        <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="colour-text card-text"><small class="text-muted"> {{ $f -> created_at ->format('d/m/Y') }}</small></p>
+                                        </div>
+                                </div> 
                             @endif
-                                @if ($f->Persetujuan == '1')
-                                    <div class="setuju card w-90">
-                                        <div class="card-body">
-                                            {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                            <a>
-                                                <p class="colour-text card-text"> {{ $f->created_at->format('d/m/Y') }}
-                                                </p>
-                                                {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                                <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                                <p class="colour-text card-text">{{ $f->Judul }}</p>
-                                                <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                <p class="colour-text card-text">Status Accept</p>
-                                                <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
-                                                <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                                                            <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                                                            </a> -->
-
-
-                                        </div>
-                                    </div>
-                                @elseif($f->Persetujuan == '2')
-                                    <div class="setuju card w-90">
-                                        <div class="card-body">
-                                            {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                            <a>
-                                                <p class="colour-text card-text"> {{ $f->created_at->format('d/m/Y') }}
-                                                </p>
-                                                {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                                <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                                <p class="colour-text card-text">{{ $f->Judul }}</p>
-                                                <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                <p class="colour-text card-text">Status Reject</p>
-                                                <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
-                                                <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                                                            <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                                                            </a> -->
-
-
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="setuju card w-90">
-                                        <div class="card-body">
-                                            {{-- <a hrf="/ForumDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                            <a>
-                                                <p class="colour-text card-text"> {{ $f->created_at->format('d/m/Y') }}
-                                                </p>
-                                                {{-- <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a> --}}
-                                                <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                                <p class="colour-text card-text">{{ $f->Judul }}</p>
-                                                <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                <p class="colour-text card-text">Status Pending</p>
-                                                <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
-                                                <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                                                            <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                                                            </a> -->
-
-
-                                        </div>
-                                    </div>
-                                @endif
                             @endforeach
 
                         </div>

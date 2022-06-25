@@ -10,6 +10,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
         <style>
+            .card{
+                background-color: lightblue;
+                color: black;
+            }
 
         </style>
     </head>
@@ -26,15 +30,10 @@
                     <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
                     <h4 class="card-reader"> {{ $ForumDetail->Judul }} </h4>
                     <h3 class="card-reader"> {{ $ForumDetail->Deskripsi }} </h3>
-                    <h4 class="card-reader"> Forum Oleh :{{ $ForumDetail->name }} </h4>
-                    
+                    <p class="card-reader"> Created by: {{ $ForumDetail->name }} </p>
                 </div>
-                <div class="text-xl-center">
-                    <strong>
-                        <p>Comment</p>
-                    </strong>
-                </div>
-                {{-- <div class="card my-5">
+            </div>
+                <!-- {{-- <div class="card my-5">
                     <h5 class="card-header">Add Comment</h5>
                     <div class="card-body">
                         <form method="post"
@@ -44,15 +43,8 @@
                             <input type="submit" class="btn btn-dark mt-2" />
                     </div>
 
-                </div> --}}
-                @foreach ($data as $k)
-                <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($k->created_at)) }}</p>
-                    </p>
-                    <p class="card-text">Komentar Oleh :{{ $k->name }}</p>
-                    <p class="card-text">{{ $k->Komentar }}</p>
-                    
-                @endforeach
-
+                </div> --}} -->
+                
                 <div class="card my-5">
                     <h5 class="card-header">Add Comment</h5>
                     <div class="card-body">
@@ -66,16 +58,22 @@
                                 <textarea name="comment" class="form-control"></textarea>
                                 <input type="submit" class="btn btn-dark mt-2" />
                             @endguest
-                            {{-- <form method="post"
+                            <!-- {{-- <form method="post"
                             action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
                             @csrf
                             <textarea name="comment" class="form-control"></textarea>
-                            <input type="submit" class="btn btn-dark mt-2" /> --}}
-
+                            <input type="submit" class="btn btn-dark mt-2" /> --}}       -->
                     </div>
-
                 </div>
-            </div>
+                <p><strong>Comments</strong></p>
+                @foreach ($data as $k)
+                <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($k->created_at)) }}</p>
+                    </p>
+                    <p class="card-title"><strong>{{ $k->name }}</strong></p>
+                    <p class="card-text">{{ $k->Komentar }}</p>
+                    
+                @endforeach
+            
 
 
         </div>
