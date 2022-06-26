@@ -100,14 +100,12 @@ class AduanController extends Controller
     {
         
         $data = Aduan::where('IDUser', $id)->get();
-        $data = Aduan::paginate(5);
-        $AduanDetail = DB::table('pengaduan')
+        $data = DB::table('pengaduan')
         ->join('users', 'users.id', '=', 'pengaduan.IDUser')
         ->where('pengaduan.IDUser',$id)
-
-        ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+        ->select('users.*', 'users.name', 'pengaduan.id','pengaduan.Persetujuan', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
         ->get();
-        // dd($data);
+        dd($data);
 
         return view('Aduan.AduanViewUser', compact('data'));
     }
