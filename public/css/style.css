@@ -30,12 +30,16 @@
 }
 h4 {
     font-family: 'Bree Serif', serif;
+    color: black;
 
 }
-h5, .card-title, label{
+h5, .card-title, label, .card-text{
     font-family: 'Patua One', cursive;
     color: black;
 
+}
+.card-text:hover{
+    text-decoration: none;
 }
 .navbar {
     background-color: #9BA3EB;
@@ -54,4 +58,7 @@ img{
 h1{
     font-family: 'Titan One', cursive;
     font-size: 4vw;
+}
+body{
+    background-color: #E8F9FD;
 }

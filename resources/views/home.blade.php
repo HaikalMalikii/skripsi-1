@@ -70,14 +70,13 @@
             .jumbotron {
                 background-color: white;
             }
+        
         </style>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
 
     <body class="home">
         <div class="container">
-            <div class="">
-
-            </div>
             <div class="row">
                 <div class="col-sm-8">
                     <h1 class="display-4">WELCOME TO LAPORIN</h1>

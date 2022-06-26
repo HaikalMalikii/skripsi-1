@@ -37,6 +37,7 @@
             .container {
                 margin-top: 50px;
                 margin-left: 20px;
+
             }
 
             h1 {
@@ -45,6 +46,9 @@
 
             h2 {
                 margin: 20px;
+            }
+            p{
+                font-size: 2vw;
             }
         </style>
     </head>

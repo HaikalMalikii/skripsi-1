@@ -9,6 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
         <style>
 
         </style>
@@ -23,31 +25,15 @@
             </div>
             <div class="card w-90">
                 <div class="card-body">
-                    @foreach ($AduanDetail as $AduanDetail)
-                        <h4 class="card-reader">Oleh : {{ $AduanDetail->name }} </h4>
-                        <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="" srcset="">
-                        <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
-                        <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
-
-                        
+                    @foreach ($AduanDetail as $a)
+                        <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
+                        <img src="{{ asset("css/foto/$a->Gambar") }}" alt="" srcset="">
+                        <h4 class="card-reader"> {{ $a->Judul }} </h4>
+                        <p class="card-reader"> {{ $a->Deskripsi }} </p>
+                        <p class="colour-text card-text">Status : Diproses</p>
                 </div>
                 @endforeach
-
-                {{-- <div class="card my-5">
-                    <h5 class="card-header">Add Comment</h5>
-                    <div class="card-body">
-                        <form method="post"
-                            action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
-                            @csrf
-                            <textarea name="comment" class="form-control"></textarea>
-                            <input type="submit" class="btn btn-dark mt-2" />
-                    </div>
-
-                </div> --}}
-
             </div>
-
-
         </div>
     </body>
 

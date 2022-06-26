@@ -34,6 +34,9 @@
             .waiting{
                 background-color: #FFB562;
             }
+            .judul:hover{
+                text-decoration: none;
+            }
         </style>
     </head>
 
@@ -55,19 +58,11 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h4 class="panel-title text-center">STATUS ADUAN</h4>
-                                {{-- <div class="right">
-                                    @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @else
-                                        <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
-                                    @endguest
-                                </div>   
-                                </div> --}}
                                 <div class="form-group form-row justify-content-left">
                                     @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Add New Forum</a>
+                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Add New Adyan</a>
                                     @else
-                                        <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">Add New Forum</a>
+                                        <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
                                     @endguest
                         </div>
                             </div>
@@ -76,7 +71,7 @@
                             @if ($f->Persetujuan == 1)
                                 <div class="setuju card w-90">
                                     <div class="card-body"> 
-                                    <div class="card-title"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                    <div class="card-title"><a class="judul" href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p>
                                         <p class="colour-text card-text">{{ $f->Gambar }}</p>
@@ -92,7 +87,7 @@
                             @elseif ($f->Persetujuan == 2)
                                 <div class="tolak card w-90">
                                     <div class="card-body"> 
-                                        <div class="card-title"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                        <div class="card-title"><a class="judul" href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
@@ -108,7 +103,7 @@
                             @elseif ($f->Persetujuan == 3)
                                 <div class="proses card w-90">
                                     <div class="card-body"> 
-                                        <div class="card-title"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
+                                        <div class="card-title"><a class="judul" href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div>
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
@@ -124,7 +119,7 @@
                             @else  
                             <div class="waiting card w-90">
                                     <div class="card-body">
-                                        <div class="card-title"><a href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div> 
+                                        <div class="card-title"><a class="judul" href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a></div> 
                                         <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p> -->
                                         <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->

@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
 
         <title>Add Forum</title>
         <style>

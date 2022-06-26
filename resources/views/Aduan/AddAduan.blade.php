@@ -11,13 +11,14 @@
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
 
         <title>Pengaduan Masyarakat</title>
         <style>
-            .container {
+            .container{
                 background-color: lightblue;
-                padding-top: 20px;
-
+                padding: 20px;
             }
         </style>
     </head>
@@ -26,7 +27,7 @@
 
     <div class="text-xl-center">
         <strong>
-            <p class="AddAduan">Form Pengaduan Masyarakat</p>
+            <h4 class="AddAduan">Form Pengaduan Masyarakat</h4>
         </strong>
     </div>
 
@@ -42,53 +43,40 @@
 
     <form action="/AddAduan" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="container ">
-            <div class="form-row">
-                <div class="col-4">
+        <div class="container" >
+            <div class="form-row col  justify-content-center">
+                <div class="col-6">
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col">
+                        <label for="judul">Judul: </label>
                                 <input type="text" class="form-control" id="AddAduanJudulID" name="Judul"
                                     placeholder="Judul">
-                            </div>
-                        </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col-8">
+                            <label for="judul">Bagian: </label>
                                 <select name="Bagian" id="AddAduanBagianID" class="form-control select2">
                                     <option selected>Bagian...</option>
                                     <option value ="Kebersihan"> Kebersihan</option>
                                     <option value ="Kesehatan"> Kesehatan</option>
+                                    <option value ="Kesehatan"> Fasilitas Publik</option>
                                 </select>
-                            </div>
-                        </div>
                     </div>
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col">
+                                <label for="deskripsi">Deskripsi:</label>
+                                    <textarea class="form-control" id="comment"  placeholder="Deskripsi" name="Deskripsi" ></textarea>
+                    </div>
+
+                    <div class="form-group">
                                 <label for="exampleGroupExampleInput">Gambar</label>
-                            </div>
-                            <div>
+
                                 <input type="file" class="form-control-file" id="AddAduanGambarID" name="Gambar">
-                            </div>
-                        </div>
+                    </div>
+
+                    <div class="form-group form-row">
+                            <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
                     </div>
                 </div>
-
-
-
-                <div class="col-4">
-                    <!-- <input type="text" class="form-control" placeholder="Deskripsi" rows="5"> -->
-                    <textarea type="text" class="form-control" placeholder="Deskripsi" rows="5" name="Deskripsi" id="comment"></textarea>
-                </div>
             </div>
-        </div>
-
-        <div class="form-group form-row justify-content-center">
-            <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
-        </div>
         </div>
 
         <!-- <div class="d-flex justify-content-center backgroundorder">
