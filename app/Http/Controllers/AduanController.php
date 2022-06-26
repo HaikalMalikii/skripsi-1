@@ -100,6 +100,7 @@ class AduanController extends Controller
     {
         
         $data = Aduan::where('IDUser', $id)->get();
+        $data = Aduan::paginate(5);
         $data = DB::table('pengaduan')
         ->join('users', 'users.id', '=', 'pengaduan.IDUser')
         ->where('pengaduan.IDUser',$id)
