@@ -35,32 +35,33 @@
             }
 
             /*
-            .container-fluid {
-                background-color: lightcoral;
-            } */
+                .container-fluid {
+                    background-color: lightcoral;
+                } */
 
             h1 {
                 font-size: 4vw;
             }
-            .lead{
+
+            .lead {
                 font-size: 2vw;
             }
 
 
             /* .col-sm-3 {
-                            float: right;
-                            background-color: white;
-                            margin-top: 50px;
-                            margin-left: 20px;
-                            margin-right: 50px;
-                        }
+                                float: right;
+                                background-color: white;
+                                margin-top: 50px;
+                                margin-left: 20px;
+                                margin-right: 50px;
+                            }
 
-                        .col-sm-7 {
-                            float: left;
-                            margin-top: 50px;
-                            margin-left: 20px;
-                            margin-right: 20px;
-                        } */
+                            .col-sm-7 {
+                                float: left;
+                                margin-top: 50px;
+                                margin-left: 20px;
+                                margin-right: 20px;
+                            } */
 
             .image {
                 width: 100%;
@@ -70,7 +71,6 @@
             .jumbotron {
                 background-color: white;
             }
-        
         </style>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
@@ -102,7 +102,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $df->Judul }}</h5>
                                 <!-- <img style="" class="img img-fluid p-2 rounded-lg"src="{{ asset("css/foto/$df->Gambar") }}" alt=""> -->
-                                <p class="card-text">{{ $df->Deskripsi }}</p>
+                                <p class="card-text">{{ Illuminate\Support\Str::limit($df->Deskripsi, 200) }}</p>
                                 <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Check it out</a>
                             </div>
                         </div>
