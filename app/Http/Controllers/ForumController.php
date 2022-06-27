@@ -33,10 +33,11 @@ class ForumController extends Controller
         $forum = DB::table('forum')
             ->join('users', 'users.id', '=', 'forum.IDUser')
             ->join('detailforum', 'detailforum.IDForum', '=', 'forum.id')
-            ->select('users.*', 'users.name', 'detailforum.id', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
+            ->select('users.*', 'users.name','forum.IDUser','forum.id as IDForum' ,'detailforum.id', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
             ->orderBy('detailforum.created_at', 'desc')
             ->paginate(5);
         // $forum = DetailForum::paginate(5);
+        // dd($forum);
         return view('Forum.index', compact((['forum'])));
     }
     public function IndexComments()

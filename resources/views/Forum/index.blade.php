@@ -118,6 +118,10 @@
                                         <a href="/ForumDetail/{{ $f->id }}"
                                             class="btn btn-warning btn-sm">Comment</a>
                                     </div>
+                                    @if ($f->IDUser ==  Auth::user()->id )
+                                    <button type="submit" name="buttonadd" class="btn btn-primary">Delete</button>
+                                        
+                                    @endif
                                 </div>
                             @endforeach
                             {{ $forum->links() }}
