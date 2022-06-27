@@ -48,6 +48,7 @@ class AduanController extends Controller
         $Aduan->Location = $request->Location;
         $Aduan->Gambar = $request->Gambar;
         $Aduan->IDUser = $request->user()->id;
+        // dd($Aduan->Bagian);
         $Aduan->save();
         return redirect('/');
     }

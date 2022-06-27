@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminKelurahanController extends Controller
 {
@@ -21,7 +22,7 @@ class AdminKelurahanController extends Controller
 
     public function berita()
     {
-        $berita = Berita::all();
+        $berita = Berita::orderBy('created_at', 'DESC')->get();
 
         return view('Admin.berita')->with('berita', $berita);
     }
