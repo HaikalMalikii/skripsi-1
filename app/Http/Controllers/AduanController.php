@@ -20,6 +20,7 @@ class AduanController extends Controller
         $validasi = Validator::make($request->all(), [
             'Judul' => 'string|max:20',
             'Bagian' => 'required|string',
+            'Location'=>'required|string',
             'Deskripsi' => 'required|string',
             'Gambar' => 'required|image'
         ]);
@@ -44,6 +45,7 @@ class AduanController extends Controller
         $Aduan->Bagian = $request->Bagian;
         $Aduan->Judul = $request->Judul;
         $Aduan->Deskripsi = $request->Deskripsi;
+        $Aduan->Location = $request->Location;
         $Aduan->Gambar = $request->Gambar;
         $Aduan->IDUser = $request->user()->id;
         $Aduan->save();

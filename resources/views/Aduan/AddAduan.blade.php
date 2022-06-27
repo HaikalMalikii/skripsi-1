@@ -62,6 +62,11 @@
                                 </select>
                     </div>
                     <div class="form-group">
+                        <label for="lokasi">Alamat: </label>
+                                <input type="text" class="form-control" id="LokasiID" name="Location"
+                                    placeholder="lokasi">
+                    </div>
+                    <div class="form-group">
                                 <label for="deskripsi">Deskripsi:</label>
                                     <textarea class="form-control" id="comment"  placeholder="Deskripsi" name="Deskripsi" ></textarea>
                     </div>
