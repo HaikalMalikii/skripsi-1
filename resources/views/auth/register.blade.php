@@ -65,6 +65,17 @@
                         @enderror
 
               </div>
+              <div class="form-group first">
+                <label for="number">{{ __('No Handphone') }}</label>
+                        <input id="nohp" type="nohp" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ old('nohp') }}" required autocomplete="nohp">
+
+                        @error('nohp')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+              </div>
               <div class="form-group last mb-4">
               <label for="password">{{ __('Password') }}</label>
 
