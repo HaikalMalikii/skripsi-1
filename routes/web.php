@@ -46,6 +46,7 @@ Route::get('/AddAduan', function () {
 Route::post('/AddAduan', 'AduanController@AddAduan');
 Route::get('/AduanViewUser/{id}', 'AduanController@viewUser');
 Route::post('/Status/{id}', 'AduanController@Status');
+Route::get('/user-delete-aduan/{id}', 'AduanController@deleteAduan');
 
 ////cek
 
@@ -88,6 +89,7 @@ Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/Aduan', 'AduanController@view');
 Route::get('/AduanDetail/{id}', 'AduanController@AduanDetail');
 Route::get('/AduanDetailUser/{id}', 'AduanController@AduanDetailUser');
+
 
 /// Forum
 

@@ -66,19 +66,18 @@ class AdminKelurahanController extends Controller
             // ]);
 
             $Berita = new Berita;
-            $Berita -> judul = $request->judul;
-            $Berita -> description = $request->description;
-            $Berita -> image = $request->image;
+            $Berita->judul = $request->judul;
+            $Berita->description = $request->description;
+            $Berita->image = $request->image;
 
-            $Berita -> save();
-
+            $Berita->save();
         } else {
             $Berita = new Berita;
-            $Berita -> judul = $request->judul;
-            $Berita -> description = $request->description;
-            
+            $Berita->judul = $request->judul;
+            $Berita->description = $request->description;
 
-            $Berita -> save();
+
+            $Berita->save();
         }
 
         return redirect('/admin-berita');

@@ -82,8 +82,8 @@
                                             </div>
                                             <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                             <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
-                                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
+                                                                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
+                                                                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Diproses</p>
                                             <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
@@ -149,9 +149,39 @@
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
                                         </div>
+
                                         <div class="card-footer">
                                             <button type="button" class="btn btn-danger" data-toggle="modal"
                                                 data-target="#deleteAduan{{ $f->id }}">Delete</button>
+                                        </div>
+
+                                        <div class="modal fade" id="deleteAduan{{ $f->id }}" tabindex="-1"
+                                            aria-labelledby="deleteAduanLabel{{ $f->id }}Label"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="deleteAduanLabel{{ $f->id }}Label">
+                                                            "{{ $f->Judul }}"</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h3 class="text-danger">Apakah anda yakin ingin menghapus aduan ini
+                                                            "{{ $f->Judul }}"?</h3>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <a href="/user-delete-aduan/{{ $f->id }}"
+                                                            class="btn btn-danger">Hapus
+                                                            Aduan</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 @endif

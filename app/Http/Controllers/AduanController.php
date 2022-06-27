@@ -103,7 +103,7 @@ class AduanController extends Controller
     {
 
         $data = Aduan::where('IDUser', $id)->get();
-        $data = Aduan::paginate(5);
+        // $data = Aduan::paginate(5);
         $data = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.IDUser', $id)
@@ -142,5 +142,12 @@ class AduanController extends Controller
         // }
         // dd($request->input('status'));
         return redirect('/');
+    }
+
+    public function deleteAduan($id)
+    {
+        Aduan::where('id', $id)->delete();
+        $idUser = Auth::id();
+        return redirect('/AduanViewUser/' . $idUser);
     }
 }
