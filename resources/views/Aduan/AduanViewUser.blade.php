@@ -63,7 +63,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h4 class="panel-title text-center">STATUS ADUAN</h4>
+                                <h4 class="panel-title text-center">STATUS ADUAN ANDA </h4>
                                 <div class="form-group form-row justify-content-left">
                                     @guest
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Add New Adyan</a>
@@ -82,8 +82,8 @@
                                             </div>
                                             <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                             <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                    <p class="colour-text card-text">{{ $f->Gambar }}</p>
-                                                   <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
+                                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
+                                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Diproses</p>
                                             <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
