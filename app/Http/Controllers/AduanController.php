@@ -20,7 +20,7 @@ class AduanController extends Controller
         $validasi = Validator::make($request->all(), [
             'Judul' => 'string|max:20',
             'Bagian' => 'required|string',
-            'Location'=>'required|string',
+            'Location' => 'required|string',
             'Deskripsi' => 'required|string',
             'Gambar' => 'required|image'
         ]);
@@ -57,7 +57,7 @@ class AduanController extends Controller
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
-            ->orderBy('users.created_at', 'desc')
+            ->orderBy('pengaduan.created_at', 'desc')
             ->get();
         // dd($Aduan->first());
 
@@ -107,9 +107,11 @@ class AduanController extends Controller
         $data = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.IDUser', $id)
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
-            ->get();
-        dd($data);
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->orderBy('pengaduan.created_at', 'desc')
+
+            ->paginate(3);
+        //dd($data);
 
         return view('Aduan.AduanViewUser', compact('data'));
     }
