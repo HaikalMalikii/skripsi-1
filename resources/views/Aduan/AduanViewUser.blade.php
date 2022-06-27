@@ -48,17 +48,7 @@
     <body>
         <div class="main">
             <div class="container">
-                <div class="dropdown float-right">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sort By
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Status</a>
-                        <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#">Bagian</a>
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel">
@@ -82,17 +72,14 @@
                                             </div>
                                             <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
                                             <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
-                                                                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
+                                                                                                                                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
+                                                                                                                                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Diproses</p>
                                             <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
                                         </div>
-                                        <div class="card-footer">
-                                            <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
-                                        </div>
+
                                     </div>
                                 @elseif ($f->Persetujuan == 2)
                                     <div class="tolak card w-90">
@@ -108,30 +95,6 @@
                                             <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
-                                        </div>
-                                    </div>
-                                @elseif ($f->Persetujuan == 3)
-                                    <div class="proses card w-90">
-                                        <div class="card-body">
-                                            <div class="card-title"><a class="judul"
-                                                    href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
-                                            </div>
-                                            <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
-                                            <p class="colour-text card-text">Status : Diproses</p>
-                                            <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
-                                            <p class="colour-text card-text"><small class="text-muted">
-                                                    {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
                                         </div>
                                     </div>
                                 @else
@@ -151,13 +114,14 @@
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="button" class="btn btn-danger" data-toggle="modal"
+
+                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
                                                 data-target="#deleteAduan{{ $f->id }}">Delete</button>
+
                                         </div>
 
                                         <div class="modal fade" id="deleteAduan{{ $f->id }}" tabindex="-1"
-                                            aria-labelledby="deleteAduanLabel{{ $f->id }}Label"
-                                            aria-hidden="true">
+                                            aria-labelledby="deleteAduanLabel{{ $f->id }}Label" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

@@ -15,10 +15,11 @@
 
         <title>Add Forum</title>
         <style>
-            .card-title:hover{
+            .card-title:hover {
                 text-decoration: none;
                 color: #242F9B;
             }
+
             .btn {
                 background-color: #FFE3A9;
                 color: black;
@@ -31,35 +32,38 @@
             th {
                 font-family: 'Roboto Condensed', sans-serif;
             }
-            p{
+
+            p {
                 color: black;
             }
-            .card{
+
+            .card {
                 background-color: lightblue;
                 padding-top: 20px;
             }
-            .image{
+
+            .image {
                 width: 100%;
                 height: 100%;
             }
-            .form{
+
+            .form {
                 padding-left: 20px;
                 color: black;
             }
-            
         </style>
     </head>
 
     <body>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="main">
             <div class="container">
                 <div class="row">
@@ -70,28 +74,140 @@
                                 </div>
                             </div>
                             @foreach ($forum as $f)
-                            <div class="card w-90">
-                                <div class="row no-gutters">
-                                    <div class="col-md-2">
-                                    <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                    </div>
+                                <div class="card w-90">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-2">
+                                            <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                srcset="">
+                                        </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <a class="card-title" href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
+                                                <a class="card-title"
+                                                    href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
                                                 <p class="card-text">{{ $f->Deskripsi }}</p>
-                                            
+
                                             </div>
-                                            <div class="card-body"> 
+                                            <div class="card-body">
                                                 <p class="card-text"></p>
-                                                <p class="card-text">{{ $f->name }} <small class="text-muted">{{ date("Y-m-d", strtotime($f->created_at)) }}</small></p>
+                                                <p class="card-text">{{ $f->name }} <small
+                                                        class="text-muted">{{ date('Y-m-d', strtotime($f->created_at)) }}</small>
+                                                </p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/ForumDetail/{{ $f->id }}"
+                                            class="btn btn-warning btn-sm">Comment</a>
+
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                            data-target="#updateForum{{ $f->id }}">
+                                            Edit Forum
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade bd-example-modal-xl" id="updateForum{{ $f->id }}"
+                                            tabindex="-1" aria-labelledby="updateForumLabel{{ $f->id }}Label"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="updateForumLabel{{ $f->id }}Label">
+                                                            Judul Forum {{ $f->Judul }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="/user-edit-forum/{{ $f->id }}" method="POST"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label for="judul">Judul Forum</label>
+                                                                <input placeholder="Judul" id="judul" type="text"
+                                                                    class="form-control @error('judul') is-invalid @enderror"
+                                                                    name="judul" value="{{ $f->Judul }}" required
+                                                                    autocomplete="judul" autofocus>
+
+                                                                @error('judul')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="description">Deskripsi Forum</label>
+                                                                <textarea placeholder="Description" class="form-control @error('description') is-invalid @enderror" name="description"
+                                                                    id="" cols="30" rows="5" required autocomplete="description" autofocus>{{ $f->Deskripsi }}</textarea>
+
+                                                                @error('description')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="image">Gambar</label>
+                                                                <input placeholder="Image" id="image" type="file"
+                                                                    class="form-control-file @error('image') is-invalid @enderror"
+                                                                    name="image">
+
+                                                                @error('image')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Update
+                                                            Forum</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                            data-target="#deleteForum{{ $f->IDForum }}">Delete Forum</button>
+
+
+                                        <div class="modal fade" id="deleteForum{{ $f->IDForum }}" tabindex="-1"
+                                            aria-labelledby="deleteForumLabel{{ $f->IDForum }}Label"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="deleteForumLabel{{ $f->IDForum }}Label">
+                                                            "{{ $f->Judul }}"</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h3 class="text-danger">Apakah anda yakin ingin menghapus Forum
+                                                            ini
+                                                            "{{ $f->Judul }}"?</h3>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <a href="/user-delete-forum/{{ $f->IDForum }}"
+                                                            class="btn btn-danger">Hapus Forum</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                <a href="/ForumDetail/{{ $f->id }}" class="btn btn-warning btn-sm">Comment</a>
-                                <a href="" class="btn btn-warning btn-sm">Delete</a>
-                                </div>
-                            </div>
                             @endforeach
                             {{ $forum->links() }}
                         </div>

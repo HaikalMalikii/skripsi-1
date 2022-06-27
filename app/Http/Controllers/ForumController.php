@@ -150,16 +150,45 @@ class ForumController extends Controller
         $forum = DB::table('forum')
             ->join('users', 'users.id', '=', 'forum.IDUser')
             ->join('detailforum', 'detailforum.IDForum', '=', 'forum.id')
-            ->select('users.*', 'users.name', 'detailforum.id', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
-            ->get();
-        $forum = DetailForum::paginate(3);
+            ->select('users.*', 'users.name', 'detailforum.id', 'forum.id as IDForum', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
+            ->orderBy('detailforum.created_at', 'desc')
+            ->paginate(3);
+        // $forum = DetailForum::paginate(3);
         return view('Forum.forumUser', compact((['forum'])));
     }
 
     public function deleteForum(Request $request, $id)
     {
         Forum::where('id', $id)->delete();
+        $idUser = Auth::id();
+        return redirect('/forumUser/' . $idUser);
+    }
 
-        return redirect('/forum');
+    public function editForum(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required|string|min:5',
+            'description' => 'required|string|min:10',
+            'image' => 'required|image'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'css/foto/';
+            $file->move($destinationPath, $request->image->getClientOriginalName());
+
+            DetailForum::where('id', $id)->update([
+                'Judul' => $request->judul,
+                'Deskripsi' => $request->description,
+                'Gambar' => $request->image->getClientOriginalName()
+            ]);
+        } else {
+            DetailForum::where('id', $id)->update([
+                'Judul' => $request->judul,
+                'Deskripsi' => $request->description
+            ]);
+        }
+        $idUser = Auth::id();
+        return redirect('/forumUser/' . $idUser);
     }
 }

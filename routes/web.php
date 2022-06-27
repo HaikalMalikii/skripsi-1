@@ -71,6 +71,8 @@ Route::get('/admin_kelurahan', 'AdminKelurahanController@dashboardAdminKelurahan
 Route::get('/Admin.dashboardAdminKelurahan', function () {
     return view('Admin.dashboardAdminKelurahan');
 });
+Route::get('/admin-kelurahan-status', 'AdminKelurahanController@viewKelurahan');
+
 
 Route::get('/detail-berita/{id}', 'BeritaController@detailBerita');
 
@@ -78,11 +80,13 @@ Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
 Route::post('/admin-edit-berita/{berita_id}', 'AdminKelurahanController@editBerita');
 Route::get('/admin-delete-berita/{berita_id}', 'AdminKelurahanController@deleteBerita');
+Route::get('/AduanDetailKelurahanS/{$id}', 'AdminKelurahanController@AduanDetailKelurahan');
+Route::post('/admin-tindak-lanjut/{$id}', 'AduanController@tindakLanjutAduan');
 
 //Admin Instansi
 Route::get('/admin-status', 'AduanController@view');
 
-Route::get('/admin-forum', 'ForumController@index');
+Route::get('/admin-forum', 'AdminKelurahanController@index');
 
 ///Login Google
 Route::get('/auth/redirect', 'Auth\LoginController@redirectToProvider');
@@ -106,6 +110,7 @@ Route::get('/addforum', function () {
 Route::post('/save-comment/{slug}/{id}', 'ForumController@ForumDetailComment');
 Route::get('/ForumDetailComment', 'ForumController@IndexComments');
 Route::get('/user-delete-forum/{id}', 'ForumController@deleteForum');
+Route::post('/user-edit-forum/{id}', 'ForumController@editForum');
 Route::post('/AddnewForum', 'ForumController@AddForum');
 
 // Route::get('/addforum','ForumController@GetUserID');

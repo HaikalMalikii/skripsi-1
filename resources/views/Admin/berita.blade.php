@@ -83,11 +83,13 @@
         @foreach ($berita as $b)
             <div class="card w-90">
                 <div class="card-body">
-                    <p class="card-text"> {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</p>
+                    <p class="card-text">
+                        {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}
+                    </p>
                     <td>
                         <img class="img-fluid" src="{{ asset("css/foto/$b->image") }}" alt="">
                     </td>
-                    
+
                     <a class="card-title" href="/Berita/{{ $b->id }}">{{ $b->judul }}</a>
                     <p class="card-text">{{ $b->description }}</p>
                     <td>
@@ -105,8 +107,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="updateBeritaLabel{{ $b->id }}Label">
                                                 Judul Berita {{ $b->judul }}</h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -130,8 +131,8 @@
 
                                                 <div class="form-group">
                                                     <label for="description">Deskripsi Berita</label>
-                                                    <textarea placeholder="Description" class="form-control @error('description') is-invalid @enderror" name="description"
-                                                        id="" cols="30" rows="5" required autocomplete="description" autofocus>{{ $b->description }}</textarea>
+                                                    <textarea placeholder="Description" class="form-control @error('description') is-invalid @enderror"
+                                                        name="description" id="" cols="30" rows="5" required autocomplete="description" autofocus>{{ $b->description }}</textarea>
 
                                                     @error('description')
                                                         <span class="invalid-feedback" role="alert">
@@ -188,7 +189,8 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <a href="/admin-delete-berita/{{ $b->id }}" class="btn btn-danger">Hapus
+                                            <a href="/admin-delete-berita/{{ $b->id }}"
+                                                class="btn btn-danger">Hapus
                                                 Berita</a>
                                         </div>
                                     </div>

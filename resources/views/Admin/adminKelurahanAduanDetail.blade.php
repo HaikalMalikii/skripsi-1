@@ -1,4 +1,4 @@
-@extends('layouts.layoutsInstansi')
+@extends('layouts.layoutsKelurahan')
 
 @section('content')
     <!DOCTYPE html>

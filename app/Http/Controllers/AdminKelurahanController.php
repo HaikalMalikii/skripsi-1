@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Aduan;
 use App\Berita;
+use App\Forum;
+use App\User;
+use App\DetailForum;
+use App\Komentar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,9 +26,25 @@ class AdminKelurahanController extends Controller
         return view('/Admin.dashboardAdminKelurahan');
     }
 
+    public function index()
+    {
+
+        // $forum = DetailForum::all();
+
+        $forum = DB::table('forum')
+            ->join('users', 'users.id', '=', 'forum.IDUser')
+            ->join('detailforum', 'detailforum.IDForum', '=', 'forum.id')
+            ->select('users.*', 'users.name', 'forum.IDUser', 'forum.id as IDForum', 'detailforum.id', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
+            ->orderBy('detailforum.created_at', 'desc')
+            ->paginate(5);
+        // $forum = DetailForum::paginate(5);
+        // dd($forum);
+        return view('Admin.adminForum', compact((['forum'])));
+    }
+
     public function berita()
     {
-        $berita = Berita::orderBy('created_at', 'DESC')->get();
+        $berita = Berita::orderBy('updated_at', 'DESC')->get();
 
         return view('Admin.berita')->with('berita', $berita);
     }
@@ -60,25 +82,16 @@ class AdminKelurahanController extends Controller
             $destinationPath = 'css/foto/';
             $file->move($destinationPath, $request->image->getClientOriginalName());
 
-            // Berita::where('id', $berita_id)->update([
-            //     'judul' => $request->judul,
-            //     'description' => $request->description,
-            //     'image' => $request->image->getClientOriginalName()
-            // ]);
-
-            $Berita = new Berita;
-            $Berita->judul = $request->judul;
-            $Berita->description = $request->description;
-            $Berita->image = $request->image;
-
-            $Berita->save();
+            Berita::where('id', $berita_id)->update([
+                'judul' => $request->judul,
+                'description' => $request->description,
+                'image' => $request->image->getClientOriginalName()
+            ]);
         } else {
-            $Berita = new Berita;
-            $Berita->judul = $request->judul;
-            $Berita->description = $request->description;
-
-
-            $Berita->save();
+            Berita::where('id', $berita_id)->update([
+                'judul' => $request->judul,
+                'description' => $request->description
+            ]);
         }
 
         return redirect('/admin-berita');
@@ -90,6 +103,48 @@ class AdminKelurahanController extends Controller
 
         return redirect('/admin-berita');
     }
+
+    public function AduanDetailKelurahan(Request $request, $id)
+    {
+
+        // $AduanDetail =  Aduan::find($id);
+        // dd($AduanDetail);
+        $AduanDetail = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->where('pengaduan.id', $id)
+            ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->get();
+
+
+        dd($AduanDetail);
+        return view('Admin.adminKelurahanAduanDetail', compact('AduanDetail'));
+    }
+
+    public function viewKelurahan()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->orderBy('pengaduan.created_at', 'asc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Admin.adminKelurahanAduanStatus')->with('Aduan', $Aduan);
+    }
+
+    // public function tindakLanjutAduan(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'judul' => 'required|string',
+    //     ]);
+
+    //     Aduan::where('id', $id)->update([
+    //         'Judul' => $request->judul
+    //     ]);
+    //     dd('x');
+
+    //     return redirect('/admin-kelurahan-status');
+    // }
 
     public function store(Request $request)
     {

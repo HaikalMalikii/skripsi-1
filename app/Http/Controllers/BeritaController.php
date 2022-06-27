@@ -19,6 +19,6 @@ class BeritaController extends Controller
     {
         $berita =  Berita::findOrFail($id);
 
-        return view('Admin.detailBerita',compact('berita'));
+        return view('Admin.detailBerita', compact('berita'));
     }
 }

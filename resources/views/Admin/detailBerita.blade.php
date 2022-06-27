@@ -8,14 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detail Berita</title>
     <style>
-        .image{
+        .image {
             width: 50%;
             height: 50%;
         }
-        .container{
+
+        .container {
             text-align: center;
         }
-        p{
+
+        p {
             text-align: justify;
         }
     </style>
@@ -25,20 +27,20 @@
     @section('content')
 
         <body>
-            <div class="container" style="margin-top:40px">
-                <div class="row">
+            <div class="container " style="margin-top:40px">
+                <div class="row justify-content-center">
                     <div class="col-md-9">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="post-detail">
-                                    
+
                                     {{-- @php
                                         dd('$b');
                                     @endphp --}}
-                                        <h1>{{ $berita->judul }}</h1>
+                                    <h1>{{ $berita->judul }}</h1>
 
-                                        <div class="info-meta">
-                                        <small class="text-muted"> 
+                                    <div class="info-meta">
+                                        <small class="text-muted">
                                             <ul class="list-inline">
                                                 <li><i class="fa fa-clock-o"></i> {{ $berita->created_at }}</li>
                                                 {{-- <li><i class="fa fa-eye"></i>21k</li>
@@ -47,15 +49,15 @@
                                                 {{-- <li class="pull-right">Category : Education</li> --}}
                                             </ul>
                                         </small>
-                                            <hr>
-                                            <img class="image" src="{{ asset("css/foto/$berita->image") }}">
-                                            <br>
-                                            <br>
-                                            <p>
-                                                {{ $berita->description }}
-                                            </p>
-                                        </div>
-                                    
+                                        <hr>
+                                        <img class="image" src="{{ asset("css/foto/$berita->image") }}">
+                                        <br>
+                                        <br>
+                                        <p>
+                                            {{ $berita->description }}
+                                        </p>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
