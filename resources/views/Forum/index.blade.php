@@ -14,75 +14,77 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <title>Add Forum</title>
         <style>
-
-            .card-title:hover{
+            .card-title:hover {
                 text-decoration: none;
                 color: #242F9B;
             }
 
-            p{
+            p {
                 color: black;
             }
-            .card{
+
+            .card {
                 background-color: lightblue;
                 padding-top: 20px;
             }
-            .image{
+
+            .image {
                 width: 100%;
                 height: 100%;
             }
-            .form{
+
+            .form {
                 padding-left: 20px;
                 color: black;
             }
-            
         </style>
     </head>
 
     <body>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    
-    <form action="/AddnewForum" method="post" enctype="multipart/form-data">
-        @csrf
-        <div class="container">
-            <div class="form card w-90">
-                <div class="form-row">
-                    <div class="col-10">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="/AddnewForum" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="container">
+                <div class="form card w-90">
+                    <div class="form-row">
+                        <div class="col-10">
                             <div class="form-group">
                                 <label for="judul">Judul: </label>
-                                <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
+                                <input type="text" class="form-control" id="AddAduanJudulID" name="Judul"
+                                    placeholder="Judul">
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi">Deskripsi:</label>
-                                    <textarea class="form-control" id="forumaspirasi"  placeholder="Deskripsi" name="Deskripsi" ></textarea>
+                                <textarea class="form-control" id="forumaspirasi" placeholder="Deskripsi" name="Deskripsi"></textarea>
                             </div>
 
-                        <div class="form-group">
-                            <label for="gambar">Gambar:</label>
-                            <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
-                        </div>
-                        
-                        <div class="form-group form-row justify-content-left">
-                            @guest
-                                <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
-                            @else
-                            <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
-                            @endguest
+                            <div class="form-group">
+                                <label for="gambar">Gambar:</label>
+                                <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
+                            </div>
+
+                            <div class="form-group form-row justify-content-left">
+                                @guest
+                                    <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
+                                @else
+                                    <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
+                                @endguest
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
-<br>
+        </form>
+        <br>
         <div class="main">
             <div class="container">
                 <div class="row">
@@ -93,28 +95,30 @@
                                 </div>
                             </div>
                             @foreach ($forum as $f)
-                            <div class="card w-90">
-                                <div class="row no-gutters">
-                                    <div class="col-md-2">
-                                    <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                    </div>
+                                <div class="card w-90">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-2">
+                                            <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                srcset="">
+                                        </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <a class="card-title" href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
-                                                <p class="card-text">{{ $f->Deskripsi }}</p>
-                                            
-                                            </div>
-                                            <div class="card-body"> 
-                                                <p class="card-text"></p>
-                                                <p class="card-text">{{ $f->name }} <small class="text-muted">{{ date("Y-m-d", strtotime($f->created_at)) }}</small></p>
+                                                <a class="card-title"
+                                                    href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
+                                                <p class="card-text">{{ $f->name }} <small
+                                                        class="text-muted">{{ date('d-m-Y', strtotime($f->created_at)) }}</small>
+                                                </p>
+                                                <p class="card-text">
+                                                    {{ Illuminate\Support\Str::limit($f->Deskripsi, 300) }}</p>
+
                                             </div>
                                         </div>
-                                </div>
-                                <div class="card-footer">
-                                <a href="/ForumDetail/{{ $f->id }}"
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/ForumDetail/{{ $f->id }}"
                                             class="btn btn-warning btn-sm">Comment</a>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
                             {{ $forum->links() }}
                         </div>

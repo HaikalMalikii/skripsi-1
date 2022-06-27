@@ -57,7 +57,7 @@ class ForumController extends Controller
         $users = Auth::id();
         $validasi = Validator::make($request->all(), [
             'Judul' => 'required|string|max:20',
-            'Deskripsi' => 'required|string|max:200',
+            'Deskripsi' => 'required|string',
             'Gambar' => 'image'
         ]);
         if ($validasi->fails()) {
