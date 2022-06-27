@@ -33,7 +33,7 @@ class ForumController extends Controller
         $forum = DB::table('forum')
             ->join('users', 'users.id', '=', 'forum.IDUser')
             ->join('detailforum', 'detailforum.IDForum', '=', 'forum.id')
-            ->select('users.*', 'users.name','forum.IDUser','forum.id as IDForum' ,'detailforum.id', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
+            ->select('users.*', 'users.name', 'forum.IDUser', 'forum.id as IDForum', 'detailforum.id', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
             ->orderBy('detailforum.created_at', 'desc')
             ->paginate(5);
         // $forum = DetailForum::paginate(5);
@@ -130,15 +130,16 @@ class ForumController extends Controller
         $request->validate([
             'comment' => 'required'
         ]);
-
+        // dd($id);
         // dd($id);
         $Komentar = new Komentar;
         $Komentar->IDDetForum = $id;
         $Komentar->IDUser = $request->user()->id;
         $Komentar->Komentar =  $request->comment;
+        // dd($Komentar);
         $Komentar->save();
 
-        return redirect('/forum');
+        return redirect('/ForumDetail/' . $id);
     }
 
     public function forumUser(Request $request, $id)
@@ -153,5 +154,12 @@ class ForumController extends Controller
             ->get();
         $forum = DetailForum::paginate(3);
         return view('Forum.forumUser', compact((['forum'])));
+    }
+
+    public function deleteForum(Request $request, $id)
+    {
+        Forum::where('id', $id)->delete();
+
+        return redirect('/forum');
     }
 }

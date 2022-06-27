@@ -118,9 +118,39 @@
                                         <a href="/ForumDetail/{{ $f->id }}"
                                             class="btn btn-warning btn-sm">Comment</a>
                                     </div>
-                                    @if ($f->IDUser ==  Auth::user()->id )
-                                    <button type="submit" name="buttonadd" class="btn btn-primary">Delete</button>
-                                        
+                                    @if ($f->IDUser == Auth::user()->id)
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                data-target="#deleteForum{{ $f->IDForum }}">Delete Forum</button>
+                                        </div>
+
+                                        <div class="modal fade" id="deleteForum{{ $f->IDForum }}" tabindex="-1"
+                                            aria-labelledby="deleteForumLabel{{ $f->IDForum }}Label" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="deleteForumLabel{{ $f->IDForum }}Label">
+                                                            "{{ $f->Judul }}"</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h3 class="text-danger">Apakah anda yakin ingin menghapus Forum ini
+                                                            "{{ $f->Judul }}"?</h3>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <a href="/user-delete-forum/{{ $f->IDForum }}"
+                                                            class="btn btn-danger">Hapus
+                                                            Forum</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                 </div>
                             @endforeach

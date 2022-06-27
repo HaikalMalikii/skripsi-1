@@ -18,7 +18,7 @@ class CreateKomentarTable extends Migration
             $table->unsignedBigInteger('IDUser');
             $table->foreign('IDUser')->references('id')->on('users');
             $table->unsignedBigInteger('IDDetForum');
-            $table->foreign('IDDetForum')->references('id')->on('detailforum');
+            $table->foreign('IDDetForum')->references('id')->on('detailforum')->onDelete('cascade');
             $table->text("Komentar");
             $table->timestamps();
         });

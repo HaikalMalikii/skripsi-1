@@ -100,7 +100,7 @@ Route::get('/addforum', function () {
 });
 Route::post('/save-comment/{slug}/{id}', 'ForumController@ForumDetailComment');
 Route::get('/ForumDetailComment', 'ForumController@IndexComments');
-
+Route::get('/user-delete-forum/{id}', 'ForumController@deleteForum');
 Route::post('/AddnewForum', 'ForumController@AddForum');
 
 // Route::get('/addforum','ForumController@GetUserID');

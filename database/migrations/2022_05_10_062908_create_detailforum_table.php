@@ -16,7 +16,7 @@ class CreateDetailforumTable extends Migration
         Schema::create('detailforum', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IDForum');
-            $table->foreign('IDForum')->references('id')->on('forum');
+            $table->foreign('IDForum')->references('id')->on('forum')->onDelete('cascade');
             // $table->integer("IDKomentar");
             $table->text("Deskripsi");
             $table->string("Judul");
