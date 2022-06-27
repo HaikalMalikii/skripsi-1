@@ -55,6 +55,7 @@ class AduanController extends Controller
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->orderBy('users.created_at', 'desc')
             ->get();
         // dd($Aduan->first());
 
@@ -93,19 +94,19 @@ class AduanController extends Controller
         return view('Aduan.AduanDetailUser', compact('AduanDetail'));
     }
 
-    
-    
+
+
 
     public function viewUser(Request $request, $id)
     {
-        
+
         $data = Aduan::where('IDUser', $id)->get();
         $data = Aduan::paginate(5);
         $data = DB::table('pengaduan')
-        ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-        ->where('pengaduan.IDUser',$id)
-        ->select('users.*', 'users.name', 'pengaduan.id','pengaduan.Persetujuan', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
-        ->get();
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->where('pengaduan.IDUser', $id)
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->get();
         dd($data);
 
         return view('Aduan.AduanViewUser', compact('data'));
