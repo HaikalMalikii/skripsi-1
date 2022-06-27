@@ -51,18 +51,54 @@ class AduanController extends Controller
         $Aduan->save();
         return redirect('/');
     }
-
     public function view()
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
         // dd($Aduan->first());
 
         return view('Aduan.AduanView')->with('Aduan', $Aduan);
     }
+    public function viewKebersihan()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->where('pengaduan.Bagian', 'Kebersihan')
+            ->orderBy('pengaduan.created_at', 'desc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+    }
+    public function viewKesehatan()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->where('pengaduan.Bagian', 'Kesehatan')
+            ->orderBy('pengaduan.created_at', 'desc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+    }
+    public function viewPublik()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->where('pengaduan.Bagian', 'Fasilitas Publik')
+            ->orderBy('pengaduan.created_at', 'desc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+    }
+
 
     public function AduanDetail(Request $request, $id)
     {

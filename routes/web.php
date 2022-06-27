@@ -79,6 +79,8 @@ Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
 Route::post('/admin-edit-berita/{berita_id}', 'AdminKelurahanController@editBerita');
 Route::get('/admin-delete-berita/{berita_id}', 'AdminKelurahanController@deleteBerita');
 
+//Admin Instansi
+Route::get('/admin-status', 'AduanController@view');
 
 Route::get('/admin-forum', 'ForumController@index');
 
@@ -89,6 +91,9 @@ Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/Aduan', 'AduanController@view');
 Route::get('/AduanDetail/{id}', 'AduanController@AduanDetail');
 Route::get('/AduanDetailUser/{id}', 'AduanController@AduanDetailUser');
+Route::get('/aduan-kebersihan', 'AduanController@viewKebersihan');
+Route::get('/aduan-kesehatan', 'AduanController@viewKesehatan');
+Route::get('/aduan-publik', 'AduanController@viewPublik');
 
 
 /// Forum

@@ -35,7 +35,7 @@
                 font-family: 'Roboto Condensed', sans-serif;
             }
 
-            .colour-text{
+            .colour-text {
                 color: black;
             }
         </style>
@@ -56,30 +56,49 @@
                                         <a href="{{ url('/addforum') }}" class="btn btn-sm btn-primary">New Forum</a>
                                     @endguest
                                 </div> --}}
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Sort By
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/aduan-kebersihan">Kebersihan</a>
+                                    <a class="dropdown-item" href="/aduan-kesehatan">Kesehatan</a>
+                                    <a class="dropdown-item" href="/aduan-publik">Fasilitas Publik</a>
+                                </div>
                             </div>
+
                             @foreach ($Aduan as $f)
                                 <div class="card w-90">
-                                    <a href="/AduanDetail/{{ $f->id }}"  class="stretched-link text-decoration-none">
-                                    <div class="card-body">
-                                        
-                                        <a>
-                                        <p class="colour-text card-text">{{ date("Y-m-d H:i:s", strtotime($f->created_at)) }}</p>
-                                        <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                        <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                        <p class="colour-text card-text">{{ $f->name }}</p>
-                                        <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                        </a>
-                                            
-                                        
-                                    </div>
+                                    <a href="/AduanDetail/{{ $f->id }}" class="stretched-link text-decoration-none">
+                                        <div class="card-body">
+
+                                            <a>
+                                                <p class="colour-text card-text">
+                                                    {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                <p class="colour-text card-text">{{ $f->name }}</p>
+                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                    srcset="">
+                                            </a>
+
+
+                                        </div>
                                     </a>
                                 </div>
                             @endforeach
 
+
+
+
+
                         </div>
+
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
 
