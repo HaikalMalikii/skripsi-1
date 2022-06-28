@@ -30,14 +30,14 @@
                         <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
 
 
-                        <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
+                        {{-- <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject
                             </button>
                             <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
                             </button>
                             {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
-                        </form>
+                        {{-- </form>? --}}
 
 
                 </div>

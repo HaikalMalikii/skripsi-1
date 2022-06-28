@@ -7,6 +7,7 @@ use App\User;
 use App\DetailForum;
 use App\Komentar;
 use Carbon\Carbon;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -47,11 +48,6 @@ class ForumController extends Controller
         return view('Forum.ForumDetail', compact((['ForumDetailComment'])));
     }
 
-    //    public function AddForum()
-    //    {
-    //        $forum = Forum::paginate(10);
-    //        return view('forum.addforum',compact((['forum'])));
-    //    }
 
     public function AddForum(Request $request, Forum $forum)
     {
@@ -68,42 +64,22 @@ class ForumController extends Controller
         }
         $photo = $request->file('Gambar');
         $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
-        $Tanggal_now =  Carbon::now();
-        $user = Auth::user();
 
-
-
-        // DB::table('forum')->insert(
-        //     [
-        //         'IDUser' => $user->id,
-        //         'created_at' => $Tanggal_now,
-        //         'updated_at' => $Tanggal_now
-        //     ]);
         $ForumInsert = new Forum;
         $ForumInsert->IDUser = $request->user()->id;
         $ForumInsert->save();
-
-        // DB::table('detailforum')->insert(
-        //     [
-
-        //         'IDForum' => $forum->id,
-        //         'Deskripsi' => $request -> aspirasi,
-        //         'Judul' => $request -> forumjuduladd,
-        //         'Gambar' =>$request -> imageforumadd -> getClientOriginalName(),
-        //         'created_at' => $Tanggal_now,
-        //         'updated_at' => $Tanggal_now
-
-        //     ]);
         $forum = Forum::latest()->first();
         $DetailForum = new DetailForum;
         $DetailForum->IDForum = $forum->id;
         $DetailForum->Deskripsi = $request->Deskripsi;
         $DetailForum->Gambar = $request->Gambar->getClientOriginalName();
         $DetailForum->Judul = $request->Judul;
-        $DetailForum->save();
 
-        return redirect('/forum');
-    }
+        $DetailForum->save();
+            // $request->session()->flash('key', $value);
+        // $request->session()->flash('addForumPopUp', 'Forum beerhasil ditambahkan!');
+        return redirect()->back()->with('success','Berhasil Ditambahkan!');
+        }
 
     public function ForumDetail(Request $request, $ForumID)
     {

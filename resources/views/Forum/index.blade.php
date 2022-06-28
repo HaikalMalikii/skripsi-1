@@ -37,6 +37,11 @@
                 padding-left: 20px;
                 color: black;
             }
+            .BackColour
+            {
+                background-color: lightblue;
+                text-decoration-color: white;
+            }
         </style>
     </head>
 
@@ -50,6 +55,7 @@
                 </ul>
             </div>
         @endif
+
 
         <form action="/AddnewForum" method="post" enctype="multipart/form-data">
             @csrf
@@ -95,6 +101,15 @@
                                 </div>
                             </div>
                             @foreach ($forum as $f)
+                            @if(Session::has('success'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Forum Ditambahkan!</strong> 
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                            @endif
+                            
                                 <div class="card w-90">
                                     <div class="row no-gutters">
                                         <div class="col-md-2">

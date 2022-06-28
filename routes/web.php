@@ -80,8 +80,8 @@ Route::get('/admin-berita', 'AdminKelurahanController@berita');
 Route::post('/admin-add-berita', 'AdminKelurahanController@addBerita');
 Route::post('/admin-edit-berita/{berita_id}', 'AdminKelurahanController@editBerita');
 Route::get('/admin-delete-berita/{berita_id}', 'AdminKelurahanController@deleteBerita');
-Route::get('/AduanDetailKelurahanS/{$id}', 'AdminKelurahanController@AduanDetailKelurahan');
-Route::post('/admin-tindak-lanjut/{$id}', 'AduanController@tindakLanjutAduan');
+Route::get('/AduanDetailKelurahan/{id}', 'AdminKelurahanController@AduanDetailKelurahan');
+Route::post('/admin-tindak-lanjut/{id}', 'AduanController@tindakLanjutAduan');
 
 //Admin Instansi
 Route::get('/admin-status', 'AduanController@view');
