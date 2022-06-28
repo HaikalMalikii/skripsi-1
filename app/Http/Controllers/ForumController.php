@@ -76,10 +76,10 @@ class ForumController extends Controller
         $DetailForum->Judul = $request->Judul;
 
         $DetailForum->save();
-            // $request->session()->flash('key', $value);
+        // $request->session()->flash('key', $value);
         // $request->session()->flash('addForumPopUp', 'Forum beerhasil ditambahkan!');
-        return redirect()->back()->with('success','Berhasil Ditambahkan!');
-        }
+        return redirect()->back()->with('success', 'Berhasil Ditambahkan!');
+    }
 
     public function ForumDetail(Request $request, $ForumID)
     {

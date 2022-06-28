@@ -37,8 +37,8 @@
                 padding-left: 20px;
                 color: black;
             }
-            .BackColour
-            {
+
+            .BackColour {
                 background-color: lightblue;
                 text-decoration-color: white;
             }
@@ -82,9 +82,30 @@
                                 @guest
                                     <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
                                 @else
-                                    <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
+                                    {{-- <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button> --}}
+                                    <button type="submit" name="buttonadd" data-toggle="modal" data-target="#popup"
+                                        class="btn btn-primary">Submit Forum</button>
                                 @endguest
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="popup" role="dialog" arialabelledby="modalLabel" area-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                FORUM</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-danger">Forum berhasil di tambahkan</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">OK</button>
                         </div>
                     </div>
                 </div>
@@ -100,16 +121,15 @@
                                 <div class="right">
                                 </div>
                             </div>
+                            {{-- @if (Session::has('success'))
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Forum Berhasil Ditambahkan!</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif --}}
                             @foreach ($forum as $f)
-                            @if(Session::has('success'))
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Forum Ditambahkan!</strong> 
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            @endif
-                            
                                 <div class="card w-90">
                                     <div class="row no-gutters">
                                         <div class="col-md-2">

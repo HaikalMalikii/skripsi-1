@@ -165,13 +165,40 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Update
-                                                            Forum</button>
+                                                        {{-- <button type="submit" class="btn btn-primary">Update
+                                                            Forum</button> --}}
+                                                        <button type="button" data-toggle="modal" data-target="#popup"
+                                                            class="btn btn-primary">Update Forum</button>
+                                                        <div class="modal fade" id="popup" role="dialog"
+                                                            arialabelledby="modalLabel" area-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">
+                                                                            FORUM</h5>
+                                                                        {{-- <button type="button" class="close"
+                                                                            aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button> --}}
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <h3 class="text-danger">Forum dengan judul
+                                                                            "{{ $f->Judul }}" berhasil di update</h3>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">OK</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
 
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                             data-target="#deleteForum{{ $f->IDForum }}">Delete Forum</button>
@@ -183,9 +210,8 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title"
-                                                            id="deleteForumLabel{{ $f->IDForum }}Label">
-                                                            "{{ $f->Judul }}"</h5>
+                                                        <h5 class="modal-title">
+                                                            FORUM</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -196,12 +222,40 @@
                                                             ini
                                                             "{{ $f->Judul }}"?</h3>
                                                     </div>
+
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        <a href="/user-delete-forum/{{ $f->IDForum }}"
-                                                            class="btn btn-danger">Hapus Forum</a>
+                                                        <button type="button" data-toggle="modal" data-target="#popup2"
+                                                            class="btn btn-danger">Hapus Forum</button>
+                                                        {{-- <a href="/user-delete-forum/{{ $f->IDForum }}"
+                                                            class="btn btn-danger">Hapus Forum</a> --}}
                                                     </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="popup2" role="dialog"
+                                            arialabelledby="modalLabel" area-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            FORUM</h5>
+                                                        {{-- <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> --}}
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h3 class="text-danger">Forum dengan judul
+                                                            "{{ $f->Judul }}" berhasil di hapus</h3>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="/user-delete-forum/{{ $f->IDForum }}"
+                                                            class="btn btn-primary">OK</a> --}}
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
