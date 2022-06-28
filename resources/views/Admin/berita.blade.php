@@ -73,7 +73,31 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Tulis Berita</button>
+                        {{-- <button type="submit" class="btn btn-primary">Tulis Berita</button> --}}
+                        <button type="button" data-toggle="modal" data-target="#popup" class="btn btn-primary">Tulis
+                            Berita</button>
+                        <div class="modal fade" id="popup" role="dialog" arialabelledby="modalLabel"
+                            area-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">
+                                            BERITA</h5>
+                                        {{-- <button type="button" class="close"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> --}}
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3 class="text-danger">Berita berhasil di tambahkan</h3>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         </form>
                     </div>
                 </div>
@@ -107,7 +131,8 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="updateBeritaLabel{{ $b->id }}Label">
                                                 Judul Berita {{ $b->judul }}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -157,7 +182,31 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Update Berita</button>
+                                            {{-- <button type="submit" class="btn btn-primary">Update Berita</button> --}}
+                                            <button type="button" data-toggle="modal" data-target="#popup2"
+                                                class="btn btn-primary">Update Berita</button>
+                                            <div class="modal fade" id="popup2" role="dialog"
+                                                arialabelledby="modalLabel" area-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">
+                                                                BERITA</h5>
+                                                            {{-- <button type="button" class="close"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> --}}
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h3 class="text-danger">Berita dengan
+                                                                judul "{{ $b->judul }}" berhasil di update</h3>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">OK</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             </form>
                                         </div>
                                     </div>
@@ -189,10 +238,36 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <a href="/admin-delete-berita/{{ $b->id }}"
+                                            <button type="button" data-toggle="modal" data-target="#popup3"
+                                                class="btn btn-danger">Hapus Berita</button>
+                                            {{-- <a href="/admin-delete-berita/{{ $b->id }}"
                                                 class="btn btn-danger">Hapus
-                                                Berita</a>
+                                                Berita</a> --}}
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="popup3" role="dialog" arialabelledby="modalLabel"
+                                area-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">
+                                                BERITA</h5>
+                                            {{-- <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> --}}
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3 class="text-danger">Berita dengan judul
+                                                "{{ $b->judul }}" berhasil di hapus</h3>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="/admin-delete-berita/{{ $b->id }}"
+                                                class="btn btn-primary">OK</a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
