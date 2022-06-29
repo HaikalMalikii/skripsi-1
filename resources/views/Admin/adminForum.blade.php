@@ -38,7 +38,13 @@
                 color: black;
             }
         </style>
+        <div style="">
+            <div class="bg-light clearfix">
+                <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
+            </div>
+        </div>
     </head>
+
 
     <body>
         @if ($errors->any())

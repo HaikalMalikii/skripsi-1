@@ -68,7 +68,7 @@ class LoginController extends Controller
                     'email_verified_at' => now()
                 ]);
                 $create->roles()->attach(Role::where('name', 'users')->first());
-                
+
                 \auth()->login($create, true);
                 return redirect()->route('/');
             }

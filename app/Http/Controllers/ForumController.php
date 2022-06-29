@@ -55,7 +55,7 @@ class ForumController extends Controller
         $validasi = Validator::make($request->all(), [
             'Judul' => 'required|string|min:5',
             'Deskripsi' => 'required|string|min:5',
-            'Gambar' => 'image'
+            'Gambar' => 'required|image'
         ]);
         if ($validasi->fails()) {
             return redirect('/forum')
@@ -78,8 +78,8 @@ class ForumController extends Controller
 
         $DetailForum->save();
         // $request->session()->flash('key', $value);
-        // $request->session()->flash('addForumPopUp', 'Forum beerhasil ditambahkan!');
-        return redirect('/forum')->with('success', 'Forum berhasil di buat!');
+        // $request->session()->flash('addForumPopUp', 'Forum berhasil ditambahkan!');
+        return redirect('/forum')->with('success', 'Forum anda berhasil di buat!');
         // return redirect('/forum');
     }
 

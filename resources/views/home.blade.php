@@ -35,9 +35,9 @@
             }
 
             /*
-                .container-fluid {
-                    background-color: lightcoral;
-                } */
+                        .container-fluid {
+                            background-color: lightcoral;
+                        } */
 
             h1 {
                 font-size: 4vw;
@@ -49,19 +49,19 @@
 
 
             /* .col-sm-3 {
-                                float: right;
-                                background-color: white;
-                                margin-top: 50px;
-                                margin-left: 20px;
-                                margin-right: 50px;
-                            }
+                                        float: right;
+                                        background-color: white;
+                                        margin-top: 50px;
+                                        margin-left: 20px;
+                                        margin-right: 50px;
+                                    }
 
-                            .col-sm-7 {
-                                float: left;
-                                margin-top: 50px;
-                                margin-left: 20px;
-                                margin-right: 20px;
-                            } */
+                                    .col-sm-7 {
+                                        float: left;
+                                        margin-top: 50px;
+                                        margin-left: 20px;
+                                        margin-right: 20px;
+                                    } */
 
             .image {
                 width: 100%;
@@ -142,6 +142,6 @@
             <!-- {{ $berita->appends(['detailforum' => $detailforum->currentPage()])->links() }} -->
         </div>
 
-
+        @include('sweetalert::alert')
     </body>
 @endsection

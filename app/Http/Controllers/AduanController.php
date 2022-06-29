@@ -13,23 +13,22 @@ use App\User;
 class AduanController extends Controller
 {
     //
-    public function BacktoAduanViewUser (Request $request)
+    public function BacktoAduanViewUser(Request $request)
     {
 
-            $id = Auth::id();
-            $data = Aduan::where('IDUser', $id)->get();
-            // $data = Aduan::paginate(5);
-            $data = DB::table('pengaduan')
-                ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-                ->where('pengaduan.IDUser', $id)
-                ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
-                ->orderBy('pengaduan.created_at', 'desc')
-    
-                ->paginate(4);
-            //dd($data);
-    
-            return view('Aduan.AduanViewUser', compact('data'));
-        
+        $id = Auth::id();
+        $data = Aduan::where('IDUser', $id)->get();
+        // $data = Aduan::paginate(5);
+        $data = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->where('pengaduan.IDUser', $id)
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->orderBy('pengaduan.created_at', 'desc')
+
+            ->paginate(4);
+        //dd($data);
+
+        return view('Aduan.AduanViewUser', compact('data'));
     }
 
     public function AddAduan(Request $request, Aduan $Aduan)
@@ -37,10 +36,10 @@ class AduanController extends Controller
 
         $users = Auth::id();
         $validasi = Validator::make($request->all(), [
-            'Judul' => 'string|max:20',
-            'Bagian' => 'required|string',
-            'Location' => 'required|string',
-            'Deskripsi' => 'required|string',
+            'Judul' => 'required|string|min:5',
+            'Bagian' => 'required|not_in:Bagian...',
+            'Location' => 'required|string|min:10',
+            'Deskripsi' => 'required|string|min:20',
             'Gambar' => 'required|image'
         ]);
         if ($validasi->fails()) {
@@ -70,7 +69,7 @@ class AduanController extends Controller
         // dd($Aduan->Bagian);
         $Aduan->save();
         $idUser = Auth::id();
-        return redirect('/AduanViewUser/'.$idUser)->with('success','Aduan Anda Ditambahkan!');;
+        return redirect('/AduanViewUser/' . $idUser)->with('success', 'Aduan anda berhasil di buat!');
     }
     public function view()
     {
@@ -94,9 +93,9 @@ class AduanController extends Controller
         Aduan::where('id', $id)->update([
             'Judul' => $request->judul
         ]);
-        
 
-        return redirect('/admin-kelurahan-status')->with('success','Berhasil Ditambahkan!');;
+
+        return redirect('/admin-kelurahan-status')->with('success', 'Berhasil Ditambahkan!');;
     }
 
     public function viewKebersihan()
@@ -182,7 +181,7 @@ class AduanController extends Controller
         $AduanDetail = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.id', $id)
-            ->select('users.*', 'users.name', 'pengaduan.IDUser','pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
 
 

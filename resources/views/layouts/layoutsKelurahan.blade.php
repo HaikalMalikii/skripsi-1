@@ -39,7 +39,7 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- Left Side Of Navbar -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">
+                        <a class="nav-link" href="{{ url('/admin-kelurahan-status') }}">
                             Status
                         </a>
                     </li>

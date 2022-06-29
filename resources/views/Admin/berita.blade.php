@@ -1,11 +1,17 @@
 @extends('layouts.layoutsKelurahan')
 
 @section('content');
+    <div style="">
+        <div class="bg-light clearfix">
+            <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
+        </div>
+    </div>
 
-    <div class="container" style="padding-top: 7rem; min-height: 100vh">
+    <div class="container" style="min-height: 100vh">
+
         <h1>Berita</h1>
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div id="" style="display: none;" class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -73,39 +79,14 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        {{-- <button type="submit" class="btn btn-primary">Tulis Berita</button> --}}
-                        <button type="button" data-toggle="modal" data-target="#popup" class="btn btn-primary">Tulis
-                            Berita</button>
-                        <div class="modal fade" id="popup" role="dialog" arialabelledby="modalLabel"
-                            area-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">
-                                            BERITA</h5>
-                                        {{-- <button type="button" class="close"
-                                        aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button> --}}
-                                    </div>
-                                    <div class="modal-body">
-                                        <h3 class="text-danger">Berita berhasil di tambahkan</h3>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">OK</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <button type="submit" class="btn btn-primary">Tulis Berita</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         @foreach ($berita as $b)
-        
             <div class="card w-90">
                 <div class="card-body">
                     <p class="card-text">
@@ -118,7 +99,7 @@
                     <a class="card-title" href="/Berita/{{ $b->id }}">{{ $b->judul }}</a>
                     <p class="card-text">{{ $b->description }}</p>
                     <td>
-                        <div class="btn-group">
+                        <div class="float-right">
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#updateBerita{{ $b->id }}">
                                 Edit Berita
@@ -131,9 +112,8 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="updateBeritaLabel{{ $b->id }}Label">
-                                                Judul Berita {{ $b->judul }}</h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
+                                                Edit Berita</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -183,31 +163,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            {{-- <button type="submit" class="btn btn-primary">Update Berita</button> --}}
-                                            <button type="button" data-toggle="modal" data-target="#popup2"
-                                                class="btn btn-primary">Update Berita</button>
-                                            <div class="modal fade" id="popup2" role="dialog"
-                                                arialabelledby="modalLabel" area-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">
-                                                                BERITA</h5>
-                                                            {{-- <button type="button" class="close"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button> --}}
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <h3 class="text-danger">Berita dengan
-                                                                judul "{{ $b->judul }}" berhasil di update</h3>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary">OK</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Berita</button>
                                             </form>
                                         </div>
                                     </div>
@@ -226,7 +182,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteBeritaLabel{{ $b->id }}Label">
-                                                "{{ $b->judul }}" Judul Berita</h5>
+                                                Hapus Berita</h5>
                                             <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -239,39 +195,15 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <button type="button" data-toggle="modal" data-target="#popup3"
-                                                class="btn btn-danger">Hapus Berita</button>
-                                            {{-- <a href="/admin-delete-berita/{{ $b->id }}"
-                                                class="btn btn-danger">Hapus
-                                                Berita</a> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal fade" id="popup3" role="dialog" arialabelledby="modalLabel"
-                                area-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">
-                                                BERITA</h5>
-                                            {{-- <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button> --}}
-                                        </div>
-                                        <div class="modal-body">
-                                            <h3 class="text-danger">Berita dengan judul
-                                                "{{ $b->judul }}" berhasil di hapus</h3>
-                                        </div>
-                                        <div class="modal-footer">
                                             <a href="/admin-delete-berita/{{ $b->id }}"
-                                                class="btn btn-primary">OK</a>
+                                                class="btn btn-danger">Hapus
+                                                Berita</a>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </td>
 
@@ -279,5 +211,6 @@
             </div>
         @endforeach
     </div>
+    @include('sweetalert::alert')
 
 @endsection

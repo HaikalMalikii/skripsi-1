@@ -39,6 +39,11 @@
                 color: black;
             }
         </style>
+        <div style="">
+            <div class="bg-light clearfix">
+                <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
+            </div>
+        </div>
     </head>
 
     <body>
@@ -49,7 +54,7 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Aduan Masyarkat</h3>
-                                <a href="/Admin.dashboardAdminInstansi">Kembali</a>
+
                                 {{-- <div class="right">
                                     @guest
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>

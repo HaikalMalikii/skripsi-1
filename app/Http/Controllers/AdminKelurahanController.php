@@ -67,7 +67,7 @@ class AdminKelurahanController extends Controller
             'image' => $request->image->getClientOriginalName()
         ]);
 
-        return redirect('/admin-berita');
+        return redirect('/admin-berita')->with('success', 'Berita anda berhasil di buat!');
     }
     public function editBerita(Request $request, $berita_id)
     {
@@ -94,14 +94,14 @@ class AdminKelurahanController extends Controller
             ]);
         }
 
-        return redirect('/admin-berita');
+        return redirect('/admin-berita')->with('success', 'Berita anda berhasil di update!');
     }
     public function deleteBerita($berita_id)
     {
 
         Berita::where('id', $berita_id)->delete();
 
-        return redirect('/admin-berita');
+        return redirect('/admin-berita')->with('success', 'Berita anda berhasil di hapus!');
     }
 
     public function AduanDetailKelurahan(Request $request, $id)
@@ -130,7 +130,7 @@ class AdminKelurahanController extends Controller
             ->get();
         //  dd($Aduan);
 
-        return view('Admin.adminKelurahanAduanStatus')->with('Aduan', $Aduan);
+        return view('Admin.adminKelurahanAduanStatus')->with('Aduan', $Aduan)->with('success', 'Aduan berhasil di tindak lanjut ke Instansi!');
     }
     public function AduanDetail(Request $request, $id)
     {
@@ -165,38 +165,5 @@ class AdminKelurahanController extends Controller
             ->get();
         // dd($ForumDetail->gambar);
         return view('Forum.ForumDetailKelurahan', compact('ForumDetail', 'data'));
-    }
-    // public function tindakLanjutAduan(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'judul' => 'required|string',
-    //     ]);
-
-    //     Aduan::where('id', $id)->update([
-    //         'Judul' => $request->judul
-    //     ]);
-    //     dd('x');
-
-    //     return redirect('/admin-kelurahan-status');
-    // }
-
-    public function store(Request $request)
-    {
-    }
-
-    public function show(Berita $berita)
-    {
-    }
-
-    public function edit(Berita $berita)
-    {
-    }
-
-    public function update(Request $request, Berita $berita)
-    {
-    }
-
-    public function destroy(Berita $berita)
-    {
     }
 }

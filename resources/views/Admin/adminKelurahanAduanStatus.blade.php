@@ -45,9 +45,15 @@
             $('.alert').delay(timeout).fadeOut(300);
         </script>
 
-</p>
-</div>
+        </p>
+        </div>
         </script>
+
+        <div style="">
+            <div class="bg-light clearfix">
+                <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
+            </div>
+        </div>
     </head>
 
     <body>
@@ -75,14 +81,14 @@
                                     <a class="dropdown-item" href="/aduan-publik-kelurahan">Fasilitas Publik</a>
                                 </div>
                             </div>
-                            @if(Session::has('success'))
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Tindak Lanjut Ditambahkan!</strong> 
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            @endif
+                            {{-- @if (Session::has('success'))
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Tindak Lanjut Ditambahkan!</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif --}}
 
                             @foreach ($Aduan as $f)
                                 <div class="card w-90">
@@ -90,21 +96,21 @@
                                         <a>
                                             <p class="colour-text card-text">
                                                 {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <a href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
-                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                                <p class="colour-text card-text">{{ $f->name }}</p>
-                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
-                                                    srcset="">
-                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
+                                            <a href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
+                                            <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                            <p class="colour-text card-text">{{ $f->name }}</p>
+                                            <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
+                                            {{-- <p>{{ $f->IdPengaduan }}</p> --}}
                                         </a>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                                             data-target="#tindakLanjut{{ $f->IdPengaduan }}">
                                             Tindak Lanjut
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade bd-example-modal-xl" id="tindakLanjut{{ $f->IdPengaduan }}"
-                                            tabindex="-1" aria-labelledby="tindakLanjutLabel{{ $f->IdPengaduan }}Label"
+                                        <div class="modal fade bd-example-modal-xl"
+                                            id="tindakLanjut{{ $f->IdPengaduan }}" tabindex="-1"
+                                            aria-labelledby="tindakLanjutLabel{{ $f->IdPengaduan }}Label"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
@@ -128,7 +134,7 @@
                                                                     class="form-control @error('judul') is-invalid @enderror"
                                                                     name="judul" value="{{ $f->Judul }}" required
                                                                     autocomplete="judul" autofocus>
-                                                                    {{-- <p>{{ $f->IdPengaduan }}</p> --}}
+                                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
 
                                                                 @error('judul')
                                                                     <span class="invalid-feedback" role="alert">
@@ -140,7 +146,8 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        <a type="submit" href="admin-kelurahan-status" class="btn btn-primary">Tindak Lanjut
+                                                        <a type="submit" href="admin-kelurahan-status"
+                                                            class="btn btn-primary">Tindak Lanjut
                                                             Aduan</a>
                                                         </form>
                                                     </div>
@@ -149,25 +156,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                             @endforeach
-                            
-
-
-
-
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
         </div>
 
-
+        @include('sweetalert::alert')
     </body>
+
 
     </html>
 @endsection
