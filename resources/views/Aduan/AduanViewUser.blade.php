@@ -56,11 +56,20 @@
                                 <h4 class="panel-title text-center">STATUS ADUAN ANDA </h4>
                                 <div class="form-group form-row justify-content-left">
                                     @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Add New Adyan</a>
+                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
                                     @else
                                         <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
                                     @endguest
                                 </div>
+                                
+                                @if(Session::has('success'))
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Aduan Ditambahkan!</strong> 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                @endif
                             </div>
 
                             @foreach ($data as $f)

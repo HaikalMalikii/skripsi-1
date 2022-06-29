@@ -22,6 +22,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script>
+        src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"
+    </script>
     <style>
         .nav-link {
             font-size: 20px;
@@ -31,6 +34,9 @@
     </style>
 
 </head>
+
+    
+
 
 <body>
     <div id="app">

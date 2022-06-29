@@ -50,7 +50,8 @@ class AduanController extends Controller
         $Aduan->IDUser = $request->user()->id;
         // dd($Aduan->Bagian);
         $Aduan->save();
-        return redirect('/');
+        $idUser = Auth::id();
+        return redirect('/AduanViewUser/'.$idUser)->with('success','Aduan Anda Ditambahkan!');;
     }
     public function view()
     {
@@ -66,6 +67,7 @@ class AduanController extends Controller
 
     public function tindakLanjutAduan(Request $request, $id)
     {
+        // dd($id);
         $request->validate([
             'judul' => 'required|string',
         ]);
@@ -73,9 +75,9 @@ class AduanController extends Controller
         Aduan::where('id', $id)->update([
             'Judul' => $request->judul
         ]);
-        dd('x');
+        
 
-        return redirect('/admin-kelurahan-status');
+        return redirect('/admin-kelurahan-status')->with('success','Berhasil Ditambahkan!');;
     }
 
     public function viewKebersihan()

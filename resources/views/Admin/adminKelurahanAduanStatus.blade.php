@@ -40,6 +40,14 @@
                 color: black;
             }
         </style>
+        <script>
+            var timeout = 3000;
+            $('.alert').delay(timeout).fadeOut(300);
+        </script>
+
+</p>
+</div>
+        </script>
     </head>
 
     <body>
@@ -67,6 +75,14 @@
                                     <a class="dropdown-item" href="/aduan-publik">Fasilitas Publik</a>
                                 </div>
                             </div>
+                            @if(Session::has('success'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Tindak Lanjut Ditambahkan!</strong> 
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                            @endif
 
                             @foreach ($Aduan as $f)
                                 <div class="card w-90">
@@ -74,26 +90,27 @@
                                         <a>
                                             <p class="colour-text card-text">
                                                 {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                            <p>{{ $f->Judul }}</>
+                                                <a href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
                                                 <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
                                                 <p class="colour-text card-text">{{ $f->name }}</p>
                                                 <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
+                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
                                         </a>
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#tindakLanjut{{ $f->id }}">
+                                            data-target="#tindakLanjut{{ $f->IdPengaduan }}">
                                             Tindak Lanjut
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade bd-example-modal-xl" id="tindakLanjut{{ $f->id }}"
-                                            tabindex="-1" aria-labelledby="tindakLanjutLabel{{ $f->id }}Label"
+                                        <div class="modal fade bd-example-modal-xl" id="tindakLanjut{{ $f->IdPengaduan }}"
+                                            tabindex="-1" aria-labelledby="tindakLanjutLabel{{ $f->IdPengaduan }}Label"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title"
-                                                            id="tindakLanjutLabel{{ $f->id }}Label">
+                                                            id="tindakLanjutLabel{{ $f->IdPengaduan }}Label">
                                                             Judul Aduan {{ $f->Judul }}</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -101,7 +118,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="/admin-tindak-lanjut/{{ $f->id }}"
+                                                        <form action="/admin-tindak-lanjut/{{ $f->IdPengaduan }}"
                                                             method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             <div class="form-group">
@@ -111,6 +128,7 @@
                                                                     class="form-control @error('judul') is-invalid @enderror"
                                                                     name="judul" value="{{ $f->Judul }}" required
                                                                     autocomplete="judul" autofocus>
+                                                                    {{-- <p>{{ $f->IdPengaduan }}</p> --}}
 
                                                                 @error('judul')
                                                                     <span class="invalid-feedback" role="alert">
@@ -131,7 +149,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             @endforeach
+                            
 
 
 
