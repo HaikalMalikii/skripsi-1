@@ -258,6 +258,6 @@ class AduanController extends Controller
     {
         Aduan::where('id', $id)->delete();
         $idUser = Auth::id();
-        return redirect('/AduanViewUser/' . $idUser);
+        return redirect('/AduanViewUser/' . $idUser)->with('success', 'Aduan anda berhasil di hapus!');
     }
 }

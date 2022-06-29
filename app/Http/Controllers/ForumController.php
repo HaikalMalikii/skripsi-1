@@ -139,7 +139,7 @@ class ForumController extends Controller
     {
         Forum::where('id', $id)->delete();
         $idUser = Auth::id();
-        return redirect('/forumUser/' . $idUser);
+        return redirect('/forumUser/' . $idUser)->with('success', 'Forum anda berhasil di hapus!');
     }
 
     public function editForum(Request $request, $id)
@@ -167,6 +167,6 @@ class ForumController extends Controller
             ]);
         }
         $idUser = Auth::id();
-        return redirect('/forumUser/' . $idUser);
+        return redirect('/forumUser/' . $idUser)->with('success', 'Forum anda berhasil di update!');
     }
 }

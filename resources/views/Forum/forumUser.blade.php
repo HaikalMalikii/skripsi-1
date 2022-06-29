@@ -56,7 +56,7 @@
 
     <body>
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div id="" style="display: none;" class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -64,7 +64,9 @@
                 </ul>
             </div>
         @endif
-        <a href="/"> Kembali
+        <div class="bg-light clearfix">
+            <a href="/" type="button" class="btn float-right">Kembali</a>
+        </div>
         </a>
         <div class="main">
             <div class="container">
@@ -115,7 +117,7 @@
                                                     <div class="modal-header">
                                                         <h5 class="modal-title"
                                                             id="updateForumLabel{{ $f->id }}Label">
-                                                            Judul Forum {{ $f->Judul }}</h5>
+                                                            Edit Forum</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -167,33 +169,8 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        {{-- <button type="submit" class="btn btn-primary">Update
-                                                            Forum</button> --}}
-                                                        <button type="button" data-toggle="modal" data-target="#popup"
-                                                            class="btn btn-primary">Update Forum</button>
-                                                        <div class="modal fade" id="popup" role="dialog"
-                                                            arialabelledby="modalLabel" area-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title">
-                                                                            FORUM</h5>
-                                                                        {{-- <button type="button" class="close"
-                                                                            aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button> --}}
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <h3 class="text-danger">Forum dengan judul
-                                                                            "{{ $f->Judul }}" berhasil di update</h3>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit"
-                                                                            class="btn btn-primary">OK</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Update
+                                                            Forum</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -228,39 +205,14 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        <button type="button" data-toggle="modal" data-target="#popup2"
-                                                            class="btn btn-danger">Hapus Forum</button>
-                                                        {{-- <a href="/user-delete-forum/{{ $f->IDForum }}"
-                                                            class="btn btn-danger">Hapus Forum</a> --}}
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal fade" id="popup2" role="dialog"
-                                            arialabelledby="modalLabel" area-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">
-                                                            FORUM</h5>
-                                                        {{-- <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button> --}}
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <h3 class="text-danger">Forum dengan judul
-                                                            "{{ $f->Judul }}" berhasil di hapus</h3>
-                                                    </div>
-                                                    <div class="modal-footer">
                                                         <a href="/user-delete-forum/{{ $f->IDForum }}"
-                                                            class="btn btn-primary">OK</a> 
+                                                            class="btn btn-danger">Hapus Forum</a>
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
+
 
                                     </div>
                                 </div>
@@ -272,7 +224,7 @@
             </div>
         </div>
 
-
+        @include('sweetalert::alert')
     </body>
 
     </html>
