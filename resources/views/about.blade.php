@@ -47,20 +47,25 @@
             h2 {
                 margin: 20px;
             }
-            p{
+
+            p {
                 font-size: 2vw;
             }
         </style>
     </head>
+
     <body>
-        <a href="/">Kembali</a>
-            <div class="container">
-                <h1>LAPOR-in</h1>
-                <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022.
-                    Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat
-                    untuk menyampaikan asprasi dan keresahan mereka mengenai lingkungan sekitar.<br>
-                    LAPOR-in memiliki fitur utama yaitu menyampaikan aduan yang akan terhubung langsung ke instansi terkait dan kelurahan
-                </p>
-            </div>
+        <div class="bg-light clearfix">
+            <a href="/" type="button" class="btn float-right">Kembali</a>
+        </div>
+        <div class="container">
+            <h1>LAPOR-in</h1>
+            <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022.
+                Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat
+                untuk menyampaikan asprasi dan keresahan mereka mengenai lingkungan sekitar.<br>
+                LAPOR-in memiliki fitur utama yaitu menyampaikan aduan yang akan terhubung langsung ke instansi terkait dan
+                kelurahan
+            </p>
+        </div>
     </body>
 @endsection

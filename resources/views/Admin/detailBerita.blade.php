@@ -25,6 +25,9 @@
 
 <body>
     @section('content')
+        <div class="bg-light clearfix">
+            <a href="/berita" type="button" class="btn float-right">Kembali</a>
+        </div>
 
         <body>
             <div class="container " style="margin-top:40px">

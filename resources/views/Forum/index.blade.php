@@ -58,7 +58,9 @@
                 </ul>
             </div>
         @endif
-        <a href="/">Kembali</a>
+        <div class="bg-light clearfix">
+            <a href="/" type="button" class="btn float-right">Kembali</a>
+        </div>
 
         <form action="/AddnewForum" method="post" enctype="multipart/form-data">
             @csrf

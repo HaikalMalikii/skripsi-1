@@ -17,8 +17,11 @@
         </style>
 
     </head>
-    <a href="/forum">Kembali
+    <div class="bg-light clearfix">
+        <a href="/forum" type="button" class="btn float-right">Kembali</a>
+    </div>
     </a>
+
     <body>
         <div class="container">
             <div class="col-md-1">
@@ -26,7 +29,7 @@
                     <p class="text-success">{{ session('sukes') }}</p>
                 @endif
             </div>
-            
+
             <div class="card w-90">
                 <div class="card-body">
                     <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">

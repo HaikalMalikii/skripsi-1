@@ -16,6 +16,7 @@
         </style>
     </head>
 
+
     <body>
         <div class="container">
             <div class="col-md-1">
@@ -32,16 +33,16 @@
                         <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
                         <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
 
-                    @if ($AduanDetail -> Persetujuan == 0)
-                    <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject
-                        </button>
-                        <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
-                        </button>
-                        {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
-                    </form>
-                    @endif
+                        @if ($AduanDetail->Persetujuan == 0)
+                            <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject
+                                </button>
+                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
+                                </button>
+                                {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
+                            </form>
+                        @endif
 
 
 

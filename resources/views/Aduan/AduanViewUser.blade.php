@@ -44,8 +44,10 @@
             }
         </style>
     </head>
-    <a href="/">Kembali
-    </a>
+    <div class="bg-light clearfix">
+        <a href="/" type="button" class="btn float-right">Kembali</a>
+    </div>
+
     <body>
         <div class="main">
             <div class="container">
@@ -62,15 +64,20 @@
                                         <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
                                     @endguest
                                 </div>
-                                <a href="/">Kembali</a>
-                                
-                                @if(Session::has('success'))
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Aduan Ditambahkan!</strong> 
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
+                                {{-- <div class="bg-light clearfix">
+
+                                    <button type="button" class="btn btn-warning float-right">Save</button>
+                                    <button type="button" class="btn btn-primary float-right">Cancel</button>
+                                </div>
+                                <a href="/">Kembali</a> --}}
+
+                                @if (Session::has('success'))
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Aduan Ditambahkan!</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
                                 @endif
                             </div>
 
@@ -85,7 +92,7 @@
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
- 
+
                                     </div>
                                 @elseif ($f->Persetujuan == 2)
                                     <div class="tolak card w-90">
@@ -98,12 +105,11 @@
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
                                         <div class="card-footer">
-                                        <button type="button" class="btn btn-danger float-right" data-toggle="modal"
-                                            data-target="#deleteAduan{{ $f->id }}">Delete</button>
+                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
 
                                         </div>
                                     </div>
-
                                 @else
                                     <div class="waiting card w-90">
                                         <div class="card-body">
@@ -124,32 +130,31 @@
                                     </div>
                                 @endif
                                 <div class="modal fade" id="deleteAduan{{ $f->id }}" tabindex="-1"
-                                            aria-labelledby="deleteAduanLabel{{ $f->id }}Label" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title"
-                                                            id="deleteAduanLabel{{ $f->id }}Label">
-                                                            "{{ $f->Judul }}"</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <h3 class="text-danger">Apakah anda yakin ingin menghapus aduan ini
-                                                            "{{ $f->Judul }}"?</h3>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Close</button>
-                                                        <a href="/user-delete-aduan/{{ $f->id }}"
-                                                            class="btn btn-danger">Hapus
-                                                            Aduan</a>
-                                                    </div>
-                                                </div>
+                                    aria-labelledby="deleteAduanLabel{{ $f->id }}Label" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteAduanLabel{{ $f->id }}Label">
+                                                    "{{ $f->Judul }}"</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h3 class="text-danger">Apakah anda yakin ingin menghapus aduan ini
+                                                    "{{ $f->Judul }}"?</h3>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <a href="/user-delete-aduan/{{ $f->id }}"
+                                                    class="btn btn-danger">Hapus
+                                                    Aduan</a>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
                             @endforeach
                             {{ $data->links() }}
                         </div>
