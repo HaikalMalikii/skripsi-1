@@ -11,37 +11,41 @@
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
         <title>Add Forum</title>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@0,400;1,500&display=swap');
-
-            h3 {
-                font-family: 'Bebas Neue', cursive;
-            }
-
-            .btn {
-                background-color: #FFE3A9;
-                color: black;
-                border-color: grey;
-                border-width: 2px;
-                border-radius: 10px;
-                font-family: 'Roboto Mono', monospace;
-            }
-
             th {
                 font-family: 'Roboto Condensed', sans-serif;
             }
 
-            .colour-text {
+            .setuju {
+                background-color: #5FD068;
+            }
+
+            .judul {
+                font-size: 20px;
                 color: black;
+            }
+
+            .tolak {
+                background-color: #F24C4C;
+            }
+
+            .waiting {
+                background-color: #FFB562;
+            }
+
+            .card-body:hover {
+                background-color: lightblue;
             }
         </style>
     </head>
 
     <body>
+    <div class="">
+            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
+        </div>
         <div class="main">
             <div class="container">
                 <div class="row">
@@ -58,12 +62,13 @@
                                 </div> --}}
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Sort By
+                                    Show By
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/aduan-kebersihan-kelurahan">Kebersihan</a>
                                     <a class="dropdown-item" href="/aduan-kesehatan-kelurahan">Kesehatan</a>
                                     <a class="dropdown-item" href="/aduan-publik-kelurahan">Fasilitas Publik</a>
+                                    <a class="dropdown-item" href="/admin-kelurahan-status">All</a>
                                 </div>
                             </div>
 
@@ -72,10 +77,11 @@
                                     <a href="/admin-Kelurahan-AduanDetail/{{ $f->id }}" class="stretched-link text-decoration-none">
                                         <div class="card-body">
 
-                                            <a>
+                                            <a class="judul">
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <a href="/admin-Kelurahan-AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                <a class="card-title" href="/admin-Kelurahan-AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
                                                 <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
                                                 <p class="colour-text card-text">{{ $f->name }}</p>
                                                 <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
