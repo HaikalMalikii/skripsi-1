@@ -47,6 +47,7 @@ Route::post('/AddAduan', 'AduanController@AddAduan');
 Route::get('/AduanViewUser/{id}', 'AduanController@viewUser');
 Route::post('/Status/{id}', 'AduanController@Status');
 Route::get('/user-delete-aduan/{id}', 'AduanController@deleteAduan');
+Route::get('BacktoAduanViewUser','Aduancontroller@BacktoAduanViewUser');
 
 ////cek
 
@@ -72,8 +73,8 @@ Route::get('/Admin.dashboardAdminKelurahan', function () {
     return view('Admin.dashboardAdminKelurahan');
 });
 Route::get('/admin-kelurahan-status', 'AdminKelurahanController@viewKelurahan');
-
-
+Route::get('/forum-admin-kelurahan/{id}','AdminKelurahanController@ForumDetail');
+Route::get('/admin-Kelurahan-AduanDetail/{id}', 'AdminKelurahanController@AduanDetail');
 Route::get('/detail-berita/{id}', 'BeritaController@detailBerita');
 
 Route::get('/admin-berita', 'AdminKelurahanController@berita');
@@ -95,9 +96,12 @@ Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/Aduan', 'AduanController@view');
 Route::get('/AduanDetail/{id}', 'AduanController@AduanDetail');
 Route::get('/AduanDetailUser/{id}', 'AduanController@AduanDetailUser');
-Route::get('/aduan-kebersihan', 'AduanController@viewKebersihan');
-Route::get('/aduan-kesehatan', 'AduanController@viewKesehatan');
-Route::get('/aduan-publik', 'AduanController@viewPublik');
+Route::get('/aduan-kebersihan-kelurahan', 'AduanController@viewKebersihan');
+Route::get('/aduan-kesehatan-kelurahan', 'AduanController@viewKesehatan');
+Route::get('/aduan-publik-kelurahan', 'AduanController@viewPublik');
+Route::get('/aduan-kebersihan', 'AduanController@viewKebersihanInstansi');
+Route::get('/aduan-kesehatan', 'AduanController@viewKesehatanInstansi');
+Route::get('/aduan-publik', 'AduanController@viewPublikInstansi');
 
 
 /// Forum
@@ -115,3 +119,4 @@ Route::post('/AddnewForum', 'ForumController@AddForum');
 
 // Route::get('/addforum','ForumController@GetUserID');
 Route::get('/forumUser/{id}', 'ForumController@forumUser');
+Route::get('/Back','AdminInstansiUmumController@BacktoAduan');

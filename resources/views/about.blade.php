@@ -53,6 +53,7 @@
         </style>
     </head>
     <body>
+        <a href="/">Kembali</a>
             <div class="container">
                 <h1>LAPOR-in</h1>
                 <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022.

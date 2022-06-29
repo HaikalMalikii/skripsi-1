@@ -13,6 +13,25 @@ use App\User;
 class AduanController extends Controller
 {
     //
+    public function BacktoAduanViewUser (Request $request)
+    {
+
+            $id = Auth::id();
+            $data = Aduan::where('IDUser', $id)->get();
+            // $data = Aduan::paginate(5);
+            $data = DB::table('pengaduan')
+                ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+                ->where('pengaduan.IDUser', $id)
+                ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+                ->orderBy('pengaduan.created_at', 'desc')
+    
+                ->paginate(4);
+            //dd($data);
+    
+            return view('Aduan.AduanViewUser', compact('data'));
+        
+    }
+
     public function AddAduan(Request $request, Aduan $Aduan)
     {
 
@@ -90,7 +109,7 @@ class AduanController extends Controller
             ->get();
         // dd($Aduan);
 
-        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+        return view('Admin.adminAduanView')->with('Aduan', $Aduan);
     }
     public function viewKesehatan()
     {
@@ -102,9 +121,46 @@ class AduanController extends Controller
             ->get();
         // dd($Aduan);
 
-        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+        return view('Admin.adminAduanView')->with('Aduan', $Aduan);
     }
     public function viewPublik()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->where('pengaduan.Bagian', 'Fasilitas Publik')
+            ->orderBy('pengaduan.created_at', 'desc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Admin.AduanView')->with('Aduan', $Aduan);
+    }
+
+    public function viewKebersihanInstansi()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->where('pengaduan.Bagian', 'Kebersihan')
+            ->orderBy('pengaduan.created_at', 'desc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+    }
+    public function viewKesehatanInstansi()
+    {
+        $Aduan = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->where('pengaduan.Bagian', 'Kesehatan')
+            ->orderBy('pengaduan.created_at', 'desc')
+            ->get();
+        // dd($Aduan);
+
+        return view('Aduan.AduanView')->with('Aduan', $Aduan);
+    }
+    public function viewPublikInstansi()
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
@@ -126,7 +182,7 @@ class AduanController extends Controller
         $AduanDetail = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.id', $id)
-            ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.IDUser','pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
 
 

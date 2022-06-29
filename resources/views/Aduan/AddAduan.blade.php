@@ -40,7 +40,7 @@
             </ul>
         </div>
     @endif
-
+    <a href="/BacktoAduanViewUser">Kembali</a>
     <form action="/AddAduan" method="post" enctype="multipart/form-data">
         @csrf
         <div class="container">

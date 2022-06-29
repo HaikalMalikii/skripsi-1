@@ -64,6 +64,8 @@
                 </ul>
             </div>
         @endif
+        <a href="/"> Kembali
+        </a>
         <div class="main">
             <div class="container">
                 <div class="row">

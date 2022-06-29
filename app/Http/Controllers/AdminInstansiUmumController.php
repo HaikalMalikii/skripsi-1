@@ -17,4 +17,13 @@ class AdminInstansiUmumController extends Controller
     {
         return view('/Admin.dashboardAdminInstansi');
     }
+
+    public function BacktoAduan()
+    {
+        return redirect('/Aduan');
+    }
+    public function BackInstansiHome()
+    {
+        return redirect('/Admin.dashboardAdminInstansi');
+    }
 }

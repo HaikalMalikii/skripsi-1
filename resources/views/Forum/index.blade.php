@@ -55,6 +55,7 @@
                 </ul>
             </div>
         @endif
+        <a href="/">Kembali</a>
 
 
         <form action="/AddnewForum" method="post" enctype="multipart/form-data">

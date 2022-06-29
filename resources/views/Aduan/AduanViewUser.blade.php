@@ -44,7 +44,8 @@
             }
         </style>
     </head>
-
+    <a href="/">Kembali
+    </a>
     <body>
         <div class="main">
             <div class="container">
@@ -61,6 +62,7 @@
                                         <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
                                     @endguest
                                 </div>
+                                <a href="/">Kembali</a>
                                 
                                 @if(Session::has('success'))
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -79,20 +81,11 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
-                                            <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p>
-                                                                                                                                                        <p class="colour-text card-text">{{ $f->Gambar }}</p>
-                                                                                                                                                       <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Diterima</p>
-                                            <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
-                                                    {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
+                                                    {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
-                                        <div class="card-footer">
-                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
-
-                                        </div>
+ 
                                     </div>
                                 @elseif ($f->Persetujuan == 2)
                                     <div class="tolak card w-90">
@@ -100,14 +93,9 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
-                                            <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Ditolak</p>
-                                            <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
-                                                    {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
+                                                    {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
                                         <div class="card-footer">
                                         <button type="button" class="btn btn-danger float-right" data-toggle="modal"
@@ -122,14 +110,9 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
-                                            <!-- <p class="colour-text card-text">{{ Auth::user()->name }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
-                                            <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Waiting</p>
-                                            <!-- <img src="{{ asset('css/foto/$f->Gambar') }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
-                                                    {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
+                                                    {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
 
                                         <div class="card-footer">

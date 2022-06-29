@@ -1,4 +1,4 @@
-@extends('layouts.layoutsInstansi')
+@extends('layouts.layoutsKelurahan')
 
 @section('content')
     <!doctype html>
@@ -49,7 +49,6 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Aduan Masyarkat</h3>
-                                <a href="/Admin.dashboardAdminInstansi">Kembali</a>
                                 {{-- <div class="right">
                                     @guest
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
@@ -62,21 +61,21 @@
                                     Sort By
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="/aduan-kebersihan">Kebersihan</a>
-                                    <a class="dropdown-item" href="/aduan-kesehatan">Kesehatan</a>
-                                    <a class="dropdown-item" href="/aduan-publik">Fasilitas Publik</a>
+                                    <a class="dropdown-item" href="/aduan-kebersihan-kelurahan">Kebersihan</a>
+                                    <a class="dropdown-item" href="/aduan-kesehatan-kelurahan">Kesehatan</a>
+                                    <a class="dropdown-item" href="/aduan-publik-kelurahan">Fasilitas Publik</a>
                                 </div>
                             </div>
 
                             @foreach ($Aduan as $f)
                                 <div class="card w-90">
-                                    <a href="/AduanDetail/{{ $f->id }}" class="stretched-link text-decoration-none">
+                                    <a href="/admin-Kelurahan-AduanDetail/{{ $f->id }}" class="stretched-link text-decoration-none">
                                         <div class="card-body">
 
                                             <a>
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <a href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                <a href="/admin-Kelurahan-AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                                 <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
                                                 <p class="colour-text card-text">{{ $f->name }}</p>
                                                 <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""

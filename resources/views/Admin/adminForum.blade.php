@@ -104,7 +104,7 @@
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <a class="card-title"
-                                                    href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
+                                                    href="/forum-admin-kelurahan/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
                                                 <p class="card-text">{{ $f->name }} <small
                                                         class="text-muted">{{ date('d-m-Y', strtotime($f->created_at)) }}</small>
                                                 </p>
@@ -115,7 +115,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/ForumDetail/{{ $f->id }}"
+                                        <a href="/forum-admin-kelurahan/{{ $f->id }}"
                                             class="btn btn-warning btn-sm">Comment</a>
                                     </div>
                                     @if ($f->IDUser == Auth::user()->id)

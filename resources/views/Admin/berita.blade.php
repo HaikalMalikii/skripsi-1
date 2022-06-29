@@ -103,8 +103,9 @@
                 </div>
             </div>
         </div>
-
+        
         @foreach ($berita as $b)
+        
             <div class="card w-90">
                 <div class="card-body">
                     <p class="card-text">

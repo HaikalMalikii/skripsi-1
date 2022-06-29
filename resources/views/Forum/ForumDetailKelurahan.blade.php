@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layoutsKelurahan')
 
 @section('content')
     <!DOCTYPE html>
@@ -15,10 +15,8 @@
                 color: black;
             }
         </style>
-
     </head>
-    <a href="/forum">Kembali
-    </a>
+
     <body>
         <div class="container">
             <div class="col-md-1">
@@ -26,7 +24,6 @@
                     <p class="text-success">{{ session('sukes') }}</p>
                 @endif
             </div>
-            
             <div class="card w-90">
                 <div class="card-body">
                     <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
@@ -67,9 +64,9 @@
                             <input type="submit" class="btn btn-dark mt-2" /> --}}       -->
                 </div>
             </div>
-            <p><strong>Comments</strong></p>
+            <p><strong>Latest Comments</strong></p>
             @foreach ($data as $k)
-                <p class="colour-text card-text">{{ date('Y-m-d H:i:s', strtotime($k->created_at)) }}</p>
+                <p class="colour-text card-text">{{ date('d-m-Y ', strtotime($k->created_at)) }}</p>
                 </p>
                 <p class="card-title"><strong>{{ $k->name }}</strong></p>
                 <p class="card-text">{{ $k->Komentar }}</p>

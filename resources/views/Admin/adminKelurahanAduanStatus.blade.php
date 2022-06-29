@@ -70,9 +70,9 @@
                                     Sort By
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="/aduan-kebersihan">Kebersihan</a>
-                                    <a class="dropdown-item" href="/aduan-kesehatan">Kesehatan</a>
-                                    <a class="dropdown-item" href="/aduan-publik">Fasilitas Publik</a>
+                                    <a class="dropdown-item" href="/aduan-kebersihan-kelurahan">Kebersihan</a>
+                                    <a class="dropdown-item" href="/aduan-kesehatan-kelurahan">Kesehatan</a>
+                                    <a class="dropdown-item" href="/aduan-publik-kelurahan">Fasilitas Publik</a>
                                 </div>
                             </div>
                             @if(Session::has('success'))

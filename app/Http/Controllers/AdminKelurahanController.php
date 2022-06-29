@@ -132,7 +132,40 @@ class AdminKelurahanController extends Controller
 
         return view('Admin.adminKelurahanAduanStatus')->with('Aduan', $Aduan);
     }
+    public function AduanDetail(Request $request, $id)
+    {
 
+        // $AduanDetail =  Aduan::find($id);
+        // dd($AduanDetail);
+        $AduanDetail = DB::table('pengaduan')
+            ->join('users', 'users.id', '=', 'pengaduan.IDUser')
+            ->where('pengaduan.id', $id)
+            ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->get();
+
+
+        //  dd($AduanDetail);
+        return view('Admin.adminKelurahanAduanDetail', compact('AduanDetail'));
+    }
+
+    public function ForumDetail(Request $request, $ForumID)
+    {
+        // $ForumDetail =  DetailForum::find($ForumID);
+        // $data = Komentar::where('IDDetForum', $ForumID)->get();
+        $ForumDetail = DB::table('detailforum')
+            ->join('forum', 'forum.id', '=', 'detailforum.IDForum')
+            ->join('users', 'users.id', '=', 'forum.IDUser')
+            ->where('detailforum.id', $ForumID)
+            ->select('users.*', 'users.name', 'detailforum.Judul', 'detailforum.Deskripsi', 'detailforum.Gambar as gambar', 'detailforum.created_at', 'detailforum.id')
+            ->first();
+        $data = DB::table('komentar')
+            ->join('users', 'users.id', '=', 'komentar.IDUser')
+            ->where('komentar.IDDetForum', $ForumID)
+            ->select('users.*', 'users.name', 'komentar.id', 'komentar.Komentar', 'komentar.created_at')
+            ->get();
+        // dd($ForumDetail->gambar);
+        return view('Forum.ForumDetailKelurahan', compact('ForumDetail', 'data'));
+    }
     // public function tindakLanjutAduan(Request $request, $id)
     // {
     //     $request->validate([
