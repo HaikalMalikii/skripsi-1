@@ -109,7 +109,7 @@ class AdminKelurahanController extends Controller
 
         // $AduanDetail =  Aduan::find($id);
         // dd($AduanDetail);
-        
+
         $AduanDetail = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.id', $id)
@@ -125,7 +125,7 @@ class AdminKelurahanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id as IdPengaduan', 'users.id as IdUser','pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id as IdPengaduan', 'users.id as IdUser', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->orderBy('pengaduan.created_at', 'asc')
             ->get();
         //  dd($Aduan);

@@ -53,14 +53,15 @@ class ForumController extends Controller
     {
         $users = Auth::id();
         $validasi = Validator::make($request->all(), [
-            'Judul' => 'required|string|max:20',
-            'Deskripsi' => 'required|string',
+            'Judul' => 'required|string|min:5',
+            'Deskripsi' => 'required|string|min:5',
             'Gambar' => 'image'
         ]);
         if ($validasi->fails()) {
             return redirect('/forum')
                 ->withErrors($validasi)
                 ->withInput();
+            // return back()->with('errors', $validasi->messages()->all()[0])->withInput();
         }
         $photo = $request->file('Gambar');
         $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
@@ -78,7 +79,8 @@ class ForumController extends Controller
         $DetailForum->save();
         // $request->session()->flash('key', $value);
         // $request->session()->flash('addForumPopUp', 'Forum beerhasil ditambahkan!');
-        return redirect()->back()->with('success', 'Berhasil Ditambahkan!');
+        return redirect('/forum')->with('success', 'Forum berhasil di buat!');
+        // return redirect('/forum');
     }
 
     public function ForumDetail(Request $request, $ForumID)

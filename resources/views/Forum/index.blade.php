@@ -12,6 +12,8 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+        <link rel="stylesheet" href="sweetalert2.min.css">
         <title>Add Forum</title>
         <style>
             .card-title:hover {
@@ -46,8 +48,9 @@
     </head>
 
     <body>
+
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div id="ERROR_COPY" style="display:none;" class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -56,7 +59,6 @@
             </div>
         @endif
         <a href="/">Kembali</a>
-
 
         <form action="/AddnewForum" method="post" enctype="multipart/form-data">
             @csrf
@@ -83,16 +85,16 @@
                                 @guest
                                     <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
                                 @else
-                                    {{-- <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button> --}}
-                                    <button type="submit" name="buttonadd" data-toggle="modal" data-target="#popup"
-                                        class="btn btn-primary">Submit Forum</button>
+                                    <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
+                                    {{-- <button type="submit" name="buttonadd" data-toggle="modal" data-target="#popup"
+                                        class="btn btn-primary">Submit Forum</button> --}}
                                 @endguest
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="popup" role="dialog" arialabelledby="modalLabel" area-hidden="true">
+            {{-- <div class="modal fade" id="popup" role="dialog" arialabelledby="modalLabel" area-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -110,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </form>
         <br>
         <div class="main">
@@ -163,6 +165,9 @@
             </div>
         </div>
 
+        @include('sweetalert::alert')
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.min.js"></script>
 
     </body>
 
