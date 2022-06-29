@@ -253,7 +253,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a href="/user-delete-forum/{{ $f->IDForum }}"
-                                                            class="btn btn-primary">OK</a> --}}
+                                                            class="btn btn-primary">OK</a> 
                                                     </div>
 
                                                 </div>
