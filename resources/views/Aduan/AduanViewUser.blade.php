@@ -38,16 +38,23 @@
             .judul:hover {
                 text-decoration: none;
             }
+            .previous {
+            background-color: #f1f1f1;
+            color: black;
+            }
         </style>
     </head>
-    <div class="">
-            <a href="/" class="float-left">Kembali</a>
-    </div>
 
     <body>
         <div class="main">
             <div class="container">
+                <div class="tab-content">
 
+                    <a href="/" class="previous">
+                    <button class="btn btn-sm btn-secondary">Kembali</button>
+                    </a>
+                        
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel">
