@@ -85,6 +85,7 @@
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
                                             <p class="colour-text card-text">Status : Diterima</p>
+                                            <!-- <p>{{ $f->Gambar }}</p> -->
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
@@ -107,6 +108,7 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
+                                            <p>{{ $f->Gambar }}</p>
                                             <p class="colour-text card-text">Status : Waiting</p>
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>

@@ -47,9 +47,13 @@ class AduanController extends Controller
                 ->withErrors($validasi)
                 ->withInput();
         }
+
         $photo = $request->file('Gambar');
         $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
-        $Tanggal_now =  Carbon::now();
+
+
+        // $Tanggal_now =  Carbon::now();
+
         // DB::table('pengaduan')->insert(
         //     [   'Bagian'=>$request->AddAduanBagian,
         //         'Deskripsi'=>$request->AddAduanDeskripsi,
@@ -132,7 +136,7 @@ class AduanController extends Controller
             ->get();
         // dd($Aduan);
 
-        return view('Admin.AduanView')->with('Aduan', $Aduan);
+        return view('Admin.adminAduanView')->with('Aduan', $Aduan);
     }
 
     public function viewKebersihanInstansi()

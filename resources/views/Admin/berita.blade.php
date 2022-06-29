@@ -1,11 +1,21 @@
 @extends('layouts.layoutsKelurahan')
 
+
+
 @section('content');
-    <div style="">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+        <!-- <div style="">
         <div class="bg-light clearfix">
             <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
         </div>
-    </div>
+    </div> -->
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
+        </div>
 
     <div class="container" style="min-height: 100vh">
 
@@ -93,11 +103,12 @@
                         {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}
                     </p>
                     <td>
-                        <img class="img-fluid" src="{{ asset('css/foto/$b->image') }}" alt="">
+                        <img class="img-fluid" src="{{ asset("css/foto/$b->image") }}" alt="">
                     </td>
 
-                    <a class="card-title" href="/Berita/{{ $b->id }}">{{ $b->judul }}</a>
-                    <p class="card-text">{{ $b->description }}</p>
+                    <h3 class="card-title" href="/Berita/{{ $b->id }}">{{ $b->judul }}</h3>
+                    <p class="card-text">
+                                                    {{ Illuminate\Support\Str::limit($b->description, 200) }}</p>
                     <td>
                         <div class="float-right">
                             <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -214,3 +225,5 @@
     @include('sweetalert::alert')
 
 @endsection
+</body>
+

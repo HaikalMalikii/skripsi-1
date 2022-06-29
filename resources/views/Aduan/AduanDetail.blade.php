@@ -10,27 +10,28 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
         <style>
 
         </style>
     </head>
 
     <body>
+    <div class="">
+            <a href="/Aduan" class="float-left">Kembali</a>
+        </div>
         <div class="container">
             <div class="col-md-1">
                 @if (Session::has('sukes'))
                     <p class="text-success">{{ session('sukes') }}</p>
                 @endif
             </div>
-            <a href="/Back">Kembali</a>
             <div class="card w-90">
                 <div class="card-body">
                     @foreach ($AduanDetail as $AduanDetail)
-                        <h4 class="card-reader">Oleh : {{ $AduanDetail->name }} </h4>
-                        <img src="{{ asset('css/foto/$AduanDetail->Gambar') }}" alt="aduan" srcset="">
-                        <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
-                        <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
+                        <h4 class="card-text">Oleh : {{ $AduanDetail->name }} </h4>
+                        <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="aduan" srcset="">
+                        <h4 class="card-text"> {{ $AduanDetail->Judul }} </h4>
+                        <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
                     @if ($AduanDetail -> Persetujuan == 0)
                     <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">

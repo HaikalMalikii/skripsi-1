@@ -67,3 +67,6 @@ body, .jumbotron{
     text-decoration: underline;
     color: darkblue;
 }
+.card-title:hover{
+    text-decoration: none;
+}

@@ -38,15 +38,18 @@
                 color: black;
             }
         </style>
-        <div style="">
+        <!-- <div style="">
             <div class="bg-light clearfix">
                 <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
             </div>
-        </div>
+        </div> -->
     </head>
 
 
     <body>
+        <div class="">
+            <a href="/" class="float-left">Kembali</a>
+        </div>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -57,40 +60,6 @@
             </div>
         @endif
 
-        <form action="/AddnewForum" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="container">
-                <div class="form card w-90">
-                    <div class="form-row">
-                        <div class="col-10">
-                            <div class="form-group">
-                                <label for="judul">Judul: </label>
-                                <input type="text" class="form-control" id="AddAduanJudulID" name="Judul"
-                                    placeholder="Judul">
-                            </div>
-                            <div class="form-group">
-                                <label for="deskripsi">Deskripsi:</label>
-                                <textarea class="form-control" id="forumaspirasi" placeholder="Deskripsi" name="Deskripsi"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="gambar">Gambar:</label>
-                                <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
-                            </div>
-
-                            <div class="form-group form-row justify-content-left">
-                                @guest
-                                    <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
-                                @else
-                                    <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
-                                @endguest
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <br>
         <div class="main">
             <div class="container">
                 <div class="row">

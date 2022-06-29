@@ -12,6 +12,9 @@
         <style>
 
         </style>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
     </head>
 
     <body>
@@ -27,7 +30,7 @@
                         <h4 class="card-reader">Oleh : {{ $AduanDetail->name }} </h4>
                         <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="" srcset="">
                         <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
-                        <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
+                        <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
 
                         {{-- <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
