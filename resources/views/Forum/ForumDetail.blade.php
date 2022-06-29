@@ -17,8 +17,8 @@
         </style>
 
     </head>
-    <div class="bg-light clearfix">
-        <a href="/forum" type="button" class="btn float-right">Kembali</a>
+    <div class="">
+            <a href="/forum" class="float-left">Kembali</a>
     </div>
     </a>
 

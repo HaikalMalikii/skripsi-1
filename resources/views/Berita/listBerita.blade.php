@@ -51,9 +51,12 @@
             }
         </style>
     </head>
-    <div class="bg-light clearfix">
+    <!-- <div class="bg-light clearfix">
         <a href="/" type="button" class="btn float-right">Kembali</a>
-    </div>
+    </div> -->
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
+        </div>
 
     <body>
         <div class="main">
@@ -62,7 +65,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Berita Masyarkat</h3>
+                                <h3 class="panel-title text-center">Berita Masyarkat</h3>
                                 <div class="right">
                                 </div>
                             </div>

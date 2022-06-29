@@ -59,6 +59,11 @@ h1{
     font-family: 'Titan One', cursive;
     font-size: 4vw;
 }
-body{
+body, .jumbotron{
     background-color: #E8F9FD;
+}
+.float-left{
+    margin-left: 20px;
+    text-decoration: underline;
+    color: darkblue;
 }

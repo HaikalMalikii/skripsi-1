@@ -22,17 +22,13 @@
                 background-color: #5FD068;
             }
 
-            a {
+            .judul {
                 font-size: 20px;
                 color: black;
             }
 
             .tolak {
                 background-color: #F24C4C;
-            }
-
-            .proses {
-                background-color: #FFB562;
             }
 
             .waiting {
@@ -44,8 +40,8 @@
             }
         </style>
     </head>
-    <div class="bg-light clearfix">
-        <a href="/" type="button" class="btn float-right">Kembali</a>
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
     </div>
 
     <body>
@@ -103,11 +99,6 @@
                                             <p class="colour-text card-text">Status : Ditolak</p>
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
-
                                         </div>
                                     </div>
                                 @else

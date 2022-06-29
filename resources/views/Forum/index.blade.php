@@ -58,8 +58,8 @@
                 </ul>
             </div>
         @endif
-        <div class="bg-light clearfix">
-            <a href="/" type="button" class="btn float-right">Kembali</a>
+        <div class="">
+            <a href="/" class="float-left">Kembali</a>
         </div>
 
         <form action="/AddnewForum" method="post" enctype="multipart/form-data">

@@ -16,11 +16,6 @@
             }
 
             /* Set black background color, white text and some padding */
-            footer {
-                background-color: #555;
-                color: white;
-                padding: 15px;
-            }
 
             /* On small screens, set height to 'auto' for sidenav and grid */
             @media screen and (max-width: 767px) {
@@ -68,9 +63,6 @@
                 height: 100%;
             }
 
-            .jumbotron {
-                background-color: white;
-            }
         </style>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>

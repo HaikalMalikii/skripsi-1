@@ -23,8 +23,8 @@
         </style>
     </head>
 
-    <div class="bg-light clearfix">
-        <a href="/BacktoAduanViewUser" type="button" class="btn float-right">Kembali</a>
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
     </div>
 
     <div class="text-xl-center">
@@ -77,7 +77,7 @@
                         <input type="file" class="form-control-file" id="AddAduanGambarID" name="Gambar">
                     </div>
 
-                    <div class="form-group form-row"><a></a>
+                    <div class="form-group form-row">
                         <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
                     </div>
                 </div>

@@ -34,9 +34,8 @@
                 }
             }
 
-            .container {
+            .container-xl {
                 margin-top: 50px;
-                margin-left: 20px;
 
             }
 
@@ -49,23 +48,36 @@
             }
 
             p {
-                font-size: 2vw;
+                font-size: 1.5vw;
+            }
+            .img-fluid{
+                width: fit-content;
+                height: fit-content;
             }
         </style>
     </head>
 
     <body>
-        <div class="bg-light clearfix">
-            <a href="/" type="button" class="btn float-right">Kembali</a>
-        </div>
-        <div class="container">
-            <h1>LAPOR-in</h1>
-            <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022.
-                Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat
-                untuk menyampaikan asprasi dan keresahan mereka mengenai lingkungan sekitar.<br>
-                LAPOR-in memiliki fitur utama yaitu menyampaikan aduan yang akan terhubung langsung ke instansi terkait dan
-                kelurahan
-            </p>
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
+    </div>
+        <div class="container-xl">
+            <div class="row">
+
+                <div class="col-md-8">
+                    <h1>LAPOR-in</h1>
+                    <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022.
+                        Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat
+                        untuk menyampaikan asprasi dan keresahan mereka mengenai lingkungan sekitar.<br>
+                        LAPOR-in memiliki fitur utama yaitu menyampaikan aduan yang akan terhubung langsung ke instansi terkait dan
+                        kelurahan
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="css/foto/2.png" alt="Image" class="img-fluid">
+                </div>
+
+            </div>
         </div>
     </body>
 @endsection

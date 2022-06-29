@@ -1,4 +1,4 @@
-@extends('layouts.layoutsKelurahan')
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,16 +20,16 @@
         p {
             text-align: justify;
         }
+
     </style>
 </head>
 
 <body>
     @section('content')
-        <div class="bg-light clearfix">
-            <a href="/berita" type="button" class="btn float-right">Kembali</a>
+        <div class="">
+            <a href="/berita" class="float-left">Kembali</a>
         </div>
 
-        <body>
             <div class="container " style="margin-top:40px">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
@@ -40,7 +40,7 @@
                                     {{-- @php
                                         dd('$b');
                                     @endphp --}}
-                                    <h1>{{ $berita->judul }}</h1>
+                                    <h1 class="text-capitalize">{{ $berita->judul }}</h1>
 
                                     <div class="info-meta">
                                         <small class="text-muted">
@@ -55,9 +55,8 @@
                                         <hr>
                                         <img class="image" src="{{ asset("css/foto/$berita->image") }}">
                                         <br>
-                                        <br>
-                                        <p>
-                                            {{ $berita->description }}
+                                        <p class="text-justify" style="white-space: pre-line">
+                                        {{$berita->description}}
                                         </p>
                                     </div>
 
@@ -67,7 +66,6 @@
                     </div>
                 </div>
             </div>
-        </body>
     @endsection
 </body>
 

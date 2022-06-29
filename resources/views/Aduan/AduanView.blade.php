@@ -39,7 +39,7 @@
                 color: black;
             }
         </style>
-        <div style="">
+        <div>
             <div class="bg-light clearfix">
                 <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
             </div>
