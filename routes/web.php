@@ -120,3 +120,7 @@ Route::post('/AddnewForum', 'ForumController@AddForum');
 // Route::get('/addforum','ForumController@GetUserID');
 Route::get('/forumUser/{id}', 'ForumController@forumUser');
 Route::get('/Back','AdminInstansiUmumController@BacktoAduan');
+
+
+// Berita
+Route::get('/Berita{id}','BeritaController@detailBerita');

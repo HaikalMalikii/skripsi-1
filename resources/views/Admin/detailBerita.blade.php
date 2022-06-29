@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layoutsKelurahan')
 <!DOCTYPE html>
 <html lang="en">
 

@@ -21,4 +21,5 @@ class BeritaController extends Controller
 
         return view('Admin.detailBerita', compact('berita'));
     }
+
 }
