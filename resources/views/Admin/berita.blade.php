@@ -1,10 +1,12 @@
 @extends('layouts.layoutsKelurahan')
 
 @section('content');
-    <div style="">
-        <div class="bg-light clearfix">
-            <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
-        </div>
+    <div class="tab-content">
+
+        <a href="/Admin.dashboardAdminKelurahan" class="previous">
+        <button class="btn btn-sm btn-secondary">Kembali</button>
+        </a>
+            
     </div>
 
     <div class="container" style="min-height: 100vh">

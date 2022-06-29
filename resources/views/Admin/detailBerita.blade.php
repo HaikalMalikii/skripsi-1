@@ -26,8 +26,13 @@
 
 <body>
     @section('content')
-        <div class="">
-            <a href="/berita" class="float-left">Kembali</a>
+
+        <div class="tab-content">
+
+            <a href="/berita" class="previous">
+            <button class="btn btn-sm btn-secondary">Kembali</button>
+            </a>
+                
         </div>
 
             <div class="container " style="margin-top:40px">
