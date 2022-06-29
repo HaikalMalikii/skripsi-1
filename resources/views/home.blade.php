@@ -86,7 +86,7 @@
                     <a class="btn btn-primary btn-lg" type="button" href="/AddAduan"><img src="css/foto/lapor.png"
                             alt="lapor">Lapor</a>
                     <!-- <a class="btn btn-primary btn-lg" type="button" href="/AduanViewUser/{{ Auth::user()->id }} "><img src="css/foto/lapor.png"alt="lapor">List Aduan</a> -->
-                    <a class="btn btn-primary btn-lg" type="button" href="/addforum"><img src="css/foto/forum.png"
+                    <a class="btn btn-primary btn-lg" type="button" href="/forum"><img src="css/foto/forum.png"
                             alt="lapor">Forum</a>
                     <a class="btn btn-primary btn-lg" type="button" href="/berita"><img src="css/foto/news.png"
                             alt="lapor">Berita</a>

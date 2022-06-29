@@ -74,12 +74,16 @@
                                             <!-- <p class="colour-text card-text">{{ $f->Bagian }}</p>
                                                                                                                                                         <p class="colour-text card-text">{{ $f->Gambar }}</p>
                                                                                                                                                        <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
-                                            <p class="colour-text card-text">Status : Diproses</p>
+                                            <p class="colour-text card-text">Status : Diterima</p>
                                             <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
                                         </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
 
+                                        </div>
                                     </div>
                                 @elseif ($f->Persetujuan == 2)
                                     <div class="tolak card w-90">
@@ -96,7 +100,13 @@
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
                                         </div>
+                                        <div class="card-footer">
+                                        <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                                            data-target="#deleteAduan{{ $f->id }}">Delete</button>
+
+                                        </div>
                                     </div>
+
                                 @else
                                     <div class="waiting card w-90">
                                         <div class="card-body">
@@ -108,7 +118,7 @@
                                             <!-- <p class="colour-text card-text">{{ $f->Gambar }}</p> -->
                                             <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                             <p class="colour-text card-text">Status : Waiting</p>
-                                            <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""> -->
+                                            <!-- <img src="{{ asset('css/foto/$f->Gambar') }}" alt="" srcset=""> -->
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('Y-m-d', strtotime($f->created_at)) }}</small></p>
                                         </div>
@@ -119,8 +129,9 @@
                                                 data-target="#deleteAduan{{ $f->id }}">Delete</button>
 
                                         </div>
-
-                                        <div class="modal fade" id="deleteAduan{{ $f->id }}" tabindex="-1"
+                                    </div>
+                                @endif
+                                <div class="modal fade" id="deleteAduan{{ $f->id }}" tabindex="-1"
                                             aria-labelledby="deleteAduanLabel{{ $f->id }}Label" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -147,8 +158,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
                             @endforeach
                             {{ $data->links() }}
                         </div>

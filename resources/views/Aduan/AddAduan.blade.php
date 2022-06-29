@@ -70,12 +70,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleGroupExampleInput">Gambar</label>
+                        <label for="Gambar">Gambar</label>
 
                         <input type="file" class="form-control-file" id="AddAduanGambarID" name="Gambar">
                     </div>
 
-                    <div class="form-group form-row">
+                    <div class="form-group form-row"><a></a>
                         <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
                     </div>
                 </div>

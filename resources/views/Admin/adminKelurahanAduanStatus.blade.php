@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
         <title>Add Forum</title>
         <style>
@@ -121,8 +122,8 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Tindak Lanjut
-                                                            Aduan</button>
+                                                        <a type="submit" href="admin-kelurahan-status" class="btn btn-primary">Tindak Lanjut
+                                                            Aduan</a>
                                                         </form>
                                                     </div>
                                                 </div>

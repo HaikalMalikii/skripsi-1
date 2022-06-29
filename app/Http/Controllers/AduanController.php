@@ -13,7 +13,7 @@ use App\User;
 class AduanController extends Controller
 {
     //
-    public function AddAduan(Request $request)
+    public function AddAduan(Request $request, Aduan $Aduan)
     {
 
         $users = Auth::id();

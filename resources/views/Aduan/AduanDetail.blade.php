@@ -9,6 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
         <style>
 
         </style>
@@ -25,7 +27,7 @@
                 <div class="card-body">
                     @foreach ($AduanDetail as $AduanDetail)
                         <h4 class="card-reader">Oleh : {{ $AduanDetail->name }} </h4>
-                        <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="" srcset="">
+                        <img src="{{ asset('css/foto/$AduanDetail->Gambar') }}" alt="aduan" srcset="">
                         <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
                         <h3 class="card-reader"> {{ $AduanDetail->Deskripsi }} </h3>
 

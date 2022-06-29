@@ -24,7 +24,7 @@
     margin: 10px;
     font-weight: bold;
 }
- p, .form-control{
+ p, .form-control, .card-text{
     font-family: 'Kanit', sans-serif;
     color: black;
 }
@@ -33,7 +33,7 @@ h4 {
     color: black;
 
 }
-h5, .card-title, label, .card-text{
+h5, .card-title, label{
     font-family: 'Patua One', cursive;
     color: black;
 
