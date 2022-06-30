@@ -53,8 +53,10 @@
     </head>
 
     <body>
-    <div class="">
-            <a href="/" class="float-left">Kembali</a>
+        <div class="">
+            <a href="/" class="previous">
+                <button class="btn btn-sm btn-secondary">Kembali</button>
+            </a>
         </div>
         <div class="main">
             <div class="container">
@@ -97,7 +99,8 @@
                                         <a>
                                             <p class="colour-text card-text">
                                                 {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                            <a class="judul card-title" href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
+                                            <a class="judul card-title"
+                                                href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
                                             <p class="card-text">Bagian: {{ $f->Bagian }}</p>
 
                                             <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
@@ -137,7 +140,7 @@
                                                                     class="form-control @error('judul') is-invalid @enderror"
                                                                     name="judul" value="{{ $f->Judul }}" required
                                                                     autocomplete="judul" autofocus>
-                                                                
+
 
                                                                 @error('judul')
                                                                     <span class="invalid-feedback" role="alert">

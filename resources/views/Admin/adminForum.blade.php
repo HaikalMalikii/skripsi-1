@@ -39,16 +39,18 @@
             }
         </style>
         <!-- <div style="">
-            <div class="bg-light clearfix">
-                <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
-            </div>
-        </div> -->
+                <div class="bg-light clearfix">
+                    <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
+                </div>
+            </div> -->
     </head>
 
 
     <body>
         <div class="">
-            <a href="/" class="float-left">Kembali</a>
+            <a href="/" class="previous">
+                <button class="btn btn-sm btn-secondary">Kembali</button>
+            </a>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">

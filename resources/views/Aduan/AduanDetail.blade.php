@@ -16,8 +16,11 @@
     </head>
 
     <body>
-    <div class="">
-            <a href="/Aduan" class="float-left">Kembali</a>
+
+        <div class="">
+            <a href="/Aduan" class="previous">
+                <button class="btn btn-sm btn-secondary">Kembali</button>
+            </a>
         </div>
         <div class="container">
             <div class="col-md-1">
@@ -33,16 +36,16 @@
                         <h4 class="card-text"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
-                    @if ($AduanDetail -> Persetujuan == 0)
-                    <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject
-                        </button>
-                        <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
-                        </button>
-                        {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
-                    </form>
-                    @endif
+                        @if ($AduanDetail->Persetujuan == 0)
+                            <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject
+                                </button>
+                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
+                                </button>
+                                {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
+                            </form>
+                        @endif
 
 
 
