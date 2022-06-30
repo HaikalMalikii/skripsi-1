@@ -128,7 +128,7 @@ class AdminKelurahanController extends Controller
             ->select('users.*', 'users.name', 'pengaduan.id as IdPengaduan', 'users.id as IdUser', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->orderBy('pengaduan.created_at', 'asc')
             ->get();
-        //  dd($Aduan);
+        //   dd($Aduan);
 
         return view('Admin.adminKelurahanAduanStatus')->with('Aduan', $Aduan)->with('success', 'Aduan berhasil di tindak lanjut ke Instansi!');
     }

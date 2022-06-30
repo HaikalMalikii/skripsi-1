@@ -154,9 +154,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        <a type="submit" href="admin-kelurahan-status"
-                                                            class="btn btn-primary">Tindak Lanjut
-                                                            Aduan</a>
+                                                            <button type="submit" class="btn btn-primary">Tindak Lanjut</button>
                                                         </form>
                                                     </div>
                                                 </div>

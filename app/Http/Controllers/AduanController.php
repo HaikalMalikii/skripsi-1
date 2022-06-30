@@ -92,7 +92,6 @@ class AduanController extends Controller
     {
         // dd($id);
         
-        dd("X");
         $request->validate([
             'judul' => 'required|string',
         ]);
