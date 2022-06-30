@@ -77,78 +77,14 @@
                         <input type="file" class="form-control-file" id="AddAduanGambarID" name="Gambar">
                     </div>
 
-<<<<<<< Updated upstream
                     <div class="form-group form-row">
                         <button type="submit" name="buttonadd" class="btn btn-primary">Tambahkan Aduan</button>
-=======
-                    <div class="form-group form-row"><a></a>
-                        <button type="submit" name="buttonadd" class="btn btn-primary">Kirim Aduan</button>
->>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
-        </div>
+        </div>x
 
-<<<<<<< Updated upstream
        
-=======
-        <!-- <div class="d-flex justify-content-center backgroundorder">
-                                        <div class="mt-5 col-4">
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label for="formGroupExampleInput">Judul</label>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="text" class="form-control" id="AddAduanJudulID" name="AddAduanJudul">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label for="formGroupExampleInput">Bagian</label>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <select name="AddAduanBagian" id="AddAduanBagianID" class="form-control select2">
-                                                            <option value ="Kebersihan"> Kebersihan</option>
-                                                            <option value ="Kesehatan"> Kesehatan</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
-
-
-        <!-- <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label for="formGroupExampleInput">Deskripsi</label>
-                                                    </div>
-                                                    <div class="col-1">
-                                                        <textarea id="AddAduanDeskripsiID" name="AddAduanDeskripsi"rows="4" cols="50"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
-        <!-- <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <label for="exampleGroupExampleInput">Gambar</label>
-                                                    </div>
-                                                    <div>
-                                                        <input type="file" class="form-control-file" id="AddAduanGambarID" name="AddAduanGambar">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group form-row justify-content-center">
-                                                <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
-                                            </div>
-                                        </div>
-                                    </div> -->
->>>>>>> Stashed changes
     </form>
 
     @include('sweetalert::alert')

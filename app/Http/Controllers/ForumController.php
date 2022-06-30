@@ -97,6 +97,7 @@ class ForumController extends Controller
             ->join('users', 'users.id', '=', 'komentar.IDUser')
             ->where('komentar.IDDetForum', $ForumID)
             ->select('users.*', 'users.name', 'komentar.id', 'komentar.Komentar', 'komentar.created_at')
+            ->orderBy('komentar.created_at', 'desc')
             ->get();
         // dd($ForumDetail->gambar);
         return view('Forum.ForumDetail', compact('ForumDetail', 'data'));

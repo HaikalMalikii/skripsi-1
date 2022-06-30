@@ -62,32 +62,11 @@
                                 <h4 class="panel-title text-center">STATUS ADUAN ANDA </h4>
                                 <div class="form-group form-row justify-content-left">
                                     @guest
-<<<<<<< Updated upstream
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambah Aduan</a>
                                     @else
                                         <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Tambah Aduan</a>
-=======
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambah Aduan Baru</a>
-                                    @else
-                                        <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Tambah Aduan Baru</a>
->>>>>>> Stashed changes
                                     @endguest
                                 </div>
-                                {{-- <div class="bg-light clearfix">
-
-                                    <button type="button" class="btn btn-warning float-right">Save</button>
-                                    <button type="button" class="btn btn-primary float-right">Cancel</button>
-                                </div>
-                                <a href="/">Kembali</a> --}}
-
-                                {{-- @if (Session::has('success'))
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <strong>Aduan Ditambahkan!</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif --}}
                             </div>
 
                             @foreach ($data as $f)
@@ -97,7 +76,6 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
-<<<<<<< Updated upstream
                                             <div class="col-md-2">
                                                 {{-- <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset=""> --}}
@@ -106,9 +84,6 @@
                                                 </div>
                                             <p class="colour-text card-text">Status : Diterima</p>
                                             <!-- <p>{{ $f->Gambar }}</p> -->
-=======
-                                            <p class="colour-text card-text">Status : Aduan di proses</p>
->>>>>>> Stashed changes
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
@@ -120,7 +95,6 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
-<<<<<<< Updated upstream
                                             {{-- <div class="col-md-2">
                                                 <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px">
                                             </div> --}}
@@ -129,16 +103,6 @@
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
-=======
-                                            <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
-                                            <p class="colour-text card-text"><small class="text-muted">
-                                                    {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
-                                        </div>
-                                        {{-- <div class="card-footer">
-                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
-                                        </div> --}}
->>>>>>> Stashed changes
                                     </div>
                                 @else
                                     <div class="waiting card w-90">
@@ -146,16 +110,12 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
-<<<<<<< Updated upstream
                                             <div class="col-md-2">
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
                                                 <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}"  />
                                             
                                             </div>
                                             <p class="colour-text card-text">Status : Waiting</p>
-=======
-                                            <p class="colour-text card-text">Status : Aduan menunggu di proses</p>
->>>>>>> Stashed changes
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
