@@ -45,11 +45,13 @@
             }
         </style>
     </head>
-    <a href="/" class="previous">
-        <button class="btn btn-sm btn-secondary">Kembali</button>
-    </a>
+
 
     <body>
+    <div class="">
+            <a href="/forum" class="float-left">Kembali</a>
+    </div>
+
         <div class="main">
             <div class="container">
                 <div class="tab-content">

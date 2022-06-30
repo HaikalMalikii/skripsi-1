@@ -17,12 +17,11 @@
         </style>
 
     </head>
+
+    <body>
     <div class="">
             <a href="/forum" class="float-left">Kembali</a>
     </div>
-    </a>
-
-    <body>
         <div class="container">
             <div class="col-md-1">
                 @if (Session::has('sukes'))
