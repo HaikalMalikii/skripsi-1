@@ -62,9 +62,15 @@
                                 <h4 class="panel-title text-center">STATUS ADUAN ANDA </h4>
                                 <div class="form-group form-row justify-content-left">
                                     @guest
+<<<<<<< Updated upstream
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambah Aduan</a>
                                     @else
                                         <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Tambah Aduan</a>
+=======
+                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambah Aduan Baru</a>
+                                    @else
+                                        <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Tambah Aduan Baru</a>
+>>>>>>> Stashed changes
                                     @endguest
                                 </div>
                                 {{-- <div class="bg-light clearfix">
@@ -91,6 +97,7 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
+<<<<<<< Updated upstream
                                             <div class="col-md-2">
                                                 {{-- <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset=""> --}}
@@ -99,6 +106,9 @@
                                                 </div>
                                             <p class="colour-text card-text">Status : Diterima</p>
                                             <!-- <p>{{ $f->Gambar }}</p> -->
+=======
+                                            <p class="colour-text card-text">Status : Aduan di proses</p>
+>>>>>>> Stashed changes
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
@@ -110,6 +120,7 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
+<<<<<<< Updated upstream
                                             {{-- <div class="col-md-2">
                                                 <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px">
                                             </div> --}}
@@ -118,6 +129,16 @@
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
+=======
+                                            <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
+                                            <p class="colour-text card-text"><small class="text-muted">
+                                                    {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
+                                        </div>
+                                        {{-- <div class="card-footer">
+                                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
+                                        </div> --}}
+>>>>>>> Stashed changes
                                     </div>
                                 @else
                                     <div class="waiting card w-90">
@@ -125,12 +146,16 @@
                                             <div class="card-title"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
+<<<<<<< Updated upstream
                                             <div class="col-md-2">
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
                                                 <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}"  />
                                             
                                             </div>
                                             <p class="colour-text card-text">Status : Waiting</p>
+=======
+                                            <p class="colour-text card-text">Status : Aduan menunggu di proses</p>
+>>>>>>> Stashed changes
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
@@ -138,7 +163,7 @@
                                         <div class="card-footer">
 
                                             <button type="button" class="btn btn-danger float-right" data-toggle="modal"
-                                                data-target="#deleteAduan{{ $f->id }}">Delete</button>
+                                                data-target="#deleteAduan{{ $f->id }}">Hapus Aduan</button>
 
                                         </div>
                                     </div>
@@ -161,7 +186,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
+                                                    data-dismiss="modal">Tutup</button>
                                                 <a href="/user-delete-aduan/{{ $f->id }}"
                                                     class="btn btn-danger">Hapus
                                                     Aduan</a>

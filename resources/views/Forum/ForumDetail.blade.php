@@ -51,17 +51,17 @@
                 </div> --}} -->
 
             <div class="card my-5">
-                <h5 class="card-header">Add Comment</h5>
+                <h5 class="card-header">Komentar</h5>
                 <div class="card-body">
                     @guest
                         <textarea class="form-control"></textarea>
-                        <a href="{{ url('login') }}" class="btn btn-dark mt-2">Submit</a>
+                        <a href="{{ url('login') }}" class="btn btn-dark mt-2">Tambahkan Komentar</a>
                     @else
                         <form method="post"
                             action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
                             @csrf
                             <textarea name="comment" class="form-control"></textarea>
-                            <button type="submit" class="btn btn-dark mt-2">Submit</button>
+                            <button type="submit" class="btn btn-dark mt-2">Tambahkan Komentar</button>
                         @endguest
                         <!-- {{-- <form method="post"
                             action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
@@ -70,9 +70,10 @@
                             <input type="submit" class="btn btn-dark mt-2" /> --}}       -->
                 </div>
             </div>
-            <p><strong>Comments</strong></p>
+            <p><strong>Komentar Masyarakat</strong></p>
+            <hr>
             @foreach ($data as $k)
-                <p class="colour-text card-text">{{ date('Y-m-d H:i:s', strtotime($k->created_at)) }}</p>
+                <p class="colour-text card-text float-right">{{ date('d-m-Y H:i', strtotime($k->created_at)) }}</p>
                 </p>
                 <p class="card-title"><strong>{{ $k->name }}</strong></p>
                 <p class="card-text">{{ $k->Komentar }}</p>
