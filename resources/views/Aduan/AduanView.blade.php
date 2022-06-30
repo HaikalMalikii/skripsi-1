@@ -20,10 +20,10 @@
             }
         </style>
         <!-- <div>
-                    <div class="bg-light clearfix">
-                        <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
-                    </div>
-                </div> -->
+                                                                                <div class="bg-light clearfix">
+                                                                                    <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
+                                                                                </div>
+                                                                            </div> -->
     </head>
 
     <body>
@@ -60,26 +60,55 @@
                             </div>
 
                             @foreach ($Aduan as $f)
-                                <div class="card w-90">
-                                    <a href="/AduanDetail/{{ $f->id }}" class="stretched-link text-decoration-none">
-                                        <div class="card-body">
-
-                                            <a>
-                                                <p class="colour-text card-text">
-                                                    {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <a class="card-title"
-                                                    href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                                <!-- <p class=" card-text">{{ $f->Deskripsi }}</p> -->
-                                                {{-- <p class=" card-text">{{ $f->name }}</p> --}}
-                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-                                                <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
-                                                            srcset=""> -->
-                                            </a>
-
-
-                                        </div>
-                                    </a>
-                                </div>
+                                @if ($f->Persetujuan == 1)
+                                    <div class="card w-90" style="background-color: #5FD068;">
+                                        <a href="/AduanDetail/{{ $f->id }}"
+                                            class="stretched-link text-decoration-none">
+                                            <div class="card-body">
+                                                <a>
+                                                    <p class="colour-text card-text">
+                                                        {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                    <a class="card-title"
+                                                        href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                    <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                    <p class="card-text">Status: Aduan di proses</p>
+                                                </a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @elseif ($f->Persetujuan == 2)
+                                    <div class="card w-90" style="background-color: #F24C4C;">
+                                        <a href="/AduanDetail/{{ $f->id }}"
+                                            class="stretched-link text-decoration-none">
+                                            <div class="card-body">
+                                                <a>
+                                                    <p class="colour-text card-text">
+                                                        {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                    <a class="card-title"
+                                                        href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                    <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                    <p class="card-text">Status: Aduan tidak dapat di proses</p>
+                                                </a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @else
+                                    <div class="card w-90" style="background-color: #FFB562;">
+                                        <a href="/AduanDetail/{{ $f->id }}"
+                                            class="stretched-link text-decoration-none">
+                                            <div class="card-body">
+                                                <a>
+                                                    <p class="colour-text card-text">
+                                                        {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                    <a class="card-title"
+                                                        href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                    <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                    <p class="card-text">Status: Aduan menunggu di proses</p>
+                                                </a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
                             @endforeach
 
 
