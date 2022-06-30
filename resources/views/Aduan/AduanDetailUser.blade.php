@@ -18,7 +18,7 @@
 
     <body>
     <div class="">
-            <a href="/AduanViewUser/{{ Auth::user()->id }}" class="float-left">Kembali</a>
+            <a href="/AduanViewUser" class="float-left">Kembali</a>
     </div>
         <div class="container">
             <div class="col-md-1">

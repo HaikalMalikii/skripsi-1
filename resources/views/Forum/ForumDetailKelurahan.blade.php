@@ -14,6 +14,12 @@
                 background-color: lightblue;
                 color: black;
             }
+            .card-title{
+                 font-size: 25px;
+                }
+            .card-text{
+                font-size: 20px;
+                }
         </style>
     </head>
 
@@ -30,9 +36,9 @@
             <div class="card w-90">
                 <div class="card-body">
                     <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
-                    <h4 class="card-reader"> {{ $ForumDetail->Judul }} </h4>
-                    <h3 class="card-reader"> {{ $ForumDetail->Deskripsi }} </h3>
-                    <p class="card-reader"> Created by: {{ $ForumDetail->name }} </p>
+                    <h4 class="card-title"> {{ $ForumDetail->Judul }} </h4>
+                    <h3 class="card-text"> {{ $ForumDetail->Deskripsi }} </h3>
+                    <p class="card-text"> Created by: {{ $ForumDetail->name }} </p>
                 </div>
             </div>
             <!-- {{-- <div class="card my-5">

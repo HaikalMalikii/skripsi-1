@@ -37,6 +37,12 @@
                 padding-left: 20px;
                 color: black;
             }
+            .card-title{
+                 font-size: 25px;
+                }
+            .card-text{
+                font-size: 20px;
+                }
         </style>
         <!-- <div style="">
                 <div class="bg-light clearfix">
@@ -47,12 +53,10 @@
 
 
     <body>
-        <div class="">
-            <a href="/" class="previous">
-                <button class="btn btn-sm btn-secondary">Kembali</button>
-            </a>
+    <div class="">
+            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
         </div>
-        @if ($errors->any())
+        <!-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -95,7 +99,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+        </form>
 
         <div class="main">
             <div class="container">

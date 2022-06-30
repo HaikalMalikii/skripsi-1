@@ -10,7 +10,16 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
         <style>
-
+                .img{
+                    width:25%;
+                    height:25%;
+                }
+                .card-title{
+                    font-size: 30px;
+                }
+                .card-text{
+                    font-size: 20px;
+                }
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -18,6 +27,9 @@
     </head>
 
     <body>
+    <div class="">
+            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
+        </div>
         <div class="container">
             <div class="col-md-1">
                 @if (Session::has('sukes'))
@@ -27,9 +39,9 @@
             <div class="card w-90">
                 <div class="card-body">
                     @foreach ($AduanDetail as $AduanDetail)
-                        <h4 class="card-reader">Oleh : {{ $AduanDetail->name }} </h4>
-                        <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="" srcset="">
-                        <h4 class="card-reader"> {{ $AduanDetail->Judul }} </h4>
+                        <h4 class="card-text">Oleh : {{ $AduanDetail->name }} </h4>
+                        <img class="img" src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="" srcset="">
+                        <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
 

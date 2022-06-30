@@ -53,11 +53,9 @@
     </head>
 
     <body>
-        <div class="">
-            <a href="/" class="previous">
-                <button class="btn btn-sm btn-secondary">Kembali</button>
-            </a>
-        </div>
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
+    </div>
         <div class="main">
             <div class="container">
                 <div class="row">
@@ -105,11 +103,11 @@
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
                                                 <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
-                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                <!-- <p class="card-text">Bagian: {{ $f->Bagian }}</p> -->
                                                 <p class="colour-text card-text">Status : Aduan di proses</p>
-                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
-                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                                 {{-- <p>{{ $f->IdPengaduan }}</p> --}}
                                             </a>
                                         </div>
@@ -123,11 +121,11 @@
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
                                                 <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
-                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                <!-- <p class="card-text">Bagian: {{ $f->Bagian }}</p> -->
                                                 <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
-                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
-                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                                 {{-- <p>{{ $f->IdPengaduan }}</p> --}}
                                             </a>
                                         </div>
@@ -141,11 +139,11 @@
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
                                                 <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
-                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                <!-- <p class="card-text">Bagian: {{ $f->Bagian }}</p> -->
                                                 <p class="colour-text card-text">Status : Aduan menunggu di proses</p>
-                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
-                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                                 {{-- <p>{{ $f->IdPengaduan }}</p> --}}
                                             </a>
 

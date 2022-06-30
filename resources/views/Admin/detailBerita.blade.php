@@ -27,13 +27,9 @@
 <body>
     @section('content')
 
-        <div class="tab-content">
-
-            <a href="/berita" class="previous">
-            <button class="btn btn-sm btn-secondary">Kembali</button>
-            </a>
-                
-        </div>
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
+    </div>
 
             <div class="container " style="margin-top:40px">
                 <div class="row justify-content-center">

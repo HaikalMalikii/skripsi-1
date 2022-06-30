@@ -49,7 +49,7 @@
 
     <body>
     <div class="">
-            <a href="/forum" class="float-left">Kembali</a>
+            <a href="/" class="float-left">Kembali</a>
     </div>
 
         <div class="main">

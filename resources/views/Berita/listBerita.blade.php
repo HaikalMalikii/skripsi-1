@@ -54,15 +54,18 @@
     <!-- <div class="bg-light clearfix">
         <a href="/" type="button" class="btn float-right">Kembali</a>
     </div> -->
-    <div class="tab-content">
+    <!-- <div class="tab-content">
 
         <a href="/" class="previous">
         <button class="btn btn-sm btn-secondary">Kembali</button>
         </a>
             
-    </div>
+    </div> -->
 
     <body>
+    <div class="">
+            <a href="/" class="float-left">Kembali</a>
+    </div>
         <div class="main">
             <div class="container">
                 <div class="row">

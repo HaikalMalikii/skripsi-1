@@ -9,18 +9,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <style>
-
+                .img{
+                    width:25%;
+                    height:25%;
+                }
+                .card-title{
+                    font-size: 30px;
+                }
+                .card-text{
+                    font-size: 20px;
+                }
         </style>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     </head>
 
     <body>
-
-        <div class="">
-            <a href="/Aduan" class="previous">
-                <button class="btn btn-sm btn-secondary">Kembali</button>
-            </a>
+    <div class="">
+            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
         </div>
         <div class="container">
             <div class="col-md-1">
@@ -32,8 +39,8 @@
                 <div class="card-body">
                     @foreach ($AduanDetail as $AduanDetail)
                         <h4 class="card-text">Oleh : {{ $AduanDetail->name }} </h4>
-                        <img src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="aduan" srcset="">
-                        <h4 class="card-text"> {{ $AduanDetail->Judul }} </h4>
+                        <img class="img" src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="aduan" srcset="">
+                        <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
                         @if ($AduanDetail->Persetujuan == 0)

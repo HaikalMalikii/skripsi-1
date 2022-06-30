@@ -74,7 +74,7 @@ class AduanController extends Controller
         // dd($Aduan->Bagian);
         $Aduan->save();
         $idUser = Auth::id();
-        return redirect('/AduanViewUser/' . $idUser)->with('success', 'Aduan anda berhasil di buat!');
+        return redirect('/AduanViewUser')->with('success', 'Aduan anda berhasil di buat!');
     }
     public function view()
     {
@@ -265,6 +265,8 @@ class AduanController extends Controller
     {
         Aduan::where('id', $id)->delete();
         $idUser = Auth::id();
-        return redirect('/AduanViewUser/' . $idUser)->with('success', 'Aduan anda berhasil di hapus!');
+        return redirect('/AduanViewUser')->with('success', 'Aduan anda berhasil di hapus!');
+
+        // return redirect('/AduanViewUser/' . $idUser)->with('success', 'Aduan anda berhasil di hapus!');
     }
 }

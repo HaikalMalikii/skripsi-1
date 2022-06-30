@@ -58,13 +58,9 @@
                 </ul>
             </div>
         @endif
-        <div class="tab-content">
-
-            <a href="/" class="previous">
-            <button class="btn btn-sm btn-secondary">Kembali</button>
-            </a>
-                
-        </div>
+        <div class="">
+            <a href="/" class="float-left">Kembali</a>
+    </div>
 
         <form action="/AddnewForum" method="post" enctype="multipart/form-data">
             @csrf

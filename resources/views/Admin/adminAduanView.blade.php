@@ -15,27 +15,11 @@
 
         <title>Add Forum</title>
         <style>
-            th {
-                font-family: 'Roboto Condensed', sans-serif;
-            }
-
-            .setuju {
-                background-color: #5FD068;
-            }
-
+            
             .judul {
                 font-size: 20px;
                 color: black;
             }
-
-            .tolak {
-                background-color: #F24C4C;
-            }
-
-            .waiting {
-                background-color: #FFB562;
-            }
-
             .card-body:hover {
                 background-color: lightblue;
             }
@@ -80,12 +64,12 @@
                                             <a class="judul">
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <a class="card-title" href="/admin-Kelurahan-AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                <a class="judul card-title" href="/admin-Kelurahan-AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                                 <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                <!-- <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
                                                 <p class="colour-text card-text">{{ $f->name }}</p>
-                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
-                                                    srcset="">
+                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset=""">
+
                                             </a>
 
 

@@ -7,18 +7,25 @@
     <head>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <style>
+            .card-title{
+                 font-size: 30px;
+                }
+            .card-text{
+                font-size: 20px;
+                }
+        </style>
     </head>
 
     <body>
+        
         <!-- <div style="">
             <div class="bg-light clearfix">
                 <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
             </div>
         </div> -->
         <div class="">
-            <a href="/" class="previous">
-                <button class="btn btn-sm btn-secondary">Kembali</button>
-            </a>
+            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
         </div>
 
         <div class="container" style="min-height: 100vh">

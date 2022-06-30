@@ -64,9 +64,9 @@
                 </ul>
             </div>
         @endif
-        <a href="/" class="previous">
-            <button class="btn btn-sm btn-secondary">Kembali</button>
-        </a>
+        <div class="">
+            <a href="/" class="float-left">Kembali</a>
+    </div>
         <div class="main">
             <div class="container">
                 <div class="row">

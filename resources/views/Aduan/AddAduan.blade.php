@@ -24,9 +24,9 @@
     </head>
 
 
-    <a href="/BacktoAduanViewUser" class="previous">
-        <button class="btn btn-sm btn-secondary">Kembali</button>
-    </a>
+    <div class="">
+            <a href="/AduanViewUser" class="float-left">Kembali</a>
+    </div>
 
     <div class="text-xl-center">
         <strong>
