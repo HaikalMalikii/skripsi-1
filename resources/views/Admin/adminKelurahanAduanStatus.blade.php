@@ -94,74 +94,118 @@
                             @endif --}}
 
                             @foreach ($Aduan as $f)
-                                <div class="card w-90">
-                                    <div class="card-body">
-                                        <a>
+                                {{-- <div class="card w-90">
+                                    <div class="card-body"> --}}
+                                @if ($f->Persetujuan == 1)
+                                    <div class="card w-90 " style="background-color: #5FD068;">
+                                        <div class="card-body">
+                                            <a>
+                                                <a class="judul card-title"
+                                                    href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
+                                                <p class="colour-text card-text">
+                                                    {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
+                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                <p class="colour-text card-text">Status : Aduan di proses</p>
+                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                    srcset="">
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                @elseif ($f->Persetujuan == 2)
+                                    <div class="card w-90 " style="background-color: #F24C4C;">
+                                        <div class="card-body">
+                                            <a>
+                                                <a class="judul card-title"
+                                                    href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
+                                                <p class="colour-text card-text">
+                                                    {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
+                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
+                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                    srcset="">
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="card w-90 " style="background-color: #FFB562;">
+                                        <div class="card-body">
+                                            <a>
+                                                <a class="judul card-title"
+                                                    href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
+                                                <p class="colour-text card-text">
+                                                    {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+                                                <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
+                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
+                                                <p class="colour-text card-text">Status : Aduan menunggu di proses</p>
+                                                <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                                    srcset="">
+                                                <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
+                                            </a>
 
-                                            <a class="judul card-title"
-                                                href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
-                                            <p class="colour-text card-text">
-                                                {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                            <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-                                            <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
-                                            <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
-                                            <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+                                            <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                                data-target="#tindakLanjut{{ $f->IdPengaduan }}">
+                                                Tindak Lanjut
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade bd-example-modal-xl"
+                                                id="tindakLanjut{{ $f->IdPengaduan }}" tabindex="-1"
+                                                aria-labelledby="tindakLanjutLabel{{ $f->IdPengaduan }}Label"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-xl">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title"
+                                                                id="tindakLanjutLabel{{ $f->IdPengaduan }}Label">
+                                                                Judul Aduan {{ $f->Judul }}</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/admin-tindak-lanjut/{{ $f->IdPengaduan }}"
+                                                                method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <label for="judul">Ketik Tindak Lanjut *Aduan/Tindak
+                                                                        Lanjut*</label>
+                                                                    <input placeholder="Judul" id="judul"
+                                                                        type="text"
+                                                                        class="form-control @error('judul') is-invalid @enderror"
+                                                                        name="judul" value="{{ $f->Judul }}"
+                                                                        required autocomplete="judul" autofocus>
 
 
-                                            {{-- <p>{{ $f->IdPengaduan }}</p> --}}
-                                        </a>
-                                        <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                                            data-target="#tindakLanjut{{ $f->IdPengaduan }}">
-                                            Tindak Lanjut
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade bd-example-modal-xl"
-                                            id="tindakLanjut{{ $f->IdPengaduan }}" tabindex="-1"
-                                            aria-labelledby="tindakLanjutLabel{{ $f->IdPengaduan }}Label"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title"
-                                                            id="tindakLanjutLabel{{ $f->IdPengaduan }}Label">
-                                                            Judul Aduan {{ $f->Judul }}</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="/admin-tindak-lanjut/{{ $f->IdPengaduan }}"
-                                                            method="POST" enctype="multipart/form-data">
-                                                            @csrf
-                                                            <div class="form-group">
-                                                                <label for="judul">Ketik Tindak Lanjut *Aduan/Tindak
-                                                                    Lanjut*</label>
-                                                                <input placeholder="Judul" id="judul" type="text"
-                                                                    class="form-control @error('judul') is-invalid @enderror"
-                                                                    name="judul" value="{{ $f->Judul }}" required
-                                                                    autocomplete="judul" autofocus>
-
-
-                                                                @error('judul')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </span>
-                                                                @enderror
-                                                            </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Tindak Lanjut</button>
-                                                        </form>
+                                                                    @error('judul')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Tindak
+                                                                Lanjut</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+                                {{-- </div>
+                                </div> --}}
                             @endforeach
                         </div>
                     </div>

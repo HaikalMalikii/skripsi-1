@@ -80,8 +80,9 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->orderBy('pengaduan.created_at', 'desc')
+            ->orderBy('pengaduan.Persetujuan', 'asc')
             ->get();
         // dd($Aduan->first());
 
@@ -91,7 +92,7 @@ class AduanController extends Controller
     public function tindakLanjutAduan(Request $request, $id)
     {
         // dd($id);
-        
+
         $request->validate([
             'judul' => 'required|string',
         ]);
@@ -99,7 +100,7 @@ class AduanController extends Controller
         Aduan::where('id', $id)->update([
             'Judul' => $request->judul
         ]);
-        
+
 
         return redirect('/admin-kelurahan-status')->with('success', 'Berhasil Ditambahkan!');;
     }
