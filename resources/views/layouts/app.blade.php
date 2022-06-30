@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/AduanViewUser/{{ Auth::user()->id }} ">
+                        <a class="nav-link" href="/AduanViewUser">
                             Aduan
                         </a>
                     </li>

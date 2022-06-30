@@ -214,9 +214,9 @@ class AduanController extends Controller
 
 
 
-    public function viewUser(Request $request, $id)
+    public function viewUser(Request $request)
     {
-
+        $id = Auth::id();
         $data = Aduan::where('IDUser', $id)->get();
         // $data = Aduan::paginate(5);
         $data = DB::table('pengaduan')
