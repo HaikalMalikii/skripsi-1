@@ -54,7 +54,7 @@
 
     <body>
     <div class="">
-            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
+            <a href="/" class="float-left">Kembali</a>
         </div>
         <!-- @if ($errors->any())
             <div class="alert alert-danger">
