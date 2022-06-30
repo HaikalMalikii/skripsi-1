@@ -104,7 +104,7 @@
                 <div class="card w-90">
                     <div class="card-body">
                         <p class="card-text">
-                            {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}
+                            {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->name }}
                         </p>
                         <td>
                             <img class="img-fluid" src="{{ asset("css/foto/$b->image") }}" alt="">
