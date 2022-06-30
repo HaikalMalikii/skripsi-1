@@ -91,6 +91,8 @@ class AduanController extends Controller
     public function tindakLanjutAduan(Request $request, $id)
     {
         // dd($id);
+        
+        dd("X");
         $request->validate([
             'judul' => 'required|string',
         ]);
@@ -98,7 +100,7 @@ class AduanController extends Controller
         Aduan::where('id', $id)->update([
             'Judul' => $request->judul
         ]);
-
+        
 
         return redirect('/admin-kelurahan-status')->with('success', 'Berhasil Ditambahkan!');;
     }

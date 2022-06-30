@@ -137,7 +137,7 @@
                                                                     class="form-control @error('judul') is-invalid @enderror"
                                                                     name="judul" value="{{ $f->Judul }}" required
                                                                     autocomplete="judul" autofocus>
-                                                                {{-- <p>{{ $f->IdPengaduan }}</p> --}}
+                                                                
 
                                                                 @error('judul')
                                                                     <span class="invalid-feedback" role="alert">
