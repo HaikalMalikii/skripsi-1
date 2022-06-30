@@ -118,6 +118,24 @@ class ForumController extends Controller
         // dd($Komentar);
         $Komentar->save();
 
+        return redirect('/forum-admin-kelurahan/' . $id);
+    }
+
+
+    public function ForumDetailCommentKelurahan(Request $request, $slug, $id)
+    {
+        $request->validate([
+            'comment' => 'required'
+        ]);
+        // dd($id);
+        // dd($id);
+        $Komentar = new Komentar;
+        $Komentar->IDDetForum = $id;
+        $Komentar->IDUser = $request->user()->id;
+        $Komentar->Komentar =  $request->comment;
+        // dd($Komentar);
+        $Komentar->save();
+
         return redirect('/ForumDetail/' . $id);
     }
 

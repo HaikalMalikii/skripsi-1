@@ -112,6 +112,7 @@ Route::get('/addforum', function () {
     return view('Forum.addforum');
 });
 Route::post('/save-comment/{slug}/{id}', 'ForumController@ForumDetailComment');
+Route::post('/save-comment-kelurahan/{slug}/{id}', 'ForumController@ForumDetailComment');
 Route::get('/ForumDetailComment', 'ForumController@IndexComments');
 Route::get('/user-delete-forum/{id}', 'ForumController@deleteForum');
 Route::post('/user-edit-forum/{id}', 'ForumController@editForum');

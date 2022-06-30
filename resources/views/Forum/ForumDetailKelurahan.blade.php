@@ -55,7 +55,7 @@
                         <a href="{{ url('login') }}" class="btn btn-dark mt-2">Submit</a>
                     @else
                         <form method="post"
-                            action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
+                            action="{{ url('save-comment-kelurahan/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
                             @csrf
                             <textarea name="comment" class="form-control"></textarea>
                             <button type="submit" class="btn btn-dark mt-2">Submit</button>
