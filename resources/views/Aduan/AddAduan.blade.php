@@ -24,7 +24,7 @@
     </head>
 
     <div class="">
-            <a href="/" class="float-left">Kembali</a>
+            <a href="/BacktoAduanViewUser" class="float-left">Kembali</a>
     </div>
 
     <div class="text-xl-center">

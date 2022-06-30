@@ -47,7 +47,7 @@ Route::post('/AddAduan', 'AduanController@AddAduan');
 Route::get('/AduanViewUser/{id}', 'AduanController@viewUser');
 Route::post('/Status/{id}', 'AduanController@Status');
 Route::get('/user-delete-aduan/{id}', 'AduanController@deleteAduan');
-Route::get('BacktoAduanViewUser','Aduancontroller@BacktoAduanViewUser');
+Route::get('/BacktoAduanViewUser','Aduancontroller@BacktoAduanViewUser');
 
 ////cek
 
