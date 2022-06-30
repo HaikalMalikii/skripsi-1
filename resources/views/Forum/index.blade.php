@@ -89,9 +89,14 @@
 
                             <div class="form-group form-row justify-content-left">
                                 @guest
+<<<<<<< Updated upstream
                                     <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambahkan Forum</a>
+=======
+                                    <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambahkan Forum Baru</a>
+>>>>>>> Stashed changes
                                 @else
-                                    <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
+                                    <button type="submit" name="buttonadd" class="btn btn-primary">Tambahkan Forum
+                                        Baru</button>
                                     {{-- <button type="submit" name="buttonadd" data-toggle="modal" data-target="#popup"
                                         class="btn btn-primary">Submit Forum</button> --}}
                                 @endguest
@@ -160,7 +165,11 @@
                                     </div>
                                     <div class="card-footer">
                                         <a href="/ForumDetail/{{ $f->id }}"
+<<<<<<< Updated upstream
                                             class="btn btn-warning btn-sm">Tambahkan Komentar</a>
+=======
+                                            class="btn btn-warning btn-sm">Komentar</a>
+>>>>>>> Stashed changes
                                     </div>
                                 </div>
                             @endforeach
