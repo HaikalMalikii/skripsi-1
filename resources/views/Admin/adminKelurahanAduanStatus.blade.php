@@ -97,15 +97,17 @@
                                 <div class="card w-90">
                                     <div class="card-body">
                                         <a>
-                                            <p class="colour-text card-text">
-                                                {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
+
                                             <a class="judul card-title"
                                                 href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
+                                            <p class="colour-text card-text">
+                                                {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
                                             <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-
-                                            <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
-                                            <p class="colour-text card-text">{{ $f->name }}</p>
+                                            <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
                                             <img src="{{ asset("css/foto/$f->Gambar") }}" alt="" srcset="">
+                                            <p class="colour-text card-text">{{ $f->Deskripsi }}</p>
+
+
                                             {{-- <p>{{ $f->IdPengaduan }}</p> --}}
                                         </a>
                                         <button type="button" class="btn btn-primary float-right" data-toggle="modal"

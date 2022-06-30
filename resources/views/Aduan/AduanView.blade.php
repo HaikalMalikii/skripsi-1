@@ -20,10 +20,10 @@
             }
         </style>
         <!-- <div>
-                <div class="bg-light clearfix">
-                    <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
-                </div>
-            </div> -->
+                    <div class="bg-light clearfix">
+                        <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
+                    </div>
+                </div> -->
     </head>
 
     <body>
@@ -70,9 +70,10 @@
                                                 <a class="card-title"
                                                     href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                                 <!-- <p class=" card-text">{{ $f->Deskripsi }}</p> -->
-                                                <p class=" card-text">{{ $f->name }}</p>
+                                                {{-- <p class=" card-text">{{ $f->name }}</p> --}}
+                                                <p class="card-text">Bagian: {{ $f->Bagian }}</p>
                                                 <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
-                                                        srcset=""> -->
+                                                            srcset=""> -->
                                             </a>
 
 
