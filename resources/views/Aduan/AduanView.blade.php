@@ -15,22 +15,22 @@
 
         <title>Add Forum</title>
         <style>
-
-            
             .card-body:hover {
                 background-color: lightblue;
             }
         </style>
         <!-- <div>
-            <div class="bg-light clearfix">
-                <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
-            </div>
-        </div> -->
+                <div class="bg-light clearfix">
+                    <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
+                </div>
+            </div> -->
     </head>
 
     <body>
-    <div class="">
-            <a href="/" class="float-left">Kembali</a>
+        <div class="">
+            <a href="/" class="previous">
+                <button class="btn btn-sm btn-secondary">Kembali</button>
+            </a>
         </div>
         <div class="main">
             <div class="container">
@@ -67,11 +67,12 @@
                                             <a>
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <a class="card-title" href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
+                                                <a class="card-title"
+                                                    href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                                 <!-- <p class=" card-text">{{ $f->Deskripsi }}</p> -->
                                                 <p class=" card-text">{{ $f->name }}</p>
                                                 <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
-                                                    srcset=""> -->
+                                                        srcset=""> -->
                                             </a>
 
 

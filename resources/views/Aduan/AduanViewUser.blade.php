@@ -38,22 +38,24 @@
             .judul:hover {
                 text-decoration: none;
             }
+
             .previous {
-            background-color: #f1f1f1;
-            color: black;
+                background-color: #f1f1f1;
+                color: black;
             }
         </style>
     </head>
+    <a href="/" class="previous">
+        <button class="btn btn-sm btn-secondary">Kembali</button>
+    </a>
 
     <body>
         <div class="main">
             <div class="container">
                 <div class="tab-content">
 
-                    <a href="/" class="previous">
-                    <button class="btn btn-sm btn-secondary">Kembali</button>
-                    </a>
-                        
+
+
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -79,9 +81,9 @@
                                             <div class="col-md-2">
                                                 {{-- <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset=""> --}}
-                                                    {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
-                                                    <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}"  />
-                                                </div>
+                                                {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
+                                                <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}" />
+                                            </div>
                                             <p class="colour-text card-text">Status : Diterima</p>
                                             <!-- <p>{{ $f->Gambar }}</p> -->
                                             <p class="colour-text card-text"><small class="text-muted">
@@ -98,7 +100,7 @@
                                             {{-- <div class="col-md-2">
                                                 <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px">
                                             </div> --}}
-                                            <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}"  />
+                                            <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}" />
                                             <p class="colour-text card-text">Status : Ditolak</p>
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
@@ -112,8 +114,8 @@
                                             </div>
                                             <div class="col-md-2">
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
-                                                <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}"  />
-                                            
+                                                <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}" />
+
                                             </div>
                                             <p class="colour-text card-text">Status : Waiting</p>
                                             <p class="colour-text card-text"><small class="text-muted">
