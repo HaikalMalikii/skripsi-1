@@ -27,6 +27,7 @@ class AduanController extends Controller
 
             ->paginate(4);
         //dd($data);
+        // dd($data->Gambar)
 
         return view('Aduan.AduanViewUser', compact('data'));
     }
@@ -68,7 +69,7 @@ class AduanController extends Controller
         $Aduan->Judul = $request->Judul;
         $Aduan->Deskripsi = $request->Deskripsi;
         $Aduan->Location = $request->Location;
-        $Aduan->Gambar = $request->Gambar;
+        $Aduan->Gambar = $photo->getClientOriginalName();
         $Aduan->IDUser = $request->user()->id;
         // dd($Aduan->Bagian);
         $Aduan->save();
@@ -225,7 +226,7 @@ class AduanController extends Controller
             ->orderBy('pengaduan.created_at', 'desc')
 
             ->paginate(4);
-        //dd($data);
+        // dd($data);
 
         return view('Aduan.AduanViewUser', compact('data'));
     }

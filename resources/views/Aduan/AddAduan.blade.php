@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="form-group form-row">
-                        <button type="submit" name="buttonadd" class="btn btn-primary">Submit Aduan</button>
+                        <button type="submit" name="buttonadd" class="btn btn-primary">Tambahkan Aduan</button>
                     </div>
                 </div>
             </div>

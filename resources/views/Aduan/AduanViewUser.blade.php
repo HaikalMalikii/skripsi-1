@@ -62,9 +62,9 @@
                                 <h4 class="panel-title text-center">STATUS ADUAN ANDA </h4>
                                 <div class="form-group form-row justify-content-left">
                                     @guest
-                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
+                                        <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambah Aduan</a>
                                     @else
-                                        <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Add New Aduan</a>
+                                        <a href="{{ url('/AddAduan') }}" class="btn btn-sm btn-primary">Tambah Aduan</a>
                                     @endguest
                                 </div>
                                 {{-- <div class="bg-light clearfix">

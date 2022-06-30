@@ -89,7 +89,7 @@
 
                             <div class="form-group form-row justify-content-left">
                                 @guest
-                                    <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Submit Forum</a>
+                                    <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambahkan Forum</a>
                                 @else
                                     <button type="submit" name="buttonadd" class="btn btn-primary">Submit Forum</button>
                                     {{-- <button type="submit" name="buttonadd" data-toggle="modal" data-target="#popup"
@@ -160,7 +160,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Comment</a>
+                                            class="btn btn-warning btn-sm">Tambahkan Komentar</a>
                                     </div>
                                 </div>
                             @endforeach
