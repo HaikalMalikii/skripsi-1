@@ -83,6 +83,40 @@ class ForumController extends Controller
         // return redirect('/forum');
     }
 
+    public function AddForumKelurahan(Request $request, Forum $forum)
+    {
+        $users = Auth::id();
+        $validasi = Validator::make($request->all(), [
+            'Judul' => 'required|string|min:5',
+            'Deskripsi' => 'required|string|min:5',
+            'Gambar' => 'required|image'
+        ]);
+        if ($validasi->fails()) {
+            return redirect('/forum')
+                ->withErrors($validasi)
+                ->withInput();
+            // return back()->with('errors', $validasi->messages()->all()[0])->withInput();
+        }
+        $photo = $request->file('Gambar');
+        $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
+
+        $ForumInsert = new Forum;
+        $ForumInsert->IDUser = $request->user()->id;
+        $ForumInsert->save();
+        $forum = Forum::latest()->first();
+        $DetailForum = new DetailForum;
+        $DetailForum->IDForum = $forum->id;
+        $DetailForum->Deskripsi = $request->Deskripsi;
+        $DetailForum->Gambar = $request->Gambar->getClientOriginalName();
+        $DetailForum->Judul = $request->Judul;
+
+        $DetailForum->save();
+        // $request->session()->flash('key', $value);
+        // $request->session()->flash('addForumPopUp', 'Forum berhasil ditambahkan!');
+        return redirect('/admin-forum')->with('success', 'Forum anda berhasil di buat!');
+        // return redirect('/forum');
+    }
+
     public function ForumDetail(Request $request, $ForumID)
     {
         // $ForumDetail =  DetailForum::find($ForumID);
@@ -159,6 +193,12 @@ class ForumController extends Controller
         Forum::where('id', $id)->delete();
         $idUser = Auth::id();
         return redirect('/forumUser/' . $idUser)->with('success', 'Forum anda berhasil di hapus!');
+    }
+
+    public function deleteForumKelurahan(Request $request, $id)
+    {
+        Forum::where('id', $id)->delete();
+        return redirect('/admin-forum')->with('success', 'Forum anda berhasil di hapus!');
     }
 
     public function editForum(Request $request, $id)

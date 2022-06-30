@@ -116,7 +116,9 @@ Route::post('/save-comment-kelurahan/{slug}/{id}', 'ForumController@ForumDetailC
 Route::get('/ForumDetailComment', 'ForumController@IndexComments');
 Route::get('/user-delete-forum/{id}', 'ForumController@deleteForum');
 Route::post('/user-edit-forum/{id}', 'ForumController@editForum');
+Route::get('/kelurahan-delete-forum/{id}', 'ForumController@deleteForumKelurahan');
 Route::post('/AddnewForum', 'ForumController@AddForum');
+Route::post('/AddnewForumKelurahan', 'ForumController@AddForumKelurahan');
 
 // Route::get('/addforum','ForumController@GetUserID');
 Route::get('/forumUser/{id}', 'ForumController@forumUser');
