@@ -23,9 +23,10 @@
         </style>
     </head>
 
-    <div class="">
-            <a href="/BacktoAduanViewUser" class="float-left">Kembali</a>
-    </div>
+
+    <a href="/BacktoAduanViewUser" class="previous">
+        <button class="btn btn-sm btn-secondary">Kembali</button>
+    </a>
 
     <div class="text-xl-center">
         <strong>
@@ -84,7 +85,7 @@
             </div>
         </div>x
 
-       
+
     </form>
 
     @include('sweetalert::alert')
