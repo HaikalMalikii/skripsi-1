@@ -107,7 +107,7 @@ class ForumController extends Controller
         $DetailForum = new DetailForum;
         $DetailForum->IDForum = $forum->id;
         $DetailForum->Deskripsi = $request->Deskripsi;
-        $DetailForum->Gambar = $request->Gambar->getClientOriginalName();
+        $DetailForum->Gambar = $photo;
         $DetailForum->Judul = $request->Judul;
 
         $DetailForum->save();
@@ -152,7 +152,7 @@ class ForumController extends Controller
         // dd($Komentar);
         $Komentar->save();
 
-        return redirect('/forum-admin-kelurahan/' . $id);
+        return redirect('/ForumDetail/' . $id);
     }
 
 
@@ -170,7 +170,7 @@ class ForumController extends Controller
         // dd($Komentar);
         $Komentar->save();
 
-        return redirect('/ForumDetail/' . $id);
+        return redirect('/forum-admin-kelurahan/' . $id);
     }
 
     public function forumUser(Request $request, $id)

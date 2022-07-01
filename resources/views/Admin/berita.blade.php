@@ -25,7 +25,7 @@
             </div>
         </div> -->
         <div class="">
-            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
+            <a href="/" class="float-left">Kembali</a>
         </div>
 
         <div class="container" style="min-height: 100vh">

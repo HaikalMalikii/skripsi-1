@@ -84,7 +84,6 @@
                                                 {{-- <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset=""> --}}
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
-                                                <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}" />
                                             </div>
                                             <p class="colour-text card-text">Status : Aduan di proses</p>
                                             <!-- <p>{{ $f->Gambar }}</p> -->
@@ -102,7 +101,6 @@
                                             {{-- <div class="col-md-2">
                                                 <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px">
                                             </div> --}}
-                                            <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}" />
                                             <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
                                             <p class="colour-text card-text"><small class="text-muted">
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
@@ -116,7 +114,6 @@
                                             </div>
                                             <div class="col-md-2">
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
-                                                <img src="{{ URL::to('/') }}/css/foto/{{ $f->Gambar }}" />
 
                                             </div>
                                             <p class="colour-text card-text">Status : Aduan menunggu di proses</p>

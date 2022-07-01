@@ -4,6 +4,7 @@
     <!DOCTYPE html>
     <html lang="en">
 
+    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,10 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
         <style>
-
+            .image {
+                width: 25%;
+                height: 25%;
+            }
         </style>
     </head>
 
@@ -30,7 +34,15 @@
                 <div class="card-body">
                     @foreach ($AduanDetail as $a)
                         <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
-                        <img src="{{ asset("css/foto/$a->Gambar") }}" alt="" srcset="">
+                        @foreach ($images as $imagets)
+                            <div>   
+                                    
+                                    <img src="{{ URL::to($imagets) }}" class="image" alt=""> 
+                                    <br>
+                                    <br>
+                            </div>
+                        @endforeach
+                        
                         <h4 class="card-reader"> {{ $a->Judul }} </h4>
                         <p class="card-reader"> {{ $a->Deskripsi }} </p>
                         <p class="colour-text card-text">Status : Diproses</p>

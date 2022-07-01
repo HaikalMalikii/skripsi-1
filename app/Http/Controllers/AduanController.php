@@ -34,42 +34,72 @@ class AduanController extends Controller
 
     public function AddAduan(Request $request, Aduan $Aduan)
     {
-
+        
+        
         $users = Auth::id();
         $validasi = Validator::make($request->all(), [
             'Judul' => 'required|string|min:5',
             'Bagian' => 'required|not_in:Bagian...',
             'Location' => 'required|string|min:10',
             'Deskripsi' => 'required|string|min:20',
-            'Gambar' => 'required|image'
+            'Gambar' => 'required',
+            'Gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            
         ]);
+
+        $Gambar=array();
+
         if ($validasi->fails()) {
             return redirect('/AddAduan')
                 ->withErrors($validasi)
                 ->withInput();
         }
+        
+        if($files = $request->file('Gambar'))
+        {
+            foreach($files as $file)
+            {
+                $image_name = $file->getClientOriginalName() ;
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name;
+                $upload_path = 'public/css/foto/';
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path,$image_full_name);
+                $image[]=$image_url;
+            }
 
-        $photo = $request->file('Gambar');
-        $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
+        }
+        //  dd($image_url);
+        //Multiple
+        
+
+        // if($request->hasFile('Gambar'))
+        // {
+        //     foreach ($request->file('Gambar') as $image) {
+        //     $name = $image->getClientOriginalName();
+        //     $image->move(public_path().'/css/foto/', $name) ;
+        //     $data[]=$name;
+        //     // $destinationPath = 'public/css/foto/'; // upload path
+        //     // $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+        //     // $files->move($destinationPath, $profileImage);
+        //     // $insert[]['Gambar'] = "$profileImage";
+        //     // $check = Aduan::insert($insert);
+        //     }
+        // }
+        
+        
+        // $photo = $request->file('Gambar');
+        // $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
 
 
-        // $Tanggal_now =  Carbon::now();
-
-        // DB::table('pengaduan')->insert(
-        //     [   'Bagian'=>$request->AddAduanBagian,
-        //         'Deskripsi'=>$request->AddAduanDeskripsi,
-        //         'Judul'=>$request->AddAduanJudul,
-        //         'Gambar'=>$photo->getClientOriginalName(),
-        //         'IDUser' => $request->user()-> id,
-
-        //     ]);
 
         $Aduan = new Aduan;
         $Aduan->Bagian = $request->Bagian;
         $Aduan->Judul = $request->Judul;
         $Aduan->Deskripsi = $request->Deskripsi;
         $Aduan->Location = $request->Location;
-        $Aduan->Gambar = $photo->getClientOriginalName();
+        $Aduan->Gambar= implode('|',$image);
+        
         $Aduan->IDUser = $request->user()->id;
         // dd($Aduan->Bagian);
         $Aduan->save();
@@ -207,10 +237,13 @@ class AduanController extends Controller
             ->where('pengaduan.id', $id)
             ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
-
+        $image = DB::table('pengaduan')->where('id',$id)->first();
+        // dd($image);
+        $images = explode('|',$image->Gambar);
+        
 
         //  dd($AduanDetail);
-        return view('Aduan.AduanDetailUser', compact('AduanDetail'));
+        return view('Aduan.AduanDetailUser', compact('AduanDetail','images'));
     }
 
 

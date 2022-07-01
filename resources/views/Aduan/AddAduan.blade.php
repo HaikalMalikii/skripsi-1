@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <title>Pengaduan Masyarakat</title>
         <style>
             .container {
@@ -72,10 +73,10 @@
                         <textarea class="form-control" id="comment" placeholder="Deskripsi" name="Deskripsi"></textarea>
                     </div>
 
-                    <div class="form-group">
+                    <div class="input-group-btn">
                         <label for="Gambar">Gambar</label>
 
-                        <input type="file" class="form-control-file" id="AddAduanGambarID" name="Gambar">
+                        <input type="file" multiple class="form-control-file" id="AddAduanGambarID" name="Gambar[]">
                     </div>
 
                     <div class="form-group form-row">
