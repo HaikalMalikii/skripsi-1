@@ -20,8 +20,10 @@
 
     <body>
     <div class="">
-            <a href="/forum" class="float-left">Kembali</a>
-    </div>
+            <a href="/forum" class="">
+                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+            </a>
+        </div>
         <div class="container">
             <div class="col-md-1">
                 @if (Session::has('sukes'))

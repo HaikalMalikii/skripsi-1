@@ -48,17 +48,15 @@
 
 
     <body>
-    <div class="">
-            <a href="/" class="float-left">Kembali</a>
-    </div>
+        
+        <div class="row align-items-start">
+            <a href="/" class="float-left">
+                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+            </a>
+        </div>
 
         <div class="main">
             <div class="container">
-                <div class="tab-content">
-
-
-
-                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel">

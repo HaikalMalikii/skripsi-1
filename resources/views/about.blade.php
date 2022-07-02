@@ -59,8 +59,10 @@
 
     <body>
     <div class="">
-            <a href="/" class="float-left">Kembali</a>
-    </div>
+            <a href="/" class="">
+                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+            </a>
+        </div>
         <div class="container-xl">
             <div class="row">
 

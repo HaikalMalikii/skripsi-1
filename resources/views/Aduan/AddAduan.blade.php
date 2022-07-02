@@ -17,7 +17,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <title>Pengaduan Masyarakat</title>
         <style>
-            .container {
+            .form {
                 background-color: lightblue;
                 padding: 20px;
             }
@@ -25,15 +25,17 @@
     </head>
 
 
-    <div class="">
-            <a href="/AduanViewUser" class="float-left">Kembali</a>
-    </div>
-
-    <div class="text-xl-center">
+        <div class="row align-items-start">
+            <a href="/AduanViewUser" class="float-left">
+                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+            </a>
+        </div>
+    <div class="row justify-content-center">
         <strong>
             <h4 class="AddAduan">Form Pengaduan Masyarakat</h4>
         </strong>
     </div>
+
 
     @if ($errors->any())
         <div id="ERROR_COPY" style="display:none;" class="alert alert-danger">
@@ -47,7 +49,7 @@
 
     <form action="/AddAduan" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="container">
+        <div class="container form">
             <div class="form-row col  justify-content-center">
                 <div class="col-6">
                     <div class="form-group">

@@ -6,12 +6,17 @@
 
     
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>ForumDetail</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <title>Detail Aduan</title>
         <style>
             .image {
                 width: 25%;
@@ -22,8 +27,11 @@
 
     <body>
     <div class="">
-            <a href="/AduanViewUser" class="float-left">Kembali</a>
-    </div>
+            <a href="/AduanViewUser" class="">
+                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+            </a>
+        </div>
+        <div class="main">
         <div class="container">
             <div class="col-md-1">
                 @if (Session::has('sukes'))
@@ -50,6 +58,8 @@
                 @endforeach
             </div>
         </div>
+        </div>
+
     </body>
 
     </html>
