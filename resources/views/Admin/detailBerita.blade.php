@@ -27,7 +27,7 @@
 <body>
     @section('content')
     <div class="">
-            <a href="/" class="">
+            <a href="/berita" class="">
                 <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
             </a>
         </div>
