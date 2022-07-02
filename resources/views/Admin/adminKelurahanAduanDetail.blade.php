@@ -28,7 +28,7 @@
 
     <body>
     <div class="">
-            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
+
         </div>
         <div class="container">
             <div class="col-md-1">

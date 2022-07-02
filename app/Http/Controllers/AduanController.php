@@ -139,7 +139,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kebersihan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -151,7 +151,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kesehatan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -163,7 +163,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Fasilitas Publik')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -176,7 +176,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kebersihan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -188,7 +188,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kesehatan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -200,7 +200,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Fasilitas Publik')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();

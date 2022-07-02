@@ -38,6 +38,13 @@
                 margin-top: 50px;
 
             }
+/* body{
+    background-image: url("css/foto/laporinrempoa.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-attachment: fixed;
+} */
 
             h1 {
                 font-size: 4vw;
@@ -54,6 +61,7 @@
                 width: fit-content;
                 height: fit-content;
             }
+
         </style>
     </head>
 
@@ -68,15 +76,15 @@
 
                 <div class="col-md-8">
                     <h1>LAPOR-in</h1>
-                    <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022.
-                        Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat
+                    <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022 bekerjasama dengan kelurahan rempoa.<br>
+                        Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat di kelurahan rempoa
                         untuk menyampaikan asprasi dan keresahan mereka mengenai lingkungan sekitar.<br>
                         LAPOR-in memiliki fitur utama yaitu menyampaikan aduan yang akan terhubung langsung ke instansi terkait dan
-                        kelurahan
+                        kelurahan.
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="css/foto/2.png" alt="Image" class="img-fluid">
+                    <img src="css/foto/laporinrempoa.png" alt="Image" class="img-fluid">
                 </div>
 
             </div>

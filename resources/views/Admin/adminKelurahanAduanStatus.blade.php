@@ -51,18 +51,20 @@
 
 
     </head>
-
     <body>
-    <div class="">
-            <a href="/" class="float-left">Kembali</a>
-    </div>
-        <div class="main">
+    <div class="row align-items-start">
+            <a href="/" class="float-left">
+                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+            </a>
+        </div>
+        
+    <h3 class="card-title row justify-content-center">Aduan Masyarakat</h3>
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Aduan Masyarkat</h3>
+                            <div class="card-heading">
                                 {{-- <div class="right">
                                     @guest
                                         <a href="{{ url('login') }}" class="btn btn-sm btn-primary">New Forum</a>
@@ -98,13 +100,13 @@
                                     <div class="card w-90 " style="background-color: #5FD068;">
                                         <div class="card-body">
                                             <a>
-                                                <a class="judul card-title"
+                                                <a class="judul card-title text-capitalize"
                                                     href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
+                                                <p class="colour-text card-text text-capitalize">Disampaikan Oleh : {{ $f->name }}</p>
                                                 <!-- <p class="card-text">Bagian: {{ $f->Bagian }}</p> -->
-                                                <p class="colour-text card-text">Status : Aduan di proses</p>
+                                                <p class="colour-text card-text">Status : Sedang Diproses</p>
                                                 <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
                                                 <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
@@ -116,13 +118,13 @@
                                     <div class="card w-90 " style="background-color: #F24C4C;">
                                         <div class="card-body">
                                             <a>
-                                                <a class="judul card-title"
+                                                <a class="judul card-title text-capitalize"
                                                     href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
+                                                <p class="colour-text card-text text-capitalize">Disampaikan Oleh : {{ $f->name }}</p>
                                                 <!-- <p class="card-text">Bagian: {{ $f->Bagian }}</p> -->
-                                                <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
+                                                <p class="colour-text card-text">Status : Aduan ditolak</p>
                                                 <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
                                                 <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->
@@ -134,13 +136,13 @@
                                     <div class="card w-90 " style="background-color: #FFB562;">
                                         <div class="card-body">
                                             <a>
-                                                <a class="judul card-title"
+                                                <a class="judul card-title text-capitalize"
                                                     href="/AduanDetailKelurahan/{{ $f->IdPengaduan }}">{{ $f->Judul }}</a>
                                                 <p class="colour-text card-text">
                                                     {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                <p class="colour-text card-text">Oleh : {{ $f->name }}</p>
+                                                <p class="colour-text card-text text-capitalize">Disampaikan Oleh : {{ $f->name }}</p>
                                                 <!-- <p class="card-text">Bagian: {{ $f->Bagian }}</p> -->
-                                                <p class="colour-text card-text">Status : Aduan menunggu di proses</p>
+                                                <p class="colour-text card-text">Status : Menunggu Diproses</p>
                                                 <!-- <img src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                     srcset="">
                                                 <p class="colour-text card-text">{{ $f->Deskripsi }}</p> -->

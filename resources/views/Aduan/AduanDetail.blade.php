@@ -26,8 +26,10 @@
     </head>
 
     <body>
-    <div class="">
-            <a href="/admin-kelurahan-status" class="float-left">Kembali</a>
+    <div class="row align-items-start">
+            <a href="/Aduan" class="float-left">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
+            </a>
         </div>
         <div class="container">
             <div class="col-md-1">

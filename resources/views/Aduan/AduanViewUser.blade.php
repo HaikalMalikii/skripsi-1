@@ -75,7 +75,7 @@
                                 @if ($f->Persetujuan == 1)
                                     <div class="setuju card w-90">
                                         <div class="card-body">
-                                            <div class="card-title"><a class="judul"
+                                            <div class="card-title text-capitalize"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
                                             <div class="col-md-2">
@@ -83,9 +83,9 @@
                                                     srcset=""> --}}
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
                                             </div>
-                                            <p class="colour-text card-text">Status : Aduan di proses</p>
+                                            <h5 class="colour-text card-text">Status : Sedang Diproses</h5>
                                             <!-- <p>{{ $f->Gambar }}</p> -->
-                                            <p class="colour-text card-text"><small class="text-muted">
+                                            <p class="colour-text card-text"><small>
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
 
@@ -93,29 +93,29 @@
                                 @elseif ($f->Persetujuan == 2)
                                     <div class="tolak card w-90">
                                         <div class="card-body">
-                                            <div class="card-title"><a class="judul"
+                                            <div class="card-title text-capitalize"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
                                             {{-- <div class="col-md-2">
                                                 <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px">
                                             </div> --}}
-                                            <p class="colour-text card-text">Status : Aduan tidak dapat di proses</p>
-                                            <p class="colour-text card-text"><small class="text-muted">
+                                            <h5 class=" card-text">Status : Ditolak</h5>
+                                            <p class=" card-text"><small >
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
                                     </div>
                                 @else
                                     <div class="waiting card w-90">
                                         <div class="card-body">
-                                            <div class="card-title"><a class="judul"
+                                            <div class="card-title text-capitalize" ><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
                                             <div class="col-md-2">
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
 
                                             </div>
-                                            <p class="colour-text card-text">Status : Aduan menunggu di proses</p>
-                                            <p class="colour-text card-text"><small class="text-muted">
+                                            <h5 class="colour-text card-text">Status : Menunggu Diproses</h5>
+                                            <p class="colour-text card-text"><small>
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
 

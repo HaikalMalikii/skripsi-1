@@ -53,8 +53,10 @@
 
 
     <body>
-    <div class="">
-            <a href="/" class="float-left">Kembali</a>
+    <div class="row align-items-start">
+            <a href="/" class="float-left">
+                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+            </a>
         </div>
         <!-- @if ($errors->any())
             <div class="alert alert-danger">

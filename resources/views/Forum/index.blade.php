@@ -118,11 +118,10 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <a class="card-title"
+                                                <a class="card-title text-capitalize"
                                                     href="/ForumDetail/{{ $f->id }}"><strong>{{ $f->Judul }}</strong></a>
-                                                <p class="card-text">{{ $f->name }} <small
-                                                        class="text-muted">{{ date('d-m-Y', strtotime($f->created_at)) }}</small>
-                                                </p>
+                                                    <p class="card-text  text-capitalize">{{ $f->name }} | <small>{{ date('Y-m-d', strtotime($f->created_at)) }}</small>
+
                                                 <p class="card-text">
                                                     {{ Illuminate\Support\Str::limit($f->Deskripsi, 300) }}</p>
 

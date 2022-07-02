@@ -27,8 +27,10 @@
     </head>
 
     <body>
-    <div class="">
-            <a href="/admin-forum" class="float-left">Kembali</a>
+    <div class="row align-items-start">
+            <a href="/" class="float-left">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
+            </a>
         </div>
         <div class="main">
             <div class="container">
@@ -36,7 +38,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Aduan Masyarkat</h3>
+                                <h3 class="card-title text-center">Aduan Masyarakat</h3>
 
                                 {{-- <div class="right">
                                     @guest
@@ -66,7 +68,7 @@
                                                 <a>
                                                     <p class="colour-text card-text">
                                                         {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                    <a class="card-title"
+                                                    <a class="card-title text-capitalize"
                                                         href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
                                                     <p class="card-text">Bagian: {{ $f->Bagian }}</p>
                                                     <p class="card-text">Status: Aduan di proses</p>

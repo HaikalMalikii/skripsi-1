@@ -24,13 +24,15 @@
                 <a href="/Admin.dashboardAdminKelurahan" type="button" class="btn float-right">Kembali</a>
             </div>
         </div> -->
-        <div class="">
-            <a href="/" class="float-left">Kembali</a>
+        <div class="row align-items-start">
+            <a href="/" class="float-left">
+                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+            </a>
         </div>
 
         <div class="container" style="min-height: 100vh">
 
-            <h1>Berita</h1>
+            <h1 class="text-center">Berita</h1>
             @if ($errors->any())
                 <div id="" style="display: none;" class="alert alert-danger">
                     <ul>
