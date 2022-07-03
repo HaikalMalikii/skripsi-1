@@ -28,7 +28,7 @@
 
     <body>
     <div class="">
-            <a href="/admin-forum" class="float-left">Kembali</a>
+            <a href="/" class="float-left">Kembali</a>
         </div>
         <div class="main">
             <div class="container">
