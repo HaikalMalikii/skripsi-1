@@ -24,6 +24,8 @@
   }
 
   </style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
 
 <body>
@@ -40,8 +42,8 @@
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Welcome to LAPOR-in</h3>
-              <p class="mb-4">Silahkan melakukan Login</p>
+              <h3 class="card-title">Welcome To LAPOR-in</h3>
+              <p class="mb-4">Please login with your account</p>
             </div>
             <form method="POST" action="{{ route('login') }}">
             @csrf
