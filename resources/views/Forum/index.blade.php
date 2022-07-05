@@ -58,9 +58,9 @@
                 </ul>
             </div>
         @endif
-        <div class="">
-            <a href="/" class="">
-                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+        <div class="row align-items-start">
+            <a href="/" class="float-left">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
 
@@ -90,7 +90,7 @@
                                     <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambahkan Forum</a>
                                 @else
                                     <button type="submit" name="buttonadd" class="btn btn-primary">Tambahkan Forum
-                                        Baru</button>
+                                        </button>
                                 @endguest
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <a href="/ForumDetail/{{ $f->id }}"
-                                            class="btn btn-warning btn-sm">Tambahkan Komentar</a>
+                                            class="btn btn-warning btn-sm">Komentar</a>
                                     </div>
                                 </div>
                             @endforeach

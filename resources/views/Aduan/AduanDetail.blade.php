@@ -48,9 +48,9 @@
                         @if ($AduanDetail->Persetujuan == 0)
                             <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Reject
+                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Terima Aduan
                                 </button>
-                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
+                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Tolak Aduan
                                 </button>
                                 {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
                             </form>

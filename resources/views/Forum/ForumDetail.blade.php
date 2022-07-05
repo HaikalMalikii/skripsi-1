@@ -21,9 +21,10 @@
     <body>
     <div class="row align-items-start">
             <a href="/forum" class="float-left">
-                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
+
         <div class="container">
             <div class="col-md-1">
                 @if (Session::has('sukes'))
@@ -35,7 +36,7 @@
                 <div class="card-body">
                     <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
                     <h4 class="card-reader text-capitalize"> {{ $ForumDetail->Judul }} </h4>
-                    <h3 class="card-reader"> {{ $ForumDetail->Deskripsi }} </h3>
+                    <p class="card-text"> {{ $ForumDetail->Deskripsi }} </p>
                     <p class="card-text  text-capitalize">{{ $ForumDetail->name }} | <small>{{ date('Y-m-d', strtotime($ForumDetail->created_at)) }}</small>
                 </div>
             </div>
