@@ -82,8 +82,8 @@
                             @foreach ($forum as $f)
                                 <div class="card w-90">
                                     <div class="row no-gutters">
-                                        <div class="col-md-2">
-                                            <img class="image" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
+                                        <div class="col-md-2 text-center">
+                                            <img class="image img-responsive" style="max-width: 75%;" src="{{ asset("css/foto/$f->Gambar") }}" alt=""
                                                 srcset="">
                                         </div>
                                         <div class="col-md-8">

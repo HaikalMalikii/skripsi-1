@@ -34,7 +34,7 @@
 
             <div class="card w-90">
                 <div class="card-body">
-                    <img src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
+                    <img class ="img-responsive" style="max-width:75%;" src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
                     <h4 class="card-reader text-capitalize"> {{ $ForumDetail->Judul }} </h4>
                     <p class="card-text"> {{ $ForumDetail->Deskripsi }} </p>
                     <p class="card-text  text-capitalize">{{ $ForumDetail->name }} | <small>{{ date('Y-m-d', strtotime($ForumDetail->created_at)) }}</small>

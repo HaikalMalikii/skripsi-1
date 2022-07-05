@@ -53,6 +53,7 @@
                                 <div class="col-md-4">
                                      <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
                             </div>
+                            <br><br>
                             @endforeach
                             </div>
 
