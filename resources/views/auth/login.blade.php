@@ -69,10 +69,10 @@
               </div>
               
               <div class="d-flex mb-5 align-items-center">
-                <div class="form-check">
+                {{-- <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                       <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
-                </div>
+                </div> --}}
                 @if (Route::has('password.request'))
                 <span class="ml-auto"><a href="{{ route('password.request') }}" class="forgot-pass">Forgot Password</a></span> 
                 @endif
