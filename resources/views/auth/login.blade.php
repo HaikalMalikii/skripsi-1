@@ -43,7 +43,7 @@
             <div class="col-md-8">
               <div class="mb-4">
               <h3 class="card-title">Welcome To LAPOR-in</h3>
-              <p class="mb-4">Please login with your account</p>
+              <p class="mb-4">Please login with your account.</p>
             </div>
             <form method="POST" action="{{ route('login') }}">
             @csrf
