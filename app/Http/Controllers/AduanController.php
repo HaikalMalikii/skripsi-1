@@ -43,7 +43,7 @@ class AduanController extends Controller
             'Location' => 'required|string|min:10',
             'Deskripsi' => 'required|string|min:20',
             'Gambar' => 'required',
-            'Gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'Gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
             
         ]);
 
