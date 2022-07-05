@@ -24,6 +24,7 @@
   }
 
   </style>
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 @section('content')
@@ -38,13 +39,13 @@
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Welcome to LAPOR-in</h3>
-              <p class="mb-4">Silahkan melakukan Registrasi</p>
+              <h3 class="card-title">Welcome to LAPOR-in</h3>
+              <p class="">Silahkan melakukan Registrasi Akun anda</p>
             </div>
             <form method="POST" action="{{ route('register') }}">
             @csrf
                 <div class="form-group first">
-                    <label for="name">{{ __('Name') }}</label>
+                    <label for="name">{{ __('Nama') }}</label>
 
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -55,7 +56,7 @@
                         @enderror
                 </div>
               <div class="form-group first">
-                <label for="email">{{ __('E-Mail Address') }}</label>
+                <label for="email">{{ __('Alamat Email') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
@@ -66,7 +67,7 @@
 
               </div>
               <div class="form-group first">
-                <label for="number">{{ __('No Handphone') }}</label>
+                <label for="number">{{ __('No HP') }}</label>
                         <input id="nohp" type="nohp" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ old('nohp') }}" required autocomplete="nohp">
 
                         @error('nohp')
@@ -77,7 +78,7 @@
 
               </div>
               <div class="form-group last mb-4">
-              <label for="password">{{ __('Password') }}</label>
+              <label for="password">{{ __('Kata Sandi') }}</label>
 
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -88,11 +89,11 @@
                 @enderror
               </div>
               <div class="form-group last mb-4">
-              <label for="password-confirm">{{ __('Confirm Password') }}</label>
+              <label for="password-confirm">{{ __('Konfirmasi Kata Sandi') }}</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
               </div>
               <br>
-              <button type="submit" class="btn btn-block btn-primary">{{ __('Register') }} </button>
+              <button type="submit" class="btn btn-block btn-primary">{{ __('Registrasi') }} </button>
               </div>
             </form>
             </div>

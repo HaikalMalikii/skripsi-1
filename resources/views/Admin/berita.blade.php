@@ -25,6 +25,7 @@
             </div>
         </div> -->
         <div class="row align-items-start">
+            <a href="/" class="float-left">
                 <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
