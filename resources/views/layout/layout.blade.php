@@ -52,12 +52,12 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">
+                        <a class="nav-link" href="/">
                             About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/berita') }}">
+                        <a class="nav-link" href="{{ url('/') }}">
                             Berita
                         </a>
                     </li>

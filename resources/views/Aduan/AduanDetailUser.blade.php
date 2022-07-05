@@ -18,17 +18,23 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <title>Detail Aduan</title>
         <style>
-            .image {
-                width: 25%;
-                height: 25%;
-            }
+                .images{
+                    width:100%;
+                    height:100%;
+                }
+                .card-title{
+                    font-size: 30px;
+                }
+                .card-text{
+                    font-size: 20px;
+                }
         </style>
     </head>
 
     <body>
-    <div class="">
-            <a href="/AduanViewUser" class="">
-                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+    <div class="row align-items-start">
+            <a href="/AduanViewUser" class="float-left">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
         <div class="main">
@@ -41,19 +47,19 @@
             <div class="card w-90">
                 <div class="card-body">
                     @foreach ($AduanDetail as $a)
+                    <h4 class="card-title"> {{ $a->Judul }} </h4>
+
                         <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
-                        @foreach ($images as $imagets)
-                            <div>   
-                                    
-                                    <img src="{{ URL::to($imagets) }}" class="image" alt=""> 
-                                    <br>
-                                    <br>
+                        <div class="row">
+                            @foreach ($images as $imagets)
+                                <div class="col-md-4">
+                                     <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt=""> 
                             </div>
-                        @endforeach
+                            @endforeach
+                            </div>
                         
-                        <h4 class="card-reader"> {{ $a->Judul }} </h4>
-                        <p class="card-reader"> {{ $a->Deskripsi }} </p>
-                        <p class="colour-text card-text">Status : Diproses</p>
+                        <p class="card-text"> {{ $a->Deskripsi }} </p>
+                        <p class="card-text">Status : Diproses</p>
                 </div>
                 @endforeach
             </div>
