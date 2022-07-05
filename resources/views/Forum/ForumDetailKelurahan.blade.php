@@ -77,7 +77,7 @@
             </div>
             <p><strong>Latest Comments</strong></p>
             @foreach ($data as $k)
-                <p class="colour-text card-text">{{ date('d-m-Y H:i', strtotime($k->created_at)) }}</p>
+                <p class="colour-text card-text float right">{{ date('d-m-Y H:i', strtotime($k->created_at)) }}</p>
                 </p>
                 <p class="card-title"><strong>{{ $k->name }}</strong></p>
                 <p class="card-text">{{ $k->Komentar }}</p>
