@@ -35,11 +35,11 @@
                         } */
 
             h1 {
-                font-size: 4vw;
+                font-size: 3vw;
             }
 
             .lead {
-                font-size: 2vw;
+                font-size: 3vw;
             }
 
 
