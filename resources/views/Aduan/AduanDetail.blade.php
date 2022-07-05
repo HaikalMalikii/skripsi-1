@@ -10,9 +10,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
         <style>
-                .img{
-                    width:25%;
-                    height:25%;
+                .images{
+                    width:100%;
+                    height:100%;
                 }
                 .card-title{
                     font-size: 30px;
@@ -20,10 +20,7 @@
                 .card-text{
                     font-size: 20px;
                 }
-                .image {
-                width: 25%;
-                height: 25%;
-                }
+
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -45,12 +42,14 @@
                 <div class="card-body">
                     @foreach ($AduanDetail as $AduanDetail)
                         <h4 class="card-text">Oleh : {{ $AduanDetail->name }} </h4>
-                        @foreach ($images as $imagets)
-                        <img src="{{ URL::to($imagets) }}" class="image" alt=""> 
-                        <br>
-                        <br>    
-                        @endforeach
                         
+                            <div class="row">
+                            @foreach ($images as $imagets)
+                                <div class="col-md-4">
+                                     <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
+                            </div>
+                            @endforeach
+                            </div>
 
 
                         <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
