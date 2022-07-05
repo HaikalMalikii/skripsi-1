@@ -220,10 +220,10 @@ class AduanController extends Controller
             ->where('pengaduan.id', $id)
             ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
-
-
-        //  dd($AduanDetail);
-        return view('Aduan.AduanDetail', compact('AduanDetail'));
+            $image = DB::table('pengaduan')->where('id',$id)->first();
+            $images = explode('|',$image->Gambar);
+        // dd($AduanDetail);
+        return view('Aduan.AduanDetail', compact('AduanDetail','images'));
     }
 
 
