@@ -27,7 +27,7 @@
 <body>
     @section('content')
     <div class="row align-items-start">
-            <a href="/AduanViewUser" class="float-left">
+            <a href="/" class="float-left">
                 <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
