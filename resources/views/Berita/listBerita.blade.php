@@ -51,21 +51,9 @@
             }
         </style>
     </head>
-    <!-- <div class="bg-light clearfix">
-        <a href="/" type="button" class="btn float-right">Kembali</a>
-    </div> -->
-    <!-- <div class="tab-content">
-
-        <a href="/" class="previous">
-        <button class="btn btn-sm btn-secondary">Kembali</button>
-        </a>
-            
-    </div> -->
-
-    <body>
-    <div class="">
-            <a href="/" class="">
-                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+    <div class="row align-items-start">
+            <a href="/AduanViewUser" class="float-left">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
         <div class="main">

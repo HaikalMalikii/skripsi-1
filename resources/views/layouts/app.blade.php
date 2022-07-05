@@ -51,11 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <!-- Left Side Of Navbar -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">
-                            Home
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/AduanViewUser">
                             Aduan
@@ -69,7 +65,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">
-                            About
+                            Tentang
                         </a>
                     </li>
                     <li class="nav-item">

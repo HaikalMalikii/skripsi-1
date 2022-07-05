@@ -67,7 +67,7 @@
                             <div class="card-heading">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Show By
+                                    Bagian
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/aduan-kebersihan-kelurahan">Kebersihan</a>

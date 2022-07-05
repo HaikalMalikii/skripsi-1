@@ -95,7 +95,7 @@
                                 <h5 class="card-title">{{ $df->Judul }}</h5>
                                 <!-- <img style="" class="img img-fluid p-2 rounded-lg"src="{{ asset("css/foto/$df->Gambar") }}" alt=""> -->
                                 <p class="card-text">{{ Illuminate\Support\Str::limit($df->Deskripsi, 200) }}</p>
-                                <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Check it out</a>
+                                <a href="/ForumDetail/{{ $df->id }}" class="btn btn-warning btn-sm">Cek Selengkapnya</a>
                             </div>
                         </div>
                     @endforeach
@@ -122,8 +122,7 @@
                                         <p class="card-text"><small class="text-muted">
                                                 {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d/M/Y') : Auth::user()->email }}</small>
                                         </p>
-                                        <a href="/detail-berita/{{ $b->id }}" class="btn btn-warning btn-sm">Lihat
-                                            Detail Berita</a>
+                                        <a href="/detail-berita/{{ $b->id }}" class="btn btn-warning btn-sm">Cek Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>

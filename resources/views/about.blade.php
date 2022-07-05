@@ -55,7 +55,7 @@
             }
 
             p {
-                font-size: 1.5vw;
+                font-size: 2vw;
             }
             .img-fluid{
                 width: fit-content;
@@ -66,9 +66,9 @@
     </head>
 
     <body>
-    <div class="">
-            <a href="/" class="">
-                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 5%;height:5%;">
+    <div class="row align-items-start">
+            <a href="/AduanViewUser" class="float-left">
+                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
             </a>
         </div>
         <div class="container-xl">
