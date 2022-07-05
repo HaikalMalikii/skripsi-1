@@ -51,6 +51,8 @@
                         <br>    
                         @endforeach
                         
+
+
                         <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
