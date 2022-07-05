@@ -89,7 +89,7 @@ class ForumController extends Controller
         $validasi = Validator::make($request->all(), [
             'Judul' => 'required|string|min:5',
             'Deskripsi' => 'required|string|min:5',
-            'Gambar' => 'required|image'
+            'Gambar' => 'image'
         ]);
         if ($validasi->fails()) {
             return redirect('/forum')
