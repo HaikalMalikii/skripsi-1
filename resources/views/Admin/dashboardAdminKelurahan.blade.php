@@ -10,7 +10,7 @@
                 <a class="btn btn-block btn-dark p-3" href="/admin-kelurahan-status">STATUS</a>
             </div>
             <div class="my-3 col-12">
-                <a class="btn btn-block btn-dark p-3" href="/admin-berita">NEWS</a>
+                <a class="btn btn-block btn-dark p-3" href="/admin-berita">BERITA</a>
             </div>
             <div class="my-3 col-12">
                 <a class="btn btn-block btn-dark p-3" href="/admin-forum">FORUM</a>
