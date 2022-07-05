@@ -20,6 +20,10 @@
                 .card-text{
                     font-size: 20px;
                 }
+                .image {
+                width: 25%;
+                height: 25%;
+                }
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -41,7 +45,12 @@
                 <div class="card-body">
                     @foreach ($AduanDetail as $AduanDetail)
                         <h4 class="card-text">Oleh : {{ $AduanDetail->name }} </h4>
-                        <img class="img" src="{{ asset("css/foto/$AduanDetail->Gambar") }}" alt="aduan" srcset="">
+                        @foreach ($images as $imagets)
+                        <img src="{{ URL::to($imagets) }}" class="image" alt=""> 
+                        <br>
+                        <br>    
+                        @endforeach
+                        
                         <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 

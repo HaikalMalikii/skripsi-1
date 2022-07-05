@@ -115,10 +115,12 @@ class AdminKelurahanController extends Controller
             ->where('pengaduan.id', $id)
             ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
-
+            $image = DB::table('pengaduan')->where('id',$id)->first();
+            // dd($image);
+            $images = explode('|',$image->Gambar);
 
         // dd($AduanDetail);
-        return view('Admin.adminKelurahanAduanDetail', compact('AduanDetail'));
+        return view('Admin.adminKelurahanAduanDetail', compact('AduanDetail','images'));
     }
 
     public function viewKelurahan()
