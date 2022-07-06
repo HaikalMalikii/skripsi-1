@@ -85,6 +85,7 @@
                                 <input type="file" class="form-control-file" id="imageforumaddid" name="Gambar">
                             </div>
 
+                            
                             <div class="form-group form-row justify-content-left">
                                 @guest
                                     <a href="{{ url('login') }}" class="btn btn-sm btn-primary">Tambahkan Forum</a>
