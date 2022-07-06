@@ -59,7 +59,7 @@
                 
               </div>
               <div class="form-group last mb-4">
-                <label for="password">{{ __('Password') }}</label>
+                <label for="password">{{ __('Kata Sandi') }}</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                 @error('password')
                     <span class="invalid-feedback" role="alert">

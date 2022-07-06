@@ -80,7 +80,7 @@
 
                         <input type="file" multiple class="form-control-file" id="AddAduanGambarID" name="Gambar[]">
                     </div>
-
+                    <p> max.3 Gambar</p>
                     <div class="form-group form-row">
                         <button type="submit" name="buttonadd" class="btn btn-primary">Tambahkan Aduan</button>
                     </div>

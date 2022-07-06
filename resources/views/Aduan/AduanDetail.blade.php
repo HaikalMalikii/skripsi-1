@@ -49,20 +49,15 @@
                         
                             <div class="row">
                             @foreach ($images as $imagets)
+                            <br>   
                                 <div class="col-md-4">
                                      <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
-                            </div>
-                            <br><br>
+                                     <br> 
+                                    </div>
                             @endforeach
                             </div>
-
-
-                        @foreach ($images as $imagets)
-                        <img src="{{ URL::to($imagets) }}" class="image" alt=""> 
-                        <br>
-                        <br>    
-                        @endforeach
-                        
+                            <br> 
+                            
                         <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
