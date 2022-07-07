@@ -62,13 +62,105 @@
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
 
                         @if ($AduanDetail->Persetujuan == 0)
-                            <form action="/Status/{{ $AduanDetail->id }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Terima Aduan
-                                </button>
-                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Tolak Aduan
-                                </button>
-                                {{-- <button type="submit" name="status" value="Pending" class="btn btn-primary">Pending </button> --}}
+
+                                
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#ApproveAduan{{ $AduanDetail->id }}">Terima Aduan</button>
+
+
+                                {{-- Modal Terima --}}
+
+                                <div class="modal fade bd-example-modal-xl" id="ApproveAduan{{ $AduanDetail->id }}"
+                                    tabindex="-1" aria-labelledby="ApproveAduanLabel{{ $AduanDetail->id }}Label"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"
+                                                    id="ApproveAduanLabel{{ $AduanDetail->id }}Label">
+                                                    Approve Aduan</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/Status/{{ $AduanDetail->id }}" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label for="judul">Judul Forum</label>
+                                                        <input placeholder="Judul" id="judul" type="text"
+                                                            class="form-control @error('judul') is-invalid @enderror"
+                                                            name="judul" value="{{ $AduanDetail->Judul }}" required
+                                                            autocomplete="judul" autofocus>
+
+                                                        @error('judul')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Tutup</button>
+                                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
+                                                    Aduan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#TolakAduan{{ $AduanDetail->id }}">Tolak Aduan</button>
+
+                                {{-- Modal Tolak --}}
+                                <div class="modal fade bd-example-modal-xl" id="TolakAduan{{ $AduanDetail->id }}"
+                                    tabindex="-1" aria-labelledby="TolakAduanLabel{{ $AduanDetail->id }}Label"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"
+                                                    id="TolakAduanLabel{{ $AduanDetail->id }}Label">
+                                                    Tolak Aduan</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/Status/{{ $AduanDetail->id }}" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label for="judul">Judul Forum</label>
+                                                        <input placeholder="Judul" id="judul" type="text"
+                                                            class="form-control @error('judul') is-invalid @enderror"
+                                                            name="judul" value="{{ $AduanDetail->Judul }}" required
+                                                            autocomplete="judul" autofocus>
+
+                                                        @error('judul')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Tutup</button>
+                                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Tolak
+                                                    Aduan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </form>
                         @endif
 
@@ -81,7 +173,7 @@
                     <h5 class="card-header">Add Comment</h5>
                     <div class="card-body">
                         <form method="post"
-                            action="{{ url('save-comment/' . Str::slug($ForumDetail->Judul) . '/' . $ForumDetail->id) }}">
+                            action="{{ url('save-comment/' . Str::slug($AduanDetailorumDetail->Judul) . '/' . $AduanDetailorumDetail->id) }}">
                             @csrf
                             <textarea name="comment" class="form-control"></textarea>
                             <input type="submit" class="btn btn-dark mt-2" />

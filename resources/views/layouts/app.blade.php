@@ -2,13 +2,15 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <link rel="icon" href="{{ URL::asset('/css/foto/2.png') }}" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/app.css')  }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Home</title>
+    <title>LAPOR-in</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
