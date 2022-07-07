@@ -88,19 +88,7 @@
                                                 <form action="/Status/{{ $AduanDetail->id }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
-                                                    <div class="form-group">
-                                                        <label for="judul">Judul Forum</label>
-                                                        <input placeholder="Judul" id="judul" type="text"
-                                                            class="form-control @error('judul') is-invalid @enderror"
-                                                            name="judul" value="{{ $AduanDetail->Judul }}" required
-                                                            autocomplete="judul" autofocus>
 
-                                                        @error('judul')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
 
                                             </div>
                                             <div class="modal-footer">
@@ -136,17 +124,6 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="judul">Judul Forum</label>
-                                                        <input placeholder="Judul" id="judul" type="text"
-                                                            class="form-control @error('judul') is-invalid @enderror"
-                                                            name="judul" value="{{ $AduanDetail->Judul }}" required
-                                                            autocomplete="judul" autofocus>
-
-                                                        @error('judul')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
                                                     </div>
 
                                             </div>
