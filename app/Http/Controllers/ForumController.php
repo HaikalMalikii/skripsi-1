@@ -176,11 +176,12 @@ class ForumController extends Controller
     public function forumUser(Request $request, $id)
     {
 
-        $forum = Forum::where('IDUser', $id)->get();
-
+        $idnew = Forum::where('IDUser', $id)->get();
+        // dd($id);
         $forum = DB::table('forum')
             ->join('users', 'users.id', '=', 'forum.IDUser')
             ->join('detailforum', 'detailforum.IDForum', '=', 'forum.id')
+            ->where('users.id', $id)
             ->select('users.*', 'users.name', 'detailforum.id', 'forum.id as IDForum', 'detailforum.Judul', 'detailforum.Gambar', 'detailforum.Deskripsi', 'detailforum.created_at')
             ->orderBy('detailforum.created_at', 'desc')
             ->paginate(3);
