@@ -8,9 +8,9 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <style>
-            .card-title{
+            /* .card-title{
                  font-size: 30px;
-                }
+                } */
             .card-text{
                 font-size: 20px;
                 }
@@ -32,7 +32,7 @@
 
         <div class="container" style="min-height: 100vh">
 
-            <h1 class="text-center">Berita</h1>
+            <h1 class="card-title text-center">Berita</h1>
             @if ($errors->any())
                 <div id="" style="display: none;" class="alert alert-danger">
                     <ul>

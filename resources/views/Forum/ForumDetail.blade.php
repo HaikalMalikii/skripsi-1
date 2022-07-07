@@ -34,7 +34,7 @@
 
             <div class="card w-90">
                 <div class="card-body">
-                    <img class ="img-responsive" style="max-width:75%;" src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
+                    <img class = style="max-width:75%;" src="{{ asset("css/foto/$ForumDetail->gambar") }}" alt="" srcset="">
                     <h4 class="card-reader text-capitalize"> {{ $ForumDetail->Judul }} </h4>
                     <p class="card-text"> {{ $ForumDetail->Deskripsi }} </p>
                     <p class="card-text  text-capitalize">{{ $ForumDetail->name }} | <small>{{ date('Y-m-d', strtotime($ForumDetail->created_at)) }}</small>
@@ -72,12 +72,12 @@
                             <input type="submit" class="btn btn-dark mt-2" /> --}}       -->
                 </div>
             </div>
-            <p><strong>Komentar Masyarakat</strong></p>
+            <h5><strong>Komentar Masyarakat</strong></h5>
             <hr>
             @foreach ($data as $k)
-                <p class="colour-text card-text float-right">{{ date('d-m-Y H:i', strtotime($k->created_at)) }}</p>
+                <p class="card-text float-right"><small> {{ date('d-m-Y H:i', strtotime($k->created_at)) }}</small></p>
                 </p>
-                <p class="card-title text-capitalize"><strong>{{ $k->name }}</strong></p>
+                <p class="card-text text-capitalize"><strong>{{ $k->name }}</strong></p>
                 <p class="card-text">{{ $k->Komentar }}</p>
                 <hr>
             @endforeach

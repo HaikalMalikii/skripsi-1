@@ -50,13 +50,6 @@
                 font-size: 4vw;
             }
 
-            h2 {
-                margin: 20px;
-            }
-
-            p {
-                font-size: 2vw;
-            }
             .img-fluid{
                 width: fit-content;
                 height: fit-content;
@@ -75,8 +68,8 @@
             <div class="row">
 
                 <div class="col-md-8">
-                    <h1>LAPOR-in</h1>
-                    <p>Laporin merupakan aplikasi yang dirancang pada tahun 2022 bekerjasama dengan kelurahan rempoa.<br>
+                    <h1 class="w">LAPOR-in</h1>
+                    <p class="ket">Laporin merupakan aplikasi yang dirancang pada tahun 2022 bekerjasama dengan kelurahan rempoa.<br>
                         Sebagai bagian dari masyarakat, aplikasi ini dapat dijadikan wadah oleh seluruh masyarakat di kelurahan rempoa
                         untuk menyampaikan asprasi dan keresahan mereka mengenai lingkungan sekitar.<br>
                         LAPOR-in memiliki fitur utama yaitu menyampaikan aduan yang akan terhubung langsung ke instansi terkait dan

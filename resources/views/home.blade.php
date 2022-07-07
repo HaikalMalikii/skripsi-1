@@ -34,9 +34,10 @@
                             background-color: lightcoral;
                         } */
 
-            h1 {
-                font-size: 3vw;
-            }
+            /* h1 {
+                font-size: 1vw;
+                font-size: 1vh;
+            } */
 
             .lead {
                 font-size: 3vw;
@@ -62,6 +63,24 @@
                 width: 100%;
                 height: 100%;
             }
+        @media screen and (min-width: 601px) {
+            .w {
+                font-size: 60px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .w {
+                font-size: 30px;
+            }
+
+            .lead{
+                font-size: 20px;
+            }
+            .image{
+                width: 75%;
+            }
+        }
 
         </style>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -71,7 +90,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="display-4">WELCOME TO LAPORIN</h1>
+                    <h1 class="w">WELCOME TO LAPORIN</h1>
                     <p class="lead my-5">menyediakan berbagai kemudahan bagi anda untuk berinteraksi dan menyampaikan
                         keluhan anda
                     </p>

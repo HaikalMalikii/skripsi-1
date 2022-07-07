@@ -19,7 +19,7 @@
         <style>
             .form {
                 background-color: lightblue;
-                padding: 20px;
+                padding: 10px;
             }
         </style>
     </head>
@@ -51,7 +51,7 @@
         @csrf
         <div class="container form">
             <div class="form-row col  justify-content-center">
-                <div class="col-6">
+                <div class="col-10">
                     <div class="form-group">
                         <label for="judul">Judul: </label>
                         <input type="text" class="form-control" id="AddAduanJudulID" name="Judul" placeholder="Judul">
