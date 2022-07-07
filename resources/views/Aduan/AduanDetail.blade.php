@@ -78,7 +78,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title"
                                                     id="ApproveAduanLabel{{ $AduanDetail->id }}Label">
-                                                    Approve Aduan</h5>
+                                                    Terima Aduan</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
