@@ -87,6 +87,9 @@ body, .jumbotron{
     .ket {
         font-size: 20px;
     }
+    .lead{
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width: 600px) {
