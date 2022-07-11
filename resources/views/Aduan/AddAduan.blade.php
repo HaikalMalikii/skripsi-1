@@ -25,11 +25,11 @@
     </head>
 
 
-        <div class="row align-items-start">
-            <a href="/AduanViewUser" class="float-left">
-                <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
-            </a>
-        </div>
+    <div class="row align-items-start">
+        <a href="/AduanViewUser" class="float-left">
+            <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
+        </a>
+    </div>
     <div class="row justify-content-center">
         <strong>
             <h4 class="AddAduan">Form Pengaduan Masyarakat</h4>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Alamat: </label>
-                        <input type="text" class="form-control" id="LokasiID" name="Location" placeholder="lokasi">
+                        <input type="text" class="form-control" id="LokasiID" name="Alamat" placeholder="lokasi">
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi:</label>

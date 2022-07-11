@@ -34,44 +34,40 @@ class AduanController extends Controller
 
     public function AddAduan(Request $request, Aduan $Aduan)
     {
-        
-        
+
+
         $users = Auth::id();
         $validasi = Validator::make($request->all(), [
             'Judul' => 'required|string|min:5',
             'Bagian' => 'required|not_in:Bagian...',
-            'Location' => 'required|string|min:10',
+            'Alamat' => 'required|string|min:10',
             'Deskripsi' => 'required|string|min:20',
             'Gambar' => 'required',
             'Gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
-            
         ]);
 
-        $Gambar=array();
+        $Gambar = array();
 
         if ($validasi->fails()) {
             return redirect('/AddAduan')
                 ->withErrors($validasi)
                 ->withInput();
         }
-        
-        if($files = $request->file('Gambar'))
-        {
-            foreach($files as $file)
-            {
-                $image_name = $file->getClientOriginalName() ;
+
+        if ($files = $request->file('Gambar')) {
+            foreach ($files as $file) {
+                $image_name = $file->getClientOriginalName();
                 $ext = strtolower($file->getClientOriginalExtension());
                 $image_full_name = $image_name;
                 $upload_path = 'public/css/foto/';
-                $image_url = $upload_path.$image_full_name;
-                $file->move($upload_path,$image_full_name);
-                $image[]=$image_url;
+                $image_url = $upload_path . $image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
             }
-
         }
         //  dd($image_url);
         //Multiple
-        
+
 
         // if($request->hasFile('Gambar'))
         // {
@@ -86,8 +82,8 @@ class AduanController extends Controller
         //     // $check = Aduan::insert($insert);
         //     }
         // }
-        
-        
+
+
         // $photo = $request->file('Gambar');
         // $photo->move(public_path('/css/foto'), $photo->getClientOriginalName());
 
@@ -98,8 +94,8 @@ class AduanController extends Controller
         $Aduan->Judul = $request->Judul;
         $Aduan->Deskripsi = $request->Deskripsi;
         $Aduan->Location = $request->Location;
-        $Aduan->Gambar= implode('|',$image);
-        
+        $Aduan->Gambar = implode('|', $image);
+
         $Aduan->IDUser = $request->user()->id;
         // dd($Aduan->Bagian);
         $Aduan->save();
@@ -132,7 +128,7 @@ class AduanController extends Controller
         ]);
 
 
-        return redirect('/admin-kelurahan-status')->with('success', 'Berhasil Ditambahkan!');;
+        return redirect('/admin-kelurahan-status')->with('success', 'Aduan berhasil di tindak lanjut ke Instansi!');
     }
 
     public function viewKebersihan()
@@ -220,10 +216,10 @@ class AduanController extends Controller
             ->where('pengaduan.id', $id)
             ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
-            $image = DB::table('pengaduan')->where('id',$id)->first();
-            $images = explode('|',$image->Gambar);
+        $image = DB::table('pengaduan')->where('id', $id)->first();
+        $images = explode('|', $image->Gambar);
         // dd($AduanDetail);
-        return view('Aduan.AduanDetail', compact('AduanDetail','images'));
+        return view('Aduan.AduanDetail', compact('AduanDetail', 'images'));
     }
 
 
@@ -237,13 +233,13 @@ class AduanController extends Controller
             ->where('pengaduan.id', $id)
             ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
             ->get();
-        $image = DB::table('pengaduan')->where('id',$id)->first();
+        $image = DB::table('pengaduan')->where('id', $id)->first();
         // dd($image);
-        $images = explode('|',$image->Gambar);
-        
+        $images = explode('|', $image->Gambar);
+
 
         //  dd($AduanDetail);
-        return view('Aduan.AduanDetailUser', compact('AduanDetail','images'));
+        return view('Aduan.AduanDetailUser', compact('AduanDetail', 'images'));
     }
 
 
