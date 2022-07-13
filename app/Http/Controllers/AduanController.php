@@ -93,7 +93,7 @@ class AduanController extends Controller
         $Aduan->Bagian = $request->Bagian;
         $Aduan->Judul = $request->Judul;
         $Aduan->Deskripsi = $request->Deskripsi;
-        $Aduan->Location = $request->Location;
+        $Aduan->Location = $request->Alamat;
         $Aduan->Gambar = implode('|', $image);
 
         $Aduan->IDUser = $request->user()->id;
