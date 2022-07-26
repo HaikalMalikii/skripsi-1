@@ -126,6 +126,6 @@
 
 
     </body>
-
+    @include('sweetalert::alert')
     </html>
 @endsection

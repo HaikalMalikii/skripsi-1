@@ -287,7 +287,7 @@ class AduanController extends Controller
         //     $Aduan->save();
         // }
         // dd($request->input('status'));
-        return redirect('/');
+        return redirect('/Aduan')->with('success', 'Status Aduan ditambahkan!');;
     }
 
     public function deleteAduan($id)
