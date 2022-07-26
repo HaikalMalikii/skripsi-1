@@ -70,7 +70,7 @@
 
                                 {{-- Modal Terima --}}
 
-                                <div class="modal fade bd-example-modal-xl" id="ApproveAduan{{ $AduanDetail->id }}"
+                                <div class="modal fade " id="ApproveAduan{{ $AduanDetail->id }}"
                                     tabindex="-1" aria-labelledby="ApproveAduanLabel{{ $AduanDetail->id }}Label"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
