@@ -41,5 +41,6 @@ class ResetPasswordController extends Controller
         } elseif (Auth()->user()->role == 4) {
             return route('Admin.dashboardAdminPunyaGue');
         }
+        //adasd
     }
 }
