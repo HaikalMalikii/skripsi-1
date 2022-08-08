@@ -24,7 +24,7 @@ class Pengaduan extends Migration
             $table->string("Location");
             $table->string("Deskripsi");
             $table->integer("Persetujuan")->default(0);
-            $table->string("Alasan")->default(0);
+            $table->string("Alasan")->nullable();
             $table->timestamps();
         });
     }

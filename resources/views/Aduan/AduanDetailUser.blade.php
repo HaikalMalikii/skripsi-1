@@ -51,7 +51,7 @@
                         <div class="card w-90">
                             <div class="card-body">
 
-                                <h4 class="card-title"> {{ $a->Judul }} </h4>
+                                <h4 class="card-title"> {{ $a->Judul }} </h4><br>
 
                                 <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
                                 <div class="row">
@@ -61,10 +61,8 @@
                                         </div>
                                     @endforeach
                                 </div>
-
+                                <br><br>
                                 <p class="card-text"> {{ $a->Deskripsi }} </p>
-                                <p class="card-text">Status : Sedang Diproses</p>
-                                <p class="card-text">Alasan : {{ $a->Alasan }} </p>
                             </div>
 
                         </div>
@@ -84,8 +82,6 @@
                                 </div>
 
                                 <p class="card-text"> {{ $a->Deskripsi }} </p>
-                                <p class="card-text">Status : Ditolak</p>
-                                <p class="card-text">Alasan : {{ $a->Alasan }} </p>
                             </div>
 
                         </div>
@@ -105,8 +101,6 @@
                                 </div>
 
                                 <p class="card-text"> {{ $a->Deskripsi }} </p>
-                                <p class="card-text">Status : Menunggu Diproses</p>
-                                <p class="card-text">Alasan : {{ $a->Alasan }} </p>
                             </div>
 
                         </div>

@@ -61,9 +61,8 @@
                         </div>
                         <br>
 
-                        <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
+                        <h3 class="card-title"> {{ $AduanDetail->Judul }} </h3>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
-                        <p class="card-text">Alasan : {{ $AduanDetail->Alasan }} </p>
 
                         @if ($AduanDetail->Persetujuan == 0)
                             <button type="button" class="btn btn-primary" data-toggle="modal"

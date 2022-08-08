@@ -48,7 +48,7 @@
 
 
     <body>
-        
+
         <div class="row align-items-start">
             <a href="/" class="float-left">
                 <img src="css/foto/KEMBALI.png" style="width: 15%;height:15%;">
@@ -83,7 +83,8 @@
                                                     srcset=""> --}}
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
                                             </div>
-                                            <h5 class="colour-text card-text">Status : Sedang Diproses</h5>
+                                            <h5 class="colour-text card-text">Status : Aduan Sedang Diproses</h5>
+                                            <h5 class="colour-text card-text">Alasan : {{ $f->Alasan }}</h5>
                                             <!-- <p>{{ $f->Gambar }}</p> -->
                                             <p class="colour-text card-text"><small>
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
@@ -99,22 +100,24 @@
                                             {{-- <div class="col-md-2">
                                                 <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px">
                                             </div> --}}
-                                            <h5 class=" card-text">Status : Ditolak</h5>
-                                            <p class=" card-text"><small >
+                                            <h5 class="colour-text card-text">Status : Aduan Ditolak</h5>
+                                            <h5 class="colour-text card-text">Alasan : {{ $f->Alasan }}</h5>
+                                            <p class=" card-text"><small>
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>
                                     </div>
                                 @else
                                     <div class="waiting card w-90">
                                         <div class="card-body">
-                                            <div class="card-title text-capitalize" ><a class="judul"
+                                            <div class="card-title text-capitalize"><a class="judul"
                                                     href="/AduanDetailUser/{{ $f->id }}">{{ $f->Judul }}</a>
                                             </div>
                                             <div class="col-md-2">
                                                 {{-- <img class="card-img-top" src="{{ asset('css/foto/'.$f->Gambar) }}" alt="" style="" width="300px" height="300px"> --}}
 
                                             </div>
-                                            <h5 class="colour-text card-text">Status : Menunggu Diproses</h5>
+                                            <h5 class="colour-text card-text">Status : Aduan Menunggu Diproses</h5>
+                                            <h5 class="colour-text card-text">Alasan : {{ $f->Alasan }}</h5>
                                             <p class="colour-text card-text"><small>
                                                     {{ date('d-m-Y', strtotime($f->created_at)) }}</small></p>
                                         </div>

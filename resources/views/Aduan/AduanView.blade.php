@@ -20,10 +20,10 @@
             }
         </style>
         <!-- <div>
-                                                                                        <div class="bg-light clearfix">
-                                                                                            <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
-                                                                                        </div>
-                                                                                    </div> -->
+                                                                                                                                <div class="bg-light clearfix">
+                                                                                                                                    <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
+                                                                                                                                </div>
+                                                                                                                            </div> -->
     </head>
 
     <body>
@@ -69,9 +69,12 @@
                                                     <p class="colour-text card-text">
                                                         {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
                                                     <a class="card-title text-capitalize"
-                                                        href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                                    <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-                                                    <p class="card-text">Status: Aduan di proses</p>
+                                                        href="/AduanDetail/{{ $f->id }}">
+                                                        <h3>{{ $f->Judul }}</h3>
+                                                    </a><br>
+                                                    <h5 class="card-text">Bagian: {{ $f->Bagian }}</h5>
+                                                    <h5 class="card-text">Status: Aduan di proses</h5>
+                                                    <h5 class="card-text">Alasan: {{ $f->Alasan }}</h5>
                                                 </a>
                                             </div>
                                         </a>
@@ -84,10 +87,12 @@
                                                 <a>
                                                     <p class="colour-text card-text">
                                                         {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                    <a class="card-title"
-                                                        href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                                    <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-                                                    <p class="card-text">Status: Aduan tidak dapat di proses</p>
+                                                    <a class="card-title" href="/AduanDetail/{{ $f->id }}">
+                                                        <h3>{{ $f->Judul }}</h3>
+                                                    </a>
+                                                    <h5 class="card-text">Bagian: {{ $f->Bagian }}</h5>
+                                                    <h5 class="card-text">Status: Aduan tidak dapat di proses</h5>
+                                                    <h5 class="card-text">Alasan: {{ $f->Alasan }}</h5>
                                                 </a>
                                             </div>
                                         </a>
@@ -100,10 +105,12 @@
                                                 <a>
                                                     <p class="colour-text card-text">
                                                         {{ date('Y-m-d H:i:s', strtotime($f->created_at)) }}</p>
-                                                    <a class="card-title"
-                                                        href="/AduanDetail/{{ $f->id }}">{{ $f->Judul }}</a>
-                                                    <p class="card-text">Bagian: {{ $f->Bagian }}</p>
-                                                    <p class="card-text">Status: Aduan menunggu di proses</p>
+                                                    <a class="card-title" href="/AduanDetail/{{ $f->id }}">
+                                                        <h3>{{ $f->Judul }}</h3>
+                                                    </a>
+                                                    <h5 class="card-text">Bagian: {{ $f->Bagian }}</h5>
+                                                    <h5 class="card-text">Status: Aduan menunggu di proses</h5>
+                                                    <h5 class="card-text">Alasan: {{ $f->Alasan }}</h5>
                                                 </a>
                                             </div>
                                         </a>

@@ -265,15 +265,11 @@ class AduanController extends Controller
         ]);
         // dd($request->alasan);
 
-
         if ($request->status == ("Approve")) {
             Aduan::where('id', $id)->update([
                 'Alasan' => $request->alasan,
                 'Persetujuan' => 1
-                
             ]);
-            
-        
         }
 
         if ($request->status == ("Reject")) {
@@ -281,13 +277,8 @@ class AduanController extends Controller
             Aduan::where('id', $id)->update([
                 'Alasan' => $request->alasan,
                 'Persetujuan' => 2
-                
             ]);
         }
-
-        // $data = Aduan::findorfail($id);
-        // $data->update($request->Alasan);
-
 
         return redirect('/Aduan')->with('success', 'Status Aduan ditambahkan!');;
     }
