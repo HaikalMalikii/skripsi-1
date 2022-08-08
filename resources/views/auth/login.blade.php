@@ -101,6 +101,7 @@
                                     <div class="text-center">
                                         <a href="{{ '/auth/redirect' }}" class="">
                                             <img src="css\foto\google.png">
+                                            <span>Login dengan Google</span>
                                         </a>
                                     </div>
                                 </form>
