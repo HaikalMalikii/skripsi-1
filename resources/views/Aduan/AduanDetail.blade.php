@@ -10,29 +10,32 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ForumDetail</title>
         <style>
-                .images{
-                    width:100%;
-                    height:100%;
-                }
-                .card-title{
-                    font-size: 30px;
-                }
-                .card-text{
-                    font-size: 20px;
-                }
-                .image {
+            .images {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card-title {
+                font-size: 30px;
+            }
+
+            .card-text {
+                font-size: 20px;
+            }
+
+            .image {
                 width: 25%;
                 height: 25%;
-                }
+            }
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     </head>
 
     <body>
-    <div class="row align-items-start">
+        <div class="row align-items-start">
             <a href="/Aduan" class="float-left">
-                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
+                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 15%;height:15%;">
             </a>
         </div>
         <div class="container">
@@ -46,98 +49,112 @@
                     @foreach ($AduanDetail as $AduanDetail)
                         <h4 class="card-text">Oleh : {{ $AduanDetail->name }} </h4>
 
-                        
-                            <div class="row">
+
+                        <div class="row">
                             @foreach ($images as $imagets)
-                            <br>   
+                                <br>
                                 <div class="col-md-4">
-                                     <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
-                                     <br> 
-                                    </div>
+                                    <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
+                                    <br>
+                                </div>
                             @endforeach
-                            </div>
-                            <br> 
-                            
+                        </div>
+                        <br>
+
                         <h4 class="card-title"> {{ $AduanDetail->Judul }} </h4>
                         <p class="card-text"> {{ $AduanDetail->Deskripsi }} </p>
+                        <p class="card-text">Alasan : {{ $AduanDetail->Alasan }} </p>
 
                         @if ($AduanDetail->Persetujuan == 0)
-
-                                
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#ApproveAduan{{ $AduanDetail->id }}">Terima Aduan</button>
 
 
-                                {{-- Modal Terima --}}
+                            {{-- Modal Terima --}}
 
-                                <div class="modal fade " id="ApproveAduan{{ $AduanDetail->id }}"
-                                    tabindex="-1" aria-labelledby="ApproveAduanLabel{{ $AduanDetail->id }}Label"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title"
-                                                    id="ApproveAduanLabel{{ $AduanDetail->id }}Label">
-                                                    Terima Aduan</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="/Status/{{ $AduanDetail->id }}" method="POST"
-                                                    enctype="multipart/form-data">
-                                                    @csrf
+                            <div class="modal fade " id="ApproveAduan{{ $AduanDetail->id }}" tabindex="-1"
+                                aria-labelledby="ApproveAduanLabel{{ $AduanDetail->id }}Label" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ApproveAduanLabel{{ $AduanDetail->id }}Label">
+                                                Terima Aduan</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/Status/{{ $AduanDetail->id }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="judul">Alasan</label>
+                                                    <input placeholder="Alasan" id="alasan" type="text"
+                                                        class="form-control @error('alasan') is-invalid @enderror"
+                                                        name="alasan" required autocomplete="alasan" autofocus>
 
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Tutup</button>
-                                                <button type="submit" name="status" value="Approve" class="btn btn-primary">Approve
-                                                    Aduan</button>
-                                                </form>
-                                            </div>
+                                                    @error('alasan')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Tutup</button>
+                                            <button type="submit" name="status" value="Approve"
+                                                class="btn btn-primary">Terima Aduan</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                            </div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#TolakAduan{{ $AduanDetail->id }}">Tolak Aduan</button>
 
-                                {{-- Modal Tolak --}}
-                                <div class="modal fade bd-example-modal-xl" id="TolakAduan{{ $AduanDetail->id }}"
-                                    tabindex="-1" aria-labelledby="TolakAduanLabel{{ $AduanDetail->id }}Label"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title"
-                                                    id="TolakAduanLabel{{ $AduanDetail->id }}Label">
-                                                    Tolak Aduan</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="/Status/{{ $AduanDetail->id }}" method="POST"
-                                                    enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                    </div>
+                            {{-- Modal Tolak --}}
+                            <div class="modal fade bd-example-modal-xl" id="TolakAduan{{ $AduanDetail->id }}"
+                                tabindex="-1" aria-labelledby="TolakAduanLabel{{ $AduanDetail->id }}Label"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="TolakAduanLabel{{ $AduanDetail->id }}Label">
+                                                Tolak Aduan</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/Status/{{ $AduanDetail->id }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="judul">Alasan</label>
+                                                    <input placeholder="Alasan" id="alasan" type="text"
+                                                        class="form-control @error('alasan') is-invalid @enderror"
+                                                        name="alasan" required autocomplete="alasan" autofocus>
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Tutup</button>
-                                                <button type="submit" name="status" value="Reject" class="btn btn-primary">Tolak
-                                                    Aduan</button>
-                                                </form>
-                                            </div>
+                                                    @error('alasan')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Tutup</button>
+                                            <button type="submit" name="status" value="Reject"
+                                                class="btn btn-primary">Tolak
+                                                Aduan</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                
+                            </div>
+
                             </form>
                         @endif
 
@@ -163,6 +180,6 @@
 
         </div>
     </body>
-    
+
     </html>
 @endsection

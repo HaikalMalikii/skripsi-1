@@ -20,16 +20,16 @@
             }
         </style>
         <!-- <div>
-                                                                                <div class="bg-light clearfix">
-                                                                                    <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
-                                                                                </div>
-                                                                            </div> -->
+                                                                                        <div class="bg-light clearfix">
+                                                                                            <a href="/Admin.dashboardAdminInstansi" type="button" class="btn float-right">Kembali</a>
+                                                                                        </div>
+                                                                                    </div> -->
     </head>
 
     <body>
-    <div class="row align-items-start">
+        <div class="row align-items-start">
             <a href="/" class="float-left">
-                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
+                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 15%;height:15%;">
             </a>
         </div>
         <div class="main">
@@ -127,5 +127,6 @@
 
     </body>
     @include('sweetalert::alert')
+
     </html>
 @endsection

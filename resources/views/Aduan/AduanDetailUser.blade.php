@@ -4,7 +4,7 @@
     <!DOCTYPE html>
     <html lang="en">
 
-    
+
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -18,52 +18,101 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <title>Detail Aduan</title>
         <style>
-                .images{
-                    width:100%;
-                    height:100%;
-                }
-                .card-title{
-                    font-size: 30px;
-                }
-                .card-text{
-                    font-size: 20px;
-                }
+            .images {
+                width: 100%;
+                height: 100%;
+            }
+
+            .card-title {
+                font-size: 30px;
+            }
+
+            .card-text {
+                font-size: 20px;
+            }
         </style>
     </head>
 
     <body>
-    <div class="row align-items-start">
+        <div class="row align-items-start">
             <a href="/AduanViewUser" class="float-left">
-                <img src="{{ asset("css/foto/KEMBALI.png") }}" style="width: 15%;height:15%;">
+                <img src="{{ asset('css/foto/KEMBALI.png') }}" style="width: 15%;height:15%;">
             </a>
         </div>
         <div class="main">
-        <div class="container">
-            <div class="col-md-1">
-                @if (Session::has('sukes'))
-                    <p class="text-success">{{ session('sukes') }}</p>
-                @endif
-            </div>
-            <div class="card w-90">
-                <div class="card-body">
-                    @foreach ($AduanDetail as $a)
-                    <h4 class="card-title"> {{ $a->Judul }} </h4>
-
-                        <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
-                        <div class="row">
-                            @foreach ($images as $imagets)
-                                <div class="col-md-4">
-                                     <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt=""> 
-                            </div>
-                            @endforeach
-                            </div>
-                        
-                        <p class="card-text"> {{ $a->Deskripsi }} </p>
-                        <p class="card-text">Status : Diproses</p>
+            <div class="container">
+                <div class="col-md-1">
+                    @if (Session::has('sukes'))
+                        <p class="text-success">{{ session('sukes') }}</p>
+                    @endif
                 </div>
+                @foreach ($AduanDetail as $a)
+                    @if ($a->Persetujuan == 1)
+                        <div class="card w-90">
+                            <div class="card-body">
+
+                                <h4 class="card-title"> {{ $a->Judul }} </h4>
+
+                                <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
+                                <div class="row">
+                                    @foreach ($images as $imagets)
+                                        <div class="col-md-4">
+                                            <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <p class="card-text"> {{ $a->Deskripsi }} </p>
+                                <p class="card-text">Status : Sedang Diproses</p>
+                                <p class="card-text">Alasan : {{ $a->Alasan }} </p>
+                            </div>
+
+                        </div>
+                    @elseif ($a->Persetujuan == 2)
+                        <div class="card w-90">
+                            <div class="card-body">
+
+                                <h4 class="card-title"> {{ $a->Judul }} </h4>
+
+                                <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
+                                <div class="row">
+                                    @foreach ($images as $imagets)
+                                        <div class="col-md-4">
+                                            <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <p class="card-text"> {{ $a->Deskripsi }} </p>
+                                <p class="card-text">Status : Ditolak</p>
+                                <p class="card-text">Alasan : {{ $a->Alasan }} </p>
+                            </div>
+
+                        </div>
+                    @else
+                        <div class="card w-90">
+                            <div class="card-body">
+
+                                <h4 class="card-title"> {{ $a->Judul }} </h4>
+
+                                <!-- <h4 class="card-reader">Oleh : {{ $a->name }} </h4> -->
+                                <div class="row">
+                                    @foreach ($images as $imagets)
+                                        <div class="col-md-4">
+                                            <img src="{{ URL::to($imagets) }}" class="images img-fluid" alt="">
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <p class="card-text"> {{ $a->Deskripsi }} </p>
+                                <p class="card-text">Status : Menunggu Diproses</p>
+                                <p class="card-text">Alasan : {{ $a->Alasan }} </p>
+                            </div>
+
+                        </div>
+                    @endif
                 @endforeach
             </div>
-        </div>
         </div>
 
     </body>

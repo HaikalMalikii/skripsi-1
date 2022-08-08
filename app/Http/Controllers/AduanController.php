@@ -34,8 +34,6 @@ class AduanController extends Controller
 
     public function AddAduan(Request $request, Aduan $Aduan)
     {
-
-
         $users = Auth::id();
         $validasi = Validator::make($request->all(), [
             'Judul' => 'required|string|min:5',
@@ -106,7 +104,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->orderBy('pengaduan.created_at', 'desc')
             ->orderBy('pengaduan.Persetujuan', 'asc')
             ->get();
@@ -135,7 +133,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kebersihan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -147,7 +145,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kesehatan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -159,7 +157,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Fasilitas Publik')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -172,7 +170,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kebersihan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -184,7 +182,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Kesehatan')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -196,7 +194,7 @@ class AduanController extends Controller
     {
         $Aduan = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Bagian', 'pengaduan.Persetujuan', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->where('pengaduan.Bagian', 'Fasilitas Publik')
             ->orderBy('pengaduan.created_at', 'desc')
             ->get();
@@ -214,7 +212,7 @@ class AduanController extends Controller
         $AduanDetail = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.id', $id)
-            ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.IDUser', 'pengaduan.Persetujuan', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->get();
         $image = DB::table('pengaduan')->where('id', $id)->first();
         $images = explode('|', $image->Gambar);
@@ -231,7 +229,7 @@ class AduanController extends Controller
         $AduanDetail = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.id', $id)
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->get();
         $image = DB::table('pengaduan')->where('id', $id)->first();
         // dd($image);
@@ -242,9 +240,6 @@ class AduanController extends Controller
         return view('Aduan.AduanDetailUser', compact('AduanDetail', 'images'));
     }
 
-
-
-
     public function viewUser(Request $request)
     {
         $id = Auth::id();
@@ -253,7 +248,7 @@ class AduanController extends Controller
         $data = DB::table('pengaduan')
             ->join('users', 'users.id', '=', 'pengaduan.IDUser')
             ->where('pengaduan.IDUser', $id)
-            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.created_at')
+            ->select('users.*', 'users.name', 'pengaduan.id', 'pengaduan.Persetujuan', 'pengaduan.Bagian', 'pengaduan.Judul', 'pengaduan.Gambar', 'pengaduan.Deskripsi', 'pengaduan.Alasan', 'pengaduan.created_at')
             ->orderBy('pengaduan.created_at', 'desc')
 
             ->paginate(4);
@@ -265,6 +260,7 @@ class AduanController extends Controller
     public function Status(Request $request, $id)
     {
         $request->input('status');
+
 
         if ($request->status == ("Approve")) {
 
@@ -280,13 +276,10 @@ class AduanController extends Controller
             $Aduan->save();
         }
 
-        // if ($request->status == ("Pending")) {
+        // $data = Aduan::findorfail($id);
+        // $data->update($request->Alasan);
 
-        //     $Aduan = Aduan::find($id);
-        //     $Aduan->Persetujuan = 3;
-        //     $Aduan->save();
-        // }
-        // dd($request->input('status'));
+
         return redirect('/Aduan')->with('success', 'Status Aduan ditambahkan!');;
     }
 
