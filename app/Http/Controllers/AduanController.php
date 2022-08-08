@@ -260,20 +260,29 @@ class AduanController extends Controller
     public function Status(Request $request, $id)
     {
         $request->input('status');
+        $request->validate([
+            'alasan' => 'required|string'
+        ]);
+        // dd($request->alasan);
 
 
         if ($request->status == ("Approve")) {
-
-            $Aduan = Aduan::find($id);
-            $Aduan->Persetujuan = 1;
-            $Aduan->save();
+            Aduan::where('id', $id)->update([
+                'Alasan' => $request->alasan,
+                'Persetujuan' => 1
+                
+            ]);
+            
+        
         }
 
         if ($request->status == ("Reject")) {
 
-            $Aduan = Aduan::find($id);
-            $Aduan->Persetujuan = 2;
-            $Aduan->save();
+            Aduan::where('id', $id)->update([
+                'Alasan' => $request->alasan,
+                'Persetujuan' => 2
+                
+            ]);
         }
 
         // $data = Aduan::findorfail($id);
