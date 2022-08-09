@@ -43,7 +43,7 @@ class HomeController extends Controller
         // $berita = Berita::paginate(1, ['*'], 'berita');
         $berita = DB::table('berita')->orderBy('created_at', 'desc')->paginate(3, ['*'], 'berita');
         $Forum = Forum::all();
-        $detailforum = DB::table('detailForum')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'detailforum');
+        $detailforum = DB::table('detailforum')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'detailforum');
         $id = Auth::id();
         // $AduanList = Aduan::where('IDUser', $id)->get();
         $Aduan = DB::table('pengaduan')
